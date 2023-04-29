@@ -8,11 +8,11 @@
 
 ## Web referentes
 
-1. **Tipo** => [Nombre](URI)
-2. **Tipo** => [Nombre](URI)
-3. **Tipo** => [Nombre](URI)
-4. **Tipo** => [Nombre](URI)
-5. **Tipo** => [Nombre](URI)
+1. **Tipo** => [Nombre](URI "este es un link de prueba")
+2. **Tipo** => [Nombre](URI "aqui pueden escribir")
+3. **Tipo** => [Nombre](URI "una descripcion")
+4. **Tipo** => [Nombre](URI "como mensaje")
+5. **Tipo** => [Nombre](URI "informativo")
 
 ---
 
