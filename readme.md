@@ -1,4 +1,4 @@
-#titulo Proyecto
+# titulo Proyecto
 
 - Descripcion productos y servicios ofrecidos por el sitio
 
@@ -6,7 +6,7 @@
 
 ---
 
-##Web referentes
+## Web referentes
 
 1. **Tipo** => [Nombre](URI)
 2. **Tipo** => [Nombre](URI)
@@ -16,7 +16,7 @@
 
 ---
 
-##Integrantes
+## Integrantes
 
 1. **valentin tavolaro**: soy de buenos aires, tengo 21 años, soy hincha de banfield y me gusta el futbol.
 
