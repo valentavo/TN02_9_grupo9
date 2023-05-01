@@ -1,4 +1,4 @@
-# titulo Proyecto
+# E-commerce Productos Cosméticos
 
 - Descripcion productos y servicios ofrecidos por el sitio
 
@@ -7,6 +7,15 @@
 ---
 
 ## Web referentes
+
+<!--
+Opciones para agregar como tipo:
+
+-Productos o Servicios
+-Clientes o Público
+-Estética
+-Funcionalidades
+-->
 
 1. **Tipo** => [## **Juleriaque** ##](https://www.juleriaque.com.ar/ "este es un link de prueba")
 2. **Tipo** => [Nombre](URI "aqui pueden escribir")
@@ -31,5 +40,3 @@
 6. **Ramiro Saponaro**: Soy de lanus, buenos aires, hincha de lanus tambien, tengo 27 años, me gusta el futbol y el anime
 
 ---
-
- 
