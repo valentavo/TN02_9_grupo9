@@ -28,7 +28,7 @@
 
 5. **Quinteros**:
 
-6. **Ramiro Saponaro**:
+6. **Ramiro Saponaro**: Soy de lanus, buenos aires, hincha de lanus tambien, tengo 27 años, me gusta el futbol y el anime
 
 ---
 
