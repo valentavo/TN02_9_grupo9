@@ -2,7 +2,13 @@
 
 - Descripcion productos y servicios ofrecidos por el sitio
 
-- Descripcion del publico o nicho
+- Descripcion del publico o nicho:
+
+El salón de estética está dirigido a un público variado que valora la belleza, el cuidado personal y la relajación. La mayoría de los clientes son mujeres, aunque también hay hombres interesados en los servicios de la peluquería y la depilación láser.
+
+Las personas que visitan el salón de estética pueden tener diferentes edades, desde jóvenes que buscan una experiencia de belleza única para una ocasión especial, hasta adultos mayores que desean mantener una apariencia saludable y juvenil.
+
+Los clientes del salón de estética son personas ocupadas que valoran su tiempo y buscan servicios de alta calidad en un ambiente relajante y acogedor. También pueden ser personas interesadas en probar nuevos productos y técnicas de belleza, así como en recibir asesoramiento personalizado sobre el cuidado de la piel y el cabello.
 
 ---
 
