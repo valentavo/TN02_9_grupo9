@@ -24,7 +24,7 @@
 
 3. **Eros Flugel**: Soy de Venezuela, tengo 22 años y vivo en Colombia hincha del equipo 9
 
-4. **Florencia Schmidt**:
+4. **Florencia Schmidt**: Soy de Concordia Entre Rios, vivo en Australia hace 6 anos. Me apasiona la fotografia y la comida.
 
 5. **Quinteros**:
 
