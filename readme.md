@@ -9,8 +9,8 @@
 ## Web referentes
 
 1. **Tipo** => [## **Juleriaque** ##](https://www.juleriaque.com.ar/ "este es un link de prueba")
-2. **Tipo** => [Nombre](URI "aqui pueden escribir")
-3. **Tipo** => [Nombre](URI "una descripcion")
+2. **Tipo** => [## **Florencia Schmidt** ##](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
+3. **Tipo** => [## **Florencia Schmidt** ##](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
 4. **Tipo** => [Nombre](URI "como mensaje")
 5. **Tipo** => [Nombre](URI "informativo")
 
