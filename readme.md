@@ -18,7 +18,7 @@ Opciones para agregar como tipo:
 -->
 
 1. **Tipo** => [## **Juleriaque** ##](https://www.juleriaque.com.ar/ "este es un link de prueba")
-2. **Tipo** => [Nombre](URI "aqui pueden escribir")
+2. **Estética** => [Apícola del Alba](https://apicoladelalba.cl/ "Buen carrito de compras")
 3. **Tipo** => [Nombre](URI "una descripcion")
 4. **Tipo** => [Nombre](URI "como mensaje")
 5. **Tipo** => [Nombre](URI "informativo")
