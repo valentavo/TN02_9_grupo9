@@ -1,6 +1,7 @@
 # titulo Proyecto
 
-- Descripcion productos y servicios ofrecidos por el sitio
+- Descripcion productos y servicios ofrecidos por el sitio:
+
 
 - Descripcion del publico o nicho:
 
@@ -17,7 +18,7 @@ Los clientes del salón de estética son personas ocupadas que valoran su tiempo
 1. **Tipo** => [## **Juleriaque** ##](https://www.juleriaque.com.ar/ "este es un link de prueba")
 2. **Tipo** => [## **Florencia Schmidt** ##](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
 3. **Tipo** => [## **Florencia Schmidt** ##](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
-4. **Tipo** => [Nombre](URI "como mensaje")
+4. **Tipo** => [## **Florencia Schmidt** ##](https://organicscarecrow.com "Un E-commerce nuy user friendly, sencillo y claro")
 5. **Tipo** => [Nombre](URI "informativo")
 
 ---
