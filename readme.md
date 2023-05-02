@@ -31,7 +31,7 @@ Los clientes del salón de estética son personas ocupadas que valoran su tiempo
 
 3. **Eros Flugel**: Soy de Venezuela, tengo 22 años y vivo en Colombia hincha del equipo 9
 
-4. **Florencia Schmidt**: Soy de Concordia Entre Rios, vivo en Australia hace 6 anos. Me apasiona la fotografia y la comida.
+4. **Florencia Schmidt**: Soy de Concordia Entre Rios, tengo 32 años y vivo en Australia hace 6 años. Me apasiona la fotografia y la comida.
 
 5. **Quinteros**:
 
