@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
 # E-Maranatha
-
-> > > > > > > readme-details
 
 **Productos y servicios ofrecidos por el sitio:** E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores, sabores y beneficios estéticos.
 
