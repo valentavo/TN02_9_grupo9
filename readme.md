@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+
 # E-Maranatha
+
+> > > > > > > readme-details
 
 **Productos y servicios ofrecidos por el sitio:** E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores, sabores y beneficios estéticos.
 
@@ -10,11 +14,20 @@ Los clientes del salón de estética son personas ocupadas que valoran su tiempo
 
 ## Web referentes
 
+<!--
+Opciones para agregar como tipo:
+
+-Productos o Servicios
+-Clientes o Público
+-Estética
+-Funcionalidades
+-->
+
 1. **Tipo** => [**Juleriaque**](https://www.juleriaque.com.ar/ "este es un link de prueba")
 2. **Tipo** => [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
 3. **Tipo** => [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
 4. **Tipo** => [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
-5. **Tipo** => [Nombre](URI "informativo")
+5. **Estética** => [Apícola del Alba](https://apicoladelalba.cl/ "Buen carrito de compras")
 
 ---
 
