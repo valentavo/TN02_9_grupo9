@@ -23,7 +23,7 @@ Opciones para agregar como tipo:
 2. **Tipo** => [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
 3. **Tipo** => [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
 4. **Tipo** => [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
-5. **Estética** => [Apícola del Alba](https://apicoladelalba.cl/ "Buen carrito de compras")
+5. **Estética** => [**Apícola del Alba**](https://apicoladelalba.cl/ "Buen carrito de compras")
 
 ---
 
