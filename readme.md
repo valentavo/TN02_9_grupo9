@@ -1,6 +1,6 @@
 # E-Maranatha
 
-**Productos y servicios ofrecidos por el sitio:** E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores, sabores y beneficios estéticos.
+**Productos y servicios ofrecidos por el sitio:** E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores y beneficios estéticos.
 
 **Público dirigido:** El salón de estética está dirigido a un público variado que valora la belleza, el cuidado personal y la relajación. La mayoría de los clientes son mujeres entre los 30 y 70 años de edad, aunque también hay hombres interesados en los servicios de la peluquería y la depilación láser. Especialmente para quienes buscan una experiencia de belleza única para una ocasión especial y aquellos que desean mantener una apariencia saludable y juvenil.
 
