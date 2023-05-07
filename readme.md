@@ -1,4 +1,4 @@
-![Logo E-Maranatha](/public/img/maranatha_logo.png)"Ir a la página web"
+![Logo E-Maranatha](/public/img/maranatha_logo.png "Ir a la página web")
 
 # E-Maranatha
 
