@@ -19,14 +19,12 @@ Opciones para agregar como tipo:
 -Funcionalidades
 -->
 
-- **Tipo** => [**Juleriaque**](https://www.juleriaque.com.ar/ "este es un link de prueba")
-- **Tipo** => [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
-- **Tipo** => [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
-- **Tipo** => [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
+- **Tipo** -> [**Juleriaque**](https://www.juleriaque.com.ar/ "este es un link de prueba")
+- **Tipo** -> [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
+- **Tipo** -> [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
+- **Tipo** -> [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
 
-- [**Apícola del Alba**](https://apicoladelalba.cl/)<br>
-
-El carrito de compras es esteticamente similar al producto deseado
+- [**Apícola del Alba**](https://apicoladelalba.cl/) -> El carrito de compras es esteticamente similar al producto deseado
 
 ---
 
