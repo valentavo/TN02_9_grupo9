@@ -1,6 +1,6 @@
-![Logo E-Maranatha](/public/img/maranatha_logo.png "Ir a la página web")
-
 # E-Maranatha
+
+![Logo E-Maranatha](/public/img/maranatha_logo.png "Ir a la página web")
 
 E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores y beneficios estéticos.
 
@@ -24,7 +24,7 @@ Opciones para agregar como tipo:
 3. **Tipo** => [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
 4. **Tipo** => [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
 
-5. [**Apícola del Alba**](https://apicoladelalba.cl/)
+5. [**Apícola del Alba**](https://apicoladelalba.cl/)<br>
    El carrito de compras es esteticamente similar al producto deseado
 
 ---
