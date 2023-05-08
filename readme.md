@@ -16,7 +16,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - [Carrito de Compras](https://marvelapp.com/prototype/ef88333/screen/91551651 "by Eros Flugel")
   - Detalle del Producto
   - Formulario de Login
-  - Formulario de Registro
+  - [Formulario de Registro](https://marvelapp.com/prototype/19b2idj4/screen/91582081 "by Ramiro Saponaro")
   - [Home Page](https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
 
 - Version **Mobile**
@@ -24,7 +24,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - [Carrito de Compras](https://marvelapp.com/prototype/ef88333/screen/91574878 "by Eros Flugel")
   - Detalle del Producto
   - Formulario de Login
-  - Formulario de Registro
+  - [Formulario de Registro] (https://marvelapp.com/prototype/19b2idj4/screen/91582398 "by Ramiro Saponaro")
   - [Home Page]( https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
 
 
