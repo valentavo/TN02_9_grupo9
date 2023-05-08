@@ -17,7 +17,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - Detalle del Producto
   - Formulario de Login
   - Formulario de Registro
-  - Home Page
+  - [Home Page](https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
 
 - Version **Mobile**
 
@@ -25,7 +25,8 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - Detalle del Producto
   - Formulario de Login
   - Formulario de Registro
-  - Home Page
+  - [Home Page]( https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
+
 
 ## Web referentes
 
@@ -39,9 +40,9 @@ Opciones para agregar como tipo:
 -->
 
 - **Tipo** -> [**Juleriaque**](https://www.juleriaque.com.ar/ "este es un link de prueba")
-- **Tipo** -> [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
-- **Tipo** -> [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
-- **Tipo** -> [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
+- **Producto y Servicio** -> [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
+- **Estetica** -> [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
+- **Funcionalidad** -> [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
 
 - [**Apícola del Alba**](https://apicoladelalba.cl/) -> El carrito de compras es esteticamente similar al producto deseado
 
