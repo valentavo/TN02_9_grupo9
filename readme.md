@@ -10,11 +10,21 @@ El salón de estética está dirigido a un público variado que valora la bellez
 
 ## Wireframes
 
-- [Carrito de Compras](https://marvelapp.com/project/6716454 "by Eros Flugel")
-- Detalle del Producto
-- Formulario de Login
-- Formulario de Registro
-- Home Page
+- Desktop
+
+  - [Carrito de Compras](https://marvelapp.com/project/6716454/screen/91551651 "by Eros Flugel")
+  - Detalle del Producto
+  - Formulario de Login
+  - Formulario de Registro
+  - Home Page
+
+- Mobile
+
+  - [Carrito de Compras](https://marvelapp.com/project/6716454/screen/91574878 "by Eros Flugel")
+  - Detalle del Producto
+  - Formulario de Login
+  - Formulario de Registro
+  - Home Page
 
 ## Web referentes
 
