@@ -15,16 +15,16 @@ El salón de estética está dirigido a un público variado que valora la bellez
 
   - [Carrito de Compras](https://marvelapp.com/prototype/ef88333/screen/91551651 "by Eros Flugel")
   - Detalle del Producto
-  - Formulario de Login
-  - Formulario de Registro
+  - [Formulario de login](https://marvelapp.com/prototype/6b68jhh/screen/91563701 "by Valentin Tavolaro")
+  - [Formulario de Registro](https://marvelapp.com/prototype/19b2idj4/screen/91582081 "by Ramiro Saponaro")
   - [Home Page](https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
 
 - Version **Mobile**
 
   - [Carrito de Compras](https://marvelapp.com/prototype/ef88333/screen/91574878 "by Eros Flugel")
   - Detalle del Producto
-  - Formulario de Login
-  - Formulario de Registro
+  - [Formulario de login](https://marvelapp.com/prototype/6b68jhh/screen/91564062 "by Valentin Tavolaro")
+  - [Formulario de Registro](https://marvelapp.com/prototype/19b2idj4/screen/91582398 "by Ramiro Saponaro")
   - [Home Page](https://marvelapp.com/prototype/6b4c03a "by Florenncia Schmidt")
 
 ## Web referentes
@@ -38,8 +38,9 @@ Opciones para agregar como tipo:
 -Funcionalidades
 -->
 
-- [**Juleriaque**](https://www.juleriaque.com.ar/ "e-commerce de productos similares con una estética muy acertada") -> **Productos y Estética**
+- [**Juleriaque**](https://www.juleriaque.com.ar/ "E-commerce de productos similares con una estética muy acertada") -> **Productos y Estética**
 - [**akashahealth**](https://akashahealth.com.au "Web que ofrece servicio terapias que sirve para el feature de consultas de nuestra web") -> **Productos y Servicios**
+- [**thechemistlook**](https://thechemistlook.com.ar "E-commerce de productos de belleza de referencia") -> **Productos**
 - [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "Una web muy userfriendly, además tiene una buena gama de colores y tipografías que pueden ir bien con productos de belleza") -> **Estética**
 - [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro") -> **Funcionalidad**
 
