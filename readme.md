@@ -41,6 +41,7 @@ Opciones para agregar como tipo:
 
 - **Tipo** -> [**Juleriaque**](https://www.juleriaque.com.ar/ "este es un link de prueba")
 - **Producto y Servicio** -> [**akashahealth**](https://akashahealth.com.au "esta es una web referente de una web que ofrece terapias")
+- **Productos** -> [**thechemistlook**]( https://thechemistlook.com.ar "E-commerce de productos de belleza")
 - **Estetica** -> [**thesourcebulkfoods**](https://shop.thesourcebulkfoods.com.au "esta es una web que tiene me parece muy userfriendly, ademas tiene una buena gama de colores y tipografias que pueden ir bien con productos de belleza")
 - **Funcionalidad** -> [**organicscarecrow**](https://organicscarecrow.com "Un E-commerce muy user friendly, sencillo y claro")
 
