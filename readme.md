@@ -18,7 +18,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - [Formulario de login](https://marvelapp.com/prototype/6b68jhh/screen/91563701 "by Valentin Tavolaro")
   - [Formulario de Registro](https://marvelapp.com/prototype/19b2idj4/screen/91582081 "by Ramiro Saponaro")
   - [Home Page](https://marvelapp.com/prototype/6b4c03a/screen/91578688 "by Florenncia Schmidt")
-
+  - [Perfil del Usuario](https://marvelapp.com/prototype/ef88333/screen/91577495 "by Eros Flugel")
 
 - Version **Mobile**
 
@@ -27,7 +27,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
   - [Formulario de login](https://marvelapp.com/prototype/6b68jhh/screen/91564062 "by Valentin Tavolaro")
   - [Formulario de Registro](https://marvelapp.com/prototype/19b2idj4/screen/91582398 "by Ramiro Saponaro")
   - [Home Page](https://marvelapp.com/prototype/6b4c03a/screen/91579043 "by Florenncia Schmidt")
-  
+  - [Perfil del Usuario](https://marvelapp.com/prototype/ef88333/screen/91606626 "by Eros Flugel")
 
 ## Web referentes
 
