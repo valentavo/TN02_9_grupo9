@@ -59,3 +59,7 @@ Opciones para agregar como tipo:
 4. **Florencia Schmidt**: Soy de Concordia Entre Rios, tengo 32 años y vivo en Australia hace 6 años. Me apasiona la fotografia y la comida.
 
 5. **Ramiro Saponaro**: Soy de lanus, buenos aires, hincha de lanus tambien, tengo 27 años, me gusta el futbol y el anime
+
+## Desarrollo Scrum
+
+- [Trello](https://trello.com/b/pMbi6oY4/tablero-de-tareas)
