@@ -1,0 +1,145 @@
+
+
+main.cart-main {
+    color: #B69C7F;
+}
+
+main.cart-main h1 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 30px 0;
+}
+
+main.cart-main article {
+    border: 1px solid rgba(115, 112, 97, 0.2);
+    box-shadow: 0px 1px 3px rgb(100, 100, 100);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    height: 101px;
+    margin-bottom: 20px;
+}
+
+main.cart-main article div.left-product {
+    display: flex;
+    width: 50%;
+    flex-grow: 0.6;
+}
+
+main.cart-main article div div.product-img-container {
+    width: 75px;
+}
+
+main.cart-main article div div.product-img-container img {
+    width: 75px;
+}
+
+main.cart-main article div div.product-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    width: 50%;
+}
+
+main.cart-main article div div.product-description h3 {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+main.cart-main article div div.product-description div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #E8E2D5;
+    border-radius: 0.5rem;
+    height: 25%;
+    max-height: 40px;
+    min-height: 30px;
+    width: 75%;
+    max-width: 100px;
+    min-width: 60px;
+}
+
+main.cart-main article div div.product-description div button {
+    padding: 0;
+    border: none;
+    background-color: #E8E2D5;
+    height: 100%;
+}
+
+main.cart-main article div div.product-description div button i {
+    color: #737061;
+}
+
+main.cart-main article div div.product-description div p {
+    margin: 0;
+    color: #737061;
+    flex-grow: 0.3;
+    text-align: center;
+}
+
+main.cart-main article div.right-product {
+    display: flex;
+}
+
+main.cart-main article div p.price {
+    margin: 5px 0;
+    align-self: flex-end;
+    color: #737061
+}
+
+main.cart-main article div button.delete-item {
+    align-self: flex-start;
+    border: none;
+    background-color: #F7F6F4;
+}
+
+main.cart-main article div button.delete-item i {
+    font-size: 20px;
+    color: #737061;
+}
+
+main.cart-main section.suma-precio {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+main.cart-main section.suma-precio p {
+    color: #737061;
+}
+
+main.cart-main div.boton-pagar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #E8E2D5;
+    height: 2rem;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgb(100, 100, 100);
+}
+
+main.cart-main div.boton-pagar a {
+    color: #737061;
+    text-decoration: none;
+    width: 100%;
+    /* height: 100%; */
+    text-align: center;
+}
+
+@media (min-width: 361px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1200px) {
+    
+}
