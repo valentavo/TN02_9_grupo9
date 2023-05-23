@@ -1,28 +1,49 @@
-/* Paleta de Colores
-
-White => #F7F6F4
-Grey => #E8E2D5
-Light-brown => #C9A885
-normal-brown => #B69C7F
-dark-brown => #737061
-
- */
-
-/* Importando todos los style files */
- @import url('cart-style.css');
+@import url('cart-style.css');
 
  *{
     box-sizing: border-box;
  }
 
  body {
-    font-family: 'karla';
+    font-family: 'karla', sans-serif;
     background-color: #F7F6F4;
  }
 
 header.main-header {
     background-color: #E8E2D5;
+    /* incomming change */
+    border-bottom: 1px solid #E8E2D5 ;
+    width: 100vw;
+    /* padding: 20px; */
 }
+
+.logo {
+    width: 200px;
+}
+.main-navbar a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #737061; 
+    display: inline-block;
+    padding:5px 0
+}
+
+.main-navbar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+
+header div.burger-menu i {
+    background-color: white; 
+    color: #737061;
+    max-width: 50px;
+    padding: 15px 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: auto; 
+}
+    /* Hasta aqui el incomming change */
 
 header.main-header div.width-head {
     margin: auto;
