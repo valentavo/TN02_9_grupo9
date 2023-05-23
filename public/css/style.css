@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+}
+
+.logo {
+    width: 200px;
+}
+
+header {
+    border-bottom: 1px solid #E8E2D5 ;
+    width: 100vw;
+    position: fixed;
+
+}
