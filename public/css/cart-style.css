@@ -15,15 +15,18 @@ main.cart-main article {
     box-shadow: 0px 1px 3px rgb(100, 100, 100);
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding-bottom: 10px;
     height: 101px;
+    margin: auto;
     margin-bottom: 20px;
+    max-width: 567px;
 }
 
 main.cart-main article div.left-product {
     display: flex;
     width: 50%;
     flex-grow: 0.6;
+    margin-top: 10px;
 }
 
 main.cart-main article div div.product-img-container {
@@ -84,12 +87,14 @@ main.cart-main article div.right-product {
 }
 
 main.cart-main article div p.price {
-    margin: 5px 0;
+    margin: 0;
     align-self: flex-end;
     color: #737061
 }
 
 main.cart-main article div button.delete-item {
+    padding: 2px 10px 2px 2px;
+    margin-top: 6px;
     align-self: flex-start;
     border: none;
     background-color: #F7F6F4;
@@ -102,6 +107,7 @@ main.cart-main article div button.delete-item i {
 
 main.cart-main section.suma-precio {
     width: 90%;
+    max-width: 500px;
     margin: auto;
     margin-bottom: 15px;
     display: flex;
@@ -118,6 +124,8 @@ main.cart-main div.boton-pagar {
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 567px;
+    margin: auto;
     background-color: #E8E2D5;
     height: 2rem;
     border-radius: 2px;

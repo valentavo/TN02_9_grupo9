@@ -22,43 +22,59 @@ dark-brown => #737061
 
 header.main-header {
     background-color: #E8E2D5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-header.main-header section.top-header {
+header.main-header div.width-head {
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
+    max-width: 567px;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 567px;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
-header.main-header section.top-header button.burguer-menu {
+header.main-header button.burguer-menu {
     border: none;
     background-color: #E8E2D5;
+    padding: 10px 5%;
 }
 
-header.main-header section.top-header button.burguer-menu i{
+header.main-header button.burguer-menu i{
     font-size: 20px;
     color: #737061;
 }
 
-header.main-header section.top-header div.logo-container {
-    width: 55px;
+header.main-header div.nav-bar {
+    display: none;
 }
 
-header.main-header section.top-header div.logo-container img{
+header.main-header div.logo-container {
+    width: 55px;
+    height: 55px;
+}
+
+header.main-header div.logo-container img{
     width: 100%;
 }
 
-header.main-header section.top-header a.user-link i{
+header.main-header div.user-cart {
+    padding: 10px 5%;
+}
+
+header.main-header div.user-cart a i{
     font-size: 20px;
     color: #737061;
 }
 
-header.main-header section.bottom-header{
+header.main-header div.user-cart a.cart-icon {
+    display: none;
+}
+
+header.main-header div.search-header{
+    position: relative;
+    left: 5%;
     width: 90%;
     height: 31px;
     margin-bottom: 10px;
@@ -68,33 +84,101 @@ header.main-header section.bottom-header{
 }
 
 
-header.main-header section.bottom-header form div.search-bar {
-    position: relative;
-}
-
-header.main-header section.bottom-header form div.search-bar div {
-    display: inline-block;
+header.main-header div.search-header div {
     position: absolute;
     z-index: 6;
     top: 7px;
     left: 7px;
 }
 
-header.main-header section.bottom-header form div.search-bar div i {
+header.main-header div.search-header div i {
     color: #737061;
     text-shadow: 0px 0px 1px #737061;
 }
 
-header.main-header section.bottom-header form div.search-bar input::placeholder {
+header.main-header div.search-header input::placeholder {
     font-family: 'karla';
     color: rgba(115, 112, 97, 0.5);
 }
 
-header.main-header section.bottom-header form input {
-    position: absolute;
+header.main-header div.search-header input {
     width: 100%;
     border: none;
     border-radius: 0.2rem;
     padding: 8px 0;
     text-align: center;
+    background-color: #F7F6F4;
+}
+
+@media (min-width: 361px) {
+
+    header.main-header {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    header.main-header div.width-head {
+        max-width: 100%;
+        height: 80px;
+    }
+
+    header.main-header div.logo-container {
+        width: 50px;
+        margin-left: 20px;
+    }
+
+    header.main-header button.burguer-menu {
+        display: none;
+    }
+
+    header.main-header div.nav-bar {
+        display: inline-block;
+        order: 1;
+        font-size: 0.9rem;
+        width: 25%;
+    }
+
+    header.main-header div.nav-bar ul {
+        display: flex;
+        padding: 0;
+        list-style: none;
+        justify-content: space-around;
+    }
+
+    header.main-header div.nav-bar ul li {
+        color: #737061;
+    }
+
+    header.main-header div.search-header {
+        width: 40%;
+        top: 4px;
+        left: 0;
+        order: 2;
+        flex-grow: 0.5;
+    }
+
+    header.main-header div.search-header div {
+        left: auto;
+        right: 10px;
+    }
+
+    header.main-header div.search-header input {
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    header.main-header div.user-cart {
+        display: flex;
+        justify-content: space-between;
+        width: 8%;
+        order: 3;
+        padding: 0;
+        margin-right: 25px;
+    }
+
+    header.main-header div.user-cart a.cart-icon {
+        display: inline-block;
+    }
 }
