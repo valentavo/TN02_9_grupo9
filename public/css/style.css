@@ -6,13 +6,37 @@ body {
     font-family: 'Karla', sans-serif;
 }
 
-.logo {
-    width: 200px;
-}
 
 header {
     border-bottom: 1px solid #E8E2D5 ;
     width: 100vw;
-    position: fixed;
+    padding: 20px;
+   
 
+}
+.logo {
+    width: 200px;
+}
+.main-navbar a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #737061; 
+    display: inline-block;
+    padding:5px 0
+}
+
+.main-navbar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+
+header div.burger-menu i {
+    background-color: white; 
+    color: #737061;
+    max-width: 50px;
+    padding: 15px 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: auto; 
 }
