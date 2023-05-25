@@ -12,39 +12,11 @@
  }
 
 header.main-header {
-    background-color: #E8E2D5;
-    /* incomming change */
-    border-bottom: 1px solid #E8E2D5 ;
-    width: 100vw;
-    /* padding: 20px; */
+    width: 100%;
+    background-color: #F7F6F4;
+    border-bottom: 1px solid #B69C7F;
+    margin-bottom: 10px;
 }
-.logo {
-    width: 200px;
-}
-.main-navbar a {
-    font-size: 12px;
-    text-decoration: none;
-    color: #737061; 
-    display: inline-block;
-    padding:5px 0
-}
-
-.main-navbar ul {
-    list-style-type: none; 
-    margin: 0;
-    padding: 0;
-}
-
-header div.burger-menu i {
-    background-color: white; 
-    color: #737061;
-    max-width: 50px;
-    padding: 15px 0px;
-    border-radius: 10px;
-    font-size: 20px;
-    margin: auto; 
-}
-    /* Hasta aqui el incomming change */
 
 header.main-header div.width-head {
     margin: auto;
@@ -59,7 +31,7 @@ header.main-header div.width-head {
 
 header.main-header button.burguer-menu {
     border: none;
-    background-color: #E8E2D5;
+    background-color: #F7F6F4;
     padding: 10px 5%;
 }
 
@@ -90,32 +62,41 @@ header.main-header div.user-cart a i{
     color: #737061;
 }
 
-header.main-header div.user-cart a.cart-icon {
-    display: none;
-}
+header.main-header div.user-cart {
+        display: flex;
+        justify-content: space-between;
+        width: 8%;
+        padding: 0;
+        margin-right: 25px;
+    }
 
-header.main-header div.search-header{
+header.main-header div.search-header {
     position: relative;
     left: 5%;
     width: 90%;
-    height: 31px;
-    margin-bottom: 10px;
+    height: 25px;
     max-width: 567px;
-    border-radius: 0.1rem;
-    box-shadow: 0px 0px 3px rgb(100, 100, 100);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 2px rgb(100, 100, 100);
+}
+
+header.main-header div.search-header form {
+    height: 100%;
+    border-radius: 1rem;
 }
 
 
 header.main-header div.search-header div {
     position: absolute;
     z-index: 6;
-    top: 7px;
-    left: 7px;
+    top: 3px;
+    right: 7px;
 }
 
 header.main-header div.search-header div i {
     color: #737061;
     text-shadow: 0px 0px 1px #737061;
+    font-size: 0.9em;
 }
 
 header.main-header div.search-header input::placeholder {
@@ -126,10 +107,64 @@ header.main-header div.search-header input::placeholder {
 header.main-header div.search-header input {
     width: 100%;
     border: none;
-    border-radius: 0.2rem;
-    padding: 8px 0;
+    border-radius: 1rem;
+    padding: 5px 0;
     text-align: center;
-    background-color: #F7F6F4;
+    background-color: #E8E2D5;
+}
+
+footer.g_main-footer {
+    margin-top: 30px;
+    background-color: rgba(115, 112, 97, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+footer.g_main-footer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+footer.g_main-footer section h3 {
+    width: 100%;
+    text-align: center;
+}
+
+div.g_f-content-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+footer.g_main-footer section.g_contacto-container div.g_f-content-links div i {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #F7F6F4;
+}
+
+footer.g_main-footer section.g_tienda-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+footer.g_main-footer section.g_tienda-container a {
+    padding: 5px 0;
+    color: #F7F6F4;
+}
+
+footer.g_main-footer section.g_ubicacion-container p{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    color: #F7F6F4;
 }
 
 @media (min-width: 361px) {
@@ -137,6 +172,20 @@ header.main-header div.search-header input {
     header.main-header {
         max-width: 100%;
     }
+
+    footer.g_main-footer {
+        flex-direction: row;
+    }
+
+    footer.g_main-footer section {
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    footer.g_main-footer section h3 {
+        margin: 0;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -192,12 +241,7 @@ header.main-header div.search-header input {
     }
 
     header.main-header div.user-cart {
-        display: flex;
-        justify-content: space-between;
-        width: 8%;
         order: 3;
-        padding: 0;
-        margin-right: 25px;
     }
 
     header.main-header div.user-cart a.cart-icon {
