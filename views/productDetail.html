@@ -49,7 +49,52 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="d_description-main">
+            <sedction class="d_img-container">
+                <img src="img/producto-3.jpg" alt="imagen del producto">
+            </sedction>
+            <section class="d_product-interaction">
+                <h1 class="d_product-title">Nombre Del Producto</h1>
+                <div class="d_size-product">
+                    <form action="/detalle-del-producto" method="GET">
+                        <label for="ml10">10 ml</label>
+                        <input type="radio" name="size" id="ml10">
+                        <label for="ml50">50 ml</label>
+                        <input type="radio" name="size" id="ml50">
+                        <label for="ml100">100 ml</label>
+                        <input type="radio" name="size" id="ml100">
+                    </form>
+                </div>
+                <div class="d_color-container">
+                    <h3>Color</h3>
+                    <form action="/detalle-del-producto" method="GET">
+                        <select name="colorType" id="color-option">
+                            <option value="red">Rojo</option>
+                            <option value="blue">Azul</option>
+                            <option value="white">Blanco</option>
+                            <option value="black">Negro</option>
+                        </select>
+                    </form>
+                </div>
+                <p>$500.00</p>
+            </section>
+            <section class="d_description-review">
+                <h3>Descripción</h3>
+                <h3>Referencias</h3>
+                <!-- Description Selected -->
+                <p class="d_description-info">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi iste aut non amet quasi, harum fugit vel magnam accusantium, eos distinctio repellat consequuntur praesentium eum fuga maxime at odio! Voluptatem, iusto animi quo sunt accusamus quasi.
+                </p>
+                <!-- Review selected -->
+                <div class="d_user-review-img-container">
+                    <img src="generic-user.jpg" alt="generic profile user image responsable for the review">
+                </div>
+                <p class="d_date-submited-review">05-26-2023</p>
+                <p class="d_review-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat, exercitationem rem voluptatem sunt nam velit corporis, tenetur similique voluptatum aliquam vero fugit itaque officia facilis nisi id ut sequi.
+                </p>
+            </section>
+            <button>AGREGAR AL CARRITO</button>
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">
