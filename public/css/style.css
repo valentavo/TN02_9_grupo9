@@ -9,16 +9,19 @@
  body {
     font-family: 'karla', sans-serif;
     background-color: #F7F6F4;
+    margin: 0;
+    height: 100vh;
+    display: grid;
  }
 
-header.main-header {
+header.g_main-header {
     width: 100%;
     background-color: #F7F6F4;
     border-bottom: 1px solid #B69C7F;
     margin-bottom: 10px;
 }
 
-header.main-header div.width-head {
+header.g_main-header div.g_width-head {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -29,40 +32,40 @@ header.main-header div.width-head {
     margin-bottom: 5px;
 }
 
-header.main-header button.burguer-menu {
+header.g_main-header button.g_burguer-menu {
     border: none;
     background-color: #F7F6F4;
     padding: 10px 5%;
 }
 
-header.main-header button.burguer-menu i{
+header.g_main-header button.g_burguer-menu i{
     font-size: 20px;
     color: #737061;
 }
 
-header.main-header div.nav-bar {
+header.g_main-header div.g_nav-bar {
     display: none;
 }
 
-header.main-header div.logo-container {
+header.g_main-header div.g_logo-container {
     width: 55px;
     height: 55px;
 }
 
-header.main-header div.logo-container img{
+header.g_main-header div.g_logo-container img{
     width: 100%;
 }
 
-header.main-header div.user-cart {
+header.g_main-header div.g_user-cart {
     padding: 10px 5%;
 }
 
-header.main-header div.user-cart a i{
+header.g_main-header div.g_user-cart a i{
     font-size: 20px;
     color: #737061;
 }
 
-header.main-header div.user-cart {
+header.g_main-header div.g_user-cart {
         display: flex;
         justify-content: space-between;
         width: 8%;
@@ -70,7 +73,7 @@ header.main-header div.user-cart {
         margin-right: 25px;
     }
 
-header.main-header div.search-header {
+header.g_main-header div.g_search-header {
     position: relative;
     left: 5%;
     width: 90%;
@@ -80,31 +83,31 @@ header.main-header div.search-header {
     box-shadow: 0px 0px 2px rgb(100, 100, 100);
 }
 
-header.main-header div.search-header form {
+header.g_main-header div.g_search-header form {
     height: 100%;
     border-radius: 1rem;
 }
 
 
-header.main-header div.search-header div {
+header.g_main-header div.g_search-header div {
     position: absolute;
     z-index: 6;
     top: 3px;
     right: 7px;
 }
 
-header.main-header div.search-header div i {
+header.g_main-header div.g_search-header div i {
     color: #737061;
     text-shadow: 0px 0px 1px #737061;
     font-size: 0.9em;
 }
 
-header.main-header div.search-header input::placeholder {
+header.g_main-header div.g_search-header input::placeholder {
     font-family: 'karla';
     color: rgba(115, 112, 97, 0.5);
 }
 
-header.main-header div.search-header input {
+header.g_main-header div.g_search-header input {
     width: 100%;
     border: none;
     border-radius: 1rem;
@@ -120,7 +123,7 @@ footer.g_main-footer {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0;
 }
 
 footer.g_main-footer section{
@@ -137,7 +140,7 @@ footer.g_main-footer section h3 {
     text-align: center;
 }
 
-div.g_f-content-links {
+footer.g_main-footer section div.g_f-content-links {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -169,7 +172,7 @@ footer.g_main-footer section.g_ubicacion-container p{
 
 @media (min-width: 361px) {
 
-    header.main-header {
+    header.g_main-header {
         max-width: 100%;
     }
 
@@ -190,39 +193,39 @@ footer.g_main-footer section.g_ubicacion-container p{
 
 @media (min-width: 768px) {
 
-    header.main-header div.width-head {
+    header.g_main-header div.g_width-head {
         max-width: 100%;
         height: 80px;
     }
 
-    header.main-header div.logo-container {
+    header.g_main-header div.g_logo-container {
         width: 50px;
         margin-left: 20px;
     }
 
-    header.main-header button.burguer-menu {
+    header.g_main-header button.g_burguer-menu {
         display: none;
     }
 
-    header.main-header div.nav-bar {
+    header.g_main-header div.g_nav-bar {
         display: inline-block;
         order: 1;
         font-size: 0.9rem;
         width: 25%;
     }
 
-    header.main-header div.nav-bar ul {
+    header.g_main-header div.g_nav-bar ul {
         display: flex;
         padding: 0;
         list-style: none;
         justify-content: space-around;
     }
 
-    header.main-header div.nav-bar ul li {
+    header.g_main-header div.g_nav-bar ul li {
         color: #737061;
     }
 
-    header.main-header div.search-header {
+    header.g_main-header div.g_search-header {
         width: 40%;
         top: 4px;
         left: 0;
@@ -230,21 +233,21 @@ footer.g_main-footer section.g_ubicacion-container p{
         flex-grow: 0.5;
     }
 
-    header.main-header div.search-header div {
+    header.g_main-header div.g_search-header div {
         left: auto;
         right: 10px;
     }
 
-    header.main-header div.search-header input {
+    header.g_main-header div.g_search-header input {
         padding-left: 10px;
         text-align: left;
     }
 
-    header.main-header div.user-cart {
+    header.g_main-header div.g_user-cart {
         order: 3;
     }
 
-    header.main-header div.user-cart a.cart-icon {
+    header.g_main-header div.g_user-cart a.g_cart-icon {
         display: inline-block;
     }
 }
