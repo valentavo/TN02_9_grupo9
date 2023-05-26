@@ -12,6 +12,12 @@
     margin: 0;
     height: 100vh;
     display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px auto auto;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
  }
 
 header.g_main-header {
@@ -19,6 +25,7 @@ header.g_main-header {
     background-color: #F7F6F4;
     border-bottom: 1px solid #B69C7F;
     margin-bottom: 10px;
+    grid-area: "header";
 }
 
 header.g_main-header div.g_width-head {
@@ -119,6 +126,7 @@ header.g_main-header div.g_search-header input {
 footer.g_main-footer {
     margin-top: 30px;
     background-color: rgba(115, 112, 97, 0.3);
+    grid-area: "footer";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,6 +179,10 @@ footer.g_main-footer section.g_ubicacion-container p{
 }
 
 @media (min-width: 361px) {
+    
+    body {
+        grid-template-rows: 100px auto 115px;
+    }
 
     header.g_main-header {
         max-width: 100%;

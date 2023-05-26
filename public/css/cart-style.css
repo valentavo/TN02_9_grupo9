@@ -2,6 +2,7 @@
 
 main.c_cart-main {
     color: #B69C7F;
+    grid-area: "main";
 }
 
 main.c_cart-main h1 {
@@ -31,6 +32,7 @@ main.c_cart-main article div.c_left-product {
 
 main.c_cart-main article div div.c_product-img-container {
     width: 75px;
+    margin-left: 5px;
 }
 
 main.c_cart-main article div div.c_product-img-container img {
@@ -48,6 +50,11 @@ main.c_cart-main article div div.c_product-description {
 main.c_cart-main article div div.c_product-description h3 {
     font-size: 0.8rem;
     margin: 0;
+}
+
+main.c_cart-main article div div.c_product-description h3 a{
+    text-decoration: none;
+    color: #B69C7F;
 }
 
 main.c_cart-main article div div.c_product-description div {
