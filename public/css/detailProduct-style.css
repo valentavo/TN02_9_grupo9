@@ -1,42 +1,42 @@
-main.d_description-main {
-    padding-left: 5px;
+section.d_description-main {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main.d_description-main section.d_img-container {
+section.d_description-main section.d_img-container {
     height: 250px;
+    /* border: 3px solid #737061; */
 }
 
-main.d_description-main section.d_product-interaction {
+section.d_description-main section.d_product-interaction {
     align-self: flex-start;
     width: 100%;
-    margin-bottom: 20px;
 }
 
-main.d_description-main section.d_product-interaction h1{
+section.d_description-main section.d_product-interaction h1{
     color: #B69C7F;
     font-size: 1.3rem;
     margin-bottom: 40px;
 }
 
-main.d_description-main section.d_product-interaction div.d_size-product {
+section.d_description-main section.d_product-interaction div.d_size-product {
     padding-left: 10px;
     width: 70%;
     max-width: 320px;
 }
 
-main.d_description-main section.d_product-interaction div.d_size-product form {
+section.d_description-main section.d_product-interaction div.d_size-product form {
     display: flex;
     justify-content: space-between;
 }
 
-main.d_description-main section.d_product-interaction div.d_size-product form input {
+section.d_description-main section.d_product-interaction div.d_size-product form input {
     display: none; 
 }
 
-main.d_description-main section.d_product-interaction div.d_size-product form label {
+section.d_description-main section.d_product-interaction div.d_size-product form label {
     background-color: #B69C7F;
     border: none;
     border-radius: 0.3rem;
@@ -44,82 +44,53 @@ main.d_description-main section.d_product-interaction div.d_size-product form la
     padding: 1px 5px;
 }
 
-main.d_description-main section.d_product-interaction div.d_color-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 50px;
+section.d_description-main section.d_product-interaction form {
+    display: inline-block;
     margin-top: 20px;
     margin-left: 10px;
 }
 
-main.d_description-main section.d_product-interaction div.d_color-container h3{
-    color: #B69C7F;
-    display: inline-block;
-}
-
-main.d_description-main section.d_product-interaction div.d_color-container form {
-    display: inline-block;
-}
-
-main.d_description-main section.d_product-interaction div.d_color-container form select {
+section.d_description-main section.d_product-interaction form select {
     width: 100px;
     border-radius: 0.4rem;
     border: 1px solid #737061;
     text-align: center;
 }
 
-main.d_description-main section.d_product-interaction p.d_price {
+section.d_description-main section.d_product-interaction p.d_price {
     color: #737061;
     font-size: 1.4rem;
     margin-top: 20px;
 }
 
-main.d_description-main section.d_description-review {
+section.d_description-main section.d_description {
     width: 100%;
 }
 
-main.d_description-main section.d_description-review div.d_title-dr {
-    display: flex;
-    width: 60%;
+section.d_description-main section.d_description h3 {
+    width: 50%;
+    font-size: 1rem;
     color: #B69C7F;
 }
 
-main.d_description-main section.d_description-review div.d_title-dr h3 {
-    text-align: center;
-    width: 50%;
-    font-size: 1rem;
-    opacity: 0.7;
-}
-
-/* Reviews active */
-
-/* .d_description-info {
-    display: none;
-} */
-
-/* Description active */
-
-.d_review-active {
-    display: none;
-}
-
-main.d_description-main section.d_description-review div.d_review-section{
+section.d_reviews{
     display: flex;
-    width: 100%;
+    position: relative;
+    margin: 50px 0 0 10px;
 }
 
-main.d_description-main section.d_description-review div.d_user-review-img-container {
-    width: 30%;
-    max-width: 75px;
-    display: inline-block;
+section.d_reviews h3 {
+    position: absolute;
+    top: -55px;
+    font-size: 1rem;
+    color: #B69C7F;
 }
 
-main.d_description-main section.d_description-review div.d_user-review-img-container img {
-    width: 100%;
+section.d_reviews div.d_user-review-img-container img {
+    width: 75px;
 }
 
-main.d_description-main section.d_description-review div.d_review-info {
+section.d_reviews div.d_review-info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -127,21 +98,27 @@ main.d_description-main section.d_description-review div.d_review-info {
     margin-left: 10px;
 }
 
-main.d_description-main section.d_description-review p.d_date-submited-review {
+section.d_reviews p.d_date-submited-review {
     margin: 0;
     font-size: 0.7rem;
     text-align: left;
 }
 
-main.d_description-main section.d_description-review p.d_description-review {
+section.d_reviews p.d_description-review {
     font-size: 0.7rem;
     margin: 0;
 }
 
 /* Carrito button */
 
-main.d_description-main button {
+div.d_button-flex {
+    display: flex;
+    justify-content: center;
+}
+
+div.d_button-flex button.d_add-to-cart {
     position: fixed;
+    z-index: 10;
     bottom: 20px;
     background-color: #B69C7F;
     width: 80%;
@@ -150,7 +127,61 @@ main.d_description-main button {
     border: none;
 }
 
-main.d_description-main button a {
+div.d_button-flex button.d_add-to-cart a {
     text-decoration: none;
     color: #F7F6F4;
+}
+
+@media (min-width: 768px) {
+    section.d_description-main {
+        align-items: center;
+        padding: 0;
+        margin: 0 0 10px 10px;
+    }
+
+    section.d_description-main section.d_img-container {
+        position: absolute;
+        left: 10px;
+    }
+
+    section.d_description-main section.d_product-interaction {
+        width: calc(100% - 260px);
+        margin: 0 0 10px 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 240px;
+    }
+
+    section.d_description-main section.d_product-interaction h1 {
+        margin-bottom: 0;
+    }
+
+     section.d_description-main section.d_product-interaction div.d_size-product form {
+        margin: 0;
+     }
+
+    section.d_description-main section.d_product-interaction form.d_color-input {
+        margin: 0 0 0 10px;
+    }
+
+    section.d_description-main section.d_product-interaction p.d_price {
+        width: 50%;
+        margin: 0 0 0 10px;
+    }
+
+    section.d_description-main section.d_product-interaction div.d_button-flex {
+        width: 90%;
+        max-width: 500px;
+        align-self: center;
+    }
+
+    section.d_description-main section.d_product-interaction div.d_button-flex button.d_add-to-cart {
+        position: static;
+        width: 95%;
+    }
+
+    section.d_reviews div.d_review-info {
+        margin-bottom: 0;
+    }
 }
