@@ -1,10 +1,7 @@
 @import url('home-style.css');
-<<<<<<< HEAD
-@import url('login-style.css');
-=======
 @import url('cart-style.css');
+@import url('login-style.css');
 @import url('detailProduct-style.css');
->>>>>>> fbd36f5a6fd7dbd1496bea88bcd9a0af75d22901
 
 
  *{
