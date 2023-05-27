@@ -49,7 +49,38 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="l_login-main">
+            <div>
+                <h1>Ingresa tus datos para continuar</h1>
+            </div>
+
+            <form class="l_login-formulario" action="/" method="GET">
+                    <div class="l_texto-registro">
+                        <div class="nombre">
+                            <input type="text" name="nombre" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="contrasenia">
+                            <input type="password" name="contrasenia" placeholder="Contraseña">
+                        </div>
+                        <div class="recordar">
+                            <label>Recorda mis datos</label>
+                            <input type="checkbox" name="recordar">
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <div>
+                            <button type="submit">Ingresar</button>
+                        </div>
+                        <div>
+                            <button type="submit">Iniciar sesion con google</button>
+                        </div>
+                        <div class="crear-cuenta">
+                            ¿No tienes cuenta? <a href="/register">Crear cuenta</a>
+                        </div>
+                    </div>      
+            </form>
+           
+            
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">
