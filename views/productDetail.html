@@ -50,11 +50,11 @@
             </div>
         </header>
         <main class="d_description-main">
-            <sedction class="d_img-container">
+            <section class="d_img-container">
                 <img src="img/producto-3.jpg" alt="imagen del producto">
-            </sedction>
+            </section>
             <section class="d_product-interaction">
-                <h1 class="d_product-title">Nombre Del Producto</h1>
+                <h1>Nombre Del Producto</h1>
                 <div class="d_size-product">
                     <form action="/detalle-del-producto" method="GET">
                         <label for="ml10">10 ml</label>
@@ -76,25 +76,31 @@
                         </select>
                     </form>
                 </div>
-                <p>$500.00</p>
+                <p class="d_price">$500.00</p>
             </section>
             <section class="d_description-review">
-                <h3>Descripción</h3>
-                <h3>Referencias</h3>
-                <!-- Description Selected -->
+                <div class="d_title-dr">
+                    <h3>Descripción</h3>
+                    <h3>Referencias</h3>
+                </div>
+                <!-- Description active -->
                 <p class="d_description-info">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi iste aut non amet quasi, harum fugit vel magnam accusantium, eos distinctio repellat consequuntur praesentium eum fuga maxime at odio! Voluptatem, iusto animi quo sunt accusamus quasi.
                 </p>
-                <!-- Review selected -->
-                <div class="d_user-review-img-container">
-                    <img src="generic-user.jpg" alt="generic profile user image responsable for the review">
+                <!-- Review active -->
+                <div class="d_review-section d_review-active">
+                    <div class="d_user-review-img-container d_review-active">
+                        <img src="img/generic-user.jpg" alt="generic profile user image responsable for the review" class="d_review-active">
+                    </div>
+                    <div class="d_review-info d_review-active">
+                        <p class="d_date-submited-review d_review-active">05-26-2023</p>
+                        <p class="d_description-review d_review-active">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat, exercitationem rem
+                        </p>
+                    </div>
                 </div>
-                <p class="d_date-submited-review">05-26-2023</p>
-                <p class="d_review-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat, exercitationem rem voluptatem sunt nam velit corporis, tenetur similique voluptatum aliquam vero fugit itaque officia facilis nisi id ut sequi.
-                </p>
             </section>
-            <button>AGREGAR AL CARRITO</button>
+            <button><a href="/carrito">AGREGAR AL CARRITO</a></button>
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">
