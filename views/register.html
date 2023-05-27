@@ -49,7 +49,64 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="R-main">
+            <body> 
+    <form action='/registro' method='get'>
+        <h1> Crear una cuenta </h1>
+            <p class="R-parrafo"> 
+             Los elementos obligatorios estan indicados con un astericso (*)
+            </p>
+                  <div class="R-div-inputs">  
+                    <label>Nombre y apellido</label>
+                  </div>
+                  <div>
+                        <input  class="R-primer-input" type='text' name='nombreCompleto' id='nombre' placeholder="Ej: Juan perez" required>
+                  </div><br>
+                  <div class="R-div-inputs">
+                
+                        <label>Correo electrónico</label><br>
+                    </div>
+                    
+                    <div>       
+                        <input class="R-segundo-input" type='email' name='email' id='email' placeholder='Ej: user@gmail.com' required>
+                        <input class="R-segundo-input" type='email' name='email' id='email'  required>
+                  </div><br>
+                   <div class="R-div-inputs">
+                    
+                        <label>Contraseña</label><br>
+                   </div>
+                   <div>
+                        <input class="R-segundo-input" type='password' name='clave' id='contraseña' required>
+                        <input class="R-segundo-input" type='password' name='clave' id='contraseña' required>  
+                       
+                         </div><br>
+            
+                 <div class="R-div-inputs">     
+                    <label>Teléfono</label>
+                </div>
+                <div>
+                         <input class="R-primer-input" type='tel' name='telefono' id='telefono'>
+                </div>
+                <p>
+                    <label>
+                        <input type='checkbox'>
+                 Al registrarse aceptas nuestros terminos y condiciones
+                     </label>
+                </p>
+                <p>
+                    <label>
+                        <input type='checkbox'>
+                        Si, me gustaria recibir actualizaciones de E-Maranatha por
+                        correo electronico con ofertas exclusivas
+                    </label>
+        </p>
+          <label>  
+            <input class="R-boton-registro" type="submit" value="Registrarse">
+          </label>
+    </form>
+        
+</body>
+</html>
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">

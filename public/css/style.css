@@ -1,7 +1,7 @@
 @import url('home-style.css');
 @import url('cart-style.css');
 @import url('detailProduct-style.css');
-
+@import url('register-styles.css');
 
  *{
     box-sizing: border-box;
@@ -191,6 +191,7 @@ footer.g_main-footer section.g_ubicacion-container p{
 
     footer.g_main-footer {
         flex-direction: row;
+        margin-top: 0px;
     }
 
     footer.g_main-footer section {

@@ -1,0 +1,52 @@
+.R-main {
+    background-color: #F7F6F4;
+   padding: 0px 10px;
+   
+}
+h1 {
+        text-align: center;
+        margin: 10px;
+}
+
+.R-primer-input{
+    display: flex;
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+}
+.R-segundo-input{
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0px 10px;
+}
+
+label  {
+    padding: 2px;
+    margin: 0px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.R-parrafo{
+    margin: 5px 10px;
+
+}
+.R-div-inputs{
+    display: flex;
+}
+R-boton-registro{
+    background-color: #C9A885;
+}
+.g_main-footer{
+    margin-top: 0px;
+}
+
+
+
+@media(min-width: 480px){
+        
+}
