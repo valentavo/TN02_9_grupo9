@@ -19,10 +19,10 @@ main.l_login-main form div.l_texto-registro{
     
 
 }
-main.l_login-main form div.nombre{
+main.l_login-main form div.l_nombre{
     margin-bottom: 20px;
 }
-main.l_login-main form div.contrasenia{
+main.l_login-main form div.l_contrasenia{
     margin-bottom: 20px;
 }
 
@@ -56,7 +56,7 @@ main.l_login-main button {
     margin: 10px;
   }
 
-  main.l_login-main form div.crear-cuenta{
+  main.l_login-main form div.l_crear-cuenta{
     position: relative;
     top: 70px;
   }

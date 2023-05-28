@@ -196,7 +196,7 @@ footer.g_main-footer section.g_ubicacion-container p{
     }
 
     footer.g_main-footer section {
-        justify-content: space-between;
+        justify-content: space-around;
         height: 100%;
     }
 
