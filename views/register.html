@@ -49,64 +49,40 @@
                 </div>
             </div>
         </header>
-        <main class="R-main">
-            <body> 
-    <form action='/registro' method='get'>
-        <h1> Crear una cuenta </h1>
-            <p class="R-parrafo"> 
-             Los elementos obligatorios estan indicados con un astericso (*)
-            </p>
-                  <div class="R-div-inputs">  
-                    <label>Nombre y apellido</label>
-                  </div>
-                  <div>
-                        <input  class="R-primer-input" type='text' name='nombreCompleto' id='nombre' placeholder="Ej: Juan perez" required>
-                  </div><br>
-                  <div class="R-div-inputs">
-                
-                        <label>Correo electrónico</label><br>
+        <main class="r_main">
+            <h1 class="r_title"> Crear una cuenta </h1>
+            <p class="r_guide">Los elementos obligatorios estan indicados con un astericso (*)</p>
+            <form action='/registro' method='GET'>
+                <section class="r_inputs-section">
+                    <div class="r_name-container">
+                        <label for="name">Nombre</label>
+                        <input  class="r_input-text" type='text' name='name' id='name' placeholder="Escribe aqui tu nombre" required>
                     </div>
-                    
-                    <div>       
-                        <input class="R-segundo-input" type='email' name='email' id='email' placeholder='Ej: user@gmail.com' required>
-                        <input class="R-segundo-input" type='email' name='email' id='email'  required>
-                  </div><br>
-                   <div class="R-div-inputs">
-                    
-                        <label>Contraseña</label><br>
-                   </div>
-                   <div>
-                        <input class="R-segundo-input" type='password' name='clave' id='contraseña' required>
-                        <input class="R-segundo-input" type='password' name='clave' id='contraseña' required>  
-                       
-                         </div><br>
-            
-                 <div class="R-div-inputs">     
-                    <label>Teléfono</label>
+                    <div class="r_email-container">
+                        <label for="email">Correo electrónico</label>
+                        <input class="r_input-text" type='email' name='email' id='email' placeholder='Ej: user@gmail.com' required>
+                    </div>
+
+                    <div class="r_clave-container">
+                        <label for="clave1">Contraseña</label>
+                        <input class="r_input-text" type='password' name='clave' id='clave1' placeholder='Escribe aqui tu contraseña' required>
+                        <input class="r_input-text r_clave2" type='password' name='clave' id='clave2' placeholder='Repite tu contraseña' required>
+                    </div>
+                </section>
+                <section class="r_options-section">
+                    <div>
+                        <label for="terms-conditions">Al registrarse aceptas nuestros terminos y condiciones</label>
+                        <input type='checkbox' name="terms-conditions" id="terms-conditions">
+                    </div>
+                    <div>
+                        <label for="notifications">Si, me gustaria recibir actualizaciones de E-Maranatha por correo electronico con ofertas exclusivas</label>
+                        <input type='checkbox' name="notifications" id="notifications">
+                    </div>
+                </section>
+                <div class="r_button-container">
+                    <button type="submit">Registrate</button>
                 </div>
-                <div>
-                         <input class="R-primer-input" type='tel' name='telefono' id='telefono'>
-                </div>
-                <p>
-                    <label>
-                        <input type='checkbox'>
-                 Al registrarse aceptas nuestros terminos y condiciones
-                     </label>
-                </p>
-                <p>
-                    <label>
-                        <input type='checkbox'>
-                        Si, me gustaria recibir actualizaciones de E-Maranatha por
-                        correo electronico con ofertas exclusivas
-                    </label>
-        </p>
-          <label>  
-            <input class="R-boton-registro" type="submit" value="Registrarse">
-          </label>
-    </form>
-        
-</body>
-</html>
+            </form>
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">

@@ -1,52 +1,100 @@
-.R-main {
+main.r_main {
     background-color: #F7F6F4;
-   padding: 0px 10px;
-   
-}
-h1 {
-        text-align: center;
-        margin: 10px;
+    padding: 0px 10px;  
 }
 
-.R-primer-input{
+main.r_main h1.r_title {
+    text-align: center;
+    margin: 10px;
+    color: #737061;
+}
+
+main.r_main p.r_guide {
+    margin: 40px 0 5px;
+    text-align: left;
+    color: #737061;
+}
+
+main.r_main form {
+    margin-top: 20px;
+}
+
+main.r_main form section.r_inputs-section {
     display: flex;
-    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+}
+
+main.r_main form section.r_inputs-section div {
+    width: 100%;
+}
+
+main.r_main section.r_inputs-section label {
+    align-self: flex-start;
+    color: #737061;
+}
+
+main.r_main section.r_inputs-section input::placeholder {
+    color: #737061;
+}
+
+main.r_main form section.r_inputs-section input.r_input-text {
+    width: 100%;
     height: 40px;
     border-radius: 8px;
     padding: 5px;
-    margin: 0px 10px;
-    box-sizing: border-box;
-}
-.R-segundo-input{
-    width: 150px;
-    height: 40px;
-    border-radius: 8px;
-    padding: 5px;
-    box-sizing: border-box;
-    margin: 0px 10px;
 }
 
-label  {
-    padding: 2px;
-    margin: 0px 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+main.r_main form section.r_inputs-section div.r_clave-container {
+    width: 100%;
+    height: 120px;
 }
-.R-parrafo{
-    margin: 5px 10px;
 
+main.r_main form section.r_inputs-section div.r_clave-container input.r_clave2 {
+    margin-top: 10px;
 }
-.R-div-inputs{
+
+main.r_main form section.r_options-section {
     display: flex;
-}
-R-boton-registro{
-    background-color: #C9A885;
-}
-.g_main-footer{
-    margin-top: 0px;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 120px;
+    margin: 30px 0;
 }
 
+main.r_main form section.r_options-section div{
+    display: flex;
+    flex-direction: row-reverse;
+}
 
+main.r_main form section.r_options-section div p {
+    margin: 0;
+    font-size: 0.85rem;
+}
 
-@media(min-width: 480px){
+main.r_main form section.r_options-section div input {
+    margin-right: 15px;
+}
+
+main.r_main form div.r_button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 50px;
+}
+
+main.r_main form div.r_button-container button {
+    background-color: #E8E2D5;
+    color: #737061;
+    border-radius: 7px;
+    box-shadow: 0px 2px 3px rgba(100, 100, 100, 0.3);
+    padding: 5px 80px;
+    font-size: 0.95rem;
+}
+
+@media(min-width: 360px){
         
 }
