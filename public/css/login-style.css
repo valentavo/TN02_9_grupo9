@@ -1,70 +1,106 @@
-main.l_login-main{
+main.l_login-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.l_login-main h1 {
     text-align: center;
-    padding-top: 10px;
-}
-
-main.l_login-main div h1{
     color: #b69c7f;
-    font-size: 40px;
+    font-size: 2.3rem;
 }
 
-main.l_login-main form div.l_texto-registro{
-    background-color: #b69c7f;
-    margin-bottom: 20px;
-    padding: 30px;
-    border-radius: 4px;
-    position: relative;
-    top: 50px;
-    width: 700px;
-    
-
-}
-main.l_login-main form div.l_nombre{
-    margin-bottom: 20px;
-}
-main.l_login-main form div.l_contrasenia{
-    margin-bottom: 20px;
+main.l_login-main form.l_login-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
 }
 
-main.l_login-main form.l_login-formulario{
-    width: 75%;
-    height: 75%;
-    position: relative;
-    left: 10%;
-      padding: 30px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      background-color: #f0e9e2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 30px;
-
+main.l_login-main form.l_login-formulario section.l_texto-registro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    margin: 30px 0 70px;
+    width: 100%;
+    max-width: 450px;
 }
 
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_nombre, div.l_clave{
+    width: 100%;
+    flex-grow: 0.4;
+}
 
-main.l_login-main button {
-    padding: 10px 20px;
-    background-color: #b69c7f;
-    color: white;
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_nombre input,  div.l_clave input{
+    width: 100%;
+    background-color: #F7F6F4;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    top: 60px;
-    width:400px;
-    margin: 10px;
-  }
+    border-bottom: 1px solid #E8E2D5;
+    color: 737061;
+    padding: 2px 0;
+    font-size: 0.9rem;
+}
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_nombre input::placeholder, div.l_clave input::placeholder{
+    color: #737061;
+}
 
-  main.l_login-main form div.l_crear-cuenta{
-    position: relative;
-    top: 70px;
-  }
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_recordar {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+}
 
-  @media (min-width: 361px) {
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_recordar label {
+    font-size: 0.9rem;
+    color: #737061;
+    margin-right: 10px;
+}
 
-  }
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-  @media (min-width: 768px){
+main.l_login-main form.l_login-formulario section.l_texto-registro div.l_button-container button {
+    width: 100%;
+    padding: 3px 0;
+    border: none;
+    background-color: #E8E2D5;
+    color: #737061;
+    border-radius: 0.2rem;
+    box-shadow: 0px 1px 3px #737061;
+    margin-top: 50px;
+}
 
-  }
+main.l_login-main form.l_login-formulario section.l_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+main.l_login-main form.l_login-formulario section.l_links div.l_google {
+    border: 1px solid #737061;
+    padding: 6px 12px;
+    margin-bottom: 40px;
+}
+
+main.l_login-main form.l_login-formulario section.l_links div.l_google button {
+    border: none;
+    background-color: #F7F6F4;
+    color: #737061;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+@media (min-width: 360px) {
+
+}
+
+@media (min-width: 768px){
+
+}

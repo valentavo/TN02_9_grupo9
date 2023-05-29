@@ -20,14 +20,17 @@ main.r_main form {
 }
 
 main.r_main form section.r_inputs-section {
+    margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     height: 300px;
 }
 
 main.r_main form section.r_inputs-section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
@@ -67,6 +70,7 @@ main.r_main form section.r_options-section {
 main.r_main form section.r_options-section div{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 main.r_main form section.r_options-section div p {
@@ -96,5 +100,8 @@ main.r_main form div.r_button-container button {
 }
 
 @media(min-width: 360px){
-        
+
+        main.r_main section.r_inputs-section {
+            max-width: 350px;
+        }
 }

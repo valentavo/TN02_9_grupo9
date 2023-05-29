@@ -33,7 +33,7 @@ header.g_main-header div.g_width-head {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    max-width: 567px;
+    
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -203,6 +203,13 @@ footer.g_main-footer section.g_ubicacion-container p{
         margin: 0;
     }
 
+}
+
+@media (min-width: 630px) {
+
+    header.g_main-header div.g_search-header {
+    left: calc(50% - 273px)
+    }
 }
 
 @media (min-width: 768px) {

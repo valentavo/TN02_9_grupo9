@@ -50,36 +50,38 @@
             </div>
         </header>
         <main class="l_login-main">
-            <div>
-                <h1>Ingresa tus datos para continuar</h1>
-            </div>
-
-            <form class="l_login-formulario" action="/" method="GET">
-                    <div class="l_texto-registro">
-                        <div class="l_nombre">
-                            <input type="text" name="nombre" placeholder="Nombre de usuario">
-                        </div>
-                        <div class="l_contrasenia">
-                            <input type="password" name="contrasenia" placeholder="Contraseña">
-                        </div>
-                        <div class="l_recordar">
-                            <label>Recorda mis datos</label>
-                            <input type="checkbox" name="recordar">
-                        </div>
-                    </div>
-                    <div class="l_botones">
-                        <div>
-                            <button type="submit">Ingresar</button>
-                        </div>
-                        <div>
-                            <button type="submit">Iniciar sesion con google</button>
-                        </div>
-                        <div class="l_crear-cuenta">
-                            ¿No tienes cuenta? <a href="/registro">Crear cuenta</a>
-                        </div>
-                    </div>      
-            </form>
+            <h1>Ingresa tus datos</h1>
+            <form class="l_login-formulario" action="/login" method="GET">
             
+                <section class="l_texto-registro">
+                    <div class="l_nombre">
+                        <input type="text" name="nombre" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="l_clave">
+                        <input type="password" name="clave" placeholder="Contraseña">
+                    </div>
+                    <div class="l_recordar">
+                        <label for="recordar">Recuerda mis datos</label>
+                        <input type="checkbox" name="recordar" id="recordar">
+                    </div>
+                    <div class="l_button-container">
+                        <button type="submit">Ingresar</button>
+                    </div>
+                </section>
+                <section class="l_links">
+                    <div class="l_google">
+                        <i class="fa-brands fa-google"></i>
+                        <button type="submit">Iniciar sesion con google</button>
+                    </div>
+                    <div class="l_crear-cuenta">
+                        ¿No tienes cuenta? <a href="/registro">Crear cuenta</a>
+                    </div>
+                    <div class="l_recuperar-cuenta">
+                        <a href="/login">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </section>
+
+            </form>
         </main>
         <footer class="g_main-footer">
             <section class="g_contacto-container">
