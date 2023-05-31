@@ -9,8 +9,10 @@
  }
 
  body {
-    font-family: 'karla', sans-serif;
+    font-family: 'karla';
+    font-weight: 400;
     background-color: #F7F6F4;
+
     margin: 0;
     height: 100vh;
     display: grid;
@@ -26,8 +28,7 @@ header.g_main-header {
     height: 100%;
     background-color: white;
     border-bottom: 1px solid #B69C7F ;
-    padding: 5px;
-    marging-top: 10px;
+    padding: 10px;
     margin-bottom: 10px;
     grid-area: "header";
 }
@@ -56,6 +57,22 @@ header.g_main-header button.g_burguer-menu i{
 
 header.g_main-header div.g_nav-bar {
     display: none;
+    
+}
+header.g_main-header div.g_nav-bar .nav-link a {
+    color: #737061;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'karla';
+    padding: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+header.g_main-header div.g_nav-bar .nav-link a:hover{
+    background-color: #b69c7f;
+    color:#fff;
+    border-radius: 5%;
 }
 
 header.g_main-header div.g_logo-container {
@@ -136,7 +153,6 @@ footer.g_main-footer {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0;
 }
 
 footer.g_main-footer section{
@@ -148,7 +164,7 @@ footer.g_main-footer section{
     padding-bottom: 10px;
 }
 
-footer.g_main-footer section h3 {
+footer.g_main-footer section p {
     width: 100%;
     text-align: center;
 }
@@ -159,11 +175,12 @@ footer.g_main-footer section div.g_f-content-links {
     width: 100%;
 }
 
-footer.g_main-footer section.g_contacto-container div.g_f-content-links div i {
+footer.g_main-footer section.g_contacto-container .g_f-content-links i {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
+    padding: 5px;
 }
 
 footer.g_main-footer section.g_tienda-container {
@@ -173,22 +190,34 @@ footer.g_main-footer section.g_tienda-container {
 
 footer.g_main-footer section.g_tienda-container a {
     padding: 5px 0;
-    color: #F7F6F4;
+    color: #737061;
+    text-decoration: none;
 }
 
-footer.g_main-footer section.g_ubicacion-container .g_f-content-links{
+footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
     width: 100%;
     text-align: center;
     margin: 0;
-    color: #F7F6F4;
+    color: #737061;
 }
 
 .g_main-footer .g_footer_titulo {
-    font-family: 'karla', sans-serif;
+    font-family: 'karla';
     color: #737061;
     font-size: 1rem;
     
+}
 
+.social_media {
+    color: #b69c7f;
+    text-decoration: none;   
+    
+}
+.social_media:hover {
+    background-color: #b69c7f;
+    border-radius: 20%;
+    color:#fff;
+    
 }
 
 @media (min-width: 361px) {
