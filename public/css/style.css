@@ -23,8 +23,11 @@
 
 header.g_main-header {
     width: 100%;
-    background-color: #F7F6F4;
-    border-bottom: 1px solid #B69C7F;
+    height: 100%;
+    background-color: white;
+    border-bottom: 1px solid #B69C7F ;
+    padding: 5px;
+    marging-top: 10px;
     margin-bottom: 10px;
     grid-area: "header";
 }
@@ -42,7 +45,7 @@ header.g_main-header div.g_width-head {
 
 header.g_main-header button.g_burguer-menu {
     border: none;
-    background-color: #F7F6F4;
+    background-color: white;
     padding: 10px 5%;
 }
 
@@ -62,6 +65,7 @@ header.g_main-header div.g_logo-container {
 
 header.g_main-header div.g_logo-container img{
     width: 100%;
+    
 }
 
 header.g_main-header div.g_user-cart {
@@ -111,7 +115,7 @@ header.g_main-header div.g_search-header div i {
 }
 
 header.g_main-header div.g_search-header input::placeholder {
-    font-family: 'karla';
+    font-family: 'karla', sans-serif;
     color: rgba(115, 112, 97, 0.5);
 }
 
@@ -121,12 +125,12 @@ header.g_main-header div.g_search-header input {
     border-radius: 1rem;
     padding: 5px 0;
     text-align: center;
-    background-color: #E8E2D5;
+    background-color: #F7F6F4;
 }
 
 footer.g_main-footer {
     margin-top: 30px;
-    background-color: rgba(115, 112, 97, 0.3);
+    background-color: #E8E2D5;
     grid-area: "footer";
     display: flex;
     flex-direction: column;
@@ -159,7 +163,7 @@ footer.g_main-footer section.g_contacto-container div.g_f-content-links div i {
     width: 100%;
     text-align: center;
     font-size: 2rem;
-    color: #F7F6F4;
+    color: white;
 }
 
 footer.g_main-footer section.g_tienda-container {
@@ -177,6 +181,14 @@ footer.g_main-footer section.g_ubicacion-container p{
     text-align: center;
     margin: 0;
     color: #F7F6F4;
+}
+
+.g_main-footer p {
+    font-family: 'karla', sans-serif;
+    color: #737061;
+    font-size: 1rem;
+    
+
 }
 
 @media (min-width: 361px) {
