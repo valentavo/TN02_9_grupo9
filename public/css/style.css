@@ -176,14 +176,14 @@ footer.g_main-footer section.g_tienda-container a {
     color: #F7F6F4;
 }
 
-footer.g_main-footer section.g_ubicacion-container p{
+footer.g_main-footer section.g_ubicacion-container .g_f-content-links{
     width: 100%;
     text-align: center;
     margin: 0;
     color: #F7F6F4;
 }
 
-.g_main-footer p {
+.g_main-footer .g_footer_titulo {
     font-family: 'karla', sans-serif;
     color: #737061;
     font-size: 1rem;
