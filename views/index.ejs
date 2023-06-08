@@ -1,66 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Link Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&display=swap" rel="stylesheet">
-        <!-- Link general css file -->
-        <link href="/css/style.css" rel="stylesheet">
-        <title>E-Maranatha</title>
-    </head>
+
+    <%- include('./partials/head.ejs') %>
+    <!-- <title>E-Maranatha</title> -->
     <body>
-
-
-
-
         <!-- HEADER -->
-
-        <header class="g_main-header">
-            <div class="g_width-head g_wider-header">
-                <button class="g_burguer-menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div class="g_nav-bar">
-                    <ul>
-                        <li class="nav-link btn"><a href="#">QUIENES SOMOS</a></li>
-                        <li class="nav-link btn"><a href="#">SHOP</a></li>
-                    </ul>
-                </div>
-
-                <div class="g_logo-container">
-                    <a href="/"><img src="img/maranatha_logo.png" alt="Logo Maranatha" class="g_logo-image"></a>
-                </div>
-                
-
-                <!--<div class="g_logo-container">
-                    <a href="/"><img src="img/maranatha_logo.png" alt="Logo Maranatha"></a>
-                </div> -->
-
-                <div class="g_user-cart ">
-                    <a href="/login">
-                        <i class="fa-regular fa-user"></i>
-                    </a>
-
-                    <a href="/carrito" class="g_cart-icon ">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </div>
-                <div class="g_search-header">
-                    <form action="/" method="GET">
-                        <div>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <input type="text" name="searchBar" placeholder="Busca un producto"/>
-                    </form>
-                </div>
-            </div>
-        </header>
-
+        <%- include('./partials/header.ejs') %>
          <!-- HEADER -->
 
         <!-- MAIN -->
@@ -195,78 +140,8 @@
 
          <!-- MAIN -->
         
-         <!-- FOOTER -->
-
-       <footer class="g_main-footer">
-            <section class="g_contacto-container">
-                <p class="g_footer_titulo">CONTÁCTANOS</p>
-                <div class="g_f-content-links">
-                    <a class="social_media"  href="#!" > <i class="fa-brands fa-facebook"> </i></a>
-                    <a class="social_media"  href="#!" ><i class="fa-brands fa-instagram"></i></a>
-                    <a class="social_media"  href="#!" ><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
-            </section>
-
-            <section class="g_tienda-container">
-                <p class="g_footer_titulo">TIENDA</p>
-                <div class="g_f-content-links">
-                    <a href="#"><p>Productos</p></a>
-                    <a href="#"><p>Servicios</p></a>
-                </div>
-            </section>
-
-            <section class="g_ubicacion-container">
-                <p class="g_footer_titulo">UBICACIÓN</p>
-                <div class="g_f-content-links">
-                    <p>Avenida falsa 123</br>Concordia, Entre Rios</p>
-                </div>
-            </section>
-
-
-        </footer>
-
         <!-- FOOTER -->
-
-        <!--<footer class="g_main-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <section class="g_contacto-container">
-                                    <p class="g_footer_titulo">CONTÁCTANOS</p>
-                                    <div class="g_f-content-links">
-                                        <a class="social_media"  href="#!" role="button"> <i class="fa-brands fa-facebook"> </i></a>
-                                        <a class="social_media"  href="#!" role="button"><i class="fa-brands fa-instagram"></i></a>
-                                        <a class="social_media"  href="#!" role="button"><i class="fa-brands fa-whatsapp"></i></a>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-
-                        <section class="g_tienda-container">
-                            <p class="g_footer_titulo">TIENDA</p>
-                            <div class="g_f-content-links">
-                                <a href="#"><p>Productos</p></a>
-                                <a href="#"><p>Servicios</p></a>
-                            </div>
-                        </section>
-
-                        <section class="g_ubicacion-container">
-                            <p class="g_footer_titulo">UBICACIÓN</p>
-                            <div class="g_f-content-links">
-                                <p>Avenida falsa 123</br>Concordia, Entre Rios</p>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-            </div>
-
-        </footer> -->
-
-
-        
-    <script src="https://kit.fontawesome.com/bba30a0282.js" crossorigin="anonymous"></script>
+        <%- include('./partials/footer.ejs') %>
+        <!-- FOOTER -->
     </body>
 </html>

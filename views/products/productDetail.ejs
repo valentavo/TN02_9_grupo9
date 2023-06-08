@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('.././partials/head.ejs') %>
+        <!-- <title>Detalle del producto</title> -->
+    <body>
+       <%- include('.././partials/header.ejs') %>
+
+        <main >
+            <section class="d_description-main">
+                <section class="d_img-container">
+                    <img src="img/producto-3.jpg" alt="imagen del producto">
+                </section>
+                <section class="d_product-interaction">
+                    <h1>Nombre Del Producto</h1>
+                    <div class="d_size-product">
+                        <form action="/detalle-del-producto" method="GET">
+                            <label for="ml10">10 ml</label>
+                            <input type="radio" name="size" id="ml10">
+                            <label for="ml50">50 ml</label>
+                            <input type="radio" name="size" id="ml50">
+                            <label for="ml100">100 ml</label>
+                            <input type="radio" name="size" id="ml100">
+                        </form>
+                    </div>
+                    <form action="/detalle-del-producto" method="GET" class="d_color-input">
+                        <select name="colorType" id="color-option">
+                            <option value="red">Rojo</option>
+                            <option value="blue">Azul</option>
+                            <option value="white">Blanco</option>
+                            <option value="black">Negro</option>
+                        </select>
+                    </form>
+                    <p class="d_price">$500.00</p>
+                    <div class="d_button-flex">
+                        <button class="d_add-to-cart"><a href="/carrito">AGREGAR AL CARRITO</a></button>
+                    </div>
+                </section>
+                <section class="d_description">
+                    <p class="d_description-info">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi iste aut non amet quasi, harum fugit vel magnam accusantium, eos distinctio repellat consequuntur praesentium eum fuga maxime at odio! Voluptatem, iusto animi quo sunt accusamus quasi.
+                    </p>
+                </section>
+            </section>
+            <section class="d_reviews">
+                <h3>Referencias</h3>
+                <div class="d_user-review-img-container">
+                    <img src="img/generic-user.jpg" alt="generic profile user image responsable for the review">
+                </div>
+                <div class="d_review-info">
+                    <p class="d_date-submited-review">05-26-2023</p>
+                    <p class="d_description-review">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat, exercitationem rem
+                    </p>
+                </div>
+            </section>
+        </main>
+        <%- include('.././partials/footer.ejs') %>
+    </body>
+</html>

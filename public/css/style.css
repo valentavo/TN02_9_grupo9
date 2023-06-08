@@ -87,8 +87,6 @@ header.g_main-header div.g_logo-container {
 header.g_main-header div.g_logo-container .g_logo-image {
     width: 100%; /* Adjust the width as per your requirement */
     height: auto; /* Maintain the aspect ratio */
-    
-   
 }
 
 header.g_main-header div.g_logo-container img{
