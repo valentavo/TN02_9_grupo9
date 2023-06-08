@@ -3,6 +3,7 @@
 @import url('login-style.css');
 @import url('detailProduct-style.css');
 @import url('register-styles.css');
+@import url('createProduct-styles.css');
 
  *{
     box-sizing: border-box;

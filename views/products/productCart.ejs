@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('.././partials/head.ejs') %>
-        <!-- <title>Carrito de compras</title> -->
+    <%- include('.././partials/head.ejs', {title: 'Carrito de compras'}) %>
     <body>
 
        <%- include('.././partials/header.ejs') %>
@@ -13,10 +12,10 @@
             <article>
                 <div class="c_left-product">
                     <div class="c_product-img-container">
-                       <a href="/detalle-del-producto"><img src="img/producto-3.jpg" alt="imagen del producto"></a>
+                       <a href="/product/detail"><img src="/img/producto-3.jpg" alt="imagen del producto"></a>
                     </div>
                     <div class="c_product-description">
-                        <h3><a href="/detalle-del-producto">Product-title</a></h3>
+                        <h3><a href="/product/detail">Product-title</a></h3>
                         <div>
                             <button><i class="fa-solid fa-minus"></i></button>
                             <p>1</p>

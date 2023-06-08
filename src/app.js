@@ -17,4 +17,4 @@ app.use(mainRoute);
 
 app.use(usersRoute);
 
-app.use(productsRoute);
+app.use('/product', productsRoute);

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head.ejs') %>
-    <!-- <title>E-Maranatha</title> -->
+    <%- include('./partials/head.ejs', {title: 'Home'}) %>
     <body>
         <!-- HEADER -->
         <%- include('./partials/header.ejs') %>
@@ -12,7 +11,7 @@
         <main class="h_main-home">
             <section class="h_carrousel">
                 <div class="h_carrousel-img-container">
-                    <img src="img/beauty_salon.png" alt="publicidad del producto">
+                    <img src="/img/beauty_salon.png" alt="publicidad del producto">
                 </div>
                 <div class="h_oriantation-carrousel">
                     <button></button>
@@ -34,12 +33,12 @@
                         <% for(let i = 0; i < 2; i++) { %>
                         <article>
                             <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
+                                <a href="/product/detail"><img src="/img/producto-4.jpg" alt="imagen del producto"></a>
                             </div>
                             <h4>Product-title</h4>
                             <p class="h_discount">$500.00</p>
                             <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
+                            <button><a href="/product/cart">Ir al Carrito</a></button>
                         </article>
                         <% } %>
                         <i class="fa-solid fa-chevron-left h_arrow-left"></i>
@@ -52,19 +51,19 @@
                 <% for(let i = 0; i < 2; i++) { %>
                 <article class="h_type-article">
                     <div class="h_brand-banner">
-                        <img src="img/copa-invictus.jpg" alt="imagen de la marca de productos relacionados">
+                        <img src="/img/copa-invictus.jpg" alt="imagen de la marca de productos relacionados">
                     </div>
                     <h3>Paco Rabane</h3>
                     <section class="h_products-wrap">
                         <% for(let i = 0; i < 2; i++) { %>
                         <article>
                             <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
+                                <a href="/product/detail"><img src="/img/producto-4.jpg" alt="imagen del producto"></a>
                             </div>
                             <h4>Product-title</h4>
                             <p class="h_discount">$500.00</p>
                             <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
+                            <button><a href="/product/cart">Ir al Carrito</a></button>
                         </article>
                         <% } %>
                         <i class="fa-solid fa-chevron-left h_arrow-left"></i>
