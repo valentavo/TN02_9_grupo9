@@ -9,6 +9,7 @@
 
         <main class="c_cart-main">
             <h1>MI CARRITO</h1>
+            <% for(let i = 0; i < 3; i++) { %>
             <article>
                 <div class="c_left-product">
                     <div class="c_product-img-container">
@@ -30,48 +31,7 @@
                     </button>
                 </div>
             </article>
-            <article>
-                <div class="c_left-product">
-                    <div class="c_product-img-container">
-                        <a href="/detalle-del-producto"><img src="img/producto-3.jpg" alt="imagen del producto"></a>
-                    </div>
-                    <div class="c_product-description">
-                        <h3><a href="/detalle-del-producto">Product-title</a></h3>
-                        <div>
-                            <button><i class="fa-solid fa-minus"></i></button>
-                            <p>2</p>
-                            <button><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="c_right-product">
-                    <p class="c_price">$200.00</p>
-                    <button class="c_delete-item">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <div class="c_left-product">
-                    <div class="c_product-img-container">
-                        <a href="/detalle-del-producto"><img src="img/producto-3.jpg" alt="imagen del producto"></a>
-                    </div>
-                    <div class="c_product-description">
-                        <h3><a href="/detalle-del-producto">Product-title</a></h3>
-                        <div>
-                            <button><i class="fa-solid fa-minus"></i></button>
-                            <p>3</p>
-                            <button><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="c_right-product">
-                    <p class="c_price">$300.00</p>
-                    <button class="c_delete-item">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </article>
+            <% } %>
             <section class="c_suma-precio">
                 <p>Total</p>
                 <p>$100,000.00</p>

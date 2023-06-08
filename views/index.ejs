@@ -27,9 +27,11 @@
                 <p>Extensión de la frase icónica</p>
             </section>
             <section class="h_type-products">
+                <% for(let i = 0; i < 2; i++) { %>
                 <article class="h_type-article">
                     <h3>Cuidado de la Piel</h3>
                     <section class="h_products-wrap">
+                        <% for(let i = 0; i < 2; i++) { %>
                         <article>
                             <div>
                                 <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
@@ -39,52 +41,22 @@
                             <p class="h_price">$400.00</p>
                             <button><a href="/carrito">Ir al Carrito</a></button>
                         </article>
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
+                        <% } %>
                         <i class="fa-solid fa-chevron-left h_arrow-left"></i>
                         <i class="fa-solid fa-chevron-right h_arrow-right"></i>
                     </section>
                 </article>
-                <article class="h_type-article">
-                    <h3>Cuidado de la Piel</h3>
-                    <section class="h_products-wrap">
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
-                        <i class="fa-solid fa-chevron-left h_arrow-left"></i>
-                        <i class="fa-solid fa-chevron-right h_arrow-right"></i>
-                    </section>
-                </article>
+                <% } %>
             </section>
             <section class="h_brand-products">
+                <% for(let i = 0; i < 2; i++) { %>
                 <article class="h_type-article">
                     <div class="h_brand-banner">
                         <img src="img/copa-invictus.jpg" alt="imagen de la marca de productos relacionados">
                     </div>
                     <h3>Paco Rabane</h3>
                     <section class="h_products-wrap">
+                        <% for(let i = 0; i < 2; i++) { %>
                         <article>
                             <div>
                                 <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
@@ -94,47 +66,12 @@
                             <p class="h_price">$400.00</p>
                             <button><a href="/carrito">Ir al Carrito</a></button>
                         </article>
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
+                        <% } %>
                         <i class="fa-solid fa-chevron-left h_arrow-left"></i>
                         <i class="fa-solid fa-chevron-right h_arrow-right"></i>
                     </section>
                 </article>
-                <article class="h_type-article">
-                    <div class="h_brand-banner">
-                        <img src="img/copa-invictus.jpg" alt="imagen de la marca de productos relacionados">
-                    </div>
-                    <h3>Paco Rabane</h3>
-                    <section class="h_products-wrap">
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
-                        <article>
-                            <div>
-                                <a href="/detalle-del-producto"><img src="img/producto-4.jpg" alt="imagen del producto"></a>
-                            </div>
-                            <h4>Product-title</h4>
-                            <p class="h_discount">$500.00</p>
-                            <p class="h_price">$400.00</p>
-                            <button><a href="/carrito">Ir al Carrito</a></button>
-                        </article>
-                        <i class="fa-solid fa-chevron-left h_arrow-left"></i>
-                        <i class="fa-solid fa-chevron-right h_arrow-right"></i>
-                    </section>
-                </article>
+                <% } %>
             </section>
         </main>
 
