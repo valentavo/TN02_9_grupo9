@@ -41,6 +41,12 @@ header.g_main-header div.g_width-head {
     align-items: center;
     width: 100%;
     margin-bottom: 5px;
+    
+}
+header.g_main-header div.g_width-hea .g_wider-header {
+    
+    height: 800px;
+    width: 100%; /* Set the width to 100% for a wider header */
 }
 
 header.g_main-header button.g_burguer-menu {
@@ -77,6 +83,12 @@ header.g_main-header div.g_nav-bar .nav-link a:hover{
 header.g_main-header div.g_logo-container {
     width: 55px;
     height: 55px;
+}
+header.g_main-header div.g_logo-container .g_logo-image {
+    width: 100%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio */
+    
+   
 }
 
 header.g_main-header div.g_logo-container img{
@@ -312,3 +324,4 @@ footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
         display: inline-block;
     }
 }
+
