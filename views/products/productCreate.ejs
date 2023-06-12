@@ -6,8 +6,82 @@
         <!-- Header -->
         <%- include('.././partials/header.ejs') %>
     </body>
-    <main>
-        <h1>Edita tu producto</h1>
+    <main class="cp_main-section">
+        <h1>Crea tu producto</h1>
+        <form action="#" method="POST">
+            <div class="cp_img-container">
+                <label for="clickFileImg">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Seleccionar Imagen</p>
+                    <input class="cp_select-input" type="file" name="productImg" id="clickFileImg">
+                    <div class="cp_opacity-trick"></div>
+                </label>
+            </div>
+            <div class="cp_title-container cp_option-container">
+                <label for="title">
+                    <p class="cp_title">Titulo</p>
+                    <input class="cp_select-input" type="text" id="title">
+                </label>
+            </div>
+            <div class="cp_label-container cp_option-container">
+                <div class="cp_upper-label">
+                    <label for="labels">
+                        <p class="cp_title">Etiquetas</p>
+                        <select class="cp_select-input" name="label" id="labels">
+                            <option value=""></option>
+                            <option value="channel">channel</option>
+                        </select>
+                    </label>
+                    <button><i class="cp_fa-solid fa-plus"></i></button>
+                </div>
+                <div class="cp_lower-label">
+                    <p>
+                        capilar
+                        <i class="fa-solid fa-xmark"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="cp_capacity-container cp_option-container">
+                <div class="cp_upper-capacity">
+                    <p class="cp_title">Capacidad</p>
+                    <p class="cp_optional">(opcional)</p>
+                </div>
+                <div class="cp_lower-capacity">
+                    <input class="cp_select-input" type="number">
+                    <select class="cp_select-input" name="capacity-measure">
+                        <option value="ml">ml</option>
+                        <option value="l">l</option>
+                        <option value="cc">cc</option>
+                        <option value="g">g</option>
+                        <option value="kg">kg</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cp_color-container cp_option-container">
+                <div>
+                    <p class="cp_title">Color</p>
+                    <p class="cp_optional">(opcional)</p>
+                </div>
+                <select class="cp_select-input" name="color">
+                    <option value="yellow">Amarillo</option>
+                    <option value="blue">Azul</option>
+                </select>
+            </div>
+            <div class="cp_price-container cp_option-container">
+                <p class="cp_title">Precio</p>
+                <input class="cp_select-input" type="number">
+            </div>
+            <div class="cp_stock-container cp_option-container">
+                <p class="cp_title">Unidades Disponibles</p>
+                <input class="cp_select-input" type="number">
+            </div>
+            <div class="cp_description-container cp_option-container">
+                <p class="cp_title">Descripcion</p>
+                <input class="cp_select-input" type="text">
+            </div>
+            <button class="cp_form-buttons cp_variant-button">Agregar Variante</button>
+            <button class="cp_form-buttons cp_submit-button">Create</button>
+        </form>
     </main>
     <!-- Footer -->
     <%- include('.././partials/footer.ejs') %>

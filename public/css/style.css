@@ -3,7 +3,21 @@
 @import url('login-style.css');
 @import url('detailProduct-style.css');
 @import url('register-styles.css');
-@import url('createProduct-styles.css');
+@import url('createProduct-style.css');
+
+/* 
+
+Key Classes
+
+    Carrito -> c_
+    Login -> l_
+    Home -> h_
+    Registro -> r_
+    Detalle del producto -> d_
+    Estilos generales -> g_
+    Creacion de producto -> cp_ 
+
+*/
 
  *{
     box-sizing: border-box;
@@ -157,6 +171,8 @@ header.g_main-header div.g_search-header input {
 
 footer.g_main-footer {
     margin-top: 30px;
+    /* max-height: 300px; */
+    width: 100%;
     background-color: #E8E2D5;
     grid-area: "footer";
     display: flex;
@@ -185,23 +201,18 @@ footer.g_main-footer section div.g_f-content-links {
     width: 100%;
 }
 
+footer.g_main-footer section.g_tienda-container a {
+    padding: 5px 0;
+    color: #737061;
+    text-decoration: none;
+}
+
 footer.g_main-footer section.g_contacto-container .g_f-content-links i {
     width: 100%;
     text-align: center;
     font-size: 1.5rem;
     color: white;
     padding: 5px;
-}
-
-footer.g_main-footer section.g_tienda-container {
-    flex-direction: column;
-    align-items: center;
-}
-
-footer.g_main-footer section.g_tienda-container a {
-    padding: 5px 0;
-    color: #737061;
-    text-decoration: none;
 }
 
 footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
@@ -242,7 +253,6 @@ footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
 
     footer.g_main-footer {
         flex-direction: row;
-        margin-top: 0px;
     }
 
     footer.g_main-footer section {
@@ -250,8 +260,12 @@ footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
         height: 100%;
     }
 
-    footer.g_main-footer section h3 {
+    footer.g_main-footer section p {
         margin: 0;
+    }
+
+    footer.g_main-footer section.g_ubicacion-container div p {
+        font-size: 0.7rem;    
     }
 
 }
@@ -260,6 +274,10 @@ footer.g_main-footer section.g_ubicacion-container .g_f-content-links {
 
     header.g_main-header div.g_search-header {
     left: calc(50% - 273px)
+    }
+
+    footer.g_main-footer section.g_ubicacion-container div p {
+        font-size: 1rem;    
     }
 }
 
