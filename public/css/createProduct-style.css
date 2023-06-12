@@ -72,6 +72,7 @@ main.cp_main-section form div .cp_select-input {
     border-radius: 0.35rem; 
     background-color: #F7F6F4;
     text-align: center;
+    max-width: 150px;
 }
 
 main.cp_main-section form div p {
@@ -85,7 +86,7 @@ main.cp_main-section form div p {
 main.cp_main-section form div.cp_title-container label {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 main.cp_main-section form div.cp_title-container label p {
@@ -95,6 +96,7 @@ main.cp_main-section form div.cp_title-container label p {
 
 main.cp_main-section form div.cp_title-container label input {
     flex-grow: 0.6;
+    max-width: 300px;
 }
 
 /* label */
@@ -109,17 +111,14 @@ main.cp_main-section form div.cp_label-container {
 main.cp_main-section form div.cp_label-container div.cp_upper-label {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 main.cp_main-section form div.cp_label-container div.cp_upper-label label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-grow: 0.7;
 }
 
-main.cp_main-section form div.cp_label-container div.cp_upper-label label select {
+main.cp_main-section form div.cp_label-container div.cp_upper-label select {
     width: 70%;
     min-width: 150px;
 }
@@ -183,6 +182,7 @@ main.cp_main-section form div.cp_capacity-container div.cp_lower-capacity input{
 main.cp_main-section form div.cp_capacity-container div.cp_lower-capacity select{
     width: 25%;
     text-align: center;
+    max-width: 100px;
 }
 
 /* color */
@@ -206,7 +206,7 @@ main.cp_main-section form div.cp_color-container select {
 main.cp_main-section form div.cp_price-container {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 main.cp_main-section form div.cp_price-container input {
@@ -217,26 +217,33 @@ main.cp_main-section form div.cp_price-container input {
 
 main.cp_main-section form div.cp_stock-container {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    min-height: 90px;
+    min-height: 80px;
 }
 
 main.cp_main-section form div.cp_stock-container input {
-    width: 35%;
+    width: 50%;
+    align-self: center;
 }
 
 /* description */
 
+main.cp_main-section form div.cp_description-container {
+    display: flex;
+    flex-direction: column;
+}
+
 main.cp_main-section form div.cp_description-container p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 main.cp_main-section form div.cp_description-container input{
     width: 100%;
+    max-width: 500px;
     min-height: 100px;
     text-align: left;
+    align-self: center;
 }
 
 /* buttons */
@@ -261,6 +268,68 @@ main.cp_main-section form button.cp_submit-button {
 
 @media (min-width: 361px) {
 
+    /* title */
+    main.cp_main-section form div.cp_title-container label{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "left center .";
+    }
+
+    main.cp_main-section form div.cp_title-container p{
+        grid-area: "left";
+    }
+
+    main.cp_main-section form div.cp_title-container input {
+        grid-area: "center";
+        justify-self: center;
+    }
+
+
+    /* labels */
+    main.cp_main-section form div.cp_label-container div.cp_upper-label {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) repeat(2, 0.5fr);
+        grid-template-areas: "title select plus .";
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label p {
+        grid-area: "title";
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label select {
+        grid-area: "select";
+        justify-self: center;
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label button {
+        grid-area: "plus";
+        justify-self: left;
+        margin-left: 10px;
+    }
+
+    /* capacity */
+    main.cp_main-section form div.cp_capacity-container div.cp_lower-capacity {
+        justify-content: center;
+    }
+
+    main.cp_main-section form div.cp_capacity-container div.cp_lower-capacity input {
+        margin-right: 20px;
+    }
+
+    /* price */
+    main.cp_main-section form div.cp_price-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "left center .";
+        justify-items: center;
+    }
+    main.cp_main-section form div.cp_price-container p {
+        grid-area: "left";
+        justify-self: left;
+    }
+    main.cp_main-section form div.cp_price-container input {
+        grid-area: "center";
+    }
 }
 
 @media (min-width: 630px) {
@@ -268,5 +337,5 @@ main.cp_main-section form button.cp_submit-button {
 }
 
 @media (min-width: 768px) {
-    
+
 }
