@@ -338,4 +338,153 @@ main.cp_main-section form button.cp_submit-button {
 
 @media (min-width: 768px) {
 
+    main.cp_main-section form {
+        /* border: 1px solid #737061; */
+        display: inline-block;
+        position: relative;
+    }
+
+    main.cp_main-section form div.cp_img-container {
+        position: absolute;
+        top: 8px
+    }
+
+    main.cp_main-section form div.cp_option-container  {
+        width: 63%;
+        margin-left: 280px;
+        /* background-color: #F7F6F4; */
+    }
+
+    /* title */
+
+    main.cp_main-section form div.cp_title-container label{
+        display: inline-block;
+        width: 100%;
+    }
+
+    main.cp_main-section form div.cp_title-container label p {
+        margin-right: 20px;
+    }
+
+    main.cp_main-section form div.cp_title-container label input {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    /* label */
+
+    main.cp_main-section form div.cp_label-container {
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: auto;
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label label {
+        margin-right: 20px;
+    }
+
+    main.cp_main-section form div.cp_label-container div.cp_upper-label label p {
+        margin: 0;
+    }
+
+
+    main.cp_main-section form div.cp_label-container div.cp_lower-label {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* capacity */
+
+    main.cp_main-section form div.cp_capacity-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        min-height: auto;
+        position: relative;
+    }
+
+    main.cp_main-section form div.cp_capacity-container div.cp_upper-capacity p.cp_title {
+        margin-right: 20px;
+    }
+
+    main.cp_main-section form div.cp_capacity-container div.cp_upper-capacity p.cp_optional{
+        position: absolute;
+        left: 350px;
+    }
+
+    main.cp_main-section form div.cp_capacity-container div.cp_lower-capacity {
+        justify-content: flex-start;
+    }
+
+    main.cp_main-section form div.cp_capacity-container div input {
+        max-width: 100px;
+    }
+
+    /* color */
+
+    main.cp_main-section form div.cp_color-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        min-height: auto;
+        position: relative;
+    }
+
+    main.cp_main-section form div.cp_color-container div p.cp_title {
+        margin-right: 20px;
+    }
+
+    main.cp_main-section form div.cp_color-container div p.cp_optional {
+        position: absolute;
+        left: 250px;
+    }
+
+    /* price */
+
+    main.cp_main-section form div.cp_price-container {
+        width: 45%;
+        display: inline-block;
+        margin: 30px 10px 10px 0;
+    }
+
+    /* main.cp_main-section form div.cp_price-container p{
+        margin-right: 20px;
+    } */
+
+    /* stock */
+
+    main.cp_main-section form div.cp_stock-container {
+        display: inline-block;
+        width: 52%;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: auto;
+    }
+
+    /* description */
+
+    main.cp_main-section form div.cp_description-container {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: row;
+    }
+
+    main.cp_main-section form div.cp_description-container p {
+        margin: 0 20px 0 0;
+    }
+
+    main.cp_main-section form button.cp_variant-button {
+        margin: 0;
+    }
+    main.cp_main-section form button.cp_submit-button {
+        position: absolute;
+        bottom: -90px;
+        right: calc(50% - 70px);
+    }
 }
