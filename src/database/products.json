@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Crema facial rejuvenecedora EternaJuventud",
+        "img": "producto-1.jpg",
+        "capacity": ["70", "150", "210"],
+        "color": ["azul", "verde", "narajna"],
+        "price": 200,
+        "stock": 10,
+        "label": ["Cuidado de la Piel", "Para el Cabello", "Channel"],
+        "description": "especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas."
+    },
+    
+    {
+        "id":2,
+        "title":"Mascarilla purificante PureGlow",
+        "img":"producto-2.jpg",
+        "capacity": ["50", "100", "200"],
+        "color": ["negro", "lima", "rosa"],
+        "price":913.29,
+        "stock":573,
+        "label": ["Cuidado de la Piel", "Paco Rabane"],
+        "description":"Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque."
+    },
+    {
+        "id":3,
+        "title":"Lápiz labial de larga duración ColorPerfección",
+        "img":"producto-3.jpg",
+        "capacity": ["30", "50", "90"],
+        "color": ["marron", "gris"],
+        "price":516.4,
+        "stock":157,
+        "label": ["Cuidado de la Piel", "Para el Cabello", "Paco Rabane"],
+        "description":"Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque."
+    },
+    {
+        "id":4,
+        "title":"Serum capilar reparador HairRevive",
+        "img":"producto-4.jpg",
+        "capacity": ["100", "170", "240"],
+        "color": null,
+        "price":431.45,
+        "stock":332,
+        "label": ["Cuidado de la Piel", "Paco Rabane", "Channel"],
+        "description":"Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat."
+    }
+]

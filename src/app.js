@@ -9,6 +9,10 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, '../views'));
 
+//configuracion de express para los formularios
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.listen(3009, () => {
     console.log('Servidor corriendo en el puerto 3009')
 } );
