@@ -1,0 +1,483 @@
+main.e_main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.e_main-section h1 {
+    text-align: center;
+    color: #737061;
+}
+
+main.e_main-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+/* image */
+
+main.e_main-section form div.e_img-container {
+    position: relative;
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 270px;
+    margin-bottom: 40px;
+}
+
+main.e_main-section form div.e_img-container label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.e_main-section form div.e_img-container i {
+    font-size: 1.5rem;
+    color: #737061;
+}
+
+main.e_main-section form div.e_img-container p {
+    margin: 0 10px;
+}
+
+main.e_main-section form div.e_img-container input {
+    display: none;
+}
+
+main.e_main-section form div.e_img-container div.e_opacity-trick {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #737061;
+    opacity: 0.35;
+}
+
+/* general main stylings */
+
+main.e_main-section form div.e_option-container {
+    background-color: #E8E2D5;
+    margin: 7px 0 10px;
+    border-radius: 0.4rem;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+main.e_main-section form div .e_select-input {
+    height: 1.4rem;
+    border: 1px solid rgba(115, 112, 97, 0.6);
+    border-radius: 0.35rem; 
+    background-color: #F7F6F4;
+    text-align: center;
+    max-width: 150px;
+}
+
+main.e_main-section form div p {
+    margin: 0 10px 0 0;
+    display: inline-block;
+    color: #737061;
+}
+
+/* title */
+
+main.e_main-section form div.e_title-container label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.e_main-section form div.e_title-container label p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+main.e_main-section form div.e_title-container label input {
+    flex-grow: 0.6;
+    /* width: 100%; */
+    max-width: 300px;
+}
+
+/* label */
+
+main.e_main-section form div.e_label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+main.e_main-section form div.e_label-container div.e_upper-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.e_main-section form div.e_label-container div.e_upper-label label {
+    flex-grow: 0.7;
+}
+
+main.e_main-section form div.e_label-container div.e_upper-label select {
+    width: 70%;
+    min-width: 150px;
+}
+
+main.e_main-section form div.e_label-container div.e_upper-label button {
+    background-color: #E8E2D5;
+    border: none;
+    padding: 0;
+}
+
+main.e_main-section form div.e_label-container div.e_upper-label button i {
+    font-size: 1.5rem;
+    color: #737061;
+}
+
+main.e_main-section form div.e_label-container div.e_lower-label {
+    align-self: center;
+}
+
+main.e_main-section form div.e_label-container div.e_lower-label p{
+    position: relative;
+    background-color: rgba(182, 156, 127, 0.5);
+    border-radius: 0.35rem; 
+    text-align: center;
+    padding: 0 15px 1px;
+    border: 1px solid #737061;
+}
+
+/* capacity */
+
+main.e_main-section form div.e_capacity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90px;
+}
+
+main.e_main-section form div.e_capacity-container div.e_upper-capacity {
+    align-self: flex-start;
+}
+
+main.e_main-section form div.e_capacity-container div.e_lower-capacity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    width: 80%;
+}
+
+main.e_main-section form div.e_capacity-container div.e_lower-capacity input{
+    width: 70%;
+}
+
+main.e_main-section form div.e_capacity-container div.e_lower-capacity select{
+    width: 25%;
+    text-align: center;
+    max-width: 100px;
+}
+
+/* color */
+
+main.e_main-section form div.e_color-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90px;
+}
+
+main.e_main-section form div.e_color-container select {
+    text-align: center;
+    width: 80%;
+    align-self: center;
+    margin-bottom: 7px;
+}
+
+/* price */
+
+main.e_main-section form div.e_price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.e_main-section form div.e_price-container input {
+    flex-grow: 0.6;
+}
+
+/* stock */
+
+main.e_main-section form div.e_stock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+main.e_main-section form div.e_stock-container input {
+    width: 50%;
+    align-self: center;
+}
+
+/* description */
+
+main.e_main-section form div.e_description-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main.e_main-section form div.e_description-container p {
+    margin-bottom: 20px;
+}
+
+main.e_main-section form div.e_description-container input{
+    width: 100%;
+    max-width: 500px;
+    min-height: 100px;
+    text-align: left;
+    align-self: center;
+}
+
+/* buttons */
+
+main.e_main-section form button.e_form-buttons {
+    background-color: #E8E2D5;
+    border: 1px solid #737061;
+    border-radius: 1rem;
+    color: #737061;
+}
+
+main.e_main-section form button.e_variant-button {
+    align-self: flex-start;
+    margin-top: 20px;
+    padding: 5px 15px;
+}
+
+main.e_main-section form button.e_submit-button {
+    margin-top: 60px;
+    padding: 5px 45px;
+}
+
+@media (min-width: 361px) {
+
+    /* title */
+    main.e_main-section form div.e_title-container label{
+        /* display: grid; */
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "left center .";
+    }
+
+    main.e_main-section form div.e_title-container p{
+        grid-area: "left";
+    }
+
+    main.e_main-section form div.e_title-container input {
+        grid-area: "center";
+        justify-self: center;
+    }
+
+    /* labels */
+    main.e_main-section form div.e_label-container div.e_upper-label {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) repeat(2, 0.5fr);
+        grid-template-areas: "title select plus .";
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label p {
+        grid-area: "title";
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label select {
+        grid-area: "select";
+        justify-self: center;
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label button {
+        grid-area: "plus";
+        justify-self: left;
+        margin-left: 10px;
+    }
+
+    /* capacity */
+    main.e_main-section form div.e_capacity-container div.e_lower-capacity {
+        justify-content: center;
+    }
+
+    main.e_main-section form div.e_capacity-container div.e_lower-capacity input {
+        margin-right: 20px;
+    }
+
+    /* price */
+    main.e_main-section form div.e_price-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "left center .";
+        justify-items: center;
+    }
+    main.e_main-section form div.e_price-container p {
+        grid-area: "left";
+        justify-self: left;
+    }
+    main.e_main-section form div.e_price-container input {
+        grid-area: "center";
+    }
+}
+
+@media (min-width: 630px) {
+
+}
+
+@media (min-width: 768px) {
+
+    main.e_main-section form {
+        /* border: 1px solid #737061; */
+        display: inline-block;
+        position: relative;
+    }
+
+    main.e_main-section form div.e_img-container {
+        position: absolute;
+        top: 8px
+    }
+
+    main.e_main-section form div.e_option-container  {
+        width: 63%;
+        margin-left: 280px;
+        /* background-color: #F7F6F4; */
+    }
+
+    /* title */
+
+    main.e_main-section form div.e_title-container label{
+        display: inline-block;
+        width: 100%;
+    }
+
+    main.e_main-section form div.e_title-container label p {
+        margin-right: 20px;
+    }
+
+    main.e_main-section form div.e_title-container label input {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    /* label */
+
+    main.e_main-section form div.e_label-container {
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: auto;
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label label {
+        margin-right: 20px;
+    }
+
+    main.e_main-section form div.e_label-container div.e_upper-label label p {
+        margin: 0;
+    }
+
+    main.e_main-section form div.e_label-container div.e_lower-label {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* capacity */
+
+    main.e_main-section form div.e_capacity-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        min-height: auto;
+        position: relative;
+    }
+
+    main.e_main-section form div.e_capacity-container div.e_upper-capacity p.e_title {
+        margin-right: 20px;
+    }
+
+    main.e_main-section form div.e_capacity-container div.e_upper-capacity p.e_optional{
+        position: absolute;
+        left: 350px;
+    }
+
+    main.e_main-section form div.e_capacity-container div.e_lower-capacity {
+        justify-content: flex-start;
+    }
+
+    main.e_main-section form div.e_capacity-container div input {
+        max-width: 100px;
+    }
+
+    /* color */
+
+    main.e_main-section form div.e_color-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        min-height: auto;
+        position: relative;
+    }
+
+    main.e_main-section form div.e_color-container div p.e_title {
+        margin-right: 20px;
+    }
+
+    main.e_main-section form div.e_color-container div p.e_optional {
+        position: absolute;
+        left: 250px;
+    }
+
+    /* price */
+
+    main.e_main-section form div.e_price-container {
+        width: 45%;
+        display: inline-block;
+        margin: 130px 10px 10px 0;
+    }
+
+    /* main.e_main-section form div.e_price-container p{
+        margin-right: 20px;
+    } */
+
+    /* stock */
+
+    main.e_main-section form div.e_stock-container {
+        display: inline-block;
+        width: 52%;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: auto;
+    }
+
+    /* description */
+
+    main.e_main-section form div.e_description-container {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: row;
+    }
+
+    main.e_main-section form div.e_description-container p {
+        margin: 0 20px 0 0;
+    }
+
+    main.e_main-section form button.e_variant-button {
+        margin: 0;
+    }
+    main.e_main-section form button.e_submit-button {
+        position: absolute;
+        bottom: -90px;
+        right: calc(50% - 70px);
+    }
+}

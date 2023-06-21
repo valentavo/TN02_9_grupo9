@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../database/products.json")));
+const dataProducts = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../database/products.json")));
 
-const homeType = ["Cuidado de la Piel", "Para el Cabello"];
+const homeType = ["Cuidado de la Piel", "Cuidado del Cabello"];
 const homeBrand = ["Paco Rabane", "Channel"];
 
 module.exports = {
     index: (req, res) => {
 
         //Filtrador de data
-        const homeData = function(dataProduct) {
-            return data.filter(product => product.label.some(row => row === dataProduct))
+        const homeData = function(data) {
+            return dataProducts.filter(product => product.label.some(row => row === data))
         };
 
         const categoryProducts = homeType.map( row => {

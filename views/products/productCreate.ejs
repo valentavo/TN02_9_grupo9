@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <!-- Head -->
-    <%- include('.././partials/head.ejs', {title: 'Edit'}) %>
+    <%- include('.././partials/head.ejs', {title: 'Create'}) %>
     <body>
         <!-- Header -->
         <%- include('.././partials/header.ejs') %>
     </body>
     <main class="cp_main-section">
         <h1>Crea tu producto</h1>
-        <form action="#" method="POST">
+        <form action="/product/create" method="POST" enctype="multipart/form-data">
             <div class="cp_img-container">
                 <label for="clickFileImg">
                     <i class="fa-solid fa-image"></i>
@@ -20,10 +20,10 @@
             <div class="cp_title-container cp_option-container">
                 <label for="title">
                     <p class="cp_title">Titulo</p>
-                    <input class="cp_select-input" type="text" id="title">
+                    <input class="cp_select-input" type="text" id="title" name="name">
                 </label>
             </div>
-            <!-- <div class="cp_label-container cp_option-container">
+            <div class="cp_label-container cp_option-container">
                 <div class="cp_upper-label">
                     <label for="labels">
                         <p class="cp_title">Etiquetas</p>
@@ -40,15 +40,15 @@
                         <i class="fa-solid fa-xmark"></i>
                     </p>
                 </div>
-            </div> -->
+            </div>
             <div class="cp_capacity-container cp_option-container">
                 <div class="cp_upper-capacity">
                     <p class="cp_title">Capacidad</p>
                     <p class="cp_optional">(opcional)</p>
                 </div>
                 <div class="cp_lower-capacity">
-                    <input class="cp_select-input" type="number">
-                    <select class="cp_select-input" name="capacity-measure">
+                    <input class="cp_select-input" type="number" name="cap">
+                    <select class="cp_select-input" name="capacityMeasure">
                         <option value="ml">ml</option>
                         <option value="l">l</option>
                         <option value="cc">cc</option>
@@ -62,22 +62,22 @@
                     <p class="cp_title">Color</p>
                     <p class="cp_optional">(opcional)</p>
                 </div>
-                <select class="cp_select-input" name="color">
+                <select class="cp_select-input" name="colors">
                     <option value="yellow">Amarillo</option>
                     <option value="blue">Azul</option>
                 </select>
             </div>
             <div class="cp_price-container cp_option-container">
                 <p class="cp_title">Precio</p>
-                <input class="cp_select-input" type="number">
+                <input class="cp_select-input" type="number" name="amount">
             </div>
             <div class="cp_stock-container cp_option-container">
                 <p class="cp_title">Unidades Disponibles</p>
-                <input class="cp_select-input" type="number">
+                <input class="cp_select-input" type="number" name="unities">
             </div>
             <div class="cp_description-container cp_option-container">
                 <p class="cp_title">Descripcion</p>
-                <input class="cp_select-input" type="text">
+                <input class="cp_select-input" type="text" name="desc">
             </div>
             <button class="cp_form-buttons cp_variant-button">Agregar Variante</button>
             <button class="cp_form-buttons cp_submit-button">Create</button>
