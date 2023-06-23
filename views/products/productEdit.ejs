@@ -8,7 +8,7 @@
     </body>
     <main class="e_main-section">
         <h1>Edita tu producto</h1>
-        <form action="/product/edit/1?_mehtod=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="e_img-container">
                 <label for="clickFileImg">
                     <i class="fa-solid fa-image"></i>
@@ -36,7 +36,7 @@
                 </div> -->
                 <div class="e_lower-label">
                     <% [...(categories[0].content), ...(categories[1].content)].forEach(row => { %>
-                        <input type="checkbox" name="label" id="<%= row %>" value ="<%= row %>" <%= producto.label.includes(row) ? "checked" : '' %>>
+                        <input type="checkbox" name="label" id="<%= row %>" value ="<%= row %>" <%= (producto.label.includes(row) ? "checked" : '' )%>>
                         <label for="<%= row %>"><%= row %></label>
                     <% }) %>
                 </div>
@@ -47,10 +47,10 @@
                     <p class="e_optional">(opcional)</p>
                 </div>
                 <div class="e_lower-capacity">
-                    <input class="e_select-input" type="number" name="cap" value="<%= producto.capacity[0] %>">
+                    <input class="e_select-input" type="number" name="cap" value="<%= producto.capacity ? producto.capacity[0] : ""%>">
                     <select class="e_select-input" name="capacityMeasure">
                         <% categories[2].content.forEach( row => { %>
-                            <option value="<%= row %>" <%= row === producto.measure ? "selected" : "" %>><%= row %></option>
+                            <option value="<%= row %>" <%= producto.measure ? (row === producto.measure ? "selected" : "" ) : "" %>><%= row %></option>
                         <% }) %>
                     </select>
                 </div>
@@ -62,7 +62,7 @@
                 </div>
                 <select class="e_select-input" name="colors">
                     <% categories[3].content.forEach( row => { %>
-                        <option value="<%= row %>" <%= row === producto.color[0] ? "selected" : "" %>><%= row %></option>
+                        <option value="<%= row %>" <%= producto.color ? (row === producto.color[0] ? "selected" : "" ) : ""%>><%= row %></option>
                     <% }) %>
                 </select>
             </div>
@@ -80,6 +80,8 @@
             </div>
             <button class="e_form-buttons e_variant-button">Agregar Variante</button>
             <button type="submit" class="e_form-buttons e_submit-button">Guardar Cambios</button>
+        </form>
+        <form action="/product/delete/<%= producto.id %>?_method=DELETE" method="POST">
             <button type="submit" class="e_form-buttons e_submit-button">Eliminar Producto</button>
         </form>
     </main>

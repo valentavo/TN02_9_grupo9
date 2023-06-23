@@ -16,10 +16,10 @@
                     <h1><%=producto.title%></h1>
                     <div class="d_size-product">
                         <form action="/product/detail" method="GET">
-                            <% producto.capacity.forEach( row => { %>
+                            <% producto.capacity ? producto.capacity.forEach( row => { %>
                                 <label for="ml<%=row%>"><%=row%> ml</label>
                                 <input type="radio" name="size" id="ml<%=row%>">
-                            <% }) %>
+                            <% }) : ""%>
                         </form>
                     </div>
                     <% if(producto.color) { %>

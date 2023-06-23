@@ -9,10 +9,10 @@
     },
     {
         "group": "measures",
-        "content": ["ml", "L", "cc", "g", "kg"]
+        "content": ["", "ml", "L", "cc", "g", "kg"]
     },
     {
         "group": "colors",
-        "content": ["rojo", "amarillo", "verde", "marron", "morado", "azul", "naranja"]
+        "content": ["", "rojo", "amarillo", "verde", "marron", "morado", "azul", "naranja", "negro", "lima", "rosa", "gris"]
     }
 ]

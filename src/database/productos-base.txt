@@ -1,20 +1,24 @@
 [
   {
     "id": 1,
-    "title": "Eros Saluda",
-    "img": "1687535899173_img.jpg",
+    "title": "Crema facial rejuvenecedora EternaJuventud",
+    "img": "producto-1.jpg",
     "capacity": [
-      "70"
+      "70",
+      "150",
+      "210"
     ],
     "measure": "L",
     "color": [
-      "azul"
+      "azul",
+      "verde",
+      "narajna"
     ],
-    "price": "9",
-    "stock": "10",
+    "price": 200,
+    "stock": 10,
     "label": [
+      "Cuidado de la Piel",
       "Cuidado del Cabello",
-      "Paco Rabane",
       "Channel"
     ],
     "description": "especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.",
@@ -71,18 +75,19 @@
   {
     "id": 4,
     "title": "Serum capilar reparador HairRevive",
-    "img": "1687535667597_img.jpg",
+    "img": "producto-4.jpg",
     "capacity": [
-      "22"
+      "100",
+      "170",
+      "240"
     ],
-    "measure": "kg",
-    "color": [
-      ""
-    ],
-    "price": "40",
-    "stock": "33",
+    "measure": "ml",
+    "color": null,
+    "price": 431.45,
+    "stock": 332,
     "label": [
-      "Cuidado del Cabello",
+      "Cuidado de la Piel",
+      "Paco Rabane",
       "Channel"
     ],
     "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",

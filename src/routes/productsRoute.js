@@ -30,6 +30,9 @@ router.post('/create', uploadFile.single('productImg'), productsController.creat
 
 // Edicion
 router.get('/edit/:productId', productsController.edit);
-router.post('/edit/:productId', uploadFile.single('productImg'), productsController.editProcess);
+router.put('/edit/:productId', uploadFile.single('productImg'), productsController.editProcess);
+
+// Eliminacion
+router.delete('/delete/:productId', productsController.delete);
 
 module.exports = router;

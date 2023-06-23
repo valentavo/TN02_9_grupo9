@@ -24,21 +24,21 @@
                 </label>
             </div>
             <div class="cp_label-container cp_option-container">
-                <div class="cp_upper-label">
-                    <label for="labels">
-                        <p class="cp_title">Etiquetas</p>
-                    </label>
+                <label for="labels">
+                    <p class="cp_title">Etiquetas</p>
+                </label>
+                <!-- <div class="cp_upper-label">
                     <select class="cp_select-input" name="label" id="labels">
                         <option value=""></option>
                         <option value="channel">channel</option>
                     </select>
                     <button><i class="cp_fa-solid fa-plus"></i></button>
-                </div>
+                </div> -->
                 <div class="cp_lower-label">
-                    <p>
-                        capilar
-                        <i class="fa-solid fa-xmark"></i>
-                    </p>
+                    <% [...(categories[0].content), ...(categories[1].content)].forEach(row => { %>
+                        <input type="checkbox" name="label" id="<%= row %>">
+                        <label for="<%= row %>"><%= row %></label>
+                    <% }) %>
                 </div>
             </div>
             <div class="cp_capacity-container cp_option-container">
@@ -49,11 +49,9 @@
                 <div class="cp_lower-capacity">
                     <input class="cp_select-input" type="number" name="cap">
                     <select class="cp_select-input" name="capacityMeasure">
-                        <option value="ml">ml</option>
-                        <option value="l">l</option>
-                        <option value="cc">cc</option>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
+                         <% categories[2].content.forEach( row => { %>
+                            <option value="<%= row %>"><%= row %></option>
+                        <% }) %>
                     </select>
                 </div>
             </div>
@@ -63,8 +61,9 @@
                     <p class="cp_optional">(opcional)</p>
                 </div>
                 <select class="cp_select-input" name="colors">
-                    <option value="yellow">Amarillo</option>
-                    <option value="blue">Azul</option>
+                    <% categories[3].content.forEach( row => { %>
+                        <option value="<%= row %>"><%= row %></option>
+                    <% }) %>
                 </select>
             </div>
             <div class="cp_price-container cp_option-container">

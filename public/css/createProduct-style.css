@@ -108,49 +108,8 @@ main.cp_main-section form div.cp_label-container {
     min-height: 100px;
 }
 
-main.cp_main-section form div.cp_label-container div.cp_upper-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_upper-label label {
-    flex-grow: 0.7;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_upper-label select {
-    width: 70%;
-    min-width: 150px;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_upper-label button {
-    background-color: #E8E2D5;
-    border: none;
-    padding: 0;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_upper-label button i {
-    font-size: 1.5rem;
-    color: #737061;
-}
-
 main.cp_main-section form div.cp_label-container div.cp_lower-label {
     align-self: center;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_lower-label p{
-    position: relative;
-    background-color: rgba(182, 156, 127, 0.5);
-    border-radius: 0.35rem; 
-    text-align: center;
-    padding: 0 15px 1px;
-    border: 1px solid #737061;
-}
-
-main.cp_main-section form div.cp_label-container div.cp_lower-label i {
-    position: absolute;
-    top: -7px;
-    right: -5px;
 }
 
 /* capacity */
@@ -397,6 +356,7 @@ main.cp_main-section form button.cp_submit-button {
 
     main.cp_main-section form div.cp_label-container div.cp_lower-label {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         width: 100%;
     }
@@ -448,7 +408,7 @@ main.cp_main-section form button.cp_submit-button {
     /* price */
 
     main.cp_main-section form div.cp_price-container {
-        width: 45%;
+        width: 40%;
         display: inline-block;
         margin: 130px 10px 10px 0;
     }
@@ -461,7 +421,7 @@ main.cp_main-section form button.cp_submit-button {
 
     main.cp_main-section form div.cp_stock-container {
         display: inline-block;
-        width: 52%;
+        width: 40%;
         margin-left: 0;
         margin-right: 0;
         min-height: auto;
