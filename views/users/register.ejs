@@ -7,8 +7,7 @@
 
         <main class="r_main">
             <h1 class="r_title"> Crear una cuenta </h1>
-            <p class="r_guide">Los elementos obligatorios estan indicados con un astericso (*)</p>
-            <form action='/registro' method='GET'>
+            <form action='/user/registro' method='POST'>
                 <section class="r_inputs-section">
                     <div class="r_name-container">
                         <label for="name">Nombre</label>
@@ -20,11 +19,11 @@
                     </div>
                     <div class="r_clave-container">
                         <label for="clave1">Contraseña</label>
-                        <input class="r_input-text" type='password' name='clave' id='clave1' placeholder='Escribe aqui tu contraseña' required>
-                        <input class="r_input-text r_clave2" type='password' name='clave' id='clave2' placeholder='Repite tu contraseña' required>
+                        <input class="r_input-text" type='password' name='password' id='clave1' placeholder='Escribe aqui tu contraseña' required>
+                        <input class="r_input-text r_clave2" type='password' name='password2' id='clave2' placeholder='Repite tu contraseña' required>
                     </div>
                 </section>
-                <section class="r_options-section">
+                <!-- <section class="r_options-section">
                     <div>
                         <label for="terms-conditions">Al registrarse aceptas nuestros terminos y condiciones</label>
                         <input type='checkbox' name="terms-conditions" id="terms-conditions">
@@ -33,10 +32,10 @@
                         <label for="notifications">Si, me gustaria recibir actualizaciones de E-Maranatha por correo electronico con ofertas exclusivas</label>
                         <input type='checkbox' name="notifications" id="notifications">
                     </div>
-                </section>
-                    <div class="r_button-container">
-                        <button type="submit">Registrate</button>
-                    </div>
+                </section> -->
+                <div class="r_button-container">
+                    <button type="submit">Registrate</button>
+                </div>
             </form>
         </main>
         <%- include('.././partials/footer.ejs') %>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Rodrigo",
+    "email": "rodrigol@gmail.com",
+    "password": "pelusa77",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  },
+  {
+    "id": 2,
+    "name": "Laura",
+    "email": "laurita@gmail.com",
+    "password": "guardian9",
+    "img": "",
+    "access": "admin",
+    "erased": false
+  },
+  {
+    "id": 3,
+    "name": "Eros",
+    "email": "erosflugel18@gmail.com",
+    "password": "sdfsdf",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  },
+  {
+    "id": 4,
+    "name": "gabriela",
+    "email": "gabi@soy.com",
+    "password": "Jonathanm",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  }
+]

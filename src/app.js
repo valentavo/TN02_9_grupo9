@@ -22,7 +22,7 @@ app.listen(3009, () => {
 
 app.use(mainRoute);
 
-app.use(usersRoute);
+app.use('/user', usersRoute);
 
 app.use('/product', productsRoute);
 
