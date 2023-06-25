@@ -10,7 +10,7 @@
             <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST">
                 <section class="eu_inputs-section">
                     <div>
-                        <input type="file" name="UserImage">
+                        <input type="file" name="img">
                     </div>
                     <div class="eu_name-container">
                         <label for="name">Nombre</label>
@@ -22,8 +22,8 @@
                     </div>
                     <div class="eu_clave-container">
                         <label for="clave1">Contraseña</label>
-                        <input class="eu_input-text" type='password' name='clave' id='clave1' placeholder='Contraseña antigua' required>
-                        <input class="eu_input-text eu_clave2" type='password' name='clave' id='clave2' placeholder='Contraseña nueva' required>
+                        <input class="eu_input-text" type='password' name='password' id='clave1' placeholder='Contraseña antigua' required>
+                        <input class="eu_input-text eu_clave2" type='password' name='password' id='clave2' placeholder='Contraseña nueva' required>
                     </div>
                 </section>
                 <div class="eu_button-container">

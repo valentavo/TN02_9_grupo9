@@ -33,15 +33,36 @@ module.exports = {
         return res.render('./users/register.ejs');
     },
     edit: (req, res) =>{
-        
+
         const user = usersData.find(row => row.id == req.params.userId);
 
         return res.render('./users/editUser.ejs', {user: user});
     },
     editProcess: (req, res) =>{
-        return res.send('funciono por PUT');
+
+        const currentUser = usersData.find(row => row.id == req.params.userId);
+
+        for (let property in req.body) {
+            currentUser[property] = req.body[property];
+        }
+
+        // Validation for the correct password content information
+        req.body.password ? currentUser.password = currentUser.password[0]: '';
+
+        //Reescribiendo la base de datos con los archivos actualizados
+        fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2), 'utf-8');
+
+        return res.redirect('/user/login');
     },
     delete: (req, res) =>{
-        return res.render('./users/register.ejs');
+
+        const currentUser = usersData.find(row => row.id == req.params.userId);
+
+        currentUser.erased = true;
+
+        //Reescribiendo la base de datos con los archivos actualizados
+        fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2), 'utf-8');
+        
+        return res.redirect('/user/login');
     }
 };

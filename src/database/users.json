@@ -28,11 +28,11 @@
   },
   {
     "id": 4,
-    "name": "gabriela",
-    "email": "gabi@soy.com",
-    "password": "Jonathanm",
+    "name": "jerusalen",
+    "email": "deayahyuasca@soy.com",
+    "password": "kiki",
     "img": "",
     "access": "personal",
-    "erased": false
+    "erased": true
   }
 ]
