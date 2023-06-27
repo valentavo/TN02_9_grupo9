@@ -36,7 +36,7 @@
                 </div> -->
                 <div class="cp_lower-label">
                     <% [...(categories[0].content), ...(categories[1].content)].forEach(row => { %>
-                        <input type="checkbox" name="label" id="<%= row %>">
+                        <input type="checkbox" name="label" id="<%= row %>" value="<%= row %>">
                         <label for="<%= row %>"><%= row %></label>
                     <% }) %>
                 </div>

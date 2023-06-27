@@ -6,6 +6,7 @@
     "password": "pelusa77",
     "img": "",
     "access": "personal",
+    "logged": true,
     "erased": false
   },
   {
@@ -15,6 +16,7 @@
     "password": "guardian9",
     "img": "",
     "access": "admin",
+    "logged": false,
     "erased": false
   },
   {
@@ -24,6 +26,7 @@
     "password": "sdfsdf",
     "img": "",
     "access": "personal",
+    "logged": true,
     "erased": false
   },
   {
@@ -33,6 +36,7 @@
     "password": "kiki",
     "img": "",
     "access": "personal",
+    "logged": false,
     "erased": true
   }
 ]

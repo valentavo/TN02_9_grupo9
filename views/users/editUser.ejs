@@ -7,7 +7,7 @@
         <%- include('../partials/header.ejs') %>
 
         <main>
-            <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST">
+            <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <section class="eu_inputs-section">
                     <div>
                         <input type="file" name="img">

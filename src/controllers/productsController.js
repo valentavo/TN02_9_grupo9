@@ -1,13 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-
-//Datos del modelo en JSON
-const productsJsonPath = path.resolve(__dirname, "../database/products.json");
-const categoriesJsonPath = path.resolve(__dirname, "../database/categories.json");
+const jsonPaths = require('../modules/jsonPaths.js');
 
 //Datos procesados
-let products = JSON.parse(fs.readFileSync(productsJsonPath), "utf-8");
-const categories = JSON.parse(fs.readFileSync(categoriesJsonPath), "utf-8");
+const productsPath = '../database/products.json';
+let products = jsonPaths.read(productsPath);
+const categories = jsonPaths.read("../database/categories.json");
 
 module.exports = {
 
@@ -46,16 +42,16 @@ module.exports = {
             color: [req.body.colors],
             price: req.body.amount,
             stock: req.body.unities,
-            label: [req.body.label],
+            label: req.body.label,
             description: req.body.desc,
             erased: false
         };
 
-        fs.writeFileSync(productsJsonPath, JSON.stringify([...products, newProduct], null, 2), "utf-8");
+        jsonPaths.write(productsPath, [...products, newProduct]);
 
-        products = JSON.parse(fs.readFileSync(productsJsonPath), "utf-8");
+        products = jsonPaths.read(productsPath);
         
-        return res.redirect(`/products/detail/${newProduct.id}`);
+        return res.redirect(`/product/detail/${newProduct.id}`);
     },
 
     edit: function (req, res) {
@@ -79,9 +75,9 @@ module.exports = {
         currentProduct.label = [...req.body.label];
         currentProduct.description = req.body.desc;
 
-        fs.writeFileSync(productsJsonPath, JSON.stringify(products, null, 2), "utf-8");
+        jsonPaths.write(productsPath, products);
 
-        products = JSON.parse(fs.readFileSync(productsJsonPath), "utf-8");
+        products = jsonPaths.read(productsPath);
 
         return res.redirect(`/product/detail/${currentProduct.id}`);
     }, 
@@ -90,9 +86,9 @@ module.exports = {
         const currentProduct = products.find(row => row.id == req.params.productId);
         currentProduct.erased = true;
 
-        fs.writeFileSync(productsJsonPath, JSON.stringify(products, null, 2), "utf-8");
+        jsonPaths.write(productsPath, products);
 
-        products = JSON.parse(fs.readFileSync(productsJsonPath), "utf-8");
+        products = jsonPaths.read(productsPath);
 
         return res.redirect('/product/list');
     }

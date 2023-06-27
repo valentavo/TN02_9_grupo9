@@ -24,7 +24,7 @@ router.post('/registro', usersController.registerProcess);
 
 //Edicion Usuarrio
 router.get('/edit/:userId', usersController.edit);
-router.put('/edit/:userId', usersController.editProcess);
+router.put('/edit/:userId', uploadFile.single('img'), usersController.editProcess);
 
 //Eliminacion Usuario
 router.delete('/edit/:userId', usersController.delete);

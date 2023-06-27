@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-//Designando la ruta de los datos
-const usersPath = path.resolve(__dirname, '../database/users.json');
+const jsonPaths = require('../modules/jsonPaths.js');
 
 //Parseando los datos
-const usersData = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+const usersPath = '../database/users.json';
+const usersData = jsonPaths.read(usersPath);
 
 module.exports = {
     login: (req, res) =>{
@@ -28,7 +28,7 @@ module.exports = {
 
         usersData.push(newUser);
 
-        fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2), 'utf-8');
+        jsonPaths.write(usersPath, usersData);
 
         return res.render('./users/register.ejs');
     },
@@ -50,7 +50,7 @@ module.exports = {
         req.body.password ? currentUser.password = currentUser.password[0]: '';
 
         //Reescribiendo la base de datos con los archivos actualizados
-        fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2), 'utf-8');
+        jsonPaths.write(usersPath, usersData);
 
         return res.redirect('/user/login');
     },
@@ -61,7 +61,7 @@ module.exports = {
         currentUser.erased = true;
 
         //Reescribiendo la base de datos con los archivos actualizados
-        fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2), 'utf-8');
+        jsonPaths.write(usersPath, usersData);
         
         return res.redirect('/user/login');
     }
