@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const router = express.Router();
 const usersController = require('../controllers/usersController.js');
+const registerValidation = require('../middlewares/registerValidation.js');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -18,13 +19,13 @@ const uploadFile = multer({ storage });
 //Acceso Usuario
 router.get('/login', usersController.login);
 
-//Creacion Usuario
+//Creacion Registro Usuario
 router.get('/registro', usersController.register);
-router.post('/registro', usersController.registerProcess);
+router.post('/registro', registerValidation, usersController.registerProcess);
 
 //Edicion Usuarrio
 router.get('/edit/:userId', usersController.edit);
-router.put('/edit/:userId', uploadFile.single('img'), usersController.editProcess);
+router.put('/edit/:userId', registerValidation, uploadFile.single('img'), usersController.editProcess);
 
 //Eliminacion Usuario
 router.delete('/edit/:userId', usersController.delete);

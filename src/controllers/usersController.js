@@ -1,7 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
 const jsonPaths = require('../modules/jsonPaths.js');
+const {validationResult} = require('express-validator');
 
 //Parseando los datos
 const usersPath = '../database/users.json';
@@ -12,9 +10,13 @@ module.exports = {
         return res.render('./users/login.ejs');
     },
     register: (req, res) =>{
-        return res.render('./users/register.ejs');
+        return res.render('./users/register.ejs', {oldErrors: ""});
     },
     registerProcess: (req, res) =>{
+
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
 
         const newUser = {
             id: usersData.length + 1,
@@ -30,7 +32,7 @@ module.exports = {
 
         jsonPaths.write(usersPath, usersData);
 
-        return res.render('./users/register.ejs');
+        return res.render('./users/register.ejs', {oldErrors: ""});
     },
     edit: (req, res) =>{
 
@@ -40,14 +42,17 @@ module.exports = {
     },
     editProcess: (req, res) =>{
 
+        const user = usersData.find(row => row.id == req.params.userId);
+
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user})
+
         const currentUser = usersData.find(row => row.id == req.params.userId);
 
         for (let property in req.body) {
             currentUser[property] = req.body[property];
         }
-
-        // Validation for the correct password content information
-        req.body.password ? currentUser.password = currentUser.password[0]: '';
 
         //Reescribiendo la base de datos con los archivos actualizados
         jsonPaths.write(usersPath, usersData);

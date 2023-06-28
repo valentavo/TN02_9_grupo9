@@ -1,6 +1,5 @@
 const { check } = require('express-validator');
 const { extname } = require('path');
-const { contains } = require('validator');
 
 module.exports = [
 

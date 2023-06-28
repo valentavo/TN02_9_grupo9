@@ -13,6 +13,10 @@ main.r_main form {
     margin-top: 20px;
 }
 
+p.r_errorMessage {
+    color: red;
+}
+
 main.r_main form section.r_inputs-section {
     margin: auto;
     display: flex;

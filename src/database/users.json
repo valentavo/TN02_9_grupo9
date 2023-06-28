@@ -33,10 +33,29 @@
     "id": 4,
     "name": "jerusalen",
     "email": "deayahyuasca@soy.com",
-    "password": "kiki",
+    "password": "s",
     "img": "",
     "access": "personal",
     "logged": false,
-    "erased": true
+    "erased": true,
+    "password2": "a"
+  },
+  {
+    "id": 5,
+    "name": "fifi",
+    "email": "mimi@soy.com",
+    "password": "r3r3",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  },
+  {
+    "id": 6,
+    "name": "Eros",
+    "email": "andy@es.com",
+    "password": "rwrw",
+    "img": "",
+    "access": "personal",
+    "erased": false
   }
 ]
