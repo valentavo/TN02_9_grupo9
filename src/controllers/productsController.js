@@ -5,6 +5,8 @@ const productsPath = '../database/products.json';
 let products = jsonPaths.read(productsPath);
 const categories = jsonPaths.read("../database/categories.json");
 
+const { validationResult } = require('express-validator');
+
 module.exports = {
 
     cart: (req, res) =>{
@@ -28,10 +30,14 @@ module.exports = {
     },
 
     create: (req, res) =>{
-        return res.render('./products/productCreate.ejs', {categories: categories});
+        return res.render('./products/productCreate.ejs', {categories: categories, oldErrors: ""});
     },
 
     createProcess: (req, res) => {
+
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()) return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, categories: categories});
         
         const newProduct = {
             id: products.length + 1,

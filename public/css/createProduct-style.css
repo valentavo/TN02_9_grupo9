@@ -81,6 +81,10 @@ main.cp_main-section form div p {
     color: #737061;
 }
 
+p.cp_errorMessage {
+    color: red;
+}
+
 /* title */
 
 main.cp_main-section form div.cp_title-container label {
