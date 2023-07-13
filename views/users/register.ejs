@@ -7,24 +7,35 @@
 
         <main class="r_main">
             <h1 class="r_title"> Crear una cuenta </h1>
-            <p class="r_guide">Los elementos obligatorios estan indicados con un astericso (*)</p>
-            <form action='/registro' method='GET'>
+            <form action='/user/registro' method='POST'>
                 <section class="r_inputs-section">
                     <div class="r_name-container">
                         <label for="name">Nombre</label>
-                        <input  class="r_input-text" type='text' name='name' id='name' placeholder="Escribe aqui tu nombre" required>
+                        <input  class="r_input-text" type='text' name='name' id='name' placeholder="Escribe aqui tu nombre" <% oldErrors.name || "" %>>
                     </div>
+                    <% if(locals && locals.errorMessages && locals.errorMessages.name) {%>
+                        <p class="r_errorMessage"><%= errorMessages.name.msg %></p>
+                    <% } %>
                     <div class="r_email-container">
                         <label for="email">Correo electrónico</label>
-                        <input class="r_input-text" type='email' name='email' id='email' placeholder='Ej: user@gmail.com' required>
+                        <input class="r_input-text" type='email' name='email' id='email' placeholder='Ej: user@gmail.com' value="<%= oldErrors.email || "" %>">
                     </div>
+                    <% if(locals && locals.errorMessages && locals.errorMessages.email) {%>
+                        <p class="r_errorMessage"><%= errorMessages.email.msg %></p>
+                    <% } %>
                     <div class="r_clave-container">
                         <label for="clave1">Contraseña</label>
-                        <input class="r_input-text" type='password' name='clave' id='clave1' placeholder='Escribe aqui tu contraseña' required>
-                        <input class="r_input-text r_clave2" type='password' name='clave' id='clave2' placeholder='Repite tu contraseña' required>
+                        <input class="r_input-text" type='password' name='password' id='clave1' placeholder='Escribe aqui tu contraseña'>
+                    <% if(locals && locals.errorMessages && locals.errorMessages.password) {%>
+                        <p class="r_errorMessage"><%= errorMessages.password.msg %></p>
+                    <% } %>
+                        <input class="r_input-text r_clave2" type='password' name='password2' id='clave2' placeholder='Repite tu contraseña'>
+                    <% if(locals && locals.errorMessages && locals.errorMessages.password2) {%>
+                        <p class="r_errorMessage"><%= errorMessages.password2.msg %></p>
+                    <% } %>
                     </div>
                 </section>
-                <section class="r_options-section">
+                <!-- <section class="r_options-section">
                     <div>
                         <label for="terms-conditions">Al registrarse aceptas nuestros terminos y condiciones</label>
                         <input type='checkbox' name="terms-conditions" id="terms-conditions">
@@ -33,10 +44,10 @@
                         <label for="notifications">Si, me gustaria recibir actualizaciones de E-Maranatha por correo electronico con ofertas exclusivas</label>
                         <input type='checkbox' name="notifications" id="notifications">
                     </div>
-                </section>
-                    <div class="r_button-container">
-                        <button type="submit">Registrate</button>
-                    </div>
+                </section> -->
+                <div class="r_button-container">
+                    <button type="submit">Registrate</button>
+                </div>
             </form>
         </main>
         <%- include('.././partials/footer.ejs') %>

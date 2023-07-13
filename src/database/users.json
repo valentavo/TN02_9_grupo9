@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "name": "Rodrigo",
+    "email": "rodrigol@gmail.com",
+    "password": "pelusa77",
+    "img": "",
+    "access": "personal",
+    "logged": true,
+    "erased": false
+  },
+  {
+    "id": 2,
+    "name": "Laura",
+    "email": "laurita@gmail.com",
+    "password": "guardian9",
+    "img": "",
+    "access": "admin",
+    "logged": false,
+    "erased": false
+  },
+  {
+    "id": 3,
+    "name": "Eros",
+    "email": "erosflugel18@gmail.com",
+    "password": "sdfsdf",
+    "img": "",
+    "access": "personal",
+    "logged": true,
+    "erased": false
+  },
+  {
+    "id": 4,
+    "name": "jerusalen",
+    "email": "deayahyuasca@soy.com",
+    "password": "s",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": true,
+    "password2": "a"
+  },
+  {
+    "id": 5,
+    "name": "fifi",
+    "email": "mimi@soy.com",
+    "password": "r3r3",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  },
+  {
+    "id": 6,
+    "name": "Eros",
+    "email": "andy@es.com",
+    "password": "rwrw",
+    "img": "",
+    "access": "personal",
+    "erased": false
+  }
+]

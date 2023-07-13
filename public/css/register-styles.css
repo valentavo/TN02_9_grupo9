@@ -9,14 +9,12 @@ main.r_main h1.r_title {
     color: #737061;
 }
 
-main.r_main p.r_guide {
-    margin: 40px 0 5px;
-    text-align: left;
-    color: #737061;
-}
-
 main.r_main form {
     margin-top: 20px;
+}
+
+p.r_errorMessage {
+    color: red;
 }
 
 main.r_main form section.r_inputs-section {

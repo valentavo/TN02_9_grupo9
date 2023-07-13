@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('../partials/head.ejs', {title: 'Edicion de Usuario'}) %>
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header.ejs') %>
+
+        <main>
+            <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <section class="eu_inputs-section">
+                    <div>
+                        <input type="file" name="img">
+                    </div>
+                    <div class="eu_name-container">
+                        <label for="name">Nombre</label>
+                        <input  class="eu_input-text" type='text' name='name' id='name' value="<%= user.name %>" placeholder="Escribe aqui tu nombre" required>
+                    </div>
+                    
+                    <% if(locals && locals.errorMessages && locals.errorMessages.name) {%>
+                        <p class="eu_errorMessage"><%= errorMessages.name.msg %></p>
+                    <% } %>
+
+                    <div class="eu_email-container">
+                        <label for="email">Correo electrónico</label>
+                        <input class="eu_input-text" type='email' name='email' id='email' value="<%= user.email %>" placeholder='Ej: user@gmail.com' required>
+                    </div>
+                    
+                    <% if(locals && locals.errorMessages && locals.errorMessages.email) {%>
+                        <p class="eu_errorMessage"><%= errorMessages.email.msg %></p>
+                    <% } %>
+
+                    <div class="eu_clave-container">
+                        <label for="clave1">Contraseña</label>
+                        <input class="eu_input-text" type='password' name='password' id='clave1' placeholder='Contraseña antigua' required>
+
+                        <% if(locals && locals.errorMessages && locals.errorMessages.password) {%>
+                        <p class="eu_errorMessage"><%= errorMessages.password.msg %></p>
+                        <% } %>
+
+                        <input class="eu_input-text eu_clave2" type='password' name='password2' id='clave2' placeholder='Contraseña nueva' required>
+
+                        <% if(locals && locals.errorMessages && locals.errorMessages.password2) {%>
+                        <p class="eu_errorMessage"><%= errorMessages.password2.msg %></p>
+                        <% } %>
+
+                    </div>
+                </section>
+                <div class="eu_button-container">
+                    <button type="submit">Guardar Cambios</button>
+                </div>
+            </form>
+            <form action="/user/edit/<%= user.id %>?_method=DELETE" method="POST">
+                <div class="eu_button-container">
+                    <button type="submit">Eliminar Cuenta</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <%- include('.././partials/footer.ejs') %>
+    </body>
+</html>

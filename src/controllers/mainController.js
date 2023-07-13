@@ -1,12 +1,12 @@
-const fs = require('fs');
-const path = require('path');
-
 //Reader of JSONS
-const JsonParseReadPath = (routePath) => JSON.parse(fs.readFileSync(path.resolve(__dirname, routePath)));
+const jsonPaths = require('../modules/jsonPaths.js');
 
 //Reading products.json and categories.json
-const dataProducts = JsonParseReadPath("../database/products.json");
-const dataCategories = JsonParseReadPath("../database/categories.json");
+const dataProducts = jsonPaths.read("../database/products.json");
+const dataCategories = jsonPaths.read("../database/categories.json");
+
+//Reading users.json
+const usersData = jsonPaths.read('../database/users.json');
 
 //Categories Selector
 const categoriesSelector = (group, element) => dataCategories[group].content[element];
@@ -14,6 +14,7 @@ const categoriesSelector = (group, element) => dataCategories[group].content[ele
 //Selecting the elements of each home category
 const homeType = [categoriesSelector(0, 0), categoriesSelector(0, 1)];
 const homeBrand = [categoriesSelector(1, 0), categoriesSelector(1, 1)];
+
 
 module.exports = {
     index: (req, res) => {
@@ -40,5 +41,11 @@ module.exports = {
         });
 
         return res.render('index.ejs', {categoryProducts: categoryProducts, brandProducts: brandProducts});
+    },
+    admin: (req, res) => {
+
+        const user = usersData.find(row => row.id == req.params.userId);
+
+        res.render('admin.ejs', {user: user});
     }
 }
