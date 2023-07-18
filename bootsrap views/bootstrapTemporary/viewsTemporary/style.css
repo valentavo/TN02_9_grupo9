@@ -17,7 +17,7 @@ header ul{
 header .navbar{
     background-color: white;
     padding: 3rem 2rem;
-    height: 7rem;
+    height: 10vh;
     min-height: 12vh;
     border-bottom: 0.5px solid #b69c7f;
     
@@ -35,7 +35,7 @@ width: 5em;
     background-color:#b69c7f;
     border: none;
     padding: 10px 6px;
-    margin-bottom: 100px;
+    transform: translateY(-55px);
     outline: none;
 }
 .navbar-toggler span{
@@ -71,6 +71,7 @@ width: 5em;
     text-decoration: none;
     letter-spacing: 1.5px; 
     
+
 }
 .navbar-expand-lg .navbar-nav .nav-link:hover{
     color:#fff;
@@ -113,6 +114,7 @@ width: 5em;
     color: #737061;
     font-family: 'Karla', sans-serif;
     font-size: 1rem;
+    border-color: #b69c7f;
     text-decoration: none;
     border-radius: 3%;
     width: 100%;
@@ -121,10 +123,23 @@ width: 5em;
 #buscador:hover {
     border-radius: 3%;
     border-color: #b69c7f;
-    
 }
 
 
 @media (min-width: 361px) {
+    .logo{
+        transform: translateY(-55px);
+    }  
     
 }
+@media (min-width: 768px) {
+    .logo{
+        transform: translateY(-55px);
+    } 
+}
+@media (min-width: 992px) {
+    .logo{
+        transform: translateY(-1px);
+    } 
+}
+
