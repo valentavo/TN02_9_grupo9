@@ -112,17 +112,24 @@ width: 5em;
     border-radius: 3%;
 }
 #buscador {
+    height: 45px;
+    outline: none;
+    background-color: transparent;
     color: #737061;
     font-family: 'Karla', sans-serif;
     font-size: 1rem;
-    border-color: #b69c7f;
-    text-decoration: none;
+    border-color: 2px solid #b69c7f;
     border-radius: 3%;
     width: 100%;
     transition: all 0.4ms;
 }
 #buscador:hover {
     border-radius: 3%;
+    border-color: #b69c7f;
+}
+#buscador:focus{
+    outline: none;
+    box-shadow: none;
     border-color: #b69c7f;
 }
 #navbarSupportedContent{
@@ -159,6 +166,7 @@ footer {
     
 }
 
+
 @media (min-width: 361px) {
     .logo{
         transform: translateY(-55px);
@@ -175,5 +183,4 @@ footer {
         transform: translateY(-1px);
     } 
 }
-
 
