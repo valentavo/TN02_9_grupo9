@@ -119,18 +119,29 @@ width: 5em;
     font-family: 'Karla', sans-serif;
     font-size: 1rem;
     border-color: 2px solid #b69c7f;
-    border-radius: 3%;
+    border-right: none;
+    border-radius: 10px 0px 0px 10px;
     width: 100%;
     transition: all 0.4ms;
 }
 #buscador:hover {
-    border-radius: 3%;
     border-color: #b69c7f;
+   
 }
 #buscador:focus{
     outline: none;
     box-shadow: none;
     border-color: #b69c7f;
+}
+#searchicon{
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color:#b69c7f;
+    color: #fff;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 0;
+
 }
 #navbarSupportedContent{
     background-color: white;
