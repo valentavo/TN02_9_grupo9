@@ -16,6 +16,7 @@ header ul{
 }
 header .navbar{
     background-color: white;
+    font-weight: 500;
     padding: 3rem 2rem;
     height: 10vh;
     min-height: 12vh;
@@ -91,6 +92,7 @@ width: 5em;
     margin-top: 1px;
     margin-left: 1px;
     margin-right: 0;
+    transition: all 0.4ms;
 }
 .navbar-nav .btn:hover{
     color:#fff;
@@ -102,8 +104,7 @@ width: 5em;
     font-size: 1rem;
     text-decoration: none;
     letter-spacing: 1px; 
-    transition: 10ms;
-
+    transition: all 0.4ms;
 }
 #nav-nav-boton:hover{
     color:#fff;
@@ -118,13 +119,45 @@ width: 5em;
     text-decoration: none;
     border-radius: 3%;
     width: 100%;
-
+    transition: all 0.4ms;
 }
 #buscador:hover {
     border-radius: 3%;
     border-color: #b69c7f;
 }
-
+#navbarSupportedContent{
+    background-color: white;
+    width: 100%;  
+}
+footer {
+    background-color: #b69c7f;
+    border-top: 0.5px solid #E8E2D5;
+    color: white;
+    text-decoration: none;
+    font-weight: 200;  
+}
+#social{
+    color:  white;
+    font-size: 23px;
+    text-decoration: none;
+    transition: all 0.4ms;
+}
+#social:hover {
+    color:#b69c7f;
+    background-color: white;
+    border-radius: 10%;
+    height: auto;
+}
+#footlinks{
+    color:  white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.4ms;
+}
+#footlinks:hover {
+    text-decoration:underline;
+    
+}
 
 @media (min-width: 361px) {
     .logo{
@@ -142,4 +175,5 @@ width: 5em;
         transform: translateY(-1px);
     } 
 }
+
 
