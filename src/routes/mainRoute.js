@@ -3,6 +3,7 @@ const router = express.Router();
 const mainController = require('../controllers/mainController.js');
 const adminUserAccess = require('../middlewares/adminUserAccess.js');
 
+//Home
 router.get('/', mainController.index);
 
 // Acceso Administrador

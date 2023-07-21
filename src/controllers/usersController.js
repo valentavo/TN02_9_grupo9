@@ -9,6 +9,24 @@ module.exports = {
     login: (req, res) =>{
         return res.render('./users/login.ejs');
     },
+
+    loginProcess: (req, res) => {
+       const user = usersData.find(us => us.name == req.body.nombre);
+       if (user && user.password == req.body.clave) {
+        return res.redirect(`/user/profile/${user.id}`);
+       }
+       else {
+        return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña incorrectos, por favor volver a intentar"} );
+       }
+    },
+
+    profile: (req, res) => {
+
+        const user = usersData.find(us => us.id == req.params.userId);
+
+        return res.render('./users/perfil.ejs', {user: user});
+    },
+
     register: (req, res) =>{
         return res.render('./users/register.ejs', {oldErrors: ""});
     },

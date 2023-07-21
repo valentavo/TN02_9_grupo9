@@ -23,7 +23,7 @@ router.get('/cart', productsController.cart);
 router.get('/detail/:productId', productsController.details);
 
 // Listado
-router.get('/List/', productsController.list);
+router.get('/list', productsController.list);
 
 // Creacion
 router.get('/create', productsController.create);
