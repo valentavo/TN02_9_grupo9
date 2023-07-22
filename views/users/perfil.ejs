@@ -11,7 +11,7 @@
             </div>
             <h2>Hola <%= user.name %></h2>
             <div>
-                <a href="/user/edit/<%=user.id %>">Editar perfil</a>
+                <a href="/user/edit">Editar perfil</a>
             </div>
             <% if(user.access == 'admin') { %>
                 <div>
@@ -19,7 +19,7 @@
                 </div>
             <% } %>
             <div>
-                <a href="/">Cerrar Sesion</a>
+                <a href="/user/logout">Cerrar Sesion</a>
             </div>
         </main>
 

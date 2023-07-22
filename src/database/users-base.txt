@@ -6,7 +6,7 @@
     "password": "pelusa77",
     "img": "",
     "access": "personal",
-    "logged": false,
+    "logged": true,
     "erased": false
   },
   {
@@ -16,7 +16,7 @@
     "password": "guardian9",
     "img": "",
     "access": "admin",
-    "logged": true,
+    "logged": false,
     "erased": false
   },
   {
@@ -46,17 +46,15 @@
     "password": "r3r3",
     "img": "",
     "access": "personal",
-    "logged": false,
     "erased": false
   },
   {
     "id": 6,
-    "name": "Gabo",
+    "name": "Eros",
     "email": "andy@es.com",
     "password": "rwrw",
     "img": "",
     "access": "personal",
-    "logged": true,
-    "erased": true
+    "erased": false
   }
 ]
