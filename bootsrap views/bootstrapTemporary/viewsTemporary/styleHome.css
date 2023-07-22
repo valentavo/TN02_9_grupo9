@@ -1,0 +1,204 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+
+.mainHome {
+    background-image: url(BackgroundHome.png);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+
+}
+.mainHome h1{
+    font-size: 4rem;
+    color: white;
+    font-weight: 400;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    text-align: center;
+}
+.mainHome .nameH{
+    font-size: 2rem;
+    font-weight: 100;
+    color: white;
+    font-family:  'Ysabeau Infant', sans-serif;
+    text-align: center;
+}
+.mbtn1{
+    height: 50px;
+    width: fit-content;
+    font-family:  'Ysabeau Infant', sans-serif;
+    border: 1px solid white;
+    padding: 8px 8px 4px 8px;
+    color: white;
+    background: transparent;
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+    
+}
+.mbtn1:hover{
+   transform: scale(1.2);
+   background-color: transparent;
+   outline: none;
+   border:1px solid white;
+   color: white;
+}
+.aboutH{
+    background-image: url(backgroundH2.png); 
+    background-size:cover;
+    height: 90vh;
+    width: 100%;
+}
+.aboutH .line{
+    height: 3px;
+    width: 30%;
+    background-color:#b69c7f;
+}
+.mbtn2{
+    height: 50px;
+    width: fit-content;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:#737061;
+    background-color: #f7f6f4;
+    border: 1px solid ;
+    padding: 8px 8px 4px 8px;
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.mbtn2:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border:1px solid #b69c7f;
+    outline: none;
+    border-radius: 15px;
+    transform: scale(1.2);
+}
+.aboutH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+    
+}
+.aboutH p{
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #737061 ;
+    font-family:  'Ysabeau Infant', sans-serif;
+    
+}
+.banerH{
+    background-color: white;
+}
+.banerH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.banerH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.banerH .card{
+    border:none;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: #b69c7f;
+}
+.banerH h2{
+    font-family: 'Karla', sans-serif;
+    color: white;
+    font-weight: lighter;
+    padding: 10px 0px;
+}
+.banerH svg{
+    font-size: 45px;
+    color: white;
+}
+.productH{
+    background-color: white;
+}
+.productH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.productH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy{
+    background-color: white;
+}
+.productsBuy h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+
+}
+.productsBuy .card-body{
+    border: 1px dashed #E8E2D5;
+}
+.productsBuy .productNameH{
+    margin: 0;
+    color: #49483D;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+
+}
+.productsBuy .productSizeH{
+    color: grey;
+    font-family: 'Karla', sans-serif;
+}
+.productsBuy .productPriceH{
+    color: #49483D;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+}
+.productsBuy .productCartBtn{
+    height: 50px;
+    width: 50%;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productsBuy .productCartBtn:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
