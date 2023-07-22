@@ -18,12 +18,16 @@ const uploadFile = multer({ storage });
 
 //Acceso Usuario
 router.get('/login', usersController.login);
+router.post('/login', usersController.loginProcess);
+
+//Perfil Usuario
+router.get('/profile/:userId', usersController.profile);
 
 //Creacion Registro Usuario
 router.get('/registro', usersController.register);
 router.post('/registro', registerValidation, usersController.registerProcess);
 
-//Edicion Usuarrio
+//Edicion Usuario
 router.get('/edit/:userId', usersController.edit);
 router.put('/edit/:userId', registerValidation, uploadFile.single('img'), usersController.editProcess);
 

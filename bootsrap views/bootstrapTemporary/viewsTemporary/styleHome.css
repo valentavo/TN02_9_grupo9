@@ -43,12 +43,12 @@
    color: white;
 }
 .aboutH{
-    background-image: none; 
+    background-image: url(backgroundH2.png); 
     background-size:cover;
     height: 90vh;
     width: 100%;
 }
-.line{
+.aboutH .line{
     height: 3px;
     width: 30%;
     background-color:#b69c7f;
@@ -86,4 +86,119 @@
     color: #737061 ;
     font-family:  'Ysabeau Infant', sans-serif;
     
+}
+.banerH{
+    background-color: white;
+}
+.banerH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.banerH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.banerH .card{
+    border:none;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: #b69c7f;
+}
+.banerH h2{
+    font-family: 'Karla', sans-serif;
+    color: white;
+    font-weight: lighter;
+    padding: 10px 0px;
+}
+.banerH svg{
+    font-size: 45px;
+    color: white;
+}
+.productH{
+    background-color: white;
+}
+.productH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.productH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy{
+    background-color: white;
+}
+.productsBuy h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.productsBuy .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+
+}
+.productsBuy .card-body{
+    border: 1px dashed #E8E2D5;
+}
+.productsBuy .productNameH{
+    margin: 0;
+    color: #49483D;
+    font-family: 'Karla', sans-serif;
+    font-weight: 200;
+
+}
+.productsBuy .productSizeH{
+    color: grey;
+    font-family: 'Karla', sans-serif;
+}
+.productsBuy .productPriceH{
+    color: #49483D;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+}
+.productsBuy .productCartBtn{
+    height: 50px;
+    width: 50%;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productsBuy .productCartBtn:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
 }

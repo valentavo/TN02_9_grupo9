@@ -7,7 +7,7 @@
 
         <main class="l_login-main">
             <h1>Ingresa tus datos</h1>
-            <form class="l_login-formulario" action="/user/login" method="GET">
+            <form class="l_login-formulario" action="/user/login" method="POST">
             
                 <section class="l_texto-registro">
                     <div class="l_nombre">
@@ -16,6 +16,9 @@
                     <div class="l_clave">
                         <input type="password" name="clave" placeholder="Contraseña">
                     </div>
+                    <% if(locals && locals.errorMessage) {%>
+                        <p class="l_errorMessage"><%= errorMessage%></p>
+                    <% } %>
                     <div class="l_recordar">
                         <label for="recordar">Recuerda mis datos</label>
                         <input type="checkbox" name="recordar" id="recordar">
