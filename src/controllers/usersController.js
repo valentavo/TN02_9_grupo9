@@ -28,7 +28,8 @@ module.exports = {
         user.logged = true;
         req.session.userLogged = user;
         
-        // jsonPaths.write(usersPath, usersData);
+        //Session Cookie
+        if(req.body.recordar) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
 
         return res.redirect(`/user/profile`);
        }
@@ -41,6 +42,7 @@ module.exports = {
 
         usersData.find(us => us.id == req.session.userLogged.id).logged = false;
         
+        res.clearCookie('usuarioGuardado');
         req.session.destroy();
         return res.redirect('/');
     },
@@ -57,6 +59,8 @@ module.exports = {
     registerProcess: (req, res) =>{
 
         const errors = validationResult(req);
+
+        console.log(errors);
 
         if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
 

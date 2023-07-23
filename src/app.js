@@ -4,6 +4,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 //Routes
 const mainRoute = require('./routes/mainRoute.js');
@@ -12,6 +13,7 @@ const usersRoute = require('./routes/usersRoute.js');
 
 //Middlewares
 // const logsMiddleware = require('./middlewares/userLogs.js');
+const userLogged = require('./middlewares/userLogged.js');
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -31,6 +33,11 @@ app.use( session({
     resave: false,
     saveUninitialized: false
 }))
+
+//CookieParser config
+app.use(cookieParser());
+
+app.use(userLogged);
 
 app.listen(3009, () => {
     console.log('Servidor corriendo en el puerto 3009')
