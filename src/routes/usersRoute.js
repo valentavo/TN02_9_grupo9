@@ -14,7 +14,7 @@ const guestMiddleware = require('../middlewares/guestMiddleware.js');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        return cb(null, path.resolve(__direname, "../../public/img"))
+        return cb(null, path.resolve(__dirname, "../../public/img/profileImg"))
     },
     filename: (req, file, cb) => {
         return cb(null, `${Date.now()}_img${path.extname(file.originalname)}`);

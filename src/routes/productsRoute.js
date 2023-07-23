@@ -7,11 +7,11 @@ const productValidation = require('../middlewares/productValidation.js');
 const adminUserAccess = require('../middlewares/adminUserAccess.js');
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, path.resolve(__dirname, '../../public/img'));
+    destination: (req, file, cb) => {
+        return cb(null, path.resolve(__dirname, '../../public/img'));
     },
-    filename: function(req, file, cb) {
-        cb(null, `${Date.now()}_img${path.extname(file.originalname)}`);
+    filename: (req, file, cb) => {
+        return cb(null, `${Date.now()}_img${path.extname(file.originalname)}`);
     }
 });
 

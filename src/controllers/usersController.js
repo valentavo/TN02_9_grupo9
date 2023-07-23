@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 //Parseando los datos
 const usersPath = '../database/users.json';
-const usersData = jsonPaths.read(usersPath);
+let usersData = jsonPaths.read(usersPath);
 
 //procesando datos again porque no tengo db
 const User = require('../models/Users.js');
@@ -17,7 +17,7 @@ module.exports = {
 
     loginProcess: (req, res) => {
 
-        const user = User.findByField('name', req.body.nombre);
+        const user = User.findByField('email', req.body.nombre);
 
         //Verifiying the passwords
         if (user && bcrypt.compareSync(req.body.clave, user.password)) {
@@ -99,6 +99,7 @@ module.exports = {
 
         user.name = req.body.name;
         user.email = req.body.email;
+        (req.file && req.file.filename) ? user.img = req.file.filename : "";
 
         const password = bcrypt.compareSync(req.body.password, user.password) ? bcrypt.hashSync(req.body.password2, 10) : undefined;
 
@@ -109,10 +110,10 @@ module.exports = {
             return res.render('./users/editUser.ejs', {user: user});
         }
 
-        // user.img = req.body.img;
-
         //Reescribiendo la base de datos con los archivos actualizados
+
         jsonPaths.write(usersPath, usersData);
+        usersData = jsonPaths.read(usersPath);
 
         return res.redirect('/user/login');
     },
@@ -124,6 +125,7 @@ module.exports = {
 
         //Reescribiendo la base de datos con los archivos actualizados
         jsonPaths.write(usersPath, usersData);
+        usersData = jsonPaths.read(usersPath);
         
         return res.redirect('/user/login');
     }
