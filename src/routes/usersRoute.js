@@ -7,7 +7,8 @@ const router = express.Router();
 const usersController = require('../controllers/usersController.js');
 
 //Middlewares
-const registerValidation = require('../middlewares/registerValidation.js');
+// const registerValidation = require('../middlewares/registerValidation.js');
+const registerValidation = (req, res, next) => next();
 const authMiddleware = require('../middlewares/authMiddleware.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
 

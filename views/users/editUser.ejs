@@ -7,7 +7,7 @@
         <%- include('../partials/header.ejs') %>
 
         <main>
-            <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/user/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                 <section class="eu_inputs-section">
                     <div>
                         <input type="file" name="img">
@@ -31,7 +31,9 @@
                     <% } %>
 
                     <div class="eu_clave-container">
+
                         <label for="clave1">Contraseña</label>
+                        
                         <input class="eu_input-text" type='password' name='password' id='clave1' placeholder='Contraseña antigua' required>
 
                         <% if(locals && locals.errorMessages && locals.errorMessages.password) {%>

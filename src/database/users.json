@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Rodrigo",
     "email": "rodrigol@gmail.com",
-    "password": "pelusa77",
+    "password": "$2a$10$zqcynDA2QppSNaJx77yjjeX2f0BigA8W9rMquzw9oXmwWwGJ1cnx2",
     "img": "",
     "access": "personal",
     "logged": false,
@@ -13,50 +13,40 @@
     "id": 2,
     "name": "Laura",
     "email": "laurita@gmail.com",
-    "password": "guardian9",
+    "password": "$2a$10$7PMJyyVAsHt1bX8Fl20KFuaZNVxJb22NYXeicsEtO9ugZNKd2Dmni",
     "img": "",
-    "access": "admin",
-    "logged": true,
+    "access": "personal",
+    "logged": false,
     "erased": false
   },
   {
     "id": 3,
     "name": "Eros",
-    "email": "erosflugel18@gmail.com",
-    "password": "sdfsdf",
+    "email": "erosflugel18@wawa.com",
+    "password": "$2a$10$1CdKRGoCQyHVUx5LadAAduoPeTDOPs5DngKOpIdFm4BW0otRp1xn.",
     "img": "",
     "access": "personal",
-    "logged": true,
+    "logged": false,
     "erased": false
   },
   {
     "id": 4,
     "name": "jerusalen",
     "email": "deayahyuasca@soy.com",
-    "password": "s",
-    "img": "",
-    "access": "personal",
-    "logged": false,
-    "erased": true
-  },
-  {
-    "id": 5,
-    "name": "fifi",
-    "email": "mimi@soy.com",
-    "password": "r3r3",
+    "password": "$2a$10$MI16nFt.xdllFMxVxYN0dO9MztoMcfRorI5/vIacVVqJKKY1q8D6e",
     "img": "",
     "access": "personal",
     "logged": false,
     "erased": false
   },
   {
-    "id": 6,
-    "name": "Gabo",
-    "email": "andy@es.com",
-    "password": "rwrw",
+    "id": 5,
+    "name": "fifi",
+    "email": "mimi@soy.com",
+    "password": "$2a$10$A8Zsle6elQ5Ko2p6kLYxbetoR6bKzPAmTSZVXz5y.Y7vQ.bb2lXa2",
     "img": "",
-    "access": "personal",
-    "logged": true,
-    "erased": true
+    "access": "admin",
+    "logged": false,
+    "erased": false
   }
 ]

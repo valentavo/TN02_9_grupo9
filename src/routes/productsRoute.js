@@ -4,6 +4,7 @@ const path = require('path');
 const router = express.Router();
 const productsController = require('../controllers/productsController.js');
 const productValidation = require('../middlewares/productValidation.js');
+const adminUserAccess = require('../middlewares/adminUserAccess.js');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -23,17 +24,17 @@ router.get('/cart', productsController.cart);
 router.get('/detail/:productId', productsController.details);
 
 // Listado
-router.get('/list', productsController.list);
+router.get('/list', adminUserAccess, productsController.list);
 
 // Creacion
-router.get('/create', productsController.create);
+router.get('/create', adminUserAccess, productsController.create);
 router.post('/create', uploadFile.single('productImg'), productValidation, productsController.createProcess);
 
 // Edicion
-router.get('/edit/:productId', productsController.edit);
+router.get('/edit/:productId', adminUserAccess, productsController.edit);
 router.put('/edit/:productId', uploadFile.single('productImg'), productsController.editProcess);
 
 // Eliminacion
-router.delete('/delete/:productId', productsController.delete);
+router.delete('/delete/:productId', adminUserAccess, productsController.delete);
 
 module.exports = router;

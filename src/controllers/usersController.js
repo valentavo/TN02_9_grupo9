@@ -1,9 +1,13 @@
 const jsonPaths = require('../modules/jsonPaths.js');
 const {validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 //Parseando los datos
 const usersPath = '../database/users.json';
 const usersData = jsonPaths.read(usersPath);
+
+//procesando datos again porque no tengo db
+const User = require('../models/Users.js');
 
 module.exports = {
     login: (req, res) =>{
@@ -12,11 +16,14 @@ module.exports = {
     },
 
     loginProcess: (req, res) => {
-        //Find the user
-        const user = usersData.find(us => us.name == req.body.nombre);
+
+        const user = User.findByField('name', req.body.nombre);
 
         //Verifiying the passwords
-        if (user && user.password == req.body.clave) {
+        if (user && bcrypt.compareSync(req.body.clave, user.password)) {
+
+        //Eliminando la contrasenia de sessions
+        delete user.password;
 
         user.logged = true;
         req.session.userLogged = user;
@@ -31,12 +38,14 @@ module.exports = {
     },
 
     logout: (req, res) => {
+
+        usersData.find(us => us.id == req.session.userLogged.id).logged = false;
+        
         req.session.destroy();
         return res.redirect('/');
     },
 
     profile: (req, res) => {
-
         const user = usersData.find(us => us.id == req.session.userLogged.id);
 
         return res.render('./users/perfil.ejs', {user: user});
@@ -55,9 +64,10 @@ module.exports = {
             id: usersData.length + 1,
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             img: "",
             access: "personal",
+            logged: false,
             erased: false
         };
 
@@ -79,13 +89,23 @@ module.exports = {
 
         const errors = validationResult(req);
 
+       // console.log(errors); //estan saliendo todos undefined
+
         if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user})
 
-        const currentUser = usersData.find(row => row.id == req.session.userLogged.id);
+        user.name = req.body.name;
+        user.email = req.body.email;
 
-        for (let property in req.body) {
-            currentUser[property] = req.body[property];
+        const password = bcrypt.compareSync(req.body.password, user.password) ? bcrypt.hashSync(req.body.password2, 10) : undefined;
+
+        if (password) {
+            user.password = password;
         }
+        else{
+            return res.render('./users/editUser.ejs', {user: user});
+        }
+
+        // user.img = req.body.img;
 
         //Reescribiendo la base de datos con los archivos actualizados
         jsonPaths.write(usersPath, usersData);
