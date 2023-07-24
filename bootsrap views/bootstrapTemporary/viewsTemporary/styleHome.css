@@ -42,6 +42,9 @@
    border:1px solid white;
    color: white;
 }
+.carousel-control-prev-icon{
+    color: #737061;
+}
 .aboutH{
     background-image: url(backgroundH2.png); 
     background-size:cover;
@@ -201,4 +204,82 @@
     color: #b69c7f;
     background: transparent;
     border-radius: 15px;
+}
+/*-- discount  --> */
+.discount{
+    background-color: #b69c7f;
+    color: white;
+    
+}
+.discount h1{
+    font-family:'Ysabeau Infant', sans-serif ;
+    font-size: 2rem;
+    font-weight: 200;
+}
+.dbtnH {
+    height: 50px;
+    width: fit-content;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: #b69c7f;
+    border-radius: 15px;
+    margin: 0 auto;
+    display: block;
+    font-weight: 100;
+    transition: all 0.4s;
+}
+.dbtnH:hover{
+    transform: scale(1.2);
+    outline: none;
+    color: #b69c7f;
+    background-color: white;
+    border: #fff;
+}
+/*---- BOTTOM BANER ----*/
+.bottomH{
+    background-color: white;
+}
+.bottomH .head1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.bottomH .per1{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+}
+.bottomH .head2{
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'Karla', sans-serif;
+
+}
+.bottomH .per2{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+}
+.bottomH svg{
+    font-size: 45px;
+}
+.bottomH .card{
+    border-radius: 15px;
+    color: #737061;
+    border: none;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.bottomH .card-body{
+    border: 1px dashed #E8E2D5;
+}
+.bottomH .card-body:hover{
+    background-color: #b69c7f;
+    color: white;
 }
