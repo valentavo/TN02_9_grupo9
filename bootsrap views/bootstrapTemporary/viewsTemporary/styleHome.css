@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
-
+/*-- CAROUSEL --> */
 .mainHome {
     background-image: url(BackgroundHome.png);
     background-size: cover;
@@ -45,16 +45,12 @@
 .carousel-control-prev-icon{
     color: #737061;
 }
+/*-- ABOUT --> */
 .aboutH{
     background-image: url(backgroundH2.png); 
     background-size:cover;
     height: 90vh;
     width: 100%;
-}
-.aboutH .line{
-    height: 3px;
-    width: 30%;
-    background-color:#b69c7f;
 }
 .mbtn2{
     height: 50px;
@@ -80,16 +76,17 @@
     font-size: 2.5rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    letter-spacing: 1px;
+    font-family: 'Ysabeau Infant', sans-serif ;
     
 }
 .aboutH p{
     font-size: 1.2rem;
     font-weight: 100;
     color: #737061 ;
-    font-family:  'Ysabeau Infant', sans-serif;
-    
+    font-family:'Ysabeau Infant', sans-serif;
 }
+/*-- BANER  --> */
 .banerH{
     background-color: white;
 }
@@ -97,14 +94,15 @@
     font-size: 2.5rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
 
 }
 .banerH p{
     font-size: 1rem;
     color: #737061 ;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 
 }
 .banerH .card{
@@ -114,7 +112,7 @@
     background-color: #b69c7f;
 }
 .banerH h2{
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
     color: white;
     font-weight: lighter;
     padding: 10px 0px;
@@ -123,6 +121,7 @@
     font-size: 45px;
     color: white;
 }
+/*-- PRODUCT  --> */
 .productH{
     background-color: white;
 }
@@ -130,16 +129,18 @@
     font-size: 2.5rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
 
 }
 .productH p{
     font-size: 1rem;
     color: #737061 ;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family:'Ysabeau Infant', sans-serif ;
 
 }
+/*-- PRODUCT BUY  --> */
 .productsBuy{
     background-color: white;
 }
@@ -147,14 +148,15 @@
     font-size: 2.5rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
 
 }
 .productsBuy p{
     font-size: 1rem;
     color: #737061 ;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 
 }
 .productsBuy .card{
@@ -169,18 +171,18 @@
 .productsBuy .productNameH{
     margin: 0;
     color: #49483D;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
     font-weight: 200;
 
 }
 .productsBuy .productSizeH{
     color: grey;
-    font-family: 'Karla', sans-serif;
+    font-family:'Ysabeau Infant', sans-serif ;
 }
 .productsBuy .productPriceH{
     color: #49483D;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 }
 .productsBuy .productCartBtn{
     height: 50px;
@@ -215,10 +217,12 @@
     font-family:'Ysabeau Infant', sans-serif ;
     font-size: 2rem;
     font-weight: 200;
+    letter-spacing: 1px;
 }
 .dbtnH {
     height: 50px;
     width: fit-content;
+    font-family: 'Ysabeau Infant', sans-serif ;
     letter-spacing: 1px;
     outline: none;
     border: none;
@@ -237,6 +241,7 @@
     background-color: white;
     border: #fff;
 }
+/*-- discount  --> */
 /*---- BOTTOM BANER ----*/
 .bottomH{
     background-color: white;
@@ -245,25 +250,26 @@
     font-size: 2.5rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
 
 }
 .bottomH .per1{
     font-size: 1rem;
     color: #737061 ;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 }
 .bottomH .head2{
     font-size: 2rem;
     font-weight: 300;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 
 }
 .bottomH .per2{
     font-size: 1rem;
     font-weight: 200;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif ;
 }
 .bottomH svg{
     font-size: 45px;
@@ -283,3 +289,77 @@
     background-color: #b69c7f;
     color: white;
 }
+/*---- BOTTOM BANER ----*/
+/*---- SUBSCRIBITE ----*/
+.subscribite {
+    background-color: white;
+    
+}
+.subscribite .head3{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+}
+.subscribite .per3{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    color: #737061;
+}
+.subscribite .subscribiteLabel{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+
+.subscribite .subscribiteBtn{
+    height: 55px;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    width: fit-content;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color: white;
+    color:#b69c7f;
+    border-radius: 15px;
+    display: block;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+.subscribite .subscribiteBtn:hover{
+    transform: scale(1.1);
+    outline: none;
+    color: #b69c7f;
+    background-color:white;
+    border: #fff;
+}
+.subscribite .formSubscribe{
+    background-color: #b69c7f;
+    color: #fff;
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 5px 0px 2px 0px;
+}
+.subscribite .formSubscribe input{
+    height: 45px;
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.subscribite .formSubscribe input:hover {
+    border-color: #b69c7f;
+   
+}
+.subscribite .formSubscribe input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+/*---- SUBSCRIBITE ----*/
