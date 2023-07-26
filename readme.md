@@ -9,7 +9,7 @@ El salón de estética está dirigido a un público variado que valora la bellez
 ## Wireframes
 
 - [Paleta de colores](https://coolors.co/palette/f7f6f4-e8e2d5-c9a885-b69c7f-737061 "Selected by Florencia Schdmit")
-- [Tipografia](https://fonts.google.com/specimen/Karla?query=karla "Selected by Florencia Schmidt")
+- [Tipografia](https://fonts.google.com/specimen/Karla?query=karla, https://fonts.google.com/specimen/Ysabeau+Infant?query=Ysabeau+Infant "Selected by Florencia Schmidt")
 
 - Version **Desktop**
 
