@@ -47,10 +47,8 @@
 }
 /*-- ABOUT --> */
 .aboutH{
-    background-image: url(backgroundH2.png); 
-    background-size:cover;
-    height: 90vh;
-    width: 100%;
+    background-color:#f7f6f4;
+
 }
 .mbtn2{
     height: 50px;
