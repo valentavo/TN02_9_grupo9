@@ -36,41 +36,38 @@
     border:1px solid #b69c7f;
    
 }
-.crearCuenta .form{
-    background-color:aliceblue;
+.crearCuenta form{
+    background-color:white;
     color: #b69c7f;
     padding: 10px;
     padding-bottom: 30px;
     margin: 5px 0px 2px 0px;
 }
-.crearCuenta .form input{
-    height: 45px;
+.crearCuenta form input{
     outline: none;
     color: #737061;
     font-family: 'Ysabeau Infant', sans-serif ;
     font-size: 1rem;
     border-color: 1px solid white;
     border-radius: 10px;
-    width: 100%;
+    width: fit-content;
     transition: all 0.4ms;
 }
-.crearCuenta .form input:hover {
+.crearCuenta form input:hover {
     border-color: #b69c7f;
    
 }
-.crearCuenta .form input:focus{
+.crearCuenta form input:focus{
     outline: none;
     box-shadow: none;
     border-color: #b69c7f;
 }
 
 .terminosYC{
-
     font-family: 'Ysabeau Infant', sans-serif ;
     font-size: 1rem;
     color:#737061;
     font-weight: 300;
-    
 }
 .terminosYC a{
     color: #b69c7f;
