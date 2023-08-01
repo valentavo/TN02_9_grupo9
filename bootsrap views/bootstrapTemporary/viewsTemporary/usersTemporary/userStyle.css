@@ -63,3 +63,15 @@
     box-shadow: none;
     border-color: #b69c7f;
 }
+
+.terminosYC{
+
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    color:#737061;
+    font-weight: 300;
+    
+}
+.terminosYC a{
+    color: #b69c7f;
+}
