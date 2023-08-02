@@ -320,7 +320,7 @@
     outline: none;
     border: none;
     background-color: white;
-    color:#b69c7f;
+    color:#737061;
     border-radius: 15px;
     display: block;
     font-weight: 400;
@@ -329,13 +329,13 @@
 .subscribite .subscribiteBtn:hover{
     transform: scale(1.1);
     outline: none;
-    color: #b69c7f;
+    color: #737061;
     background-color:white;
     border: #fff;
 }
 .subscribite .formSubscribe{
-    background-color: #b69c7f;
-    color: #fff;
+    background-color: #f9f9f9;
+    color:#737061 ;
     padding: 10px;
     padding-bottom: 30px;
     margin: 5px 0px 2px 0px;
