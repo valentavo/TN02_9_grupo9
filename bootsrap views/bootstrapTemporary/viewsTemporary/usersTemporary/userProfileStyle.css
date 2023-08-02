@@ -2,28 +2,33 @@
 body {
 	background: #f9f9f9;
 	font-family: 'Ysabeau Infant', sans-serif ;
-}
 
+}
 .profile-tab-nav {
 	min-width: 250px;
 }
-
-.tab-content {
-	flex: 1;
-}
-
 .form-group {
 	margin-bottom: 1.5rem;
 }
 
-.nav-pills a.nav-link {
+.nav-pills button.nav-link {
+	letter-spacing: 1px;
 	padding: 15px 20px;
 	border-bottom: 1px solid #ddd;
 	border-radius: 0;
-	color: #333;
+	color: #737061;
+	font-weight: 300;
+	transition: all 0.2s;
 }
-.nav-pills a.nav-link i {
-	width: 20px;
+.nav-pills button.nav-link:hover {
+	outline: none;
+    color: white;
+    background-color:#b69c7f;
+    border: #b69c7f;
+}
+.nav-pills button.active.nav-link {
+	background-color:#b69c7f;
+    color:white;
 }
 
 .img-circle img {
@@ -31,4 +36,37 @@ body {
 	width: 100px;
 	border-radius: 100%;
 	border: 5px solid #fff;
+}
+
+button.editar{
+	height: 55px;
+    width: fit-content;
+	margin-right: 10px;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color:#b69c7f ;
+    color:white;
+    border-radius: 15px;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+
+button.editar:hover{
+    outline: none;
+    color: #b69c7f;
+    background-color:white;
+    border: 1px solid #b69c7f;
+}
+
+.userProfile h4{
+	font-size: 1.5rem;
+    font-weight: 300;
+    color: #737061;
+    letter-spacing: 1px;
+}
+.userProfile h3{
+	font-size: 1.5rem;
+    font-weight: 200;
+    color: #737061;
 }

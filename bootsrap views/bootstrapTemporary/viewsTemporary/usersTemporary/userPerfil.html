@@ -102,43 +102,44 @@
     </header>
 <!-- HEADER--> 
 <!-- MAIN --> 
-<section class="py-3 my-3 mb-5">
-    <div class="container">
-        <h1 class="mb-5">Bienvenido Usuario!</h1>
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
-            <div class="profile-tab-nav border-right">
+<section class="py-4 my-3 mb-5">
+    <div class="container userProfile">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex py-3 px-3 mt-3 mb-3">
+            <div class="profile-tab-nav border-right px-2">
                 <div class="p-4">
                     <div class="img-circle text-center mb-3">
                         <img src="" alt="Image" class="shadow">
                     </div>
                     <h4 class="text-center">Usuario Apellido</h4>
                 </div>
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true" >
-                        <i class="text-center me-1 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+               
+                <div class="nav flex-column nav-pills me-3 ms-3 mb-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <i class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                          </svg></i> 
-                        Perfil
-                    </a>
-                    <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-                        <i class="text-center me-1 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-lock2-fill" viewBox="0 0 16 16">
+                            </svg></i> Perfil
+                        </button>
+
+                        <button class="nav-link" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false">
+                            <i class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-lock2-fill" viewBox="0 0 16 16">
                             <path d="M7 6a1 1 0 0 1 2 0v1H7V6z"/>
                             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-2 6v1.076c.54.166 1 .597 1 1.224v2.4c0 .816-.781 1.3-1.5 1.3h-3c-.719 0-1.5-.484-1.5-1.3V8.3c0-.627.46-1.058 1-1.224V6a2 2 0 1 1 4 0z"/>
-                          </svg></i> 
-                        Password
-                    </a>
-                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
-                        <i class="text-center me-1 mx-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
-                            <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-                          </svg></i> 
-                        Mis compras
-                    </a>
+                            </svg></i> Contrasenia
+                        </button>
 
+                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <i class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                            <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                            </svg></i> Mis compras
+                        </button>
                     
                 </div>
+               
             </div>
-            <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+            <div class="tab-content px-2 py-3" id="v-pills-tabContent">
+            
+                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
                     <div class="row">
                         <div class="col-md-6">
@@ -186,12 +187,13 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <button class="btn editar">Update</button>
+                        <button class="btn editar">Cancel</button>
                     </div>
                 </div>
-                <div class="tab-pane fade show active mt-4" id="password" role="tabpanel" aria-labelledby="password-tab">
-                    <h3 class="mb-4">Configuracion de la Password</h3>
+
+                <div class="tab-pane fade " id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+                    <h3 class="mb-4">Cambiar contrasenia</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -215,9 +217,13 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <button class="btn editar">Update</button>
+                        <button class="btn editar">Cancel</button>
                     </div>
+                </div>   
+                
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <h3 class="mb-4">Mis Compras</h3>
                 </div>
                     
             </div>
