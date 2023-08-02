@@ -70,3 +70,39 @@ button.editar:hover{
     font-weight: 200;
     color: #737061;
 }
+
+.userProfile .form-group input{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    transition: all 0.4ms;
+}
+.userProfile .form-group input:hover {
+    border-color: #b69c7f;
+}
+.userProfile .form-group input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+
+.userProfile .form-group textarea{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    transition: all 0.4ms;
+}
+.userProfile .form-group textarea:hover {
+    border-color: #b69c7f;
+}
+.userProfile .form-group textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
