@@ -205,6 +205,29 @@
     background: transparent;
     border-radius: 15px;
 }
+.productsBuy .viewMore{
+    height: 50px;
+    width: fit-content;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productsBuy .viewMore:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
 /*-- discount  --> */
 .discount{
     background-color: #b69c7f;

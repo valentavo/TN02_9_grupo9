@@ -1,0 +1,217 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&display=swap');
+
+body{
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
+    top:0;
+    left: 0;
+}
+header ul{
+    list-style-type: none;
+}
+header .navbar{
+    background-color: white;
+    font-weight: 500;
+    padding: 3rem 2rem;
+    height: 10vh;
+    min-height: 12vh;
+
+    
+}
+.navbar .navbat-brand a {
+    padding: 1rem 0;
+    display: block;
+    text-decoration: none;
+}
+.navbar-brand .logo{
+height: 5em;
+width: 5em;
+}
+.navbar-toggler{
+    background-color:#b69c7f;
+    border: none;
+    padding: 10px 6px;
+    transform: translateY(-55px);
+    outline: none;
+}
+.navbar-toggler span{
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 22px;
+    height: 1.5px;
+    border: 1px;
+    background-color: white;
+    
+}
+.navbar-toggler span + span{
+  margin-top: 4px;
+  width: 22px;
+  margin-left: 2px;
+    margin-right: 2px;
+    
+}
+.navbar-toggler span + span + span{
+    margin-top: 4px;
+    width: 22px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding: 0.8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #737061;
+    font-size: 1rem;
+    position: relative;
+    text-decoration: none;
+    letter-spacing: 1.5px; 
+    
+
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border-radius: 3%;
+    
+}
+.navbar-nav button{
+    padding:1.2rem 0;
+}
+.navbar-nav .btn{
+    border: #fff;
+    color:#737061;
+    border-radius: 3%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 0;
+    transition: all 0.4ms;
+}
+.navbar-nav .btn:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border-radius: 3%;
+}
+#nav-nav-boton{
+    color: #737061;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    transition: all 0.4ms;
+}
+#nav-nav-boton:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border-radius: 3%;
+}
+#buscador {
+    height: 45px;
+    outline: none;
+    background-color: transparent;
+    color: #737061;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    border-color: 2px solid #b69c7f;
+    border-right: none;
+    border-radius: 10px 0px 0px 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+#buscador:hover {
+    border-color: #b69c7f;
+   
+}
+#buscador:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+#searchicon{
+    height: 45px;
+    outline: none;
+    border: none;
+    background-color:#b69c7f;
+    color: #fff;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 0;
+
+}
+#navbarSupportedContent{
+    background-color: white;
+    width: 100%;  
+}
+footer {
+    background-color: #b69c7f;
+    border-top: 0.5px solid #E8E2D5;
+    color: white;
+    text-decoration: none;
+    font-weight: 200;  
+}
+#social{
+    color:  white;
+    font-size: 23px;
+    text-decoration: none;
+    transition: all 0.4ms;
+}
+#social:hover {
+    color:#b69c7f;
+    background-color: white;
+    border-radius: 10%;
+    height: auto;
+}
+#footlinks{
+    color:  white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.4ms;
+}
+#footlinks:hover {
+    text-decoration:underline;
+    
+}
+
+
+@media (min-width: 361px) {
+    .logo{
+        transform: translateY(-55px);
+    }
+    #buscador {
+        
+        transform: translateX(20px);
+    
+
+    }
+    #searchicon {
+        
+        transform: translateX(20px);
+        
+    }
+    
+}
+@media (min-width: 768px) {
+    .logo{
+        transform: translateY(-55px);
+    } 
+    #buscador {
+        transform: translateY(20px);
+        transform: translateX(20px)
+
+    }
+    #searchicon {
+        transform: translateY(20px);
+        transform: translateX(20px)
+    }
+}
+@media (min-width: 992px) {
+    .logo{
+        transform: translateY(-1px);
+    } 
+   
+}
