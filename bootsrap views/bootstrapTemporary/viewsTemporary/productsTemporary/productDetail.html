@@ -103,9 +103,9 @@
 <!-- HEADER--> 
 <!-- MAIN --> 
 <section class="productDetail">
-    <div class="container mt-5 py-4 mb-5">
+    <div class="container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-7">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -129,27 +129,182 @@
                 </div>
 
             </div>
-            <div class="col-lg-7">
-                <h2>Labial Titulo</h2>
-                <p> $5000</p>
-                <p>Compra en cuotas y sin interes!</p>
-                <p>Product Code: IDDEP1234</p>
-                <label>Cantidad:</label>
+            <div class="col-12 col-lg-5 mt-4 mb-3">
+                <h2 class="productName">LABIAL TITULO</h2>
+                <p class="productSize mt-2 mb-2">Product Code: IDDEP1234</p>
+                <h4 class="productPrice mt-2 mb-2"> $5000</h4>
+                <label for="selectSize" class="text-muted productSize mt-2 mb-2">Size:</label>
+                <select class="form-select" name="selectSize" id="size">
+                    <option selected>50ml</option>
+                    <option value="1">75ml</option>
+                    <option value="2">125ml</option>
+                </select>
+                <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
+                
+                <label class="productSize mt-2 mb-2">Cantidad:</label>
                 <input type="text" value="1">
 
-                <button class="btn btn-default cart" type="submit">Agregar al carrito</button>
+                <div class="d-grid my-4">
+                    <button class="btn btn-lg productCartBtn" type="button">Agregar al carrito</button>
+                </div>
 
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                                <strong>Descripcion</strong>
+                            </button>
+
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Cum delectus laudantium ratione, cumque nam adipisci sapiente saepe et fuga eaque, a placeat 
+                                libero quasi inventore, assumenda molestiae dolore. Cupiditate, omnis?
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                            <strong>Ingredientes</strong>
+                        </button>
+
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Cum delectus laudantium ratione, cumque nam adipisci sapiente saepe et fuga eaque, a placeat 
+                            libero quasi inventore, assumenda molestiae dolore. Cupiditate, omnis?
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
+           
+
+        </div>
+
+
+    </div>
+    
+   
+
+    
+  
+    <div class="row productsBuy">
+        <h2 class="display-6 py-5 text-center">
+            Tambien te pueden gustar
+        </h2>
+        <div class="col-lg-4">
+            <div class="card p-2">
+                <div class="card-body">
+                    <div class="star">
+
+                    </div>
+                    <a href="#"><img src="pomegranate-cream.png" class="img-fluid pb-3" alt=""></a>
+                    <h4 class="productNameH">Face Cream</h4>
+                    <p class="productSizeH">2 x 454g / 160oz</p>
+                    <h4 class="productPriceH">$3500.00</h4>
+                    <button class="btnc my-4 productCartBtn">Agregar al Carrito</button>
+
+                </div>
+
+            </div>
+            
+
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-2">
+                <div class="card-body">
+                    <div class="star">
+                        
+
+                    </div>
+                    <img src="pomegranate-cream.png" class="img-fluid pb-3" alt="">
+                    <h4 class="productNameH">Face Cream</h4>
+                    <p class="productSizeH">2 x 454g / 160oz</p>
+                    <h4 class="productPriceH">$3500.00</h4>
+                    <button class="btnc my-4 productCartBtn">Agregar al Carrito</button>
+
+                </div>
+
+            </div>
+            
+
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-2">
+                <div class="card-body">
+                    <div class="star">
+                        
+
+                    </div>
+                    <img src="pomegranate-cream.png" class="img-fluid pb-3" alt="">
+                    <h4 class="productNameH">Face Cream</h4>
+                    <p class="productSizeH">2 x 454g / 160oz</p>
+                    <h4 class="productPriceH">$3500.00</h4>
+                    <button class="btnc my-4 productCartBtn">Agregar al Carrito</button>
+
+                </div>
+
+            </div>
+            
 
         </div>
 
     </div>
 
+
+
+</section>
+<!-- SUBSCRIBITE  -->
+<section class="subscribite mx-auto pt-4 px-4" >
+        
+    <div class="container subscribite">
+        <div class="row ">
+            <div class="col-lg-12 text-center py-3">
+                
+                <h1 class="head3" >Recibí novedades, promociones y beneficio</h1>
+        
+            </div>
+        </div>
+        <div class="row">
+            <form action="" method="post" class="row formSubscribe g-3 smalltext">
+                    <div class="col-lg-3">
+                    <label for="name" class="form-label subscribiteLabel"> First Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="First Name" required>
+                    </div>
+                    <div class="col-lg-3">
+                    <label for="lastname" class="form-label subscribiteLabel">Name</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+                    </div>
+                    <div class="col-lg-4">
+                    <label for="inputEmail4" class="form-label subscribiteLabel">Email Address</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email Address" required>
+                    </div>
+        
+                    <div class="col-2 mx-auto mx-sm-auto mx-md-auto" >
+                    <button type="submit" class="btn subscribiteBtn mx-auto ms-lg-4 mt-lg-4 px-2">Subscribite</button>
+                    </div>
+            </form>
+        </div>
+
+    </div>
 </section>
 
+<!-- SUBSCRIBITE -->
 
 <!-- MAIN--> 
+
 <!-- FOOTER --> 
 
      <footer class="footer pt-5 pb-4">
