@@ -18,6 +18,13 @@ background-color: white;
 .productDetail .productSize{
     color: grey;
     font-family:'Ysabeau Infant', sans-serif ;
+   
+}
+.productDetail .productQuantity{
+    color: grey;
+    font-family:'Ysabeau Infant', sans-serif ;
+    
+   
 }
 .productDetail .productPrice{
     color: #49483D;
@@ -46,6 +53,51 @@ background-color: white;
     color: #b69c7f;
     background: transparent;
     border-radius: 15px;
+}
+.productDetail .form-select{
+    height: 45px;
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.productDetail .form-select:hover {
+    border-color: #b69c7f;
+   
+}
+.productDetail .form-select:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+.productDetail .accordion .accordion-item .accordion-header{
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1.5rem;
+}
+
+.productDetail .accordion .accordion-item .accordion-header .accordion-button{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid #b69c7f;
+}
+
+.productDetail .accordion .accordion-item .accordion-collapse .accordion-body{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid #b69c7f;
+}
+.accordion-button:not(.collapsed) {
+    color: #737061;
+    background-color: white;
 }
 /*---- SUBSCRIBITE ----*/
 .subscribite {
