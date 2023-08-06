@@ -129,9 +129,9 @@ background-color: white;
     width: fit-content;
     letter-spacing: 1px;
     outline: none;
-    border: none;
-    background-color: white;
-    color:#737061;
+    border: 1px solid #b69c7f;
+    background-color:#b69c7f;
+    color:white;
     border-radius: 15px;
     display: block;
     font-weight: 400;
@@ -140,12 +140,12 @@ background-color: white;
 .subscribite .subscribiteBtn:hover{
     transform: scale(1.1);
     outline: none;
-    color: #737061;
+    color: #b69c7f;
     background-color:white;
-    border: #fff;
+    border:1px solid #b69c7f;
 }
 .subscribite .formSubscribe{
-    background-color: #f9f9f9;
+    background-color: white;
     color:#737061 ;
     padding: 10px;
     padding-bottom: 30px;

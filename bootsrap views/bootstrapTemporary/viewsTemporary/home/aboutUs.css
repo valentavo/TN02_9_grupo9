@@ -42,7 +42,6 @@
     font-family: 'Ysabeau Infant', sans-serif ;
     color: #737061;
 }
-
 .subscribite .subscribiteLabel{
     font-size: 1rem;
     font-weight: 200;
@@ -55,9 +54,9 @@
     width: fit-content;
     letter-spacing: 1px;
     outline: none;
-    border: none;
-    background-color: white;
-    color:#b69c7f;
+    border: 1px solid #b69c7f;
+    background-color:#b69c7f;
+    color:white;
     border-radius: 15px;
     display: block;
     font-weight: 400;
@@ -68,11 +67,11 @@
     outline: none;
     color: #b69c7f;
     background-color:white;
-    border: #fff;
+    border:1px solid #b69c7f;
 }
 .subscribite .formSubscribe{
-    background-color: #b69c7f;
-    color: #fff;
+    background-color: white;
+    color:#737061 ;
     padding: 10px;
     padding-bottom: 30px;
     margin: 5px 0px 2px 0px;
