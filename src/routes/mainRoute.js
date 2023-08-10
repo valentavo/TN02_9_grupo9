@@ -6,6 +6,9 @@ const adminUserAccess = require('../middlewares/adminUserAccess.js');
 //Home
 router.get('/', mainController.index);
 
+//About
+router.get('/about', mainController.about);
+
 // Acceso Administrador
 router.get('/admin/:userId', /*adminUserAccess ,*/ mainController.admin);
 

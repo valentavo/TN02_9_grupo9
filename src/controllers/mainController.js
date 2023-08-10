@@ -51,6 +51,9 @@ module.exports = {
 
         const user = usersData.find(row => row.id == req.params.userId);
 
-        res.render('admin.ejs', {user: user});
+        return res.render('admin.ejs', {user: user});
+    },
+    about: (req, res) => {
+        return res.render('aboutUs.ejs');
     }
 }
