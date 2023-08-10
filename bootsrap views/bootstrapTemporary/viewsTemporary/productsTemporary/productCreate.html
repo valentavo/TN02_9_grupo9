@@ -14,7 +14,8 @@
    
    <!-- Link general css file --> 
    <link rel="stylesheet" href="stylePartials.css">
-   <link rel="stylesheet" href="productEditStyle.css">
+   <link rel="stylesheet" href="productCreate.css">
+   
 
     <title>Document</title>
 </head>
@@ -103,24 +104,25 @@
 <!-- HEADER--> 
 
 <!-- MAIN --> 
-<section class="productEdit">
+<section class="productCreate">
     <div class="container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5">
        
            
-            <form class="row" action=""  > 
-                <div class="col-lg-5">
+            <form class="row" action="" > 
+                <h3 class="productName my-2 mb-4">CREAR PRODUCTO</h3>
 
-                    <div class="fotoPerfil">
-                        <label class="" for="image">Seleccionar imagenes</label>
-                        <input type="file" name="images" id="image">
+                <div class=" col-12 col-lg-4">
+
+                    <div class="form-group my-4" id="imagenes">
+                        <label class="mb-4 imageTitulo" for="image">Seleccionar imagenes</label>
+                        <input class="form-control mt-2" type="file" name="images">
                     </div>
                 
                 </div>
 
-                <div class="col-12 col-lg-7">
-                    <h3 class="productName my-2 mb-4">CREAR PRODUCTO</h3>
+                <div class="col-12 col-lg-8 ">
 
-                    <div class="form-group productLabel my-2">
+                    <div class="form-group productLabel my-4">
                         <label class="mb-2">Nombre del producto</label>
                         <input type="text" class="form-control" value="Nombre del producto">
                     </div>
@@ -161,8 +163,8 @@
                     </div>
 
                     <div class=" my-4">
-                        <button class="btn productEditBtn me-4" type="submit">Create</button>
-                        <button class="btn productEditBtn" type="submit">Cancel</button>
+                        <button class="btn productCreateBtn me-4" type="submit">Crear</button>
+                        <button class="btn productCreateBtn" type="submit">Cancelar</button>
                     </div>
 
                 </div>

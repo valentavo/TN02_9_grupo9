@@ -144,47 +144,52 @@
                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
                     <form class="row" action="">
+
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Nombre</label>
                                   <input type="text" class="form-control" value="Usuario">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Apellido</label>
                                   <input type="text" class="form-control" value="Apellido">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Email</label>
                                   <input type="text" class="form-control" value="usuario@gmail.com">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Numero de telefono</label>
                                   <input type="text" class="form-control" value="+54 345 667899">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Direccion</label>
                                   <input type="text" class="form-control" value="calle falsa 123">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Otro campo</label>
-                                <input type="password" class="form-control">
-                          </div>
-        
+                                <label for="image">Selecciona tu foto de perfil</label>
+                                <input type="file" class="form-control" name="image" >
+                            </div>
                         </div>
 
                         <div class="my-4">
-                            <button class="btn editar">Update</button>
-                            <button class="btn editar">Cancel</button>
+                            <button class="btn editar">Guardar</button>
+                            <button class="btn editar">Cancelar</button>
                         </div>
                        
                     </form>
@@ -193,32 +198,34 @@
 
                 <div class="tab-pane fade " id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
                     <h3 class="mb-4">Cambiar contrasenia</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                  <label>Old password</label>
-                                  <input type="password" class="form-control">
+                    <form action="" method="" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contrasenia anterior</label>
+                                    <input type="password" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                  <label>Nueva password</label>
-                                  <input type="password" class="form-control">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nueva contrasenia</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Confirmar nueva contrasenia</label>
+                                    <input type="password" class="form-control">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                  <label>Confirmar nueva password</label>
-                                  <input type="password" class="form-control">
-                            </div>
+                        <div>
+                            <button class="btn editar">Guardar</button>
+                            <button class="btn editar">Cancelar</button>
                         </div>
-                    </div>
-                    <div>
-                        <button class="btn editar">Update</button>
-                        <button class="btn editar">Cancel</button>
-                    </div>
+                    </form>
                 </div>   
                 
                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
