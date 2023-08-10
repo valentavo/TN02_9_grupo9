@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('../partials/head.ejs', {title: 'Perfil'}) %>
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header.ejs') %>
+
+        <main>
+            <div class="img-container">
+                <img src="/img/profileImg/<%= user.img %>" alt="User profile picture">
+            </div>
+            <h2>Hola <%= user.name %></h2>
+            <div>
+                <a href="/user/edit">Editar perfil</a>
+            </div>
+            <% if(user.access == 'admin') { %>
+                <div>
+                    <a href="/product/list">Lista de productos</a>
+                </div>
+            <% } %>
+            <div>
+                <a href="/user/logout">Cerrar Sesion</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <%- include('.././partials/footer.ejs') %>
+    </body>
+</html>

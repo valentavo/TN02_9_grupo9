@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('.././partials/head.ejs', {title: 'Edit'}) %>
+    <body>
+        <!-- Header -->
+        <%- include('.././partials/header.ejs') %>
+    </body>
+    <main class="e_main-section">
+        <h1>Edita tu producto</h1>
+        <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="e_img-container">
+                <label for="clickFileImg">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Seleccionar Imagen</p>
+                    <input class="e_select-input" type="file" name="productImg" id="clickFileImg">
+                    <div class="e_opacity-trick"></div>
+                </label>
+            </div>
+            <div class="e_title-container e_option-container">
+                <label for="title">
+                    <p class="e_title">Titulo</p>
+                    <input class="e_select-input" type="text" id="title" name="name" value="<%= producto.title %>">
+                </label>
+            </div>
+            <div class="e_label-container e_option-container">
+                <label for="labels">
+                    <p class="e_title">Etiquetas</p>
+                </label>
+                <!-- <div class="e_upper-label">
+                    <select class="e_select-input" name="label" id="labels">
+                        <option value=""></option>
+                        <option value="channel">channel</option>
+                    </select>
+                    <button><i class="e_fa-solid fa-plus"></i></button>
+                </div> -->
+                <div class="e_lower-label">
+                    <% [...(categories[0].content), ...(categories[1].content)].forEach(row => { %>
+                        <input type="checkbox" name="label" id="<%= row %>" value ="<%= row %>" <%= (producto.label.includes(row) ? "checked" : '' )%>>
+                        <label for="<%= row %>"><%= row %></label>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="e_capacity-container e_option-container">
+                <div class="e_upper-capacity">
+                    <p class="e_title">Capacidad</p>
+                    <p class="e_optional">(opcional)</p>
+                </div>
+                <div class="e_lower-capacity">
+                    <input class="e_select-input" type="number" name="cap" value="<%= producto.capacity ? producto.capacity[0] : ""%>">
+                    <select class="e_select-input" name="capacityMeasure">
+                        <% categories[2].content.forEach( row => { %>
+                            <option value="<%= row %>" <%= producto.measure ? (row === producto.measure ? "selected" : "" ) : "" %>><%= row %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <div class="e_color-container e_option-container">
+                <div>
+                    <p class="e_title">Color</p>
+                    <p class="e_optional">(opcional)</p>
+                </div>
+                <select class="e_select-input" name="colors">
+                    <% categories[3].content.forEach( row => { %>
+                        <option value="<%= row %>" <%= producto.color ? (row === producto.color[0] ? "selected" : "" ) : ""%>><%= row %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="e_price-container e_option-container">
+                <p class="e_title">Precio</p>
+                <input class="e_select-input" type="number" name="amount" value="<%= producto.price %>">
+            </div>
+            <div class="e_stock-container e_option-container">
+                <p class="e_title">Unidades Disponibles</p>
+                <input class="e_select-input" type="number" name="unities" value="<%= producto.stock %>">
+            </div>
+            <div class="e_description-container e_option-container">
+                <p class="e_title">Descripcion</p>
+                <input class="e_select-input" type="text" name="desc" value="<%= producto.description %>">
+            </div>
+            <button class="e_form-buttons e_variant-button">Agregar Variante</button>
+            <button type="submit" class="e_form-buttons e_submit-button">Guardar Cambios</button>
+        </form>
+        <form action="/product/delete/<%= producto.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="e_form-buttons e_submit-button">Eliminar Producto</button>
+        </form>
+    </main>
+    <!-- Footer -->
+    <%- include('.././partials/footer.ejs') %>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('.././partials/head.ejs', {title: 'Create'}) %>
+    <body>
+        <!-- Header -->
+        <%- include('.././partials/header.ejs') %>
+    </body>
+    <main class="cp_main-section">
+        <h1>Crea tu producto</h1>
+        <form action="/product/create" method="POST" enctype="multipart/form-data">
+            <div class="cp_img-container">
+                <label for="clickFileImg">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Seleccionar Imagen</p>
+                    <input class="cp_select-input" type="file" name="productImg" id="clickFileImg">
+                    <div class="cp_opacity-trick"></div>
+                </label>
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.productImg) {%>
+                <p class="cp_errorMessage"><%= errorMessages.productImg.msg %></p>
+            <% } %>
+
+            <div class="cp_title-container cp_option-container">
+                <label for="title">
+                    <p class="cp_title">Titulo</p>
+                    <input class="cp_select-input" type="text" id="title" name="name" value="<%= oldErrors.name %>">
+                </label>
+            </div>
+
+            <% if(locals && locals.errorMessages &&  locals.errorMessages.name) { %>
+                <p class="cp_errorMessage"><%= errorMessages.name.msg %></p>
+            <% } %>
+
+            <div class="cp_label-container cp_option-container">
+                <label for="labels">
+                    <p class="cp_title">Etiquetas</p>
+                </label>
+                <!-- <div class="cp_upper-label">
+                    <select class="cp_select-input" name="label" id="labels">
+                        <option value=""></option>
+                        <option value="channel">channel</option>
+                    </select>
+                    <button><i class="cp_fa-solid fa-plus"></i></button>
+                </div> -->
+                <div class="cp_lower-label">
+                    <% [...(categories[0].content), ...(categories[1].content)].forEach(row => { %>
+                        <input type="checkbox" name="label" id="<%= row %>" value="<%= row %>" <%= oldErrors.label ? (oldErrors.label.includes(row)  ? "checked" : "" ) : "" %>>
+                        <label for="<%= row %>"><%= row %></label>
+                    <% }) %>
+                </div>
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.label) { %>
+                <p class="cp_errorMessage"><%= errorMessages.label.msg %></p>
+            <% } %>
+
+            <div class="cp_capacity-container cp_option-container">
+                <div class="cp_upper-capacity">
+                    <p class="cp_title">Capacidad</p>
+                    <p class="cp_optional">(opcional)</p>
+                </div>
+                <div class="cp_lower-capacity">
+                    <input class="cp_select-input" type="number" name="cap" value="<%= oldErrors.cap %>">
+                    <select class="cp_select-input" name="capacityMeasure">
+                         <% categories[2].content.forEach( row => { %>
+                            <option value="<%= row %>" <%= oldErrors.capacityMeasure ? (oldErrors.capacityMeasure.includes(row)  ? "selected" : "" ) : "" %>><%= row %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.cap) { %>
+                <p class="cp_errorMessage"><%= errorMessages.cap.msg %></p>
+            <% } %>
+            <% if(locals && locals.errorMessages && locals.errorMessages.capacityMeasure) { %>
+                <p class="cp_errorMessage"><%= errorMessages.capacityMeasure.msg %></p>
+            <% } %>
+
+            <div class="cp_color-container cp_option-container">
+                <div>
+                    <p class="cp_title">Color</p>
+                    <p class="cp_optional">(opcional)</p>
+                </div>
+                <select class="cp_select-input" name="colors">
+                    <% categories[3].content.forEach( row => { %>
+                        <option value="<%= row %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row)  ? "selected" : "" ) : "" %>><%= row %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.colors) { %>
+                <p class="cp_errorMessage"><%= errorMessages.colors.msg %></p>
+            <% } %>
+
+            <div class="cp_price-container cp_option-container">
+                <p class="cp_title">Precio</p>
+                <input class="cp_select-input" type="number" name="amount" value="<%= oldErrors.amount || "" %>">
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.amount) { %>
+                <p class="cp_errorMessage"><%= errorMessages.amount.msg %></p>
+            <% } %>
+
+            <div class="cp_stock-container cp_option-container">
+                <p class="cp_title">Unidades Disponibles</p>
+                <input class="cp_select-input" type="number" name="unities" value="<%= oldErrors.unities || "" %>">
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.unities) { %>
+                <p class="cp_errorMessage"><%= errorMessages.unities.msg %></p>
+            <% } %>
+
+            <div class="cp_description-container cp_option-container">
+                <p class="cp_title">Descripcion</p>
+                <input class="cp_select-input" type="text" name="desc" value="<%= oldErrors.desc || "" %>">
+            </div>
+
+            <% if(locals && locals.errorMessages && locals.errorMessages.desc) { %>
+                <p class="cp_errorMessage"><%= errorMessages.desc.msg %></p>
+            <% } %>
+
+            <button class="cp_form-buttons cp_variant-button">Agregar Variante</button>
+            <button class="cp_form-buttons cp_submit-button">Create</button>
+        </form>
+    </main>
+    <!-- Footer -->
+    <%- include('.././partials/footer.ejs') %>
+</html>

@@ -1,37 +1,82 @@
-<header class="g_main-header">
-    <div class="g_width-head g_wider-header">
-        <button class="g_burguer-menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+ <!-- HEADER--> 
+ <header>
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="#"><img class="logo img-fluid" src="maranatha_logo.png"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between " id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item mt-3 mt-lg-0">
+                        <a class="nav-link active" aria-current="page" href="#">NOSOTROS</a>
+                    </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">SHOP</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        
+                            <li><a class="dropdown-item " id="nav-nav-boton" href="#">Maquillaje</a></li>
+                
+                            <li><a class="dropdown-item " id="nav-nav-boton" href="#">Cuidado de la piel</a></li>
+                    
+                            <li><a class="dropdown-item" id="nav-nav-boton" href="#">Cuidado del cabello</a></li>
 
-        <div class="g_nav-bar">
-            <ul>
-                <li class="nav-link btn"><a href="#">QUIENES SOMOS</a></li>
-                <li class="nav-link btn"><a href="#">SHOP</a></li>
+                            <li><a class="dropdown-item" id="nav-nav-boton" href="#">Unas</a></li>
 
-            </ul>
-        </div>
+                            <li><a class="dropdown-item" id="nav-nav-boton" href="#">Perfumes</a></li>
 
-        <div class="g_logo-container">
-            <a href="/"><img src="/img/maranatha_logo.png" alt="Logo Maranatha" class="g_logo-image"></a>
-        </div>
+                            <li><a class="dropdown-item" id="nav-nav-boton" href="#">Hombres</a></li>
 
-        <div class="g_user-cart ">
-            <a href="/user/login">
-                <i class="fa-regular fa-user"></i>
-            </a>
+                            <li><a class="dropdown-item" id="nav-nav-boton" href="#">Marcas</a></li>
+                            
+                        </ul>
+                    </li>
 
-            <a href="/product/cart" class="g_cart-icon ">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
-        <div class="g_search-header">
-            <form action="/" method="GET">
-                <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">CONTACTO</a>
+                    </li>
+                
+                </ul>
+
+                <div class="ms-auto d-flex ">
+                    <ul class="navbar-nav me-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            
+                            <form class="d-flex">
+                                <input class="form-control m-auto mb-3 m-lg-auto mb-lg-0" id="buscador" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success m-auto mb-3 pb-3 mb-lg-0 pb-lg-2" type="submit" id="searchicon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                  </svg></button>
+                              </form>
+                        </li>
+                    </ul>
+            
+                    <ul class="navbar-nav me-2 mb-lg-0">
+
+                        <li class="nav-item ">
+                                <button class="btn btn-outline-success ms-4 me-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                </svg> 
+                                </button>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav me-2 mb-lg-0">
+                        <li class="nav-item ">
+                                <button class="btn btn-outline-success ms-1 me-1"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                                </svg>
+                                </button>
+                        </li>
+                    </ul>
+
                 </div>
-                <input type="text" name="searchBar" placeholder="Busca un producto"/>
-            </form>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
+<!-- HEADER--> 

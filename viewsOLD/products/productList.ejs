@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('.././partials/head.ejs', {title: 'List'}) %>
+    <body>
+        <!-- Header -->
+        <%- include('.././partials/header.ejs') %>
+    </body>
+   <main class="li_list-main">
+        <h1>MIS PRODUCTOS</h1>
+        <% productos.forEach(row => { %>
+            <article>
+                <div class="li_left-product">
+                    <div class="li_product-img-container">
+                        <a href="/product/detail/<%=row.id%>"><img src="/img/<%=row.img%>" alt="imagen del producto"></a>
+                    </div>
+                    <!-- antes era  c_product-description-->
+                    <div class="li_product-title"> 
+                        <h3><a href="/product/detail/<%=row.id%>"><%=row.title%></a></h3>
+                    </div>
+                </div>
+                <div class="li_right-product">
+                    <a class="li_edit-item" href="/product/edit/<%= row.id %>">Editar Producto</a>
+                </div>
+            </article>
+        <% }) %>
+        <div class="li_product-create">
+            <a href="/product/create">Crear Producto Nuevo</a>
+        </div>
+    </main>
+    <!-- Footer -->
+    <%- include('.././partials/footer.ejs') %>
+</html>

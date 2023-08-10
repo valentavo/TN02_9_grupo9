@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs', {title: 'Home'}) %>
+    <body>
+        <!-- HEADER -->
+        <%- include('./partials/header.ejs') %>
+         <!-- HEADER -->
+
+        <!-- MAIN -->
+        <main class="h_main-home">
+            <section class="h_carrousel">
+                <div class="h_carrousel-img-container">
+                </div>
+                <div class="h_oriantation-carrousel">
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                </div>
+                <i class="fa-solid fa-chevron-left h_arrow-left h_arrow-directions"></i>
+                <i class="fa-solid fa-chevron-right h_arrow-right h_arrow-directions"></i>
+            </section>
+            <section class="h_phrase">
+                <h2>Déjate mimar frase icónica</h2>
+                <p>Extensión de la frase icónica</p>
+            </section>
+            <section class="h_type-products">
+                <% categoryProducts.forEach( row => { %>
+                    <article class="h_type-article">
+                        <h3><%=row.name%></h3>
+                        <section class="h_products-wrap">
+                            <% row.content.forEach(element => { %>
+                                <article>
+                                    <div>
+                                        <a href="/product/detail/<%= element.id %>"><img src="/img/<%=element.img%>" alt="imagen del producto"></a>
+                                    </div>
+                                    <h4><%=element.title%></h4>
+                                    <p class="h_discount">$500.00</p>
+                                    <p class="h_price">$<%=element.price%></p>
+                                    <button><a href="/product/cart">Ir al Carrito</a></button>
+                                </article>
+                            <% }) %>
+                            <i class="fa-solid fa-chevron-left h_arrow-left"></i>
+                            <i class="fa-solid fa-chevron-right h_arrow-right"></i>
+                        </section>
+                    </article>
+                <% }) %>
+            </section>
+            <section class="h_brand-products">
+                <% brandProducts.forEach( row => { %>
+                    <article class="h_type-article">
+                        <div class="h_brand-banner">
+                            <img src="/img/copa-invictus.jpg" alt="imagen de la marca de productos relacionados">
+                        </div>
+                        <h3><%=row.name%></h3>
+                        <section class="h_products-wrap">
+                            <% row.content.forEach(element => { %>
+                                <article>
+                                    <div>
+                                        <a href="/product/detail/<%= element.id %>"><img src="/img/<%= element.img %>" alt="imagen del producto"></a>
+                                    </div>
+                                    <h4><%= element.title %></h4>
+                                    <p class="h_discount">$500.00</p>
+                                    <p class="h_price">$<%= element.price %></p>
+                                    <button><a href="/product/cart">Ir al Carrito</a></button>
+                                </article>
+                            <% }) %>
+                            <i class="fa-solid fa-chevron-left h_arrow-left"></i>
+                            <i class="fa-solid fa-chevron-right h_arrow-right"></i>
+                        </section>
+                    </article>
+                <% }) %>
+            </section>
+        </main>
+
+         <!-- MAIN -->
+        
+        <!-- FOOTER -->
+        <%- include('./partials/footer.ejs') %>
+        <!-- FOOTER -->
+    </body>
+</html>
