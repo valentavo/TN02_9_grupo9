@@ -158,7 +158,9 @@
                                     <div class="card-body">
 
                                         <img src="img/productos/<%= product.img %>" class="img-fluid pb-3" alt="">
-                                        <h4 class="productNameH"><%= product.title %></h4>
+                                        <a href="/product/detail/<%= product.id %>">
+                                            <h4 class="productNameH"><%= product.title %></h4>
+                                        </a>
                                         <p class="productSizeH">2 x 454g / 160oz</p>
                                         <h4 class="productPriceH">$<%= product.price %></h4>
                                         <button class="btnc my-4 productCartBtn">Agregar al Carrito</button>
@@ -222,7 +224,9 @@
                                     <div class="card-body">
 
                                         <img src="img/productos/<%= product.img %>" class="img-fluid pb-3" alt="">
-                                        <h4 class="productNameH"><%= product.title %></h4>
+                                        <a href="/product/detail/<%= product.id %>">
+                                            <h4 class="productNameH"><%= product.title %></h4>
+                                        </a>
                                         <p class="productSizeH">2 x 454g / 160oz</p>
                                         <h4 class="productPriceH">$<%= product.price %></h4>
                                         <button class="btnc my-4 productCartBtn">Agregar al Carrito</button>
