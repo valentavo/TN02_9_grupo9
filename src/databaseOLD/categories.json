@@ -1,0 +1,18 @@
+[
+    {
+        "group": "Type",
+        "content": ["Cuidado de la Piel", "Cuidado del Cabello", "Cuidado facial", "Cuidado bucal", "Cuidado de las uñas", "Cuidado de la piel infantil", "Maquillaje", "Fragancias", "Masculino", "100% Natural"]
+    },
+    {
+        "group": "Brand",
+        "content": ["Paco Rabane", "Channel", "L'Oréal", "Dove", "Nivea"]
+    },
+    {
+        "group": "measures",
+        "content": ["", "ml", "L", "cc", "g", "kg"]
+    },
+    {
+        "group": "colors",
+        "content": ["", "rojo", "amarillo", "verde", "marron", "morado", "azul", "naranja", "negro", "lima", "rosa", "gris"]
+    }
+]

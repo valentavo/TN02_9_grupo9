@@ -1,20 +1,24 @@
 [
   {
     "id": 1,
-    "title": "Face Cream",
-    "img": "cream2.png",
+    "title": "Crema facial rejuvenecedora EternaJuventud",
+    "img": "producto-1.jpg",
     "capacity": [
-      "70"
+      "70",
+      "150",
+      "210"
     ],
     "measure": "L",
     "color": [
-      "azul"
+      "azul",
+      "verde",
+      "narajna"
     ],
-    "price": 3500.00,
+    "price": 200,
     "stock": 10,
     "label": [
+      "Cuidado de la Piel",
       "Cuidado del Cabello",
-      "Paco Rabane",
       "Channel"
     ],
     "description": "especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.",
@@ -22,8 +26,8 @@
   },
   {
     "id": 2,
-    "title": "Face Cream2",
-    "img": "facecare.png",
+    "title": "Mascarilla purificante PureGlow",
+    "img": "producto-2.jpg",
     "capacity": [
       "50",
       "100",
@@ -35,7 +39,7 @@
       "lima",
       "rosa"
     ],
-    "price": 9000,
+    "price": 913.29,
     "stock": 573,
     "label": [
       "Cuidado de la Piel",
@@ -46,8 +50,8 @@
   },
   {
     "id": 3,
-    "title": "Face Cream3",
-    "img": "lipstick1.png",
+    "title": "Lápiz labial de larga duración ColorPerfección",
+    "img": "producto-3.jpg",
     "capacity": [
       "30",
       "50",
@@ -58,7 +62,7 @@
       "marron",
       "gris"
     ],
-    "price": 4300,
+    "price": 516.4,
     "stock": 157,
     "label": [
       "Cuidado de la Piel",
@@ -70,59 +74,20 @@
   },
   {
     "id": 4,
-    "title": "Face Cream4",
-    "img": "cream3.png",
+    "title": "Serum capilar reparador HairRevive",
+    "img": "producto-4.jpg",
     "capacity": [
-      "22"
+      "100",
+      "170",
+      "240"
     ],
-    "measure": "kg",
-    "color": [
-      ""
-    ],
-    "price": 7000,
-    "stock": 33,
+    "measure": "ml",
+    "color": null,
+    "price": 431.45,
+    "stock": 332,
     "label": [
-      "Cuidado del Cabello",
-      "Channel"
-    ],
-    "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
-    "erased": false
-  },
-  {
-    "id": 5,
-    "title": "Face Cream5",
-    "img": "facecare2.png",
-    "capacity": [
-      "22"
-    ],
-    "measure": "kg",
-    "color": [
-      ""
-    ],
-    "price": 5000,
-    "stock": 33,
-    "label": [
-      "Cuidado del Cabello",
-      "Channel"
-    ],
-    "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
-    "erased": false
-  },
-  {
-    "id": 6,
-    "title": "Face Cream6",
-    "img": "oil.png",
-    "capacity": [
-      "22"
-    ],
-    "measure": "kg",
-    "color": [
-      ""
-    ],
-    "price": 4000,
-    "stock": 33,
-    "label": [
-      "Cuidado del Cabello",
+      "Cuidado de la Piel",
+      "Paco Rabane",
       "Channel"
     ],
     "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",

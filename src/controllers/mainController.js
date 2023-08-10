@@ -18,7 +18,7 @@ const homeBrand = [categoriesSelector(1, 0), categoriesSelector(1, 1)];
 
 module.exports = {
     index: (req, res) => {
-
+        /*
         //Category Elements Filter
         const categoryElements = function(elementName) {
 
@@ -41,6 +41,11 @@ module.exports = {
         });
 
         return res.render('index.ejs', {categoryProducts: categoryProducts, brandProducts: brandProducts});
+        */
+
+        const products = dataProducts;
+
+        return res.render('index.ejs', { products })
     },
     admin: (req, res) => {
 
