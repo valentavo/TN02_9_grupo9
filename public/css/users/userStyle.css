@@ -1,0 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+body {
+	background: #f9f9f9;
+}
+.crearCuenta {
+    background-color: white;
+    width: fit-content;
+}
+.crearCuenta .head{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+}
+.crearCuenta .per{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    color: #737061;
+    
+}
+
+.crearCuenta .btn{
+    height: 55px;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    width: fit-content;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color: #b69c7f;
+    color:white;
+    border-radius: 15px;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+.crearCuenta .btn:hover{
+    
+    outline: none;
+    color: #b69c7f ;
+    background-color:white;
+    border:1px solid #b69c7f;
+   
+}
+.crearCuenta form{
+    background-color:white;
+    color: #b69c7f;
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 5px 0px 2px 0px;
+}
+.crearCuenta form input{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: fit-content;
+    transition: all 0.4ms;
+}
+.crearCuenta form input:hover {
+    border-color: #b69c7f;
+   
+}
+.crearCuenta form input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+
+.terminosYC{
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    color:#737061;
+    font-weight: 300;
+}
+.terminosYC a{
+    color: #b69c7f;
+}

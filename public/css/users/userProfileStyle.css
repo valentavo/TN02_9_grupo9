@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+body {
+	background: #f9f9f9;
+	font-family: 'Ysabeau Infant', sans-serif ;
+
+}
+.profile-tab-nav {
+	min-width: 250px;
+}
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+.nav-pills button.nav-link {
+	letter-spacing: 1px;
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+	color: #737061;
+	font-weight: 300;
+	transition: all 0.2s;
+}
+.nav-pills button.nav-link:hover {
+	outline: none;
+    color: white;
+    background-color:#b69c7f;
+    border: #b69c7f;
+}
+.nav-pills button.active.nav-link {
+	background-color:#b69c7f;
+    color:white;
+}
+
+.img-circle img {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: 5px solid #fff;
+}
+
+button.editar{
+	height: 55px;
+    width: fit-content;
+	margin-right: 10px;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color:#b69c7f ;
+    color:white;
+    border-radius: 15px;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+
+button.editar:hover{
+    outline: none;
+    color: #b69c7f;
+    background-color:white;
+    border: 1px solid #b69c7f;
+}
+
+.userProfile h4{
+	font-size: 1.5rem;
+    font-weight: 300;
+    color: #737061;
+    letter-spacing: 1px;
+}
+.userProfile h3{
+	font-size: 1.5rem;
+    font-weight: 200;
+    color: #737061;
+}
+
+.userProfile .form-group input{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    transition: all 0.4ms;
+}
+.userProfile .form-group input:hover {
+    border-color: #b69c7f;
+}
+.userProfile .form-group input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+
+.userProfile .form-group textarea{
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    transition: all 0.4ms;
+}
+.userProfile .form-group textarea:hover {
+    border-color: #b69c7f;
+}
+.userProfile .form-group textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}

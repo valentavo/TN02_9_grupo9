@@ -1,0 +1,386 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+/*-- CAROUSEL --> */
+.mainHome {
+    background-image: url(BackgroundHome.png);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+
+}
+.mainHome h1{
+    font-size: 4rem;
+    color: white;
+    font-weight: 400;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    text-align: center;
+}
+.mainHome .nameH{
+    font-size: 2rem;
+    font-weight: 100;
+    color: white;
+    font-family:  'Ysabeau Infant', sans-serif;
+    text-align: center;
+}
+.mbtn1{
+    height: 50px;
+    width: fit-content;
+    font-family:  'Ysabeau Infant', sans-serif;
+    border: 1px solid white;
+    padding: 8px 8px 4px 8px;
+    color: white;
+    background: transparent;
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+    
+}
+.mbtn1:hover{
+   transform: scale(1.2);
+   background-color: transparent;
+   outline: none;
+   border:1px solid white;
+   color: white;
+}
+.carousel-control-prev-icon{
+    color: #737061;
+}
+/*-- ABOUT --> */
+.aboutH{
+    background-color:#f7f6f4;
+
+}
+.mbtn2{
+    height: 50px;
+    width: fit-content;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:#737061;
+    background-color: #f7f6f4;
+    border: 1px solid ;
+    padding: 8px 8px 4px 8px;
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.mbtn2:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border:1px solid #b69c7f;
+    outline: none;
+    border-radius: 15px;
+    transform: scale(1.2);
+}
+.aboutH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    
+}
+.aboutH p{
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #737061 ;
+    font-family:'Ysabeau Infant', sans-serif;
+}
+/*-- BANER  --> */
+.banerH{
+    background-color: white;
+}
+.banerH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+
+}
+.banerH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+
+}
+.banerH .card{
+    border:none;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: #b69c7f;
+}
+.banerH h2{
+    font-family: 'Ysabeau Infant', sans-serif ;
+    color: white;
+    font-weight: lighter;
+    padding: 10px 0px;
+}
+.banerH svg{
+    font-size: 45px;
+    color: white;
+}
+/*-- PRODUCT  --> */
+.productH{
+    background-color: white;
+}
+.productH h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+
+}
+.productH p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family:'Ysabeau Infant', sans-serif ;
+
+}
+/*-- PRODUCT BUY  --> */
+.productsBuy{
+    background-color: white;
+}
+.productsBuy h1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+
+}
+.productsBuy p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+
+}
+.productsBuy .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+
+}
+.productsBuy .card-body{
+    border: 1px dashed #E8E2D5;
+}
+.productsBuy .productNameH{
+    margin: 0;
+    color: #49483D;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-weight: 200;
+
+}
+.productsBuy .productSizeH{
+    color: grey;
+    font-family:'Ysabeau Infant', sans-serif ;
+}
+.productsBuy .productPriceH{
+    color: #49483D;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+.productsBuy .productCartBtn{
+    height: 50px;
+    width: 50%;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productsBuy .productCartBtn:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
+.productsBuy .viewMore{
+    height: 50px;
+    width: fit-content;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productsBuy .viewMore:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
+/*-- discount  --> */
+.discount{
+    background-color: #b69c7f;
+    color: white;
+    
+}
+.discount h1{
+    font-family:'Ysabeau Infant', sans-serif ;
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+.dbtnH {
+    height: 50px;
+    width: fit-content;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: #b69c7f;
+    border-radius: 15px;
+    margin: 0 auto;
+    display: block;
+    font-weight: 100;
+    transition: all 0.4s;
+}
+.dbtnH:hover{
+    transform: scale(1.2);
+    outline: none;
+    color: #b69c7f;
+    background-color: white;
+    border: #fff;
+}
+/*-- discount  --> */
+/*---- BOTTOM BANER ----*/
+.bottomH{
+    background-color: white;
+}
+.bottomH .head1{
+    font-size: 2.5rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+
+}
+.bottomH .per1{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+.bottomH .head2{
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'Ysabeau Infant', sans-serif ;
+
+}
+.bottomH .per2{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+.bottomH svg{
+    font-size: 45px;
+}
+.bottomH .card{
+    border-radius: 15px;
+    color: #737061;
+    border: none;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.bottomH .card-body{
+    border: 1px dashed #E8E2D5;
+}
+.bottomH .card-body:hover{
+    background-color: #b69c7f;
+    color: white;
+}
+/*---- BOTTOM BANER ----*/
+/*---- SUBSCRIBITE ----*/
+.subscribite {
+    background-color: white;
+    
+}
+.subscribite .head3{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+}
+.subscribite .per3{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    color: #737061;
+}
+.subscribite .subscribiteLabel{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+
+.subscribite .subscribiteBtn{
+    height: 55px;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    width: fit-content;
+    letter-spacing: 1px;
+    outline: none;
+    border: 1px solid #b69c7f;
+    background-color:#b69c7f;
+    color:white;
+    border-radius: 15px;
+    display: block;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+.subscribite .subscribiteBtn:hover{
+    transform: scale(1.1);
+    outline: none;
+    color: #b69c7f;
+    background-color:white;
+    border:1px solid #b69c7f;
+}
+.subscribite .formSubscribe{
+    background-color: white;
+    color:#737061 ;
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 5px 0px 2px 0px;
+}
+.subscribite .formSubscribe input{
+    height: 45px;
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.subscribite .formSubscribe input:hover {
+    border-color: #b69c7f;
+   
+}
+.subscribite .formSubscribe input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+/*---- SUBSCRIBITE ----*/

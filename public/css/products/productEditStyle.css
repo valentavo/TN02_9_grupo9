@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+body {
+	background: #f9f9f9;
+	font-family: 'Ysabeau Infant', sans-serif ;
+
+}
+.productEdit .container{
+background-color: white;
+}
+
+.productEdit .productName{
+    margin: 0;
+    color: #49483D;
+    font-weight: 200;
+    font-family: 'Karla', sans-serif;
+
+}
+.productEdit .productLabel{
+    color: grey;
+    font-family:'Ysabeau Infant', sans-serif ;
+    font-weight: 200;
+   
+}
+
+.productEdit .productEditBtn{
+    height: 45px;
+    width: fit-content;
+    outline: none;
+    font-family:'Ysabeau Infant', sans-serif;
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+}
+.productEdit .productEditBtn:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
+.productEdit .form-control{
+    
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.productEdit .form-control:hover {
+    border-color: #b69c7f;
+   
+}
+.productEdit .form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
