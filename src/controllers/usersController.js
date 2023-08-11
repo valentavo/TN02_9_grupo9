@@ -19,7 +19,7 @@ module.exports = {
         const user = User.findByField('email', req.body.nombre);
 
         //Verifiying the passwords
-        if (user && bcrypt.compareSync(req.body.clave, user.password)) {
+        if (user && user.erased != true && bcrypt.compareSync(req.body.clave, user.password)) {
 
         //Eliminando la contrasenia de sessions
         delete user.password;
