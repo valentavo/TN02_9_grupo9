@@ -61,5 +61,29 @@
     "access": "personal",
     "logged": false,
     "erased": false
+  },
+  {
+    "id": 7,
+    "name": "lamer",
+    "email": "lami@yiyi.com",
+    "password": "$2a$10$V3wigwsgHfYBFAVu2NAd3.hXEYEN1DFkr8/Tqi8MAgJme5mHUgo5y",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": false,
+    "phone": "",
+    "address": ""
+  },
+  {
+    "id": 8,
+    "name": "messi",
+    "email": "balbi@gege.ce",
+    "password": "$2a$10$kkoDW0wLv7yvD6v5a65/IOnjPQTgC8dyUdyiFFmLy2F1w6rya6FkG",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": true,
+    "phone": "",
+    "address": ""
   }
 ]

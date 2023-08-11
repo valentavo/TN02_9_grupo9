@@ -60,5 +60,29 @@
     "access": "admin",
     "logged": false,
     "erased": false
+  },
+   {
+    "id": 7,
+    "name": "lamer",
+    "email": "lami@yiyi.com",
+    "password": "zzz",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": false,
+    "phone": "",
+    "address": ""
+  },
+  {
+    "id": 8,
+    "name": "messi",
+    "email": "balbi@gege.ce",
+    "password": "fff",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": true,
+    "phone": "",
+    "address": ""
   }
 ]

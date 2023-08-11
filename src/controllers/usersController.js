@@ -68,13 +68,17 @@ module.exports = {
             password: bcrypt.hashSync(req.body.password, 10),
             img: "",
             access: "personal",
-            logged: false,
-            erased: false
+            logged: true,
+            erased: false,
+            phone: "",
+            address: ""
         };
 
         usersData.push(newUser);
-
         jsonPaths.write(usersPath, usersData);
+
+        delete newUser.password
+        req.session.userLogged = newUser;
 
         return res.redirect('/user/profile');
     },
@@ -122,6 +126,10 @@ module.exports = {
         const currentUser = usersData.find(row => row.id == req.session.userLogged.id);
 
         currentUser.erased = true;
+        currentUser.logged = false;
+
+        res.clearCookie('usuarioGuardado');
+        req.session.destroy();
 
         //Reescribiendo la base de datos con los archivos actualizados
         jsonPaths.write(usersPath, usersData);
