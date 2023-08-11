@@ -45,39 +45,33 @@
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label for="labels">
-                            <p class="cp_title">Etiquetas</p>
-                        </label>
-                        <div class="">
-                            <select class="" name="label" id="labels">
+                        <label class="mb-2" for="labels">Etiquetas</label>
+                            <select class="form-control" name="label" id="labels" >
                                 <option value=""></option>
                                 <option value="channel">channel</option>
                             </select>
-
-                    <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                      </svg></button>
-                </div> 
-
                     </div>
-
+                
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2">Tamano del producto</label>
-                        <input class="form-control " type="number" name="cap" value="<%= oldErrors.cap %>">
-                        <select class="" name="capacityMeasure">
-                            <% categories[2].content.forEach( row => { %>
-                               <option value="<%= row %>" <%= oldErrors.capacityMeasure ? (oldErrors.capacityMeasure.includes(row)  ? "selected" : "" ) : "" %>><%= row %></option>
-                           <% }) %>
+                        <select class="form-control" name="capacityMeasure" value="<%= oldErrors.cap %>" >
+                           
                        </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2">Color</label>
-                        <select class="cp_select-input" name="colors">
+                        <select class="form-control" name="colors">
                             <% categories[3].content.forEach( row => { %>
                                 <option value="<%= row %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row)  ? "selected" : "" ) : "" %>><%= row %></option>
                             <% }) %>
+                        </select>
+                    </div>
+
+                    <div class="form-group productLabel my-2">
+                        <label class="mb-2">Marca</label>
+                        <select class="form-control" name="brand">
+                            
                         </select>
                     </div>
 
