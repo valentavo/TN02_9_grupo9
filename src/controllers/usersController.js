@@ -11,7 +11,6 @@ const User = require('../models/Users.js');
 
 module.exports = {
     login: (req, res) =>{
-        // console.log(req.session);
         return res.render('./users/login.ejs');
     },
 
@@ -60,8 +59,6 @@ module.exports = {
 
         const errors = validationResult(req);
 
-        console.log(errors);
-
         if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
 
         const newUser = {
@@ -79,13 +76,13 @@ module.exports = {
 
         jsonPaths.write(usersPath, usersData);
 
-        return res.render('./users/register.ejs', {oldErrors: ""});
+        return res.redirect('/user/profile');
     },
     edit: (req, res) =>{
 
         const user = usersData.find(row => row.id == req.session.userLogged.id);
 
-        return res.render('./users/editUser.ejs', {user: user});
+        return res.render('./users/perfil.ejs', {user: user});
     },
     editProcess: (req, res) =>{
 
@@ -97,17 +94,20 @@ module.exports = {
 
         if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user})
 
-        user.name = req.body.name;
-        user.email = req.body.email;
+        const body = req.body;
+
+        body.name ? user.name = body.name : "";
+        body.email ? user.email = body.email : "";
+        body.phone ? user.phone = body.phone : "";
+        body.address ? user.address = body.address : "";
         (req.file && req.file.filename) ? user.img = req.file.filename : "";
 
-        const password = bcrypt.compareSync(req.body.password, user.password) ? bcrypt.hashSync(req.body.password2, 10) : undefined;
+        //Password field
+        if (body.oldPassword && body.newPassword && body.passwordConfirmed) {
 
-        if (password) {
+            const password = (bcrypt.compareSync(body.oldPassword, user.password) && body.newPassword == body.paswordConfirmed) ? bcrypt.hashSync(body.passwordConfirmed, 10) : undefined;
+
             user.password = password;
-        }
-        else{
-            return res.render('./users/editUser.ejs', {user: user});
         }
 
         //Reescribiendo la base de datos con los archivos actualizados

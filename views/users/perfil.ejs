@@ -1,5 +1,5 @@
 <!-- HEAD-->   
-    <%- include('../partials/head.ejs', {title: 'Registro'}) %>
+    <%- include('../partials/head.ejs', {title: 'Perfil'}) %>
     <!-- Link general css file --> 
    <link rel="stylesheet" href="/css/partials/stylePartials.css">
    <link rel="stylesheet" href="/css/users/userProfileStyle.css">
@@ -18,7 +18,7 @@
 
                 <div class="p-4">
                     <div class="img-circle text-center mb-3">
-                        <img src="../img/users/defaultProfilePhoto.jpeg" alt="Image" class="shadow">
+                        <img src="../img/users/<%= user.img || 'defaultProfilePhoto.jpeg' %>" alt="Image" class="shadow">
                         
                     </div>
                     <h4 class="text-center"><%= user.name %></h4>
@@ -52,12 +52,12 @@
             
                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
-                    <form class="row" action="">
+                    <form action="/user/edit?_method=PUT" method="POST" enctype="multipart/form-data">
 
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Nombre</label>
-                                  <input type="text" class="form-control" value="<%= user.name %>">
+                                  <input type="text" class="form-control" value="<%= user.name %>" name='name' >
                             </div>
                         </div>
 
@@ -71,36 +71,39 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Email</label>
-                                  <input type="text" class="form-control" value="<%= user.email %>">
+                                  <input type="text" class="form-control" value="<%= user.email %>" name='email' >
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Numero de telefono</label>
-                                  <input type="text" class="form-control" value="+54 345 667899">
+                                  <input type="text" class="form-control" value="<%= user.phone || "" %>" name="phone">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                   <label>Direccion</label>
-                                  <input type="text" class="form-control" value="calle falsa 123">
+                                  <input type="text" class="form-control" value="<%= user.address || "" %>" name="address">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="image">Selecciona tu foto de perfil</label>
-                                <input type="file" class="form-control" name="image" >
+                                <input type="file" class="form-control" name="img">
                             </div>
                         </div>
 
                         <div class="my-4">
-                            <button class="btn editar">Guardar</button>
+                            <button class="btn editar" type="submit">Guardar</button>
                             <button class="btn editar">Cancelar</button>
+                            <button class="btn editar"><a class="btn editar" href="/user/logout">Cerrar Sesión</a></button>
                         </div>
-                       
+                        <form action="/user/edit?_method=DELETE" method="POST">
+                            <button type="submit" class="btn editar">Eliminar Cuenta</button>
+                        </form>
                     </form>
                     
                 </div>
@@ -112,7 +115,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contrasenia anterior</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" class="form-control" name='oldPassword'>
                                 </div>
                             </div>
                         </div>
@@ -120,13 +123,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nueva contrasenia</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" class="form-control" name='newPassword'>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Confirmar nueva contrasenia</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" class="form-control" name='passwordConfirmed'>
                                 </div>
                             </div>
                         </div>

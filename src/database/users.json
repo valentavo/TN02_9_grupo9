@@ -1,30 +1,33 @@
 [
   {
     "id": 1,
-    "name": "Rodrigo",
-    "email": "rodrigol@gmail.com",
+    "name": "Rodri",
+    "email": "rodrigi@gmail.com",
     "password": "$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6",
-    "img": "1690134239674_img.png",
+    "img": "1691713669955_img.jpg",
     "access": "personal",
     "logged": false,
-    "erased": false
+    "erased": false,
+    "phone": "+595493320"
   },
   {
     "id": 2,
     "name": "Laura",
     "email": "laurita@gmail.com",
     "password": "$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y",
-    "img": "1690134551953_img.jpg",
+    "img": "1691715568697_img.jpg",
     "access": "personal",
     "logged": false,
-    "erased": false
+    "erased": false,
+    "phone": "22252321",
+    "address": "hyrule city, 12th street"
   },
   {
     "id": 3,
     "name": "Eros",
     "email": "erosflugel18@gmail.com",
     "password": "$2a$10$diAzX0W1Zqsv5O3fEp2ApOMIoxUqoBcfbduXBVEAge6es8wpuJP.C",
-    "img": "1690138632167_img.jpg",
+    "img": "defaultProfilePhoto.jpeg",
     "access": "personal",
     "logged": false,
     "erased": false
@@ -34,7 +37,7 @@
     "name": "jerusalen",
     "email": "deayahyuasca@soy.com",
     "password": "$2a$10$kZRcMbgAHvMaXRjIfVqDZuonToJW1ES/6VuPUZB.wbnbumPJPJZ9S",
-    "img": "1690134770797_img.jpg",
+    "img": "defaultProfilePhoto.jpeg",
     "access": "personal",
     "logged": false,
     "erased": false
@@ -44,7 +47,7 @@
     "name": "fifi",
     "email": "mimi@soy.com",
     "password": "$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq",
-    "img": "1690134954687_img.jpg",
+    "img": "defaultProfilePhoto.jpeg",
     "access": "admin",
     "logged": false,
     "erased": false

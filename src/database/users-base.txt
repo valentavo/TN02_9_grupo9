@@ -1,15 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Rodrigo",
-    "email": "rodrigol@gmail.com",
+    "name": "Rodri",
+    "email": "rodrigi@gmail.com",
 
     "password": "pelusa77",
 
-    "img": "",
+    "img": "1691713669955_img.jpg",
     "access": "personal",
     "logged": true,
     "erased": false
+    "phone": "+595493320"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "img": "",
     "access": "admin",
     "logged": false,
-    "erased": false
+    "erased": false,
+    "address": "hyrule city, 12th street"
   },
   {
     "id": 3,
