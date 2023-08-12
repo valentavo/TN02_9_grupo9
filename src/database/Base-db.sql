@@ -49,7 +49,6 @@ CREATE TABLE `productos`(
     `precio` DECIMAL(6, 2) NOT NULL,
     `detalle` TEXT NOT NULL,
     `imagen` TEXT NOT NULL,
-    `fecha-publicacion` DATE NOT NULL,
     `marcas-fk` INT UNSIGNED NOT NULL,
     `categorias-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,

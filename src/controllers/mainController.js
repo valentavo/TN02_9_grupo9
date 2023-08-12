@@ -4,7 +4,7 @@ const db = require('../database/models');
 module.exports = {
     index: async (req, res) => {
         try {
-            
+
             const products = await db.Producto.findAll();
 
             return res.render('index.ejs', { products: products });

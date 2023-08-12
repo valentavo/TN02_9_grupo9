@@ -114,7 +114,7 @@ INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-na
 INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged) VALUES 
 (DEFAULT, 'fifi', 'mimi@soy.com', '$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq', '1691713669955_img.jpg', 'avenida marciana helistica 2', '17-09-2005', '920678432', 2, 0);
 
--- Hay que hacer datos nullable para que este funcione
+
 INSERT INTO usuarios(id, nombre, email, `password`, `roles-fk`, logged) VALUES 
 (DEFAULT, 'sofi', 'adb@fff.com', '$2a$10$kZRcMbgAHvMaXRjIfVqDZuonToJW1ES/6VuPUZB.wbnbumPJPJZ9S', 1, 0);
 

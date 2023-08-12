@@ -1,6 +1,6 @@
 # E-Maranatha
 
-![Logo E-Maranatha](/public/img/maranatha_logo.png "Ir a la página web")
+![Logo E-Maranatha](/public/img/partials/maranatha_logo.png "Ir a la página web")
 
 E-Maranatha ofrece productos de belleza para el cuidado del cabello, ojos, piel, uñas, pestañas y labios de una amplia variedad de colores y beneficios estéticos.
 

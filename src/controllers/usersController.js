@@ -3,13 +3,6 @@ const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 
-//Parseando los datos
-// const usersPath = '../database/users.json';
-// let usersData = jsonPaths.read(usersPath);
-
-//procesando datos again porque no tengo db
-// const User = require('../models/Users.js');
-
 module.exports = {
     login: (req, res) =>{
         return res.render('./users/login.ejs');
@@ -87,10 +80,6 @@ module.exports = {
                 nombre: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                // imagen: '',
-                // direccion: '',
-                // 'fecha-nacimiento': '',
-                // telefono: '',
                 logged: 0,
                 'roles-fk': 1
             });
@@ -105,59 +94,65 @@ module.exports = {
         }
 
     },
-    edit: (req, res) =>{
+    editProcess: async (req, res) =>{
 
-        const user = usersData.find(row => row.id == req.session.userLogged.id);
+        try {
+            
+            const user = await db.Usuario.findByPk(req.session.userLogged.id);
 
-        return res.render('./users/perfil.ejs', {user: user});
-    },
-    editProcess: (req, res) =>{
+            const errors = validationResult(req);
 
-        const user = usersData.find(row => row.id == req.session.userLogged.id);
+            // console.log(errors); //estan saliendo todos undefined
 
-        const errors = validationResult(req);
+            if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user});
 
-       // console.log(errors); //estan saliendo todos undefined
+            const body = req.body;
 
-        if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user})
+            const updatedUser = await db.Usuario.update({
 
-        const body = req.body;
+                nombre: body.name,
+                email: body.email,
+                telefono: body.phone,
+                direccion: body.address,
+                imagen: (req.file && req.file.filename) ? req.file.filename : user.imagen
+            }, {
+                where: {
+                    id: user.id
+                }
+            });
 
-        body.name ? user.name = body.name : "";
-        body.email ? user.email = body.email : "";
-        body.phone ? user.phone = body.phone : "";
-        body.address ? user.address = body.address : "";
-        (req.file && req.file.filename) ? user.img = req.file.filename : "";
+            //Password field
+            if (body.oldPassword && body.newPassword && body.passwordConfirmed) {
 
-        //Password field
-        if (body.oldPassword && body.newPassword && body.passwordConfirmed) {
+                const password = (bcrypt.compareSync(body.oldPassword, user.password) && body.newPassword == body.paswordConfirmed) ? bcrypt.hashSync(body.passwordConfirmed, 10) : user.password;
 
-            const password = (bcrypt.compareSync(body.oldPassword, user.password) && body.newPassword == body.paswordConfirmed) ? bcrypt.hashSync(body.passwordConfirmed, 10) : undefined;
+                user.password = password;
+            }
 
-            user.password = password;
+            return res.render('./users/perfil.ejs', {user: updatedUser});
+
+        } catch (error) {
+            console.log(error);
         }
-
-        //Reescribiendo la base de datos con los archivos actualizados
-
-        jsonPaths.write(usersPath, usersData);
-        usersData = jsonPaths.read(usersPath);
-
-        return res.redirect('/user/login');
     },
-    delete: (req, res) =>{
+    delete: async (req, res) =>{
 
-        const currentUser = usersData.find(row => row.id == req.session.userLogged.id);
+        try {
+            
+            await db.Usuario.destroy({
+                
+                where: {
+                    id: req.session.userLogged.id
+                }
+            });
 
-        currentUser.erased = true;
-        currentUser.logged = false;
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
+            
+            return res.redirect('/user/login');
 
-        res.clearCookie('usuarioGuardado');
-        req.session.destroy();
-
-        //Reescribiendo la base de datos con los archivos actualizados
-        jsonPaths.write(usersPath, usersData);
-        usersData = jsonPaths.read(usersPath);
-        
-        return res.redirect('/user/login');
+        } catch (error) {
+            console.log(error);
+        }
     }
 };

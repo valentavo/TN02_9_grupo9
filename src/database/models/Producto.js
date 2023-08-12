@@ -25,10 +25,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        'fecha-publicacion': {
-            type: DataTypes.DATEONLY,
-            allowNull: false
-        },
         'marcas-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
