@@ -15,15 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 

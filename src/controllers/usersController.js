@@ -15,42 +15,61 @@ module.exports = {
         return res.render('./users/login.ejs');
     },
 
-    loginProcess: (req, res) => {
+    loginProcess: async (req, res) => {
 
-        const user = User.findByField('email', req.body.nombre);
+        try {
 
-        //Verifiying the passwords
-        if (user && user.erased != true && bcrypt.compareSync(req.body.clave, user.password)) {
+            const user = await db.Usuario.findOne({
+                where: {
+                    email: req.body.nombre
+                }
+            });
+            
+            //Verifiying the passwords
+            if (user && bcrypt.compareSync(req.body.clave, user.password)) {
 
-        //Eliminando la contrasenia de sessions
-        delete user.password;
+            //Eliminando la contrasenia de sessions
+            delete user.password;
 
-        user.logged = true;
-        req.session.userLogged = user;
-        
-        //Session Cookie
-        if(req.body.recordar) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
+            user.logged = true;
+            req.session.userLogged = user;
+            
+            //Session Cookie
+            if(req.body.recordar) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
 
-        return res.redirect(`/user/profile`);
-       }
-       else {
-        return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña incorrectos, por favor volver a intentar"} );
-       }
+            return res.redirect(`/user/profile`);
+            }
+            else {
+                return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña incorrectos, por favor volver a intentar"} );
+            }
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    logout: (req, res) => {
+    logout: async (req, res) => {
 
-        usersData.find(us => us.id == req.session.userLogged.id).logged = false;
-        
-        res.clearCookie('usuarioGuardado');
-        req.session.destroy();
-        return res.redirect('/');
+        try {
+
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
+            return res.redirect('/');
+            
+        } catch (error) {
+            console.log(error);
+        }  
     },
 
-    profile: (req, res) => {
-        const user = usersData.find(us => us.id == req.session.userLogged.id);
+    profile: async (req, res) => {
 
-        return res.render('./users/perfil.ejs', {user: user});
+        try {
+
+            const user = await db.Usuario.findByPk(req.session.userLogged.id)
+
+            return res.render('./users/perfil.ejs', {user: user});
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     register: (req, res) =>{
@@ -65,21 +84,16 @@ module.exports = {
             if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
 
             const newUser = await db.Usuario.create({
-                name: req.body.name,
+                nombre: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                imagen: '',
-                direccion: '',
-                'fecha-nacimiento': '',
-                telefono: '',
+                // imagen: '',
+                // direccion: '',
+                // 'fecha-nacimiento': '',
+                // telefono: '',
                 logged: 0,
-                access: 1
+                'roles-fk': 1
             });
-
-            // creando la relacion entre el usuario y su rol
-            await newUser.addRol(1) 
-
-            console.log(newUser);
 
             delete newUser.password
             req.session.userLogged = newUser;

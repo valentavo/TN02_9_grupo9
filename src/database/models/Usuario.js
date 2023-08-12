@@ -22,25 +22,19 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         imagen: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            defaultValue: 'defaultProfilePhoto.jpeg'
+            type: DataTypes.TEXT
         },
         direccion: {
-            type: DataTypes.TEXT,
-            allowNull: false,
+            type: DataTypes.TEXT
         },
         'fecha-nacimiento': {
             type: DataTypes.DATEONLY,
-            allowNull: false
         },
         telefono: {
             type: DataTypes.INTEGER,
-            allowNull: false
         },
         logged: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
         },
         'roles-fk': {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -48,15 +42,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 
