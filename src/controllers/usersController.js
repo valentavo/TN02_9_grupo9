@@ -1,13 +1,14 @@
-const jsonPaths = require('../modules/jsonPaths.js');
+// const jsonPaths = require('../modules/jsonPaths.js');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models');
 
 //Parseando los datos
-const usersPath = '../database/users.json';
-let usersData = jsonPaths.read(usersPath);
+// const usersPath = '../database/users.json';
+// let usersData = jsonPaths.read(usersPath);
 
 //procesando datos again porque no tengo db
-const User = require('../models/Users.js');
+// const User = require('../models/Users.js');
 
 module.exports = {
     login: (req, res) =>{
@@ -55,32 +56,40 @@ module.exports = {
     register: (req, res) =>{
         return res.render('./users/register.ejs', {oldErrors: ""});
     },
-    registerProcess: (req, res) =>{
+    registerProcess: async (req, res) =>{
 
-        const errors = validationResult(req);
+        try {
+            
+            const errors = validationResult(req);
 
-        if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
+            if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
 
-        const newUser = {
-            id: usersData.length + 1,
-            name: req.body.name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            img: "",
-            access: "personal",
-            logged: true,
-            erased: false,
-            phone: "",
-            address: ""
-        };
+            const newUser = await db.Usuario.create({
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                imagen: '',
+                direccion: '',
+                'fecha-nacimiento': '',
+                telefono: '',
+                logged: 0,
+                access: 1
+            });
 
-        usersData.push(newUser);
-        jsonPaths.write(usersPath, usersData);
+            // creando la relacion entre el usuario y su rol
+            await newUser.addRol(1) 
 
-        delete newUser.password
-        req.session.userLogged = newUser;
+            console.log(newUser);
 
-        return res.redirect('/user/profile');
+            delete newUser.password
+            req.session.userLogged = newUser;
+
+            return res.redirect('/user/profile');
+
+        } catch (error) {
+            console.log(error);
+        }
+
     },
     edit: (req, res) =>{
 

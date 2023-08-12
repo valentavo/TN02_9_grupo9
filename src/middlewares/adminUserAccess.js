@@ -1,14 +1,8 @@
-const jsonPaths = require('../modules/jsonPaths.js');
+const db = require('../database/models');
 
-const usersData = jsonPaths.read('../database/users.json');
+module.exports = async (req, res, next) => {
 
-module.exports = (req, res, next) => {
-
-    let currentUser = '';
-
-    if(req.session.userLogged) {
-        currentUser = usersData.find( row => row.id == req.session.userLogged.id);
-    }
+    const currentUser = await db.Usuario.findByPk(req.session.userLogged.id);
 
     currentUser.access === 'admin' ? next() : res.redirect('/');
 };

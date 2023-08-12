@@ -5,6 +5,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController.js');
 const productValidation = require('../middlewares/productValidation.js');
 const adminUserAccess = require('../middlewares/adminUserAccess.js');
+const authMiddleware = require('../middlewares/authMiddleware.js');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -24,17 +25,17 @@ router.get('/cart', productsController.cart);
 router.get('/detail/:productId', productsController.details);
 
 // Listado
-router.get('/list', adminUserAccess, productsController.list);
+router.get('/list', authMiddleware, adminUserAccess, productsController.list);
 
 // Creacion
-router.get('/create', adminUserAccess, productsController.create);
+router.get('/create', authMiddleware,  adminUserAccess, productsController.create);
 router.post('/create', uploadFile.single('productImg'), productValidation, productsController.createProcess);
 
 // Edicion
-router.get('/edit/:productId', adminUserAccess, productsController.edit);
+router.get('/edit/:productId', authMiddleware, adminUserAccess, productsController.edit);
 router.put('/edit/:productId', uploadFile.single('productImg'), productsController.editProcess);
 
 // Eliminacion
-router.delete('/delete/:productId', adminUserAccess, productsController.delete);
+router.delete('/delete/:productId', authMiddleware, adminUserAccess, productsController.delete);
 
 module.exports = router;

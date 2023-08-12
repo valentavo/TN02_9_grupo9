@@ -4,7 +4,7 @@
     "name": "Rodrigo",
     "email": "rodrigol@gmail.com",
     "password": "$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6",
-    "img": "1690134239674_img.png",
+    "img": "1691715394303_img.jpg",
     "access": "personal",
     "logged": false,
     "erased": false
@@ -14,7 +14,7 @@
     "name": "Laura",
     "email": "laurita@gmail.com",
     "password": "$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y",
-    "img": "1690134551953_img.jpg",
+    "img": "1691715465327_img.jpg",
     "access": "personal",
     "logged": false,
     "erased": false
@@ -44,7 +44,7 @@
     "name": "fifi",
     "email": "mimi@soy.com",
     "password": "$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq",
-    "img": "1690134954687_img.jpg",
+    "img": "1691713669955_img.jpg",
     "access": "admin",
     "logged": false,
     "erased": false
