@@ -22,8 +22,11 @@ module.exports = {
         try {
 
             const productDetail = await db.Producto.findByPk(req.params.productId);
+            const medidas = await db.Medida.findAll();
 
-            return res.render('./products/productDetail.ejs', {producto: productDetail});
+            const medidaProducto = await productDetail.getMedida();
+
+            return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, medidaProducto: medidaProducto[0]});
             
         } catch (error) {
             console.log(error);
@@ -90,8 +93,6 @@ module.exports = {
 
             const Product = await db.Producto.findByPk(newProduct.id);
 
-            console.log(Product);
-
             //relacionando producto con tablas pivot
             await Product.addColor(body.color);
             await Product.addMedida(body.medida);
@@ -127,13 +128,13 @@ module.exports = {
             
             const body = req.body;
 
-            console.log(body.stock);
+            console.log(body.price);
         
             await db.Producto.update({
                 nombre: body.name,
                 precio: body.price,
                 detalle: body.desc,
-                cantidad: body.stock // No esta tomando este dato en el update, sera porque esta al final de sql?
+                cantidad: body.stock 
             }, {
                 where: {
                     id: req.params.productId

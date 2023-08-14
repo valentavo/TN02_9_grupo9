@@ -37,7 +37,7 @@ CREATE TABLE `usuarios`(
     `direccion` TEXT,
     `fecha-nacimiento` DATE,
     `telefono` INT UNSIGNED,
-    `logged` TINYINT UNSIGNED,
+    `logged` TINYINT,
     `roles-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
@@ -45,8 +45,8 @@ CREATE TABLE `usuarios`(
 );
 CREATE TABLE `productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
-    `precio` DECIMAL(6, 2) UNSIGNED NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
+    `precio` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `detalle` TEXT NOT NULL,
     `imagen` TEXT NOT NULL,
     `cantidad` INT UNSIGNED NOT NULL,
@@ -72,10 +72,9 @@ CREATE TABLE `colores`(
 );
 CREATE TABLE `facturas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `total` DECIMAL(6, 2) NOT NULL,
-    `fecha` DATETIME NOT NULL,
-    `usuarios-fk` INT UNSIGNED NOT NULL,
+    `total` DECIMAL(10, 2) NOT NULL,
     `metodo-pago` VARCHAR(255) NOT NULL,
+    `usuarios-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -89,10 +88,10 @@ CREATE TABLE `roles`(
 );
 CREATE TABLE `facturas_productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `descuento` INT UNSIGNED,
+    `precio` DECIMAL(10, 2) NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
     `facturas-fk` INT UNSIGNED NOT NULL,
-    `descuento` INT UNSIGNED,
-    `precio` DECIMAL(6, 2) NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -100,7 +99,6 @@ CREATE TABLE `facturas_productos`(
 CREATE TABLE `referencias`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `comentario` TEXT NOT NULL,
-    `fecha-creacion` DATETIME NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,

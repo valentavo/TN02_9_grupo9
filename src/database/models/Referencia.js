@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        'fecha-creacion': {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
         'usuarios-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
@@ -50,12 +46,12 @@ module.exports = (sequelize, DataTypes) => {
     Referencia.associate = (models) => {
 
         Referencia.belongsTo(models.Producto, {
-            as: 'productos',
+            as: 'producto',
             foreignKey: 'productos-fk'
         });
 
         Referencia.belongsTo(models.Usuario, {
-            as: 'usuarios',
+            as: 'usuario',
             foreignKey: 'usuarios-fk'
         });
     };

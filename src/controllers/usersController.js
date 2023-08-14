@@ -1,4 +1,3 @@
-// const jsonPaths = require('../modules/jsonPaths.js');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');

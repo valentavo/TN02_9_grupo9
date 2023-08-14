@@ -42,22 +42,24 @@
             <div class="col-12 col-lg-5 mt-4 mb-3">
                 <h2 class="productName"><%= producto.nombre %></h2>
                 <p class="productSize mt-2 mb-2">Product Code: IDDEP1234</p>
-                <h4 class="productPrice mt-2 mb-2"> $<%= producto.precio %> </h4>
+                <h4 class="productPrice mt-2 mb-2"> <%= producto.precio %> </h4>
 
                 <label for="selectSize" class="text-muted productSize mt-2 mb-2">Size:</label>
                 <select class="form-select" name="selectSize" id="size">
-                    <option selected>50ml</option>
-                    <option value="1">75ml</option>
-                    <option value="2">125ml</option>
+                    <% medidas.forEach( row => { %>
+                        <option <%= medidaProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.medida %></option>
+                    <% })  %>
                 </select>
 
                 <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
 
                 <label for="selectQuantity" class="text-muted productSize mt-2 mb-2">Cantidad:</label>
                 <select class="form-select" name="selectQuanntity" id="quantity">
-                    <option selected>0</option>
-                    <option value="1">2</option>
-                    <option value="2">3</option>
+
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                    
                 </select>
 
                 <div class="d-grid my-4">

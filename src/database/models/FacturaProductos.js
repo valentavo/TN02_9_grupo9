@@ -9,6 +9,13 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false
         },
+        descuento: {
+            type: DataTypes.INTEGER.UNSIGNED,
+        },
+        precio: {
+            type: DataTypes.DECIMAL( 10, 2 ),
+            allowNull: false
+        },
         'productos-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -18,13 +25,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {model: 'Factura', key: 'id'}
-        },
-        descuento: {
-            type: DataTypes.INTEGER,
-        },
-        precio: {
-            type: DataTypes.DECIMAL(6 , 2),
-            allowNull: false
         },
         'created-at': {
             type: DataTypes.DATE,

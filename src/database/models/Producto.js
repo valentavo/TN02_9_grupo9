@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         nombre: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         precio: {
-            type: DataTypes.DECIMAL(6, 2),
+            type: DataTypes.DECIMAL(10, 2).UNSIGNED,
             allowNull: false
         },
         detalle: {
@@ -23,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         imagen: {
             type: DataTypes.TEXT,
+            allowNull: false
+        },
+        cantidad: {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
         'marcas-fk':  {
@@ -58,17 +63,17 @@ module.exports = (sequelize, DataTypes) => {
     Producto.associate = (models) => {
 
         Producto.hasMany(models.Referencia, {
-            as: 'referencias',
+            as: 'referencia',
             foreignKey: 'productos-fk'
         })
 
         Producto.belongsTo(models.Categoria, {
-            as: 'categorias',
+            as: 'categoria',
             foreignKey: 'categorias-fk'
         });
 
         Producto.belongsTo(models.Marca, {
-            as: 'marcas',
+            as: 'marca',
             foreignKey: 'marcas-fk'
         });
 
@@ -80,14 +85,14 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Producto.belongsToMany(models.Medida, {
-            as: 'medidas',
+            as: 'medida',
             through: 'medida_producto',
             foreignKey: 'productos-fk',
             otherKey: 'medidas-fk',
         });
 
         Producto.belongsToMany(models.Factura, {
-            as: 'facturas',
+            as: 'factura',
             through: 'factura_producto',
             foreignKey: 'productos-fk',
             otherKey: 'facturas-fk',

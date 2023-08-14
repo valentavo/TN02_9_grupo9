@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATEONLY,
         },
         telefono: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
         },
         logged: {
             type: DataTypes.BOOLEAN,
@@ -65,17 +65,17 @@ module.exports = (sequelize, DataTypes) => {
     Usuario.associate = (models) => {
 
         Usuario.belongsTo(models.Rol, {
-            as: 'roles',
+            as: 'rol',
             foreignKey: 'roles-fk'
         });
 
         Usuario.hasMany(models.Factura, {
-            as: 'facturas',
+            as: 'factura',
             foreignKey: 'usuarios-fk'
         });
 
         Usuario.hasMany(models.Referencia, {
-            as: 'referencias',
+            as: 'referencia',
             foreignKey: 'usuarios-fk'
         });
     };
