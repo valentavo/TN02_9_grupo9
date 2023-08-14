@@ -72,9 +72,17 @@ CREATE TABLE `colores`(
 );
 CREATE TABLE `facturas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `total` DECIMAL(10, 2) NOT NULL,
+    `total` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `metodo-pago` VARCHAR(255) NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
+);
+CREATE TABLE `imagenes`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nombre` TEXT NOT NULL,
+    `productos-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -119,6 +127,8 @@ ALTER TABLE
     `referencias` ADD CONSTRAINT `referencias_usuarios_fk_foreign` FOREIGN KEY(`usuarios-fk`) REFERENCES `usuarios`(`id`);
 ALTER TABLE
     `colores_productos` ADD CONSTRAINT `colores_productos_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
+ALTER TABLE
+    `imagenes` ADD CONSTRAINT `imagenes_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
 ALTER TABLE
     `referencias` ADD CONSTRAINT `referencias_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
 ALTER TABLE

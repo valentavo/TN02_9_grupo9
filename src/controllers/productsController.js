@@ -65,6 +65,8 @@ module.exports = {
 
     createProcess: async (req, res) => {
 
+        const t = sequelize.transaction();
+
         try {
 
             const colores = await db.Color.findAll();
@@ -89,7 +91,11 @@ module.exports = {
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.categoria
+            }, {
+                transaction: t
             });
+
+            await t.commit();
 
             const Product = await db.Producto.findByPk(newProduct.id);
 
@@ -103,6 +109,7 @@ module.exports = {
             
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
 
     },
@@ -124,11 +131,11 @@ module.exports = {
 
     editProcess: async (req, res) => {
 
+        const t = sequelize.transaction();
+
         try {
             
             const body = req.body;
-
-            console.log(body.price);
         
             await db.Producto.update({
                 nombre: body.name,
@@ -138,9 +145,11 @@ module.exports = {
             }, {
                 where: {
                     id: req.params.productId
-                }
+                },
+                transaction: t
             });
 
+            await t.commit();
 
                 // No me deja hacer el redirect a el producto creado, dice depercated, sera por enviar esa variable en el segundo parametro?
             // const currentProduct = await db.Producto.findByPk(req.params.productId);
@@ -150,24 +159,30 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
     }, 
 
     delete: async (req, res) => {
+
+        const t = sequelize.transaction();
         
         try {
-
                 // Borrado Logico, no borra relaciones
             await db.Producto.destroy({
                 where: {
                     id: req.params.productId
-                }
-            })
+                },
+                transaction: t
+            });
+
+            await t.commit();
 
             return res.redirect('/product/list');
 
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
         
     }

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = 'Factura';
+    const alias = 'Imagen';
 
     const columnas = {
         id:  {
@@ -9,15 +9,11 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false
         },
-        total: {
-            type: DataTypes.DECIMAL(10,2).UNSIGNED,
+        nombre: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        'metodo-pago': {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        'usuarios-fk': {
+        'productos-fk': {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -33,8 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const config = {
-        tableName: 'facturas',
-        freezeTableName: true,
+        tableName: 'imagenes',
         timestamps: true,
         paranoid: true,
         createdAt: 'created-at',
@@ -42,21 +37,14 @@ module.exports = (sequelize, DataTypes) => {
         deletedAt: 'deleted-at'
     };
 
-    const Factura = sequelize.define(alias, columnas, config);
+    const Imagen = sequelize.define(alias, columnas, config);
 
-    Factura.associate = (models) => {
-        Factura.belongsToMany(models.Producto, {
+    Imagen.associate = (models) => {
+        Imagen.belongsTo(models.Producto , {
             as: 'producto',
-            through: 'factura_producto',
-            foreignKey: 'facturas-fk',
-            otherKey: 'productos-fk',
-        });
-
-        Factura.belongsTo(models.Usuario, {
-            as: 'usuario',
-            foreignKey: 'usuarios-fk'
-        });
+            foreignKey: 'productos-fk'
+        })
     };
 
-    return Factura
+    return Imagen
 };

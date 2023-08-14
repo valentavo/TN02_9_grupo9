@@ -59,6 +59,7 @@ module.exports = {
             const user = await db.Usuario.findByPk(req.session.userLogged.id)
 
             return res.render('./users/perfil.ejs', {user: user});
+
         } catch (error) {
             console.log(error);
         }
@@ -69,6 +70,7 @@ module.exports = {
     },
     registerProcess: async (req, res) =>{
 
+        const t = sequelize.transaction();
         try {
             
             const errors = validationResult(req);
@@ -81,7 +83,11 @@ module.exports = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 logged: 0,
                 'roles-fk': 1
+            }, {
+                transaction: t
             });
+
+            await t.commit();
 
             delete newUser.password
             req.session.userLogged = newUser;
@@ -90,11 +96,13 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
 
     },
     editProcess: async (req, res) =>{
 
+        const t = sequelize.transaction();
         try {
             
             const user = await db.Usuario.findByPk(req.session.userLogged.id);
@@ -117,8 +125,11 @@ module.exports = {
             }, {
                 where: {
                     id: user.id
-                }
+                },
+                transaction: t
             });
+
+            await t.commit();
 
             //Password field
             if (body.oldPassword && body.newPassword && body.passwordConfirmed) {
@@ -132,10 +143,12 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
     },
     delete: async (req, res) =>{
 
+        const t = sequelize.transaction();
         try {
             
             await db.Usuario.destroy({
@@ -143,7 +156,11 @@ module.exports = {
                 where: {
                     id: req.session.userLogged.id
                 }
+            }, {
+                transaction: t
             });
+
+            await t.commit();
 
             res.clearCookie('usuarioGuardado');
             req.session.destroy();
@@ -152,6 +169,7 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
+            await t.rollback();
         }
     }
 };

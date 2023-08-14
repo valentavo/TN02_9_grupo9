@@ -65,7 +65,12 @@ module.exports = (sequelize, DataTypes) => {
         Producto.hasMany(models.Referencia, {
             as: 'referencia',
             foreignKey: 'productos-fk'
-        })
+        });
+
+        Producto.hasMany(models.Imagen, {
+            as: 'imagen',
+            foreignKey: 'productos-fk'
+        });
 
         Producto.belongsTo(models.Categoria, {
             as: 'categoria',
