@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
+const {sequelize} = require( '../database/models' );
 
 module.exports = {
 
@@ -21,10 +22,12 @@ module.exports = {
 
         try {
 
-            const productDetail = await db.Producto.findByPk(req.params.productId);
+            const productDetail = await db.Producto.findByPk(req.params.productId, {
+                include: [{association: 'image'}]
+            });
             const medidas = await db.Medida.findAll();
 
-            const medidaProducto = await productDetail.getMedida();
+            const medidaProducto = await productDetail.getSize();
 
             return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, medidaProducto: medidaProducto[0]});
             
@@ -36,7 +39,9 @@ module.exports = {
     list: async (req, res) => {
 
         try {
-            const notErased = await db.Producto.findAll();
+            const notErased = await db.Producto.findAll( {
+                include: [{association: 'image'}]
+            });
             
             return res.render('./products/productList.ejs', {productos: notErased});
 
@@ -65,7 +70,7 @@ module.exports = {
 
     createProcess: async (req, res) => {
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
 
         try {
 
@@ -87,7 +92,6 @@ module.exports = {
                 nombre: body.name,
                 precio: body.amount,
                 detalle: body.desc,
-                imagen: req.file.filename,
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.categoria
@@ -96,12 +100,15 @@ module.exports = {
             });
 
             await t.commit();
-
+            
             const Product = await db.Producto.findByPk(newProduct.id);
 
             //relacionando producto con tablas pivot
             await Product.addColor(body.color);
-            await Product.addMedida(body.medida);
+            await Product.addSize(body.medida);
+            await Product.createImage({
+                nombre: req.file.filename
+            }) 
             // await Product.setMarca(body.brand);
             // await Product.setCategoria(body.categoria);
             
@@ -118,7 +125,9 @@ module.exports = {
 
         try {
 
-            const currentProduct = await db.Producto.findByPk(req.params.productId);
+            const currentProduct = await db.Producto.findByPk(req.params.productId, {
+                include: [{association: 'image'}]
+            });
 
 
             return res.render('./products/productEdit.ejs', {producto: currentProduct});
@@ -131,25 +140,44 @@ module.exports = {
 
     editProcess: async (req, res) => {
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
 
         try {
             
+
             const body = req.body;
         
             await db.Producto.update({
                 nombre: body.name,
                 precio: body.price,
                 detalle: body.desc,
-                cantidad: body.stock 
+                cantidad: body.stock,
+                // Image: [{nombre: req.file.filename}]
             }, {
                 where: {
                     id: req.params.productId
                 },
-                transaction: t
+                transaction: t,
+                // include: db.Imagen
             });
 
+            await db.Imagen.update({
+                nombre: req.file.filename
+            }, {
+                where: {
+                    'productos-fk': req.params.productId
+                }
+            })
+
             await t.commit();
+
+            //edicion imagen de prueba para 1 input file, con mas de 1 hacer un foreach
+            // const producto = await db.Producto.findByPk(req.params.productId);
+
+            // puede ser un set (si es set puede ser plural -> setImagenes) o un remove y luego un create
+            // await producto.setImagen({
+            //     nombre: req.file.filename
+            // });
 
                 // No me deja hacer el redirect a el producto creado, dice depercated, sera por enviar esa variable en el segundo parametro?
             // const currentProduct = await db.Producto.findByPk(req.params.productId);
@@ -165,7 +193,7 @@ module.exports = {
 
     delete: async (req, res) => {
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
         
         try {
                 // Borrado Logico, no borra relaciones

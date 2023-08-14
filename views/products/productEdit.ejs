@@ -18,7 +18,7 @@
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../img/productos/<%= producto.imagen %>" class="d-block w-100" alt="...">
+                        <img src="../../img/productos/<%=  producto.image[0].nombre %>" class="d-block w-100" alt="...">
                     </div>
                     <!-- <div class="carousel-item">
                         <img src="13.png" class="d-block w-100" alt="...">
@@ -49,13 +49,13 @@
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Codigo del producto</label>
-                        <input type="text" class="form-control " value="Product Code: IDDEP1234">
+                        <label class="mb-2">Imagen del producto</label>
+                        <input type="file" class="form-control" name="img">
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2">Precio del producto</label>
-                        <input type="text" class="form-control " name="price" value="$<%= producto.precio %>">
+                        <input type="text" class="form-control " name="price" value="<%= producto.precio %>">
                     </div>
 
                     <!-- <div class="form-group productLabel my-2">

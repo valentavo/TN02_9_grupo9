@@ -46,14 +46,14 @@ module.exports = (sequelize, DataTypes) => {
 
     Factura.associate = (models) => {
         Factura.belongsToMany(models.Producto, {
-            as: 'producto',
+            as: 'product',
             through: 'factura_producto',
             foreignKey: 'facturas-fk',
             otherKey: 'productos-fk',
         });
 
         Factura.belongsTo(models.Usuario, {
-            as: 'usuario',
+            as: 'user',
             foreignKey: 'usuarios-fk'
         });
     };

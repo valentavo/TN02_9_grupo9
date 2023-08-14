@@ -46,12 +46,12 @@ module.exports = (sequelize, DataTypes) => {
     Referencia.associate = (models) => {
 
         Referencia.belongsTo(models.Producto, {
-            as: 'producto',
+            as: 'product',
             foreignKey: 'productos-fk'
         });
 
         Referencia.belongsTo(models.Usuario, {
-            as: 'usuario',
+            as: 'user',
             foreignKey: 'usuarios-fk'
         });
     };

@@ -148,13 +148,13 @@
                 </div>
 
             </div>
-            <% products.forEach((product) => { %>
+            <% products.forEach((product, i) => { %>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card p-2">
                             <div class="card-body">
 
-                                <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
+                                <img src="img/productos/<%= product.image[0].nombre %>" class="img-fluid pb-3" alt="">
                                 <a href="/product/detail/<%= product.id %>">
                                     <h4 class="productNameH"><%= product.nombre %></h4>
                                 </a>
@@ -216,7 +216,7 @@
                         <div class="card p-2">
                             <div class="card-body">
 
-                                <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
+                                <img src="img/productos/<%= product.image[0].nombre %>" class="img-fluid pb-3" alt="">
                                 <a href="/product/detail/<%= product.id %>">
                                     <h4 class="productNameH"><%= product.nombre %></h4>
                                 </a>

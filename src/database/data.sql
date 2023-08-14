@@ -120,12 +120,23 @@ INSERT INTO usuarios(id, nombre, email, `password`, `roles-fk`, logged, `created
 
 
 -- Datos de productos
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'Face Cream', 5000, 'especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.', 'facecare.png', 50, 1, 1, NOW(), NOW());
+INSERT INTO productos(id, nombre, precio, detalle, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Face Cream', 5000, 'especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.', 50, 1, 1, NOW(), NOW());
 
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'Face Cream 2', 7000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'facecare2.png', 31, 2, 2, NOW(), NOW());
+INSERT INTO productos(id, nombre, precio, detalle, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Face Cream 2', 7000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 31, 2, 2, NOW(), NOW());
 
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'Oil', 3000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'oil.png', 12, 2, 1, NOW(), NOW());
+INSERT INTO productos(id, nombre, precio, detalle, `cantidad`, `marcas-fk`, `categorias-fk`, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Oil', 3000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 12, 2, 1, NOW(), NOW());
 
+-- Imagenes de productos
+INSERT INTO imagenes(id, nombre, `productos-fk`, `created-at`, `updated-at`) VALUES
+(DEFAULT, 'facecare.png', 1, NOW(), NOW());
+
+INSERT INTO imagenes(id, nombre, `productos-fk`, `created-at`, `updated-at`) VALUES
+(DEFAULT, 'facecare2.png', 2, NOW(), NOW());
+
+INSERT INTO imagenes(id, nombre, `productos-fk`, `created-at`, `updated-at`) VALUES
+(DEFAULT, 'oil.png', 3, NOW(), NOW());
+
+-- Imagen de producto 4 -> '1691992288471_img.png'

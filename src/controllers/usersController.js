@@ -1,6 +1,7 @@
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const {sequelize} = require('../database/models');
 
 module.exports = {
     login: (req, res) =>{
@@ -70,7 +71,7 @@ module.exports = {
     },
     registerProcess: async (req, res) =>{
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
         try {
             
             const errors = validationResult(req);
@@ -102,7 +103,7 @@ module.exports = {
     },
     editProcess: async (req, res) =>{
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
         try {
             
             const user = await db.Usuario.findByPk(req.session.userLogged.id);
@@ -148,7 +149,7 @@ module.exports = {
     },
     delete: async (req, res) =>{
 
-        const t = sequelize.transaction();
+        const t = await sequelize.transaction();
         try {
             
             await db.Usuario.destroy({

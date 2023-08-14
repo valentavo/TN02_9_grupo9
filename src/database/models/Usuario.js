@@ -65,17 +65,17 @@ module.exports = (sequelize, DataTypes) => {
     Usuario.associate = (models) => {
 
         Usuario.belongsTo(models.Rol, {
-            as: 'rol',
+            as: 'role',
             foreignKey: 'roles-fk'
         });
 
         Usuario.hasMany(models.Factura, {
-            as: 'factura',
+            as: 'bill',
             foreignKey: 'usuarios-fk'
         });
 
         Usuario.hasMany(models.Referencia, {
-            as: 'referencia',
+            as: 'reference',
             foreignKey: 'usuarios-fk'
         });
     };

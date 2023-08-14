@@ -33,7 +33,7 @@ router.post('/create', uploadFile.single('productImg'), productValidation, produ
 
 // Edicion
 router.get('/edit/:productId', authMiddleware, adminUserAccess, productsController.edit);
-router.put('/edit/:productId', uploadFile.single('productImg'), productsController.editProcess);
+router.put('/edit/:productId', uploadFile.single('img'), productsController.editProcess);
 
 // Eliminacion
 router.delete('/delete/:productId', authMiddleware, adminUserAccess, productsController.delete);

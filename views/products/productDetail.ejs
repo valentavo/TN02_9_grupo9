@@ -19,7 +19,7 @@
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../img/productos/<%= producto.imagen %>" class="d-block w-100" alt="...">
+                        <img src="../../img/productos/<%= producto.image[0].nombre %>" class="d-block w-100" alt="...">
                     </div>
                     <!-- <div class="carousel-item">
                         <img src="13.png" class="d-block w-100" alt="...">
@@ -41,7 +41,6 @@
             </div>
             <div class="col-12 col-lg-5 mt-4 mb-3">
                 <h2 class="productName"><%= producto.nombre %></h2>
-                <p class="productSize mt-2 mb-2">Product Code: IDDEP1234</p>
                 <h4 class="productPrice mt-2 mb-2"> <%= producto.precio %> </h4>
 
                 <label for="selectSize" class="text-muted productSize mt-2 mb-2">Size:</label>

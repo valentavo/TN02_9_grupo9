@@ -5,7 +5,9 @@ module.exports = {
     index: async (req, res) => {
         try {
 
-            const products = await db.Producto.findAll();
+            const products = await db.Producto.findAll({
+                include: [{association: 'image'}]
+            });
 
             return res.render('index.ejs', { products: products });
 

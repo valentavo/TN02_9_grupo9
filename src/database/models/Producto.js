@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        imagen: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
         cantidad: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
@@ -63,22 +59,22 @@ module.exports = (sequelize, DataTypes) => {
     Producto.associate = (models) => {
 
         Producto.hasMany(models.Referencia, {
-            as: 'referencia',
+            as: 'reference',
             foreignKey: 'productos-fk'
         });
 
         Producto.hasMany(models.Imagen, {
-            as: 'imagen',
+            as: 'image',
             foreignKey: 'productos-fk'
         });
 
         Producto.belongsTo(models.Categoria, {
-            as: 'categoria',
+            as: 'category',
             foreignKey: 'categorias-fk'
         });
 
         Producto.belongsTo(models.Marca, {
-            as: 'marca',
+            as: 'brand',
             foreignKey: 'marcas-fk'
         });
 
@@ -90,14 +86,14 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Producto.belongsToMany(models.Medida, {
-            as: 'medida',
+            as: 'size',
             through: 'medida_producto',
             foreignKey: 'productos-fk',
             otherKey: 'medidas-fk',
         });
 
         Producto.belongsToMany(models.Factura, {
-            as: 'factura',
+            as: 'bill',
             through: 'factura_producto',
             foreignKey: 'productos-fk',
             otherKey: 'facturas-fk',

@@ -48,7 +48,6 @@ CREATE TABLE `productos`(
     `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `precio` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `detalle` TEXT NOT NULL,
-    `imagen` TEXT NOT NULL,
     `cantidad` INT UNSIGNED NOT NULL,
     `marcas-fk` INT UNSIGNED NOT NULL,
     `categorias-fk` INT UNSIGNED NOT NULL,
