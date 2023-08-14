@@ -148,28 +148,24 @@
                 </div>
 
             </div>
-            <% products.forEach((_, i) => { %>
-                <% if ((i % 3) == 0) { %>
-                    <div class="row <%= (i > 2) ? 'py-3' : ''%>">
-                        <% [products[i], products[i+1], products[i+2]].forEach(product => { %>
-                            <div class="col-lg-4">
-                                <div class="card p-2">
-                                    <div class="card-body">
+            <% products.forEach((product) => { %>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card p-2">
+                            <div class="card-body">
 
-                                        <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
-                                        <a href="/product/detail/<%= product.id %>">
-                                            <h4 class="productNameH"><%= product.nombre %></h4>
-                                        </a>
-                                        <p class="productSizeH">2 x 454g / 160oz</p>
-                                        <h4 class="productPriceH">$<%= product.precio %></h4>
-                                        <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
+                                <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
+                                <a href="/product/detail/<%= product.id %>">
+                                    <h4 class="productNameH"><%= product.nombre %></h4>
+                                </a>
+                                <p class="productSizeH">2 x 454g / 160oz</p>
+                                <h4 class="productPriceH">$<%= product.precio %></h4>
+                                <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
 
-                                    </div>
-                                </div>
                             </div>
-                        <% }) %>
+                        </div>
                     </div>
-                <% } %>
+                </div>
             <% }) %>
             <div class="row ">
                 <div class="col-lg-12">
@@ -214,28 +210,24 @@
 
             </div>
 
-             <% products.forEach((_, i) => { %>
-                <% if ((i % 3) == 0) { %>
-                    <div class="row <%= (i > 2) ? 'py-3' : ''%>">
-                        <% [products[i], products[i+1], products[i+2]].forEach(product => { %>
-                            <div class="col-lg-4">
-                                <div class="card p-2">
-                                    <div class="card-body">
+            <% products.forEach((product) => { %>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card p-2">
+                            <div class="card-body">
 
-                                        <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
-                                        <a href="/product/detail/<%= product.id %>">
-                                            <h4 class="productNameH"><%= product.nombre %></h4>
-                                        </a>
-                                        <p class="productSizeH">2 x 454g / 160oz</p>
-                                        <h4 class="productPriceH">$<%= product.precio %></h4>
-                                        <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
+                                <img src="img/productos/<%= product.imagen %>" class="img-fluid pb-3" alt="">
+                                <a href="/product/detail/<%= product.id %>">
+                                    <h4 class="productNameH"><%= product.nombre %></h4>
+                                </a>
+                                <p class="productSizeH">2 x 454g / 160oz</p>
+                                <h4 class="productPriceH">$<%= product.precio %></h4>
+                                <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
 
-                                    </div>
-                                </div>
                             </div>
-                        <% }) %>
+                        </div>
                     </div>
-                <% } %>
+                </div>
             <% }) %>
 
             <div class="row ">

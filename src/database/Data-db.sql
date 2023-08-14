@@ -106,13 +106,13 @@ INSERT INTO categorias(id, nombre) VALUES
 
 -- Datos de usuarios
 INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged) VALUES 
-(DEFAULT, 'Rodrigo', 'rodrigol@gmail.com', '$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6', '1691715394303_img.jpg', 'calle realmente falsa 29', '02-12-1983', '412772311', 1, 0);
+(DEFAULT, 'Rodrigo', 'rodrigol@gmail.com', '$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6', '1691715394303_img.jpg', 'calle realmente falsa 29', '02-12-1983', 412772311, 1, 0);
 
 INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged) VALUES 
-(DEFAULT,'Laura', 'laurita@gmail.com', '$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y', '1691715465327_img.jpg', 'Hyrule callejon druida 15', '11-07-1993', '533907180', 1, 0);
+(DEFAULT,'Laura', 'laurita@gmail.com', '$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y', '1691715465327_img.jpg', 'Hyrule callejon druida 15', '11-07-1993', 533907180, 1, 0);
 
 INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged) VALUES 
-(DEFAULT, 'fifi', 'mimi@soy.com', '$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq', '1691713669955_img.jpg', 'avenida marciana helistica 2', '17-09-2005', '920678432', 2, 0);
+(DEFAULT, 'fifi', 'mimi@soy.com', '$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq', '1691713669955_img.jpg', 'avenida marciana helistica 2', '17-09-2005', 920678432, 2, 0);
 
 
 INSERT INTO usuarios(id, nombre, email, `password`, `roles-fk`, logged) VALUES 
@@ -120,12 +120,12 @@ INSERT INTO usuarios(id, nombre, email, `password`, `roles-fk`, logged) VALUES
 
 
 -- Datos de productos
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `marcas-fk`, `categorias-fk`) VALUES 
-(DEFAULT, 'Face Cream', 5000, 'especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.', 'facecare.png', '17-09-2015', 1, 1);
+INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `cantidad`, `marcas-fk`, `categorias-fk`) VALUES 
+(DEFAULT, 'Face Cream', 5000, 'especialmente formulado para tratar y prevenir la caspa, calma la irritación del cuero cabelludo, elimina las escamas, equilibra el pH para evitar la resequedad y regular la producción de grasa. Rinde de 70 a 80 lavadas.', 'facecare.png', '17-09-2015', 50, 1, 1);
 
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `marcas-fk`, `categorias-fk`) VALUES 
-(DEFAULT, 'Face Cream 2', 7000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'facecare2.png', '17-09-2019', 2, 2);
+INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `cantidad`, `marcas-fk`, `categorias-fk`) VALUES 
+(DEFAULT, 'Face Cream 2', 7000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'facecare2.png', '17-09-2019', 31, 2, 2);
 
-INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `marcas-fk`, `categorias-fk`) VALUES 
-(DEFAULT, 'Oil', 3000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'oil.png', '17-09-2019', 2, 1);
+INSERT INTO productos(id, nombre, precio, detalle, imagen, `fecha-publicacion`, `cantidad`, `marcas-fk`, `categorias-fk`) VALUES 
+(DEFAULT, 'Oil', 3000, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'oil.png', '17-09-2019', 12, 2, 1);
 

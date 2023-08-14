@@ -1,10 +1,3 @@
-// const jsonPaths = require('../modules/jsonPaths.js');
-
-// //Datos procesados
-// const productsPath = '../database/products.json';
-// let products = jsonPaths.read(productsPath);
-// const categories = jsonPaths.read("../database/categories.json");
-
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 
@@ -40,7 +33,6 @@ module.exports = {
     list: async (req, res) => {
 
         try {
-            // poner filtro para no ver los borrados logicos
             const notErased = await db.Producto.findAll();
             
             return res.render('./products/productList.ejs', {productos: notErased});
@@ -55,16 +47,12 @@ module.exports = {
 
         try {
 
-            const products = await db.Producto.findAll({
-                include: [
-                    {association: 'categorias'},
-                    {association: 'marcas'},
-                    {association: 'colores'},
-                    {association: 'medidas'}
-                ]
-            });
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
             
-            return res.render('./products/productCreate.ejs', {products: products, oldErrors: ""});
+            return res.render('./products/productCreate.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, oldErrors: ""});
         
         } catch (error) {
             console.log(error);
@@ -76,50 +64,41 @@ module.exports = {
 
         try {
 
-            const products = await db.Producto.findAll({
-                include: [
-                    {association: 'categorias'},
-                    {association: 'marcas'},
-                    {association: 'colores'},
-                    {association: 'medidas'}
-                ]
-            });
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
             
             const errors = validationResult(req);
 
             if(!errors.isEmpty()) {
 
-                return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, products: products});
-            }
-            
-            // const newProduct = {
-            //     id: products.length + 1,
-            //     title: req.body.name,
-            //     img: req.file.filename,
-            //     capacity: [req.body.cap],
-            //     measure: req.body.capacityMeasure,
-            //     color: [req.body.colors],
-            //     price: req.body.amount,
-            //     stock: req.body.unities,
-            //     label: req.body.label,
-            //     description: req.body.desc,
-            //     erased: false
-            // };
+                return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, colores: colores, marcas: marcas, medidas: medidas, categorias: categorias });
+            };
 
             const body = req.body;
-            const currentDate = Date.now();
 
             const newProduct = await db.Producto.create({
                 nombre: body.name,
                 precio: body.amount,
                 detalle: body.desc,
                 imagen: req.file.filename,
-                'fecha-publicacion': `${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}`,
+                cantidad: body.stock,
                 'marcas-fk': body.brand,
-                'categorias-fk': body.label
+                'categorias-fk': body.categoria
             });
+
+            const Product = await db.Producto.findByPk(newProduct.id);
+
+            console.log(Product);
+
+            //relacionando producto con tablas pivot
+            await Product.addColor(body.color);
+            await Product.addMedida(body.medida);
+            // await Product.setMarca(body.brand);
+            // await Product.setCategoria(body.categoria);
             
-            return res.redirect(`/product/detail/${newProduct.id}`);
+            return res.redirect(`/product/detail/${Product.id}`);
             
         } catch (error) {
             console.log(error);
@@ -127,42 +106,68 @@ module.exports = {
 
     },
 
-    edit: function (req, res) {
+    edit: async (req, res) => {
 
-        const currentProduct = products.find(row => row.id == req.params.productId);
+        try {
+
+            const currentProduct = await db.Producto.findByPk(req.params.productId);
 
 
-        return res.render('./products/productEdit.ejs', {producto: currentProduct, categories: categories});
+            return res.render('./products/productEdit.ejs', {producto: currentProduct});
+            
+        } catch (error) {
+            console.log(error);
+        }
+
     }, 
 
-    editProcess: function (req, res) {
-        const currentProduct = products.find(row => row.id == req.params.productId);
-       
-        currentProduct.title = req.body.name;
-        req.file ? currentProduct.img = req.file.filename : "";
-        currentProduct.capacity = [req.body.cap || ""];
-        currentProduct.measure = req.body.capacityMeasure || "";
-        currentProduct.color = [req.body.colors || ""];
-        currentProduct.price = req.body.amount;
-        currentProduct.stock = req.body.unities;
-        currentProduct.label = [...req.body.label];
-        currentProduct.description = req.body.desc;
+    editProcess: async (req, res) => {
 
-        jsonPaths.write(productsPath, products);
+        try {
+            
+            const body = req.body;
 
-        products = jsonPaths.read(productsPath);
+            console.log(body.stock);
+        
+            await db.Producto.update({
+                nombre: body.name,
+                precio: body.price,
+                detalle: body.desc,
+                cantidad: body.stock // No esta tomando este dato en el update, sera porque esta al final de sql?
+            }, {
+                where: {
+                    id: req.params.productId
+                }
+            });
 
-        return res.redirect(`/product/detail/${currentProduct.id}`);
+
+                // No me deja hacer el redirect a el producto creado, dice depercated, sera por enviar esa variable en el segundo parametro?
+            // const currentProduct = await db.Producto.findByPk(req.params.productId);
+            // return res.redirect(`/product/detail/${currentProduct.id}`, { producto:  currentProduct});
+
+            return res.redirect('/');
+
+        } catch (error) {
+            console.log(error);
+        }
     }, 
 
-    delete: function(req, res) {
-        const currentProduct = products.find(row => row.id == req.params.productId);
-        currentProduct.erased = true;
+    delete: async (req, res) => {
+        
+        try {
 
-        jsonPaths.write(productsPath, products);
+                // Borrado Logico, no borra relaciones
+            await db.Producto.destroy({
+                where: {
+                    id: req.params.productId
+                }
+            })
 
-        products = jsonPaths.read(productsPath);
+            return res.redirect('/product/list');
 
-        return res.redirect('/product/list');
+        } catch (error) {
+            console.log(error);
+        }
+        
     }
 }; 

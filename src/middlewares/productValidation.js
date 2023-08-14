@@ -23,35 +23,18 @@ module.exports = [
         .notEmpty()
         .withMessage('Selecciona un nombre para tu producto'),
 
-    check('label')
+    check('categoria')
         .notEmpty()
-        .withMessage('Selecciona almenos una etiqueta para tu producto'),
+        .withMessage('Selecciona almenos una categoria para tu producto'),
 
-    check('cap')
-        .optional().custom((value, {req}) => {
-            if (req.body.capacityMeasure && !value) {
-                throw new Error('Completa este campo si deseas agregar una cantidad');
-            }
-            else return true 
-        }),
-
-    check('capacityMeasure')
-        .optional()
-        .custom((value, {req}) => {
-            if (req.body.cap && !value) {
-                throw new Error('Completa este campo si deseas agregar una cantidad');
-            }
-            else return true 
-        }),
-
-    check('colors')
+    check('color')
         .optional(),
 
     check('amount')
         .notEmpty()
         .withMessage('Selecciona el precio del producto'),
 
-    check('unities')
+    check('stock')
         .notEmpty()
         .withMessage('Selecciona la cantidad disponible de este producto'),
 

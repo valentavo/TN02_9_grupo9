@@ -45,54 +45,57 @@
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="labels">Etiquetas</label>
-                            <select class="form-control" name="label" id="labels" >
-                                <option value=""></option>
-                                <option value="channel">channel</option>
+                        <label class="mb-2" for="labels">Categorias</label>
+                            <select class="form-control" name="categoria" id="labels" >
+                                <% categorias.forEach( row => { %>
+                                    <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
+                                <% }) %>
                             </select>
                     </div>
                 
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2">Tamano del producto</label>
-                        <select class="form-control" name="capacityMeasure" value="<%= oldErrors.cap %>" >
-                           
+                        <select class="form-control" name="medida" value="<%= oldErrors.cap %>" >
+
+                            <% medidas.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.medida)  ? "selected" : "" ) : "" %>><%= row.medida %></option>
+                            <% }) %>
+
                        </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2">Color</label>
-                        <select class="form-control" name="colors">
-                            <% categories[3].content.forEach( row => { %>
-                                <option value="<%= row %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row)  ? "selected" : "" ) : "" %>><%= row %></option>
+                        <select class="form-control" name="color">
+
+                            <% colores.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
                             <% }) %>
+
                         </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2">Marca</label>
                         <select class="form-control" name="brand">
-                            
+
+                            <% marcas.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
+                            <% }) %> 
+
                         </select>
                     </div>
 
 
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2">Stock disponible:</label>
-                        <input class="form-control " type="number" name="unities" value="<%= oldErrors.unities || "" %>">
+                        <input class="form-control" type="number" name="stock" value="<%= oldErrors.unities || "" %>">
                     </div>
 
                     <div class="col-md-12 productLabel my-2">
                         <div class="form-group">
                             <label class=" mb-2">Descripcion</label>
-                            <textarea class="form-control" rows="4" name="desc" value="<%= oldErrors.desc || "" %>">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 productLabel my-2">
-                        <div class="form-group">
-                            <label class=" mb-2">Ingredientes</label>
-                            <textarea class="form-control" rows="4" name="desc" value="<%= oldErrors.desc || "" %>">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
+                            <textarea class="form-control" rows="4" name="desc"></textarea>
                         </div>
                     </div>
 

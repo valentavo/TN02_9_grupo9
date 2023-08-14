@@ -4,5 +4,5 @@ module.exports = async (req, res, next) => {
 
     const currentUser = await db.Usuario.findByPk(req.session.userLogged.id);
 
-    currentUser.access === 'admin' ? next() : res.redirect('/');
+    currentUser['roles-fk'] === 2 ? next() : res.redirect('/');
 };
