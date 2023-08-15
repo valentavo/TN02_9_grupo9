@@ -105,14 +105,14 @@ INSERT INTO categorias(id, nombre, `created-at`, `updated-at`) VALUES
 -- Datos de facturas
 
 -- Datos de usuarios
-INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'Rodrigo', 'rodrigol@gmail.com', '$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6', '1691715394303_img.jpg', 'calle realmente falsa 29', '02-12-1983', 412772311, 1, 0, NOW(), NOW());
+INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Rodrigo', 'rodrigol@gmail.com', '$2a$10$Dy50boBM5G7kKNCfsF7tZOUrmhq/4w8y69ImaoSyXarvHlL0jnXS6', '1691715394303_img.jpg', 'calle realmente falsa 29', 412772311, 1, 0, NOW(), NOW());
 
-INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
-(DEFAULT,'Laura', 'laurita@gmail.com', '$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y', '1691715465327_img.jpg', 'Hyrule callejon druida 15', '11-07-1993', 533907180, 1, 0, NOW(), NOW());
+INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
+(DEFAULT,'Laura', 'laurita@gmail.com', '$2a$10$xIkq2GV3qlIiQZA2/Rc5Te6BuXL.R66MYaj9I2TSpsoFxeHe6Wq/y', '1691715465327_img.jpg', 'Hyrule callejon druida 15', 533907180, 1, 0, NOW(), NOW());
 
-INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, `fecha-nacimiento`, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'fifi', 'mimi@soy.com', '$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq', '1691713669955_img.jpg', 'avenida marciana helistica 2', '17-09-2005', 920678432, 2, 0, NOW(), NOW());
+INSERT INTO usuarios(id, nombre, email, `password`, imagen, direccion, telefono, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'fifi', 'mimi@soy.com', '$2a$10$2GczhNkL4hqUhevsCpOSKe1.xqaUJAFOtlBAXNuOUdtYWL3BjnzPq', '1691713669955_img.jpg', 'avenida marciana helistica 2', 920678432, 2, 0, NOW(), NOW());
 
 
 INSERT INTO usuarios(id, nombre, email, `password`, `roles-fk`, logged, `created-at`, `updated-at`) VALUES 

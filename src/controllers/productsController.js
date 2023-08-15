@@ -26,10 +26,12 @@ module.exports = {
                 include: [{association: 'image'}]
             });
             const medidas = await db.Medida.findAll();
+            const colores = await db.Color.findAll();
 
             const medidaProducto = await productDetail.getSize();
+            const colorProducto = await productDetail.getColor();
 
-            return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, medidaProducto: medidaProducto[0]});
+            return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, colores: colores, medidaProducto: medidaProducto[0], colorProducto: colorProducto[0]});
             
         } catch (error) {
             console.log(error);
@@ -99,25 +101,31 @@ module.exports = {
                 transaction: t
             });
 
-            await t.commit();
             
-            const Product = await db.Producto.findByPk(newProduct.id);
+            const Product = await db.Producto.findByPk(newProduct.id, {
+                transaction: t
+            });
 
             //relacionando producto con tablas pivot
-            await Product.addColor(body.color);
-            await Product.addSize(body.medida);
+            await Product.addColor(body.color, {
+                transaction: t
+            });
+            await Product.addSize(body.medida, {
+                transaction: t
+            });
             await Product.createImage({
                 nombre: req.file.filename
-            }) 
-            // await Product.setMarca(body.brand);
-            // await Product.setCategoria(body.categoria);
+            }, {
+                transaction: t
+            });
             
+            await t.commit();
             return res.redirect(`/product/detail/${Product.id}`);
             
         } catch (error) {
             console.log(error);
             await t.rollback();
-        }
+        };
 
     },
 
@@ -125,16 +133,25 @@ module.exports = {
 
         try {
 
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
+
             const currentProduct = await db.Producto.findByPk(req.params.productId, {
                 include: [{association: 'image'}]
             });
 
+            const colorProducto = await currentProduct.getColor();
+            const medidaProducto = await currentProduct.getSize();
+            const categoriaProducto = await currentProduct.getCategory();
+            const marcaProducto = await currentProduct.getBrand();
 
-            return res.render('./products/productEdit.ejs', {producto: currentProduct});
+            return res.render('./products/productEdit.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, producto: currentProduct, colorProducto: colorProducto[0], medidaProducto: medidaProducto[0], categoriaProducto: categoriaProducto, marcaProducto: marcaProducto});
             
         } catch (error) {
             console.log(error);
-        }
+        };
 
     }, 
 
@@ -144,6 +161,8 @@ module.exports = {
 
         try {
             
+            // const colores = await db.Color.findAll();
+            // const medidas = await db.Medida.findAll();
 
             const body = req.body;
         
@@ -152,6 +171,8 @@ module.exports = {
                 precio: body.price,
                 detalle: body.desc,
                 cantidad: body.stock,
+                'marcas-fk': body.brand,
+                'categorias-fk': body.categoria
                 // Image: [{nombre: req.file.filename}]
             }, {
                 where: {
@@ -167,10 +188,21 @@ module.exports = {
                 where: {
                     'productos-fk': req.params.productId
                 }
-            })
+            });
+
+
+            const Product = await db.Producto.findByPk(req.params.productId, {
+                transaction: t
+            });
+
+            await Product.setColor(body.color, {
+                transaction: t
+            });
+            await Product.setSize(body.medida, {
+                transaction: t
+            });
 
             await t.commit();
-
             //edicion imagen de prueba para 1 input file, con mas de 1 hacer un foreach
             // const producto = await db.Producto.findByPk(req.params.productId);
 
@@ -188,7 +220,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             await t.rollback();
-        }
+        };
     }, 
 
     delete: async (req, res) => {
@@ -196,7 +228,7 @@ module.exports = {
         const t = await sequelize.transaction();
         
         try {
-                // Borrado Logico, no borra relaciones
+
             await db.Producto.destroy({
                 where: {
                     id: req.params.productId
@@ -211,7 +243,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             await t.rollback();
-        }
+        };
         
     }
 }; 

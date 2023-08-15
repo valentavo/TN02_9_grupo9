@@ -80,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Producto.belongsToMany(models.Color, {
             as: 'color',
-            through: 'color_producto',
+            through: 'ColoresProductos',
             foreignKey: 'productos-fk',
             otherKey: 'colores-fk',
         });

@@ -58,10 +58,49 @@
                         <input type="text" class="form-control " name="price" value="<%= producto.precio %>">
                     </div>
 
-                    <!-- <div class="form-group productLabel my-2">
-                        <label class="mb-2">Tamano del producto</label>
-                        <input type="text" class="form-control " value="<%= %>">
-                    </div> -->
+                    <div class="form-group productLabel my-2">
+                        <label class="mb-2">Categorias</label>
+                        <select class="form-control" name="categoria" id="labels" >
+
+                            <% categorias.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= categoriaProducto.id == row.id ? 'selected' : '' %>><%= row.nombre %></option>
+                            <% }) %>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group productLabel my-2">
+                        <label class="mb-2">Tamaño del producto</label>
+                        <select class="form-control" name="medida" >
+
+                            <% medidas.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= medidaProducto && (medidaProducto.id == row.id) ? 'selected' : '' %>><%= row.medida %></option>
+                            <% }) %>
+
+                       </select>
+                    </div>
+
+                    <div class="form-group productLabel my-2">
+                        <label class="mb-2">Color</label>
+                        <select class="form-control" name="color">
+
+                            <% colores.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= colorProducto && (colorProducto.id == row.id) ? 'selected' : '' %>><%= row.nombre %></option>
+                            <% }) %>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group productLabel my-2">
+                        <label class="mb-2">Marca</label>
+                        <select class="form-control" name="brand">
+
+                            <% marcas.forEach( row => { %>
+                                <option value="<%= row.id %>" <%= marcaProducto.id == row.id ? 'selected' : '' %>><%= row.nombre %></option>
+                            <% }) %> 
+
+                        </select>
+                    </div>
         
 
                     <div class="form-group productLabel my-2">

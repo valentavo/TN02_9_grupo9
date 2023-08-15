@@ -43,12 +43,23 @@
                 <h2 class="productName"><%= producto.nombre %></h2>
                 <h4 class="productPrice mt-2 mb-2"> <%= producto.precio %> </h4>
 
-                <label for="selectSize" class="text-muted productSize mt-2 mb-2">Size:</label>
-                <select class="form-select" name="selectSize" id="size">
-                    <% medidas.forEach( row => { %>
-                        <option <%= medidaProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.medida %></option>
-                    <% })  %>
-                </select>
+                <% if (medidaProducto) { %>
+                    <label for="size" class="text-muted productSize mt-2 mb-2">Size:</label>
+                    <select class="form-select" name="size" id="size">
+                        <% medidas.forEach( row => { %>
+                            <option <%= medidaProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.medida %></option>
+                        <% })  %>
+                    </select>
+                <% } %>
+
+                <% if (colorProducto) { %>
+                    <label for="color" class="text-muted productSize mt-2 mb-2">Color:</label>
+                    <select class="form-select" name="color" id="color">
+                        <% colores.forEach( row => { %>
+                            <option <%= colorProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.nombre %></option>
+                        <% })  %>
+                    </select>
+                <% }  %>
 
                 <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
 

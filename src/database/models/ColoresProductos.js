@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = 'color_producto'; // sera mejor usar upperCammelcase?
+    const alias = 'ColoresProductos';
 
     const columnas = {
         id:  {
