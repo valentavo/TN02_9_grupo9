@@ -8,3 +8,4 @@ module.exports = {
     write: (routePath, data) => fs.writeFileSync(path.resolve(__dirname, routePath), JSON.stringify(data, null, 2), 'utf-8')
 
 };
+d
