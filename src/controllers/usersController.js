@@ -1,7 +1,7 @@
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const {sequelize} = require('../database/models');
+const { sequelize } = require('../database/models'); 
 
 module.exports = {
     login: (req, res) =>{
@@ -11,6 +11,12 @@ module.exports = {
     loginProcess: async (req, res) => {
 
         try {
+
+            const validation = validationResult(req);
+
+            if(!validation.isEmpty()) {
+                return res.render('./users/login.ejs', {errorMessage: validation.errors[0].msg})
+            }
 
             const user = await db.Usuario.findOne({
                 where: {
@@ -33,7 +39,7 @@ module.exports = {
             return res.redirect(`/user/profile`);
             }
             else {
-                return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña incorrectos, por favor volver a intentar"} );
+                return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña inválidos"} );
             }
         } catch (error) {
             console.log(error);
@@ -108,11 +114,10 @@ module.exports = {
             
             const user = await db.Usuario.findByPk(req.session.userLogged.id);
 
-            const errors = validationResult(req);
 
-            // console.log(errors); //estan saliendo todos undefined
-
-            if(!errors.isEmpty()) return res.render('./users/editUser.ejs', {errorMessages: errors.mapped(), user: user});
+            // multer esta teniendo conflictos con express-validator asi que pasamos a usar apis 🙂🔫
+            // const validation = validationResult(req);
+            // if(!validation.isEmpty()) return res.render('./users/perfil.ejs', {errorMessages: validation.mapped(), user: user});
 
             const body = req.body;
 

@@ -64,6 +64,10 @@
                             <div class="form-group">
                                   <label>Nombre y apellido</label>
                                   <input type="text" class="form-control" value="<%= user.nombre %>" name='name' >
+
+                                  <% if (locals && locals.errorMessages) { %>
+                                    <% console.log(hola) %>
+                                  <% } %>
                             </div>
                         </div>
 
