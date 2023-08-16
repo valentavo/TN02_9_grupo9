@@ -15,15 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 
@@ -40,8 +37,8 @@ module.exports = (sequelize, DataTypes) => {
 
     Color.Associate = (models) => {
         Color.belongsToMany(models.Producto, {
-            as: 'productos',
-            through: 'color_producto',
+            as: 'product',
+            through: 'ColoresProductos',
             foreignKey: 'colores-fk',
             otherKey: 'productos-fk',
         })

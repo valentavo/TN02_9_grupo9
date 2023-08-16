@@ -19,14 +19,14 @@
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../img/productos/<%= producto.img %>" class="d-block w-100" alt="...">
+                        <img src="../../img/productos/<%= producto.image[0].nombre %>" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <img src="13.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="14.png" class="d-block w-100" alt="...">
-                    </div>
+                    </div> -->
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,24 +40,36 @@
 
             </div>
             <div class="col-12 col-lg-5 mt-4 mb-3">
-                <h2 class="productName"><%= producto.title %></h2>
-                <p class="productSize mt-2 mb-2">Product Code: IDDEP1234</p>
-                <h4 class="productPrice mt-2 mb-2"> $<%= producto.price %> </h4>
+                <h2 class="productName"><%= producto.nombre %></h2>
+                <h4 class="productPrice mt-2 mb-2"> <%= producto.precio %> </h4>
 
-                <label for="selectSize" class="text-muted productSize mt-2 mb-2">Size:</label>
-                <select class="form-select" name="selectSize" id="size">
-                    <option selected>50ml</option>
-                    <option value="1">75ml</option>
-                    <option value="2">125ml</option>
-                </select>
+                <% if (medidaProducto) { %>
+                    <label for="size" class="text-muted productSize mt-2 mb-2">Size:</label>
+                    <select class="form-select" name="size" id="size">
+                        <% medidas.forEach( row => { %>
+                            <option <%= medidaProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.medida %></option>
+                        <% })  %>
+                    </select>
+                <% } %>
+
+                <% if (colorProducto) { %>
+                    <label for="color" class="text-muted productSize mt-2 mb-2">Color:</label>
+                    <select class="form-select" name="color" id="color">
+                        <% colores.forEach( row => { %>
+                            <option <%= colorProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.nombre %></option>
+                        <% })  %>
+                    </select>
+                <% }  %>
 
                 <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
 
                 <label for="selectQuantity" class="text-muted productSize mt-2 mb-2">Cantidad:</label>
                 <select class="form-select" name="selectQuanntity" id="quantity">
-                    <option selected>0</option>
-                    <option value="1">2</option>
-                    <option value="2">3</option>
+
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                    
                 </select>
 
                 <div class="d-grid my-4">
@@ -74,7 +86,7 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
                             <div class="accordion-body">
-                                <%= producto.description %>
+                                <%= producto.detalle %>
 
                             </div>
 

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = 'Categoria';
+    const alias = 'Imagen';
 
     const columnas = {
         id:  {
@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         nombre: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        'productos-fk': {
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
         'created-at': {
@@ -25,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const config = {
-        tableName: 'categorias',
+        tableName: 'imagenes',
         timestamps: true,
         paranoid: true,
         createdAt: 'created-at',
@@ -33,14 +37,14 @@ module.exports = (sequelize, DataTypes) => {
         deletedAt: 'deleted-at'
     };
 
-    const Categoria = sequelize.define(alias, columnas, config);
+    const Imagen = sequelize.define(alias, columnas, config);
 
-    Categoria.associate = (models) => {
-        Categoria.hasMany(models.Producto , {
+    Imagen.associate = (models) => {
+        Imagen.belongsTo(models.Producto , {
             as: 'product',
-            foreignKey: 'categorias-fk'
+            foreignKey: 'productos-fk'
         })
     };
 
-    return Categoria
+    return Imagen
 };

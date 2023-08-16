@@ -9,27 +9,24 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false
         },
-        'productos-fk':  {
-            type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false,
-            references: {model: 'Producto', key: 'id'}
-        },
         'medidas-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {model: 'Medida', key: 'id'}
         },
+        'productos-fk':  {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+            references: {model: 'Producto', key: 'id'}
+        },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 

@@ -1,101 +1,249 @@
-const jsonPaths = require('../modules/jsonPaths.js');
-
-//Datos procesados
-const productsPath = '../database/products.json';
-let products = jsonPaths.read(productsPath);
-const categories = jsonPaths.read("../database/categories.json");
-
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
+const {sequelize} = require( '../database/models' );
 
 module.exports = {
 
-    cart: (req, res) =>{
-        return res.render('./products/productCart.ejs', {productos: products});
+    cart: async (req, res) => {
+
+        try {
+            
+            const products = await db.Producto.findAll();
+
+            return res.render('./products/productCart.ejs', {productos: products});
+
+        } catch (error) {
+            console.log(error);
+        }
+
     },
 
-    details:  (req, res) =>{
+    details: async (req, res) => {
 
-        const productDetail = products.find(row => {
-            return row.id == req.params.productId;
-        });
+        try {
 
-        return res.render('./products/productDetail.ejs', {producto: productDetail});
+            const productDetail = await db.Producto.findByPk(req.params.productId, {
+                include: [{association: 'image'}]
+            });
+            const medidas = await db.Medida.findAll();
+            const colores = await db.Color.findAll();
+
+            const medidaProducto = await productDetail.getSize();
+            const colorProducto = await productDetail.getColor();
+
+            return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, colores: colores, medidaProducto: medidaProducto[0], colorProducto: colorProducto[0]});
+            
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    list: function (req, res) {
+    list: async (req, res) => {
 
-        const notErased = products.filter(row => row.erased !== true);
+        try {
+            const notErased = await db.Producto.findAll( {
+                include: [{association: 'image'}]
+            });
+            
+            return res.render('./products/productList.ejs', {productos: notErased});
 
-        return res.render('./products/productList.ejs', {productos: notErased});
+        } catch (error) {
+            console.log(error);
+        }
+
     },
 
-    create: (req, res) =>{
-        return res.render('./products/productCreate.ejs', {categories: categories, oldErrors: ""});
-    },
+    create: async (req, res) => {
 
-    createProcess: (req, res) => {
+        try {
 
-        const errors = validationResult(req);
-
-        if(!errors.isEmpty()) return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, categories: categories});
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
+            
+            return res.render('./products/productCreate.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, oldErrors: ""});
         
-        const newProduct = {
-            id: products.length + 1,
-            title: req.body.name,
-            img: req.file.filename,
-            capacity: [req.body.cap],
-            measure: req.body.capacityMeasure,
-            color: [req.body.colors],
-            price: req.body.amount,
-            stock: req.body.unities,
-            label: req.body.label,
-            description: req.body.desc,
-            erased: false
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+
+    createProcess: async (req, res) => {
+
+        const t = await sequelize.transaction();
+
+        try {
+
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
+            
+            const errors = validationResult(req);
+
+            if(!errors.isEmpty()) {
+
+                return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, colores: colores, marcas: marcas, medidas: medidas, categorias: categorias });
+            };
+
+            const body = req.body;
+
+            const newProduct = await db.Producto.create({
+                nombre: body.name,
+                precio: body.amount,
+                detalle: body.desc,
+                cantidad: body.stock,
+                'marcas-fk': body.brand,
+                'categorias-fk': body.categoria
+            }, {
+                transaction: t
+            });
+
+            
+            const Product = await db.Producto.findByPk(newProduct.id, {
+                transaction: t
+            });
+
+            //relacionando producto con tablas pivot
+            await Product.addColor(body.color, {
+                transaction: t
+            });
+            await Product.addSize(body.medida, {
+                transaction: t
+            });
+            await Product.createImage({
+                nombre: req.file.filename
+            }, {
+                transaction: t
+            });
+            
+            await t.commit();
+            return res.redirect(`/product/detail/${Product.id}`);
+            
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
         };
 
-        jsonPaths.write(productsPath, [...products, newProduct]);
-
-        products = jsonPaths.read(productsPath);
-        
-        return res.redirect(`/product/detail/${newProduct.id}`);
     },
 
-    edit: function (req, res) {
+    edit: async (req, res) => {
 
-        const currentProduct = products.find(row => row.id == req.params.productId);
+        try {
 
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
 
-        return res.render('./products/productEdit.ejs', {producto: currentProduct, categories: categories});
+            const currentProduct = await db.Producto.findByPk(req.params.productId, {
+                include: [{association: 'image'}]
+            });
+
+            const colorProducto = await currentProduct.getColor();
+            const medidaProducto = await currentProduct.getSize();
+            const categoriaProducto = await currentProduct.getCategory();
+            const marcaProducto = await currentProduct.getBrand();
+
+            return res.render('./products/productEdit.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, producto: currentProduct, colorProducto: colorProducto[0], medidaProducto: medidaProducto[0], categoriaProducto: categoriaProducto, marcaProducto: marcaProducto});
+            
+        } catch (error) {
+            console.log(error);
+        };
+
     }, 
 
-    editProcess: function (req, res) {
-        const currentProduct = products.find(row => row.id == req.params.productId);
-       
-        currentProduct.title = req.body.name;
-        req.file ? currentProduct.img = req.file.filename : "";
-        currentProduct.capacity = [req.body.cap || ""];
-        currentProduct.measure = req.body.capacityMeasure || "";
-        currentProduct.color = [req.body.colors || ""];
-        currentProduct.price = req.body.amount;
-        currentProduct.stock = req.body.unities;
-        currentProduct.label = [...req.body.label];
-        currentProduct.description = req.body.desc;
+    editProcess: async (req, res) => {
 
-        jsonPaths.write(productsPath, products);
+        const t = await sequelize.transaction();
 
-        products = jsonPaths.read(productsPath);
+        try {
+            
+            // const colores = await db.Color.findAll();
+            // const medidas = await db.Medida.findAll();
 
-        return res.redirect(`/product/detail/${currentProduct.id}`);
+            const body = req.body;
+        
+            await db.Producto.update({
+                nombre: body.name,
+                precio: body.price,
+                detalle: body.desc,
+                cantidad: body.stock,
+                'marcas-fk': body.brand,
+                'categorias-fk': body.categoria
+                // Image: [{nombre: req.file.filename}]
+            }, {
+                where: {
+                    id: req.params.productId
+                },
+                transaction: t,
+                // include: db.Imagen
+            });
+
+            await db.Imagen.update({
+                nombre: req.file.filename
+            }, {
+                where: {
+                    'productos-fk': req.params.productId
+                }
+            });
+
+
+            const Product = await db.Producto.findByPk(req.params.productId, {
+                transaction: t
+            });
+
+            await Product.setColor(body.color, {
+                transaction: t
+            });
+            await Product.setSize(body.medida, {
+                transaction: t
+            });
+
+            await t.commit();
+            //edicion imagen de prueba para 1 input file, con mas de 1 hacer un foreach
+            // const producto = await db.Producto.findByPk(req.params.productId);
+
+            // puede ser un set (si es set puede ser plural -> setImagenes) o un remove y luego un create
+            // await producto.setImagen({
+            //     nombre: req.file.filename
+            // });
+
+                // No me deja hacer el redirect a el producto creado, dice depercated, sera por enviar esa variable en el segundo parametro?
+            // const currentProduct = await db.Producto.findByPk(req.params.productId);
+            // return res.redirect(`/product/detail/${currentProduct.id}`, { producto:  currentProduct});
+
+            return res.redirect('/');
+
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
+        };
     }, 
 
-    delete: function(req, res) {
-        const currentProduct = products.find(row => row.id == req.params.productId);
-        currentProduct.erased = true;
+    delete: async (req, res) => {
 
-        jsonPaths.write(productsPath, products);
+        const t = await sequelize.transaction();
+        
+        try {
 
-        products = jsonPaths.read(productsPath);
+            await db.Producto.destroy({
+                where: {
+                    id: req.params.productId
+                },
+                transaction: t
+            });
 
-        return res.redirect('/product/list');
+            await t.commit();
+
+            return res.redirect('/product/list');
+
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
+        };
+        
     }
 }; 

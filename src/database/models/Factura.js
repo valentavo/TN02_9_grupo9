@@ -10,11 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         total: {
-            type: DataTypes.DECIMAL(6,2),
-            allowNull: false
-        },
-        fecha: {
-            type: DataTypes.DATE,
+            type: DataTypes.DECIMAL(10,2).UNSIGNED,
             allowNull: false
         },
         'metodo-pago': {
@@ -27,15 +23,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 
@@ -53,14 +46,14 @@ module.exports = (sequelize, DataTypes) => {
 
     Factura.associate = (models) => {
         Factura.belongsToMany(models.Producto, {
-            as: 'productos',
+            as: 'product',
             through: 'factura_producto',
             foreignKey: 'facturas-fk',
             otherKey: 'productos-fk',
         });
 
         Factura.belongsTo(models.Usuario, {
-            as: 'usuarios',
+            as: 'user',
             foreignKey: 'usuarios-fk'
         });
     };

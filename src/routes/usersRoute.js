@@ -30,16 +30,15 @@ router.post('/login', usersController.loginProcess);
 //Perfil Usuario
 router.get('/profile', authMiddleware, usersController.profile);
 
+//Edicion Usuario
+router.put('/profile/edit', registerValidation, uploadFile.single('img'), usersController.editProcess);
+
 //Creacion Registro Usuario
 router.get('/registro', guestMiddleware, usersController.register);
 router.post('/registro', registerValidation, usersController.registerProcess);
 
-//Edicion Usuario
-router.get('/edit', authMiddleware, usersController.edit);
-router.put('/edit', registerValidation, uploadFile.single('img'), usersController.editProcess);
-
 //Eliminacion Usuario
-router.delete('/edit', usersController.delete);
+router.delete('/profile/delete', usersController.delete);
 
 //Cerrar Sesion del Usuario
 router.get('/logout', usersController.logout);

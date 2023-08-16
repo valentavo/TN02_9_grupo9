@@ -58,5 +58,15 @@
     "access": "admin",
     "logged": false,
     "erased": false
+  },
+  {
+    "id": 6,
+    "name": "sofi",
+    "email": "adb@fff.com",
+    "password": "rere",
+    "img": "",
+    "access": "personal",
+    "logged": false,
+    "erased": false
   }
 ]

@@ -15,15 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         'created-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'updated-at': {
             type: DataTypes.DATE,
-            allowNull: false
         },
         'deleted-at': {
             type: DataTypes.DATE,
-            allowNull: false
         }
     };
 
@@ -41,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     Medida.associate = (models) => {
 
         Medida.belongsToMany(models.Producto, {
-            as: 'productos',
+            as: 'product',
             through: 'medida_producto',
             foreignKey: 'medidas-fk',
             otherKey: 'productos-fk',

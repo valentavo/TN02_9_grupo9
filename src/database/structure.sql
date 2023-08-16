@@ -2,110 +2,115 @@ CREATE TABLE `colores_productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `productos-fk` INT UNSIGNED NOT NULL,
     `colores-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `marcas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `categorias`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `medidas_productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `medidas-fk` INT UNSIGNED NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `usuarios`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `imagen` TEXT NOT NULL DEFAULT 'defaultProfilePhoto.jpeg',
-    `direccion` TEXT NOT NULL,
-    `fecha-nacimiento` DATE NOT NULL,
-    `telefono` INT NOT NULL,
-    `logged` TINYINT NOT NULL,
+    `imagen` TEXT,
+    `direccion` TEXT,
+    `fecha-nacimiento` DATE,
+    `telefono` INT UNSIGNED,
+    `logged` TINYINT,
     `roles-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
-    `precio` DECIMAL(6, 2) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
+    `precio` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `detalle` TEXT NOT NULL,
-    `imagen` TEXT NOT NULL,
-    `fecha-publicacion` DATE NOT NULL,
+    `cantidad` INT UNSIGNED NOT NULL,
     `marcas-fk` INT UNSIGNED NOT NULL,
     `categorias-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `medidas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `medida` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `colores`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `facturas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `total` DECIMAL(6, 2) NOT NULL,
-    `fecha` DATETIME NOT NULL,
-    `usuarios-fk` INT UNSIGNED NOT NULL,
+    `total` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `metodo-pago` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `usuarios-fk` INT UNSIGNED NOT NULL,
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
+);
+CREATE TABLE `imagenes`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nombre` TEXT NOT NULL,
+    `productos-fk` INT UNSIGNED NOT NULL,
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `roles`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `facturas_productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `descuento` INT UNSIGNED,
+    `precio` DECIMAL(10, 2) NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
     `facturas-fk` INT UNSIGNED NOT NULL,
-    `descuento` INT NOT NULL,
-    `precio` DECIMAL(6, 2) NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 CREATE TABLE `referencias`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `comentario` TEXT NOT NULL,
-    `fecha-creacion` DATETIME NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME NOT NULL,
-    `updated-at` DATETIME NOT NULL,
-    `deleted-at` DATETIME NOT NULL
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
 );
 ALTER TABLE
     `productos` ADD CONSTRAINT `productos_categorias_fk_foreign` FOREIGN KEY(`categorias-fk`) REFERENCES `categorias`(`id`);
@@ -121,6 +126,8 @@ ALTER TABLE
     `referencias` ADD CONSTRAINT `referencias_usuarios_fk_foreign` FOREIGN KEY(`usuarios-fk`) REFERENCES `usuarios`(`id`);
 ALTER TABLE
     `colores_productos` ADD CONSTRAINT `colores_productos_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
+ALTER TABLE
+    `imagenes` ADD CONSTRAINT `imagenes_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
 ALTER TABLE
     `referencias` ADD CONSTRAINT `referencias_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
 ALTER TABLE
