@@ -20,7 +20,6 @@ header .navbar{
     padding: 3rem 2rem;
     height: 10vh;
     min-height: 12vh;
-
     
 }
 .navbar .navbat-brand a {
@@ -83,7 +82,7 @@ width: 5em;
 .navbar-nav button{
     padding:1.2rem 0;
 }
-.navbar-nav .btn{
+.navbar-nav .btn {
     border: #fff;
     color:#737061;
     border-radius: 3%;
@@ -94,11 +93,31 @@ width: 5em;
     margin-right: 0;
     transition: all 0.4ms;
 }
-.navbar-nav .btn:hover{
+.navbar-nav .btn :hover{
     color:#fff;
     background-color: #b69c7f;
     border-radius: 3%;
 }
+#login_cart{
+    border: #fff;
+    color:#737061;
+    border-radius: 3%;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 0;
+    transition: all 0.4ms;
+
+}
+#login_cart:hover{
+    color:#fff;
+    background-color: #b69c7f;
+    border-radius: 3%;
+}
+
+
 #nav-nav-boton{
     color: #737061;
     font-size: 1rem;
