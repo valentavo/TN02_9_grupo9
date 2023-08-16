@@ -11,19 +11,24 @@ const mainRoute = require('./routes/mainRoute.js');
 const productsRoute = require('./routes/productsRoute.js');
 const usersRoute = require('./routes/usersRoute.js');
 
+//API Routes
+const mainRouteAPI = require('./routes/api/mainRoute.js');
+// const productsRouteAPI = require('./routes/api/productsRoute.js');
+// const usersRouteAPI = require('./routes/api/usersRoute.js');
+
 //Middlewares
 // const logsMiddleware = require('./middlewares/userLogs.js');
 const userLogged = require('./middlewares/userLogged.js');
 
 app.use(express.static("public"));
-app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, '../views'));
+app.set('view engine', 'ejs');
 
 app.use(methodOverride('_method'));
 // Midleware que registra cada ruta que el cx visita
 // app.use(logsMiddleware);
 
-//configuracion de express para los formularios
+//configuracion de express para los JSONS
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -36,20 +41,23 @@ app.use( session({
 
 //CookieParser config
 app.use(cookieParser());
-
 app.use(userLogged);
 
-app.listen(3009, () => {
-    console.log('Servidor corriendo en el puerto 3009')
-});
-
+// Rutas
 app.use(mainRoute);
-
 app.use('/user', usersRoute);
-
 app.use('/product', productsRoute);
+
+// API Rutas
+app.use('/api', mainRouteAPI);
+// app.use('/api/user', usersRouteAPI);
+// app.use('/api/product', productsRouteAPI);
 
 // Mensaje de Error 404
 app.use((req, res, next) => {
     return res.status(404).send('404 Ups! algo esta mal con esta ruta');
+});
+
+app.listen(3009, () => {
+    console.log('Servidor corriendo en el puerto 3009')
 });
