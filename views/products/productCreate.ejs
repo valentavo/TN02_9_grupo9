@@ -22,7 +22,7 @@
 
                     <div class="form-group my-4" id="imagenes">
                         <label class="mb-4 imageTitulo" for="clickFileImg">Seleccionar imagenes</label>
-                        <input class="form-control mt-2" type="file" name="productImg" id="clickFileImg">
+                        <input class="form-control mt-2" type="file" name="productImg" id="clickFileImg" multiple>
                     </div>
                 
                 </div>
@@ -32,11 +32,6 @@
                     <div class="form-group productLabel my-4">
                         <label class="mb-2" for="title">Nombre del producto</label>
                         <input class="form-control" type="text" id="title" name="name" value="<%= oldErrors.name %>">
-                    </div>
-
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2">Codigo del producto</label>
-                        <input type="text" class="form-control " value="Product Code: IDDEP1234">
                     </div>
 
                     <div class="form-group productLabel my-2">

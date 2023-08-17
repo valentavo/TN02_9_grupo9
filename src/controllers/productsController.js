@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const {sequelize} = require( '../database/models' );
+const Op = db.Sequelize.Op;
 
 module.exports = {
 
@@ -76,6 +77,8 @@ module.exports = {
 
         try {
 
+            /*    //Cuando las validaciones funcionen
+
             const colores = await db.Color.findAll();
             const marcas = await db.Marca.findAll();
             const medidas = await db.Medida.findAll();
@@ -87,6 +90,7 @@ module.exports = {
 
                 return res.render('./products/productCreate.ejs', {errorMessages: errors.mapped(), oldErrors: req.body, colores: colores, marcas: marcas, medidas: medidas, categorias: categorias });
             };
+            */
 
             const body = req.body;
 
@@ -96,11 +100,16 @@ module.exports = {
                 detalle: body.desc,
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
-                'categorias-fk': body.categoria
+                'categorias-fk': body.categoria,
+                image:  req.files.map( img => {
+                    return {nombre: img.filename}
+                })
             }, {
-                transaction: t
+                transaction: t,
+                include: [{
+                    association: 'image',
+                }]
             });
-
             
             const Product = await db.Producto.findByPk(newProduct.id, {
                 transaction: t
@@ -111,11 +120,6 @@ module.exports = {
                 transaction: t
             });
             await Product.addSize(body.medida, {
-                transaction: t
-            });
-            await Product.createImage({
-                nombre: req.file.filename
-            }, {
                 transaction: t
             });
             
@@ -160,9 +164,6 @@ module.exports = {
         const t = await sequelize.transaction();
 
         try {
-            
-            // const colores = await db.Color.findAll();
-            // const medidas = await db.Medida.findAll();
 
             const body = req.body;
         
@@ -173,27 +174,43 @@ module.exports = {
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.categoria
-                // Image: [{nombre: req.file.filename}]
             }, {
                 where: {
                     id: req.params.productId
                 },
-                transaction: t,
-                // include: db.Imagen
+                transaction: t
             });
-
-            await db.Imagen.update({
-                nombre: req.file.filename
-            }, {
-                where: {
-                    'productos-fk': req.params.productId
-                }
-            });
-
 
             const Product = await db.Producto.findByPk(req.params.productId, {
                 transaction: t
             });
+
+            const prevImages = await Product.getImage();
+
+            await db.Imagen.bulkCreate(req.files.map( img => {
+                return {nombre: img.filename, 'productos-fk': Product.id}
+            }), {
+                transaction: t
+            });
+
+            await db.Imagen.destroy({
+                where: {
+                    'productos-fk': Product.id,
+                    id: {
+                        [Op.lte]: prevImages[prevImages.length -1].id
+                    }
+                },
+                transaction: t
+            });
+
+            // no funciona, Imagen.productos-fk cannot be null
+            // await Product.setImage(
+            //     req.files.map( img => {
+            //         return {nombre: img.filename}
+            //     }),{
+            //         transaction: t
+            //     }
+            // );
 
             await Product.setColor(body.color, {
                 transaction: t
@@ -203,19 +220,8 @@ module.exports = {
             });
 
             await t.commit();
-            //edicion imagen de prueba para 1 input file, con mas de 1 hacer un foreach
-            // const producto = await db.Producto.findByPk(req.params.productId);
 
-            // puede ser un set (si es set puede ser plural -> setImagenes) o un remove y luego un create
-            // await producto.setImagen({
-            //     nombre: req.file.filename
-            // });
-
-                // No me deja hacer el redirect a el producto creado, dice depercated, sera por enviar esa variable en el segundo parametro?
-            // const currentProduct = await db.Producto.findByPk(req.params.productId);
-            // return res.redirect(`/product/detail/${currentProduct.id}`, { producto:  currentProduct});
-
-            return res.redirect('/');
+            return res.redirect(`/product/detail/${Product.id}`);
 
         } catch (error) {
             console.log(error);

@@ -58,6 +58,11 @@ app.use((req, res, next) => {
     return res.status(404).send('404 Ups! algo esta mal con esta ruta');
 });
 
+//Multer errors better handling
+// app.use((error, req, res, next) => {
+//   console.log('This is the rejected field ->', error);
+// });
+
 app.listen(3009, () => {
     console.log('Servidor corriendo en el puerto 3009')
 });

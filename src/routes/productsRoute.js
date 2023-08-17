@@ -29,11 +29,11 @@ router.get('/list', authMiddleware, adminUserAccess, productsController.list);
 
 // Creacion
 router.get('/create', authMiddleware,  adminUserAccess, productsController.create);
-router.post('/create', uploadFile.single('productImg'), productValidation, productsController.createProcess);
+router.post('/create', uploadFile.array('productImg', 5), productValidation, productsController.createProcess);
 
 // Edicion
 router.get('/edit/:productId', authMiddleware, adminUserAccess, productsController.edit);
-router.put('/edit/:productId', uploadFile.single('img'), productsController.editProcess);
+router.put('/edit/:productId', uploadFile.array('img', 5), productsController.editProcess);
 
 // Eliminacion
 router.delete('/delete/:productId', authMiddleware, adminUserAccess, productsController.delete);
