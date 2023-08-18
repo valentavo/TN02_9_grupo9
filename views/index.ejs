@@ -148,25 +148,9 @@
                 </div>
 
             </div>
-            <% products.forEach((product, i) => { %>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card p-2">
-                            <div class="card-body">
 
-                                <img src="img/productos/<%= product.image[0].nombre %>" class="img-fluid pb-3" alt="">
-                                <a href="/product/detail/<%= product.id %>">
-                                    <h4 class="productNameH"><%= product.nombre %></h4>
-                                </a>
-                                <p class="productSizeH">2 x 454g / 160oz</p>
-                                <h4 class="productPriceH">$<%= product.precio %></h4>
-                                <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
+            <div class="products-container"></div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% }) %>
             <div class="row ">
                 <div class="col-lg-12">
                     <a href="" class="btn my-5 py-2 viewMore ">Todos los productos</a>
@@ -210,25 +194,7 @@
 
             </div>
 
-            <% products.forEach((product) => { %>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card p-2">
-                            <div class="card-body">
-
-                                <img src="img/productos/<%= product.image[0].nombre %>" class="img-fluid pb-3" alt="">
-                                <a href="/product/detail/<%= product.id %>">
-                                    <h4 class="productNameH"><%= product.nombre %></h4>
-                                </a>
-                                <p class="productSizeH">2 x 454g / 160oz</p>
-                                <h4 class="productPriceH">$<%= product.precio %></h4>
-                                <button class="btnc my-4 productCartBtn"><a href="/product/cart"> Agregar al Carrito </a></button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% }) %>
+            <div class="products-container"></div>
 
             <div class="row ">
                 <div class="col-lg-12">
@@ -394,7 +360,7 @@
     <!-- MAIN-->
 
 <!-- FOOTER-->   
-
+<script src="/js/index.js"></script>
 <%- include('./partials/footer.ejs') %>
 
 <!-- FOOTER--> 

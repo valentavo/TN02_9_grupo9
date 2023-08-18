@@ -203,15 +203,6 @@ module.exports = {
                 transaction: t
             });
 
-            // no funciona, Imagen.productos-fk cannot be null
-            // await Product.setImage(
-            //     req.files.map( img => {
-            //         return {nombre: img.filename}
-            //     }),{
-            //         transaction: t
-            //     }
-            // );
-
             await Product.setColor(body.color, {
                 transaction: t
             });
