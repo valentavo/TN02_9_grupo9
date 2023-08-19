@@ -130,7 +130,7 @@
                                         <div class="col-6">
                                             <ul class="pagination justify-content-end set_quantity">
                                                 <li class="page-item">
-                                                    <button class="page-link" onclick="decreaseNumber()">
+                                                    <button class="page-link" >
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
                                                             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
                                                         </svg>
@@ -142,7 +142,7 @@
                                                 </li>
                                     
                                                 <li class="page-item">
-                                                    <button class="page-link" onclick="increaseNumber()">
+                                                    <button class="page-link" >
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                                                             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
                                                         </svg>
@@ -241,6 +241,105 @@
                             </div>
                             
                         </div> 
+                    </div>
+                    <!---LEFT SIDE DIV-->
+                    <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                        <div class="rigth_side p-3 shadow bg-white">
+                            <h2 class="product_name mb-5">Total</h2>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Total producto</p>
+                                <p>$<span>0.00</span></p>
+                            </div>
+                            <div class="price_indiv d-flex justify-content-between">
+                                <p>Total Envio</p>
+                                <p>$<span>0.00</span></p>
+                            </div>
+                            <hr />
+                            <div class="total-amt d-flex justify-content-between font-weight-bold">
+                                <p>Total (Incluye IVA)</p>
+                                <p>$<span id="total_cart_amt">0.00</span></p>
+                            </div>
+                            <button class="btn btn-primary">PAGAR AHORA</button>
+
+                        </div>
+                        <!---discount part-->
+                        <div class="discount-code mt-3 shadow">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingTwo">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                Agrega tu codigo de descuento: 
+                                              </button>
+                                            </h2>
+                                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">  
+                                                    <div class="mt-3">
+                                                        <input type="text" name="" id="discount_code1" class="form-control font-weight-bold" placeholder="Ingresa tu codigo de descuento" >
+                                            
+
+                                                    </div>
+                                                
+                                                    <button class="btn btn-primary btn-sm mt-3" type="submit"> APLICAR DESCUENTO</button>
+
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingThree">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                Detalles del envio:
+                                              </button>
+                                            </h2>
+                                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">  
+                                                    <div class="mt-3">
+                                                        <div class="pt-2">
+                                                            <h4>Detalles del envio</h2>
+                                                            <p>Direccion: Calle Falsa 123, Concordia, Entre Rios</p>
+                                                        </div>
+                
+                                                    </div>
+                                    
+
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingFour">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                                Detalles de Pago
+                                              </button>
+                                            </h2>
+                                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">  
+                                                    <div class="mt-3">
+                                                        <p>Selecciona tu metodo de pago</p>
+                                                        <select>
+                                                            <option>Tarjeta de Debito</option>
+                                                            <option>Tarjeta de Credito</option>
+                                                            <option>Mercado Pago</option>
+                                                        </select>
+                                                        
+            
+                                                    </div>
+                                    
+
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                          
+                                    </div>
+
+                                </div>
+                            </div>
+                    
                     </div>
 
 
