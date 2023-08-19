@@ -65,17 +65,17 @@ module.exports = {
         }
     },
     
-    searchPk: async (req, res) => {
+    profile: async (req, res) => {
 
         try {
 
-            const user = await db.Usuario.findByPk(req.body.id);
+            const user = await db.Usuario.findByPk(req.session.userLogged.id);
 
             const resApi = {
                 meta: {
                     status: 200,
                     success: true,
-                    endpoint: `/api/user/id`
+                    endpoint: `/api/user/profile`
                 },
                 data: user
             };

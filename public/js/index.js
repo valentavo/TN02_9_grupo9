@@ -12,7 +12,6 @@ async function ready() {
 	const productsFetch = await fetch('/api');
     const products = await productsFetch.json();
 
-    console.log(products);
     products.data.forEach( product => {
         return productsContainer.forEach( container => {
 

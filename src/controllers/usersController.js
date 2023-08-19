@@ -63,9 +63,7 @@ module.exports = {
 
         try {
 
-            const user = await db.Usuario.findByPk(req.session.userLogged.id)
-
-            return res.render('./users/perfil.ejs', {user: user});
+            return res.render('./users/perfil.ejs');
 
         } catch (error) {
             console.log(error);
