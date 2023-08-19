@@ -1,10 +1,6 @@
-const db = require('../database/models');
-
-
 module.exports = {
     index: async (req, res) => {
         try {
-
             //Le dejamos esto a la API
             return res.render('index.ejs');
 

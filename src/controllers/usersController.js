@@ -20,23 +20,23 @@ module.exports = {
 
             const user = await db.Usuario.findOne({
                 where: {
-                    email: req.body.nombre
+                    email: req.body.email
                 }
             });
             
             //Verifiying the passwords
-            if (user && bcrypt.compareSync(req.body.clave, user.password)) {
+            if (user && bcrypt.compareSync(req.body.password, user.password)) {
 
-            //Eliminando la contrasenia de sessions
-            delete user.password;
+                //Eliminando la contrasenia de sessions
+                delete user.password;
 
-            user.logged = true;
-            req.session.userLogged = user;
-            
-            //Session Cookie
-            if(req.body.recordar) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
+                user.logged = true;
+                req.session.userLogged = user;
+                
+                //Session Cookie
+                if(req.body.remember) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
 
-            return res.redirect(`/user/profile`);
+                return res.redirect(`/user/profile`);
             }
             else {
                 return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña inválidos"} );
