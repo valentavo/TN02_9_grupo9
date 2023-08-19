@@ -8,43 +8,44 @@ module.exports = {
         return res.render('./users/login.ejs');
     },
 
-    loginProcess: async (req, res) => {
+        // Esto queda para preguntar a Lucas sobre las APIS y express-validator
+    // loginProcess: async (req, res) => {
 
-        try {
+    //     try {
 
-            const validation = validationResult(req);
+    //         const validation = validationResult(req);
 
-            if(!validation.isEmpty()) {
-                return res.render('./users/login.ejs', {errorMessage: validation.errors[0].msg})
-            }
+    //         if(!validation.isEmpty()) {
+    //             return res.render('./users/login.ejs', {errorMessage: validation.errors[0].msg})
+    //         }
 
-            const user = await db.Usuario.findOne({
-                where: {
-                    email: req.body.email
-                }
-            });
+    //         const user = await db.Usuario.findOne({
+    //             where: {
+    //                 email: req.body.email
+    //             }
+    //         });
             
-            //Verifiying the passwords
-            if (user && bcrypt.compareSync(req.body.password, user.password)) {
+    //         //Verifiying the passwords
+    //         if (user && bcrypt.compareSync(req.body.password, user.password)) {
 
-                //Eliminando la contrasenia de sessions
-                delete user.password;
+    //             //Eliminando la contrasenia de sessions
+    //             delete user.password;
 
-                user.logged = true;
-                req.session.userLogged = user;
+    //             user.logged = true;
+    //             req.session.userLogged = user;
                 
-                //Session Cookie
-                if(req.body.remember) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
+    //             //Session Cookie
+    //             if(req.body.remember) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
 
-                return res.redirect(`/user/profile`);
-            }
-            else {
-                return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña inválidos"} );
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    },
+    //             return res.redirect(`/user/profile`);
+    //         }
+    //         else {
+    //             return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña inválidos"} );
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // },
 
     logout: async (req, res) => {
 

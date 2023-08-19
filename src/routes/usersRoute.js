@@ -27,7 +27,7 @@ const uploadFile = multer({ storage });
 
 //Acceso Usuario
 router.get('/login', guestMiddleware, usersController.login);
-router.post('/login', loginValidation, usersController.loginProcess);
+// router.post('/login', loginValidation, usersController.loginProcess);
 
 //Perfil Usuario
 router.get('/profile', authMiddleware, usersController.profile);
