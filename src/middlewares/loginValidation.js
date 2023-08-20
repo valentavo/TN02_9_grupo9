@@ -9,6 +9,7 @@ module.exports = [
         .trim()
         .isEmail()
         .normalizeEmail({'all_lowercase': true}),
+        
     check('password', message)
         .notEmpty()
 ];

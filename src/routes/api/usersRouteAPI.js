@@ -4,9 +4,13 @@ const router = express.Router();
 
 const usersAPI = require('../../controllers/api/usersAPI.js');
 
-router.post('/login', usersAPI.loginProcess);
+// Validations
+const registerValidation = require('../../middlewares/registerValidation.js');
+const loginValidation = require('../../middlewares/loginValidation.js');
+
+router.post('/login', loginValidation, usersAPI.loginProcess);
 router.get('/profile', usersAPI.profile);
-router.post('/create', usersAPI.create);
+router.post('/create', registerValidation, usersAPI.create);
 router.put('/edit', usersAPI.update);
 router.delete('/delete', usersAPI.delete);
 

@@ -8,7 +8,6 @@ module.exports = {
     loginProcess: async (req, res) => {
         try {
 
-            //No funciona express validator con el nuevo req, mejor pregunto a lucas y vemos que tal
             const validation = validationResult(req);
 
             if(!validation.isEmpty()) {
@@ -92,6 +91,19 @@ module.exports = {
         const t = await sequelize.transaction();
         try {
 
+            const validation = validationResult(req);
+
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        status: 400,
+                        success: false,
+                        endpoint: `/api/user/create`
+                    },
+                    data: validation.errors
+                });
+            };
+
             const newUser = await db.Usuario.create({
                 nombre: req.body.name,
                 email: req.body.email,
@@ -113,7 +125,7 @@ module.exports = {
                 data: newUser
             };
 
-            delete newUser.password
+            delete newUser.password;
             req.session.userLogged = newUser;
 
             return res.json(resApi);

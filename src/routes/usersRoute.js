@@ -10,8 +10,6 @@ const usersController = require('../controllers/usersController.js');
 const authMiddleware = require('../middlewares/authMiddleware.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
 // Validations
-const registerValidation = require('../middlewares/registerValidation.js');
-const loginValidation = require('../middlewares/loginValidation.js'); // express-validator validations para el login no las tomo en la API
 const profileValidation = require('../middlewares/profileValidation.js');
 
 //Images storage with multer
