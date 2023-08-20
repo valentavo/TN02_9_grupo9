@@ -186,7 +186,7 @@ module.exports = {
             const user = await db.Usuario.destroy({
                 
                 where: {
-                    id: req.body.id
+                    id: req.session.userLogged.id
                 }
             }, {
                 transaction: t
@@ -202,6 +202,9 @@ module.exports = {
                 },
                 data: user
             };
+
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
             
             return res.json(resApi);
 

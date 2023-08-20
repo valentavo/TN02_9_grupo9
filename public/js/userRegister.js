@@ -118,5 +118,4 @@ async function ready() {
             }
         };
     });
-
 };

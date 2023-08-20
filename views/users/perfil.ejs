@@ -1,8 +1,9 @@
 <!-- HEAD-->   
     <%- include('../partials/head.ejs', {title: 'Perfil'}) %>
     <!-- Link general css file --> 
-   <link rel="stylesheet" href="/css/partials/stylePartials.css">
-   <link rel="stylesheet" href="/css/users/userProfileStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/css/partials/stylePartials.css">
+    <link rel="stylesheet" href="/css/users/userProfileStyle.css">
 </head>
 <!-- HEAD-->  
 <body>
@@ -96,9 +97,8 @@
                             <button class="btn editar"><a class="btn editar" href="/user/logout">Cerrar Sesión</a></button>
                         </div>
                     </form>
-                    <form action="/user/profile/delete?_method=DELETE" method="POST">
-                        <button type="submit" class="btn editar">Eliminar Cuenta</button>
-                    </form>
+
+                    <button type="submit" id="delete-user" class="btn editar">Eliminar Cuenta</button>
                     
                 </div>
 
@@ -149,6 +149,8 @@
 
 <!-- <script src="sweetalert2.all.min.js"></script> -->
 <script src="/js/userProfile.js"></script>
+<script src="/js/userDelete.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER --> 
