@@ -14,6 +14,7 @@ async function ready() {
     const userPasswordConfirmed = document.querySelector('#user-password-confirmed');
     const button = document.querySelector('#submit-button');
     const termsConditions = document.querySelector('#terms-conditions');
+    const termsError = document.querySelector('#terms-error');
 
         // Validations 
     userName.addEventListener('blur', () => {
@@ -50,6 +51,8 @@ async function ready() {
 
     button.addEventListener('click', async () => {
 
+        termsError.innerHTML = '';
+
             //Validations
         if(userName.value.length == 0 && !userName.classList.contains('inputError')) {
             userName.classList.add('inputError');
@@ -70,7 +73,11 @@ async function ready() {
         const inputs = [userName, userEmail, userPassword, userPasswordConfirmed];
         const errors = inputs.filter(input => input.classList.contains('inputError'));
 
-        if(!termsConditions.checked) errors.push(termsConditions);
+        if(!termsConditions.checked) {
+        
+            errors.push(termsConditions);
+            termsError.innerHTML = 'debes seleccionar este campo para continuar'
+        }
 
         if(errors.length == 0) {
 
@@ -88,9 +95,26 @@ async function ready() {
                 await Swal.fire({
                     icon: 'success',
                     title: 'Usuario Registrado',
-                    showConfirmButton: true
+                    showConfirmButton: false,
+                    timer: 1300
                 });
                 window.location.href = '/user/profile';
+            } else {
+                
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Revisa que los campos esten correctos',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    position: 'top-right',
+                    showClass: {
+                        popup: 'animate__animated animate__bounceIn',
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__backOutRight' 
+                    },
+                    width: '25em'
+                });
             }
         };
     });
