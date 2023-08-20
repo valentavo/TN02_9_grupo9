@@ -1,51 +1,12 @@
-const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const { sequelize } = require('../database/models'); 
 
 module.exports = {
     login: (req, res) =>{
+
         return res.render('./users/login.ejs');
     },
-
-        // Esto queda para preguntar a Lucas sobre las APIS y express-validator
-    // loginProcess: async (req, res) => {
-
-    //     try {
-
-    //         const validation = validationResult(req);
-
-    //         if(!validation.isEmpty()) {
-    //             return res.render('./users/login.ejs', {errorMessage: validation.errors[0].msg})
-    //         }
-
-    //         const user = await db.Usuario.findOne({
-    //             where: {
-    //                 email: req.body.email
-    //             }
-    //         });
-            
-    //         //Verifiying the passwords
-    //         if (user && bcrypt.compareSync(req.body.password, user.password)) {
-
-    //             //Eliminando la contrasenia de sessions
-    //             delete user.password;
-
-    //             user.logged = true;
-    //             req.session.userLogged = user;
-                
-    //             //Session Cookie
-    //             if(req.body.remember) res.cookie('usuarioGuardado', user, {maxAge: (1000 * 60) * 10}); // 10 min
-
-    //             return res.redirect(`/user/profile`);
-    //         }
-    //         else {
-    //             return res.render( './users/login.ejs', { errorMessage: "Usuario o contraseña inválidos"} );
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // },
 
     logout: async (req, res) => {
 
@@ -62,49 +23,12 @@ module.exports = {
 
     profile: async (req, res) => {
 
-        try {
-
-            return res.render('./users/perfil.ejs');
-
-        } catch (error) {
-            console.log(error);
-        }
+        return res.render('./users/perfil.ejs');
     },
 
     register: (req, res) =>{
-        return res.render('./users/register.ejs', {oldErrors: ""});
-    },
-    registerProcess: async (req, res) =>{
 
-        const t = await sequelize.transaction();
-        try {
-            
-            const errors = validationResult(req);
-
-            if(!errors.isEmpty()) return res.render('./users/register.ejs', {errorMessages: errors.mapped(), oldErrors: req.body});
-
-            const newUser = await db.Usuario.create({
-                nombre: req.body.name,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                logged: 0,
-                'roles-fk': 1
-            }, {
-                transaction: t
-            });
-
-            await t.commit();
-
-            delete newUser.password
-            req.session.userLogged = newUser;
-
-            return res.redirect('/user/profile');
-
-        } catch (error) {
-            console.log(error);
-            await t.rollback();
-        }
-
+        return res.render('./users/register.ejs');
     },
     editProcess: async (req, res) =>{
 

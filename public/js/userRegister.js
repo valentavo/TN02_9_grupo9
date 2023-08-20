@@ -1,0 +1,98 @@
+if (document.readyState == "loading") {
+    document.addEventListener("DOMContentLoaded", ready);
+}
+else {
+    ready();
+};
+
+// const Swal = require('sweetalert2');
+
+async function ready() {
+    const userName = document.querySelector('#user-name');
+    const userEmail = document.querySelector('#user-email');
+    const userPassword = document.querySelector('#user-password');
+    const userPasswordConfirmed = document.querySelector('#user-password-confirmed');
+    const button = document.querySelector('#submit-button');
+    const termsConditions = document.querySelector('#terms-conditions');
+
+        // Validations 
+    userName.addEventListener('blur', () => {
+        if(userName.value.length > 0) {
+            userName.classList.remove('inputError');
+        }else {
+            userName.classList.add('inputError');
+        }
+    });
+
+    userEmail.addEventListener('blur', () => {
+        if(userEmail.value.length > 0) {
+            userEmail.classList.remove('inputError');
+        }else {
+            userEmail.classList.add('inputError');
+        }
+    });
+
+    userPassword.addEventListener('blur', () => {
+        if(userPassword.value.length > 0) {
+            userPassword.classList.remove('inputError');
+        }else {
+            userPassword.classList.add('inputError');
+        }
+    });
+
+    userPasswordConfirmed.addEventListener('blur', () => {
+        if(userPasswordConfirmed.value == userPassword.value) {
+            userPasswordConfirmed.classList.remove('inputError');
+        }else {
+            userPasswordConfirmed.classList.add('inputError');
+        }
+    });
+
+    button.addEventListener('click', async () => {
+
+            //Validations
+        if(userName.value.length == 0 && !userName.classList.contains('inputError')) {
+            userName.classList.add('inputError');
+        }
+
+        if(userEmail.value.length == 0 && !userEmail.classList.contains('inputError')) {
+            userEmail.classList.add('inputError');
+        }
+
+        if(userPassword.value.length == 0 && !userPassword.classList.contains('inputError')) {
+            userPassword.classList.add('inputError');
+        }
+
+        if(userPasswordConfirmed.value != userPassword.value && !userPasswordConfirmed.classList.contains('inputError')) {
+            userPasswordConfirmed.classList.add('inputError');
+        }
+
+        const inputs = [userName, userEmail, userPassword, userPasswordConfirmed];
+        const errors = inputs.filter(input => input.classList.contains('inputError'));
+
+        if(!termsConditions.checked) errors.push(termsConditions);
+
+        if(errors.length == 0) {
+
+            const data = {
+                name: userName.value,
+                email: userEmail.value,
+                password: userPasswordConfirmed.value
+            };
+
+            const userFetch = await fetch('/api/user/create', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
+            const user = await userFetch.json();
+
+            if(user.meta.success) {
+
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario Registrado',
+                    showConfirmButton: true
+                });
+                window.location.href = '/user/profile';
+            }
+        };
+    });
+
+};

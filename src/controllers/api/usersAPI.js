@@ -113,6 +113,9 @@ module.exports = {
                 data: newUser
             };
 
+            delete newUser.password
+            req.session.userLogged = newUser;
+
             return res.json(resApi);
 
         } catch (error) {

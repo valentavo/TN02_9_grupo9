@@ -11,7 +11,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
 // Validations
 const registerValidation = require('../middlewares/registerValidation.js');
-const loginValidation = require('../middlewares/loginValidation.js');
+const loginValidation = require('../middlewares/loginValidation.js'); // express-validator validations para el login no las tomo en la API
 const profileValidation = require('../middlewares/profileValidation.js');
 
 //Images storage with multer
@@ -27,17 +27,15 @@ const uploadFile = multer({ storage });
 
 //Acceso Usuario
 router.get('/login', guestMiddleware, usersController.login);
-// router.post('/login', loginValidation, usersController.loginProcess);
 
 //Perfil Usuario
 router.get('/profile', authMiddleware, usersController.profile);
 
-//Edicion Perfil Usuario
-router.put('/profile/edit', profileValidation, uploadFile.single('img'), usersController.editProcess);
-
 //Creacion Registro Usuario
 router.get('/registro', guestMiddleware, usersController.register);
-router.post('/registro', registerValidation, usersController.registerProcess);
+
+//Edicion Perfil Usuario
+router.put('/profile/edit', profileValidation, uploadFile.single('img'), usersController.editProcess);
 
 //Eliminacion Usuario
 router.delete('/profile/delete', usersController.delete);

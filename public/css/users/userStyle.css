@@ -79,3 +79,7 @@ body {
 .terminosYC a{
     color: #b69c7f;
 }
+
+.inputError {
+    border-color: red;
+}

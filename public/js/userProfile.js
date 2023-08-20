@@ -25,7 +25,7 @@ async function ready() {
     userPhone.innerHTML += `<input type="text" class="form-control" value="${ user.telefono || "" }" name="phone">`;
     userAddress.innerHTML += `<input type="text" class="form-control" value="${ user.direccion || "" }" name="address">`;
 
-    if(user.role == 2) {
+    if(user['roles-fk'] == 2) {
         productList.innerHTML += `<button class="nav-link" type="button">
                                     <a href="/product/list">Lista de productos</a>
                                 </button>`;
