@@ -3,7 +3,40 @@ body {
 	background: #f9f9f9;
 	font-family: 'Ysabeau Infant', sans-serif ;
 }
+.productCart h2{
+    font-size: 2rem;
+    color: #737061 ;
+    font-weight: 300;
+    font-family: 'Karla' ;
+    letter-spacing: 1px;
+}
+.productsCart .product-name{
+	font-size: 1.5rem;
+    color: #49483D;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-weight: 200;
+}
+.productCart p{
+    font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family:'Ysabeau Infant', sans-serif ;
 
+}
+.productCart .eliminar_editar{
+	font-size: 1rem;
+    color: #737061 ;
+    font-weight: 200;
+    font-family: 'Karla' ;
+
+}
+.productCart .price_money{
+	font-size: 1rem;
+    color: #49483D;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-weight: 200;
+	margin-top: 5px;
+}
 .productCart .page-item button svg{
    
 
