@@ -8,19 +8,6 @@ module.exports = {
         return res.render('./users/login.ejs');
     },
 
-    logout: async (req, res) => {
-
-        try {
-
-            res.clearCookie('usuarioGuardado');
-            req.session.destroy();
-            return res.redirect('/');
-            
-        } catch (error) {
-            console.log(error);
-        }  
-    },
-
     profile: async (req, res) => {
 
         return res.render('./users/perfil.ejs');
@@ -69,32 +56,6 @@ module.exports = {
             }
 
             return res.render('./users/perfil.ejs', {user: updatedUser});
-
-        } catch (error) {
-            console.log(error);
-            await t.rollback();
-        }
-    },
-    delete: async (req, res) =>{
-
-        const t = await sequelize.transaction();
-        try {
-            
-            await db.Usuario.destroy({
-                
-                where: {
-                    id: req.session.userLogged.id
-                }
-            }, {
-                transaction: t
-            });
-
-            await t.commit();
-
-            res.clearCookie('usuarioGuardado');
-            req.session.destroy();
-            
-            return res.redirect('/user/login');
 
         } catch (error) {
             console.log(error);

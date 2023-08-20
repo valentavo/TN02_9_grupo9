@@ -35,10 +35,4 @@ router.get('/registro', guestMiddleware, usersController.register);
 //Edicion Perfil Usuario
 router.put('/profile/edit', profileValidation, uploadFile.single('img'), usersController.editProcess);
 
-//Eliminacion Usuario
-router.delete('/profile/delete', usersController.delete);
-
-//Cerrar Sesion del Usuario
-router.get('/logout', usersController.logout);
-
 module.exports = router;

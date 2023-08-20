@@ -63,6 +63,26 @@ module.exports = {
             console.log(error);
         }
     },
+
+    logout: async (req, res) => {
+
+        try {
+
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: '/api/user/logout'
+                }
+            };
+            res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+        }  
+    },
     
     profile: async (req, res) => {
 

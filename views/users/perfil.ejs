@@ -94,11 +94,11 @@
                         <div class="my-4">
                             <button class="btn editar" type="submit">Guardar</button>
                             <button class="btn editar">Cancelar</button>
-                            <button class="btn editar"><a class="btn editar" href="/user/logout">Cerrar Sesión</a></button>
+                            <button class="btn editar" id="logout-user">Cerrar Sesión</button>
+                            <button class="btn editar"id="delete-user">Eliminar Cuenta</button>
                         </div>
                     </form>
 
-                    <button type="submit" id="delete-user" class="btn editar">Eliminar Cuenta</button>
                     
                 </div>
 
@@ -150,6 +150,7 @@
 <!-- <script src="sweetalert2.all.min.js"></script> -->
 <script src="/js/userProfile.js"></script>
 <script src="/js/userDelete.js"></script>
+<script src="/js/userLogout.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%- include('../partials/footer.ejs') %>
 
