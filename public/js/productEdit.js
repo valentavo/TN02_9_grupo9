@@ -23,32 +23,33 @@ async function ready() {
 
     const productFetch = await fetch('/api/product/edit', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
     const product = await productFetch.json();
+    const info = product.data;
 
-    imageContainer.innerHTML += product.data.image.reduce( (element, img, i) => {
+    imageContainer.innerHTML += info.product.image.reduce( (element, img, i) => {
         return element + `<div class="carousel-item ${ i == 0 ? 'active': '' }">
                             <img src="../../img/productos/${ img.nombre }" class="d-block w-100" alt="...">
                         </div>`;
     }, '');
 
-    titleProduct.innerHTML += `<input type="text" class="form-control" name="name" value="${ product.data.product.nombre }">`;
-    priceProduct.innerHTML += `<input type="text" class="form-control " name="price" value="${ product.data.product.precio }>">`;
-    stockProduct.innerHTML += `<input type="number" class="form-control " name='stock' value="${ product.data.product.cantidad }">`;
-    detailProduct.innerHTML += `<textarea class="form-control" name="desc" rows="4">${ product.data.product.detalle }</textarea>`;
+    titleProduct.innerHTML += `<input type="text" class="form-control" name="name" value="${ info.product.nombre }">`;
+    priceProduct.innerHTML += `<input type="text" class="form-control " name="price" value="${ info.product.precio }">`;
+    stockProduct.innerHTML += `<input type="number" class="form-control " name='stock' value="${ info.product.cantidad }">`;
+    detailProduct.innerHTML += `<textarea class="form-control" name="desc" rows="4">${ info.product.detalle }</textarea>`;
 
-    labels.innerHTML += product.data.categories.reduce( (element, cat) => {
-        return element + `<option value="${ cat.id }" ${ product.category.id == cat.id ? 'selected' : '' }>${ cat.nombre }</option>`;
+    labels.innerHTML += info.categories.reduce( (element, cat) => {
+        return element + `<option value="${ cat.id }" ${ info.product.category.id == cat.id ? 'selected' : '' }>${ cat.nombre }</option>`;
     }, '');
 
-    meassures.innerHTML += product.data.meassures.reduce( (element, size) => {
-        return element + `<option value="${ size.id }" ${ product.size.id == size.id ? 'selected' : '' }>${ size.medida }</option>`;
+    meassures.innerHTML += info.meassures.reduce( (element, size) => {
+        return element + `<option value="${ size.id }" ${ info.product.size.length != 0 ? info.product.size[0].id == size.id ? 'selected' : '' : ''}>${ size.medida }</option>`;
     }, '');
 
-    colors.innerHTML += product.data.colors.reduce( (element, color) => {
-        return element + `<option value="${ color.id }" ${ product.color.id == color.id ? 'selected' : '' }>${ color.nombre }</option>`;
+    colors.innerHTML += info.colors.reduce( (element, color) => {
+        return element + `<option value="${ color.id }" ${ info.product.size.length != 0 ? info.product.color[0].id == color.id ? 'selected' : '' : ''}>${ color.nombre }</option>`;
     }, '');
 
-    brands.innerHTML += product.data.brands.reduce( (element, brand) => {
-        return element + `<option value="${ brand.id }" ${ product.brand.id == brand.id ? 'selected' : '' }>${ brand.nombre }</option>`;
+    brands.innerHTML += info.brands.reduce( (element, brand) => {
+        return element + `<option value="${ brand.id }" ${ info.product.size.length != 0 ? info.product.brand.id == brand.id ? 'selected' : '' : ''}>${ brand.nombre }</option>`;
     }, '');
 
     // creating the elements takes time so we create and event to communicate we are done with them

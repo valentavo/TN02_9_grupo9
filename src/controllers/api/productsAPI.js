@@ -89,7 +89,7 @@ module.exports = {
                 }
             };
 
-            return res.render(resApi);
+            return res.json(resApi);
             
         } catch (error) {
             console.log(error);
