@@ -120,7 +120,7 @@ function ready() {
                 address: userAddress.value,
             };
 
-            const userFetch = await fetch('/api/user/edit', {method: 'PUT', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
+            const userFetch = await fetch('/api/user/edit', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
             const user = await userFetch.json();
 
             if(user.meta.success) {

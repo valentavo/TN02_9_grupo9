@@ -17,13 +17,9 @@
         <div class="row">
             <div class="col-lg-7">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner">
+                    <div class="carousel-inner" id="image-container">
 
-                    <% producto.image.forEach( (image, i) => { %>
-                        <div class="carousel-item <%= i == 0 ? 'active': '' %>">
-                            <img src="../../img/productos/<%= image.nombre %>" class="d-block w-100" alt="...">
-                        </div>
-                    <% }) %>
+                    
                     
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -38,26 +34,10 @@
 
             </div>
             <div class="col-12 col-lg-5 mt-4 mb-3">
-                <h2 class="productName"><%= producto.nombre %></h2>
-                <h4 class="productPrice mt-2 mb-2"> <%= producto.precio %> </h4>
+                <h2 class="productName" id="product-name"></h2>
+                <h4 class="productPrice mt-2 mb-2" id="product-price"> </h4>
 
-                <% if (medidaProducto) { %>
-                    <label for="size" class="text-muted productSize mt-2 mb-2">Size:</label>
-                    <select class="form-select" name="size" id="size">
-                        <% medidas.forEach( row => { %>
-                            <option <%= medidaProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.medida %></option>
-                        <% })  %>
-                    </select>
-                <% } %>
-
-                <% if (colorProducto) { %>
-                    <label for="color" class="text-muted productSize mt-2 mb-2">Color:</label>
-                    <select class="form-select" name="color" id="color">
-                        <% colores.forEach( row => { %>
-                            <option <%= colorProducto.id == row.id ? 'selected' : '' %> value='<%= row.id  %>'><%= row.nombre %></option>
-                        <% })  %>
-                    </select>
-                <% }  %>
+                
 
                 <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
 
@@ -83,8 +63,8 @@
 
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                            <div class="accordion-body">
-                                <%= producto.detalle %>
+                            <div class="accordion-body" id="product-description">
+                               
 
                             </div>
 
@@ -191,6 +171,7 @@
 
 <!-- FOOTER --> 
 
+<script src="/js/productDetail.js"></script>
 <%- include('.././partials/footer.ejs') %>
 
 <!-- FOOTER --> 

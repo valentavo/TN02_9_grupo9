@@ -23,16 +23,7 @@ module.exports = {
 
         try {
 
-            const productDetail = await db.Producto.findByPk(req.params.productId, {
-                include: [{association: 'image'}]
-            });
-            const medidas = await db.Medida.findAll();
-            const colores = await db.Color.findAll();
-
-            const medidaProducto = await productDetail.getSize();
-            const colorProducto = await productDetail.getColor();
-
-            return res.render('./products/productDetail.ejs', {producto: productDetail, medidas: medidas, colores: colores, medidaProducto: medidaProducto[0], colorProducto: colorProducto[0]});
+            return res.render('./products/productDetail.ejs');
             
         } catch (error) {
             console.log(error);

@@ -14,7 +14,7 @@ const usersRoute = require('./routes/usersRoute.js');
 //API Routes
 const mainRouteAPI = require('./routes/api/mainRoute.js');
 const usersRouteAPI = require('./routes/api/usersRouteAPI.js');
-// const productsRouteAPI = require('./routes/api/productsRoute.js');
+const productsRouteAPI = require('./routes/api/productsRouteAPI.js');
 
 //Middlewares
 // const logsMiddleware = require('./middlewares/userLogs.js');
@@ -51,7 +51,7 @@ app.use('/product', productsRoute);
 // API Rutas
 app.use('/api', mainRouteAPI);
 app.use('/api/user', usersRouteAPI);
-// app.use('/api/product', productsRouteAPI);
+app.use('/api/product', productsRouteAPI);
 
 // Mensaje de Error 404
 app.use((req, res, next) => {

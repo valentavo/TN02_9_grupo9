@@ -178,6 +178,8 @@ module.exports = {
             });
             const body = req.body;
 
+            console.log(req.file);
+
             await db.Usuario.update({
 
                 nombre: body.name,
