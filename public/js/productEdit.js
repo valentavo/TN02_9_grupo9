@@ -45,11 +45,11 @@ async function ready() {
     }, '');
 
     colors.innerHTML += info.colors.reduce( (element, color) => {
-        return element + `<option value="${ color.id }" ${ info.product.size.length != 0 ? info.product.color[0].id == color.id ? 'selected' : '' : ''}>${ color.nombre }</option>`;
+        return element + `<option value="${ color.id }" ${ info.product.color.length != 0 ? info.product.color[0].id == color.id ? 'selected' : '' : ''}>${ color.nombre }</option>`;
     }, '');
 
     brands.innerHTML += info.brands.reduce( (element, brand) => {
-        return element + `<option value="${ brand.id }" ${ info.product.size.length != 0 ? info.product.brand.id == brand.id ? 'selected' : '' : ''}>${ brand.nombre }</option>`;
+        return element + `<option value="${ brand.id }" ${ info.product.brand.id == brand.id ? 'selected' : ''}>${ brand.nombre }</option>`;
     }, '');
 
     // creating the elements takes time so we create and event to communicate we are done with them
