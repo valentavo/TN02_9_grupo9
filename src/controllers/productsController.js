@@ -123,21 +123,7 @@ module.exports = {
 
         try {
 
-            const colores = await db.Color.findAll();
-            const marcas = await db.Marca.findAll();
-            const medidas = await db.Medida.findAll();
-            const categorias = await db.Categoria.findAll();
-
-            const currentProduct = await db.Producto.findByPk(req.params.productId, {
-                include: [{association: 'image'}]
-            });
-
-            const colorProducto = await currentProduct.getColor();
-            const medidaProducto = await currentProduct.getSize();
-            const categoriaProducto = await currentProduct.getCategory();
-            const marcaProducto = await currentProduct.getBrand();
-
-            return res.render('./products/productEdit.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, producto: currentProduct, colorProducto: colorProducto[0], medidaProducto: medidaProducto[0], categoriaProducto: categoriaProducto, marcaProducto: marcaProducto});
+            return res.render('./products/productEdit.ejs');
             
         } catch (error) {
             console.log(error);

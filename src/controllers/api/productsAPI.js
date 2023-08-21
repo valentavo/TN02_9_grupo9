@@ -55,5 +55,45 @@ module.exports = {
             console.log(error);
         }
 
-    }
+    },
+    edit: async (req, res) => {
+
+        try {
+
+            const colores = await db.Color.findAll();
+            const marcas = await db.Marca.findAll();
+            const medidas = await db.Medida.findAll();
+            const categorias = await db.Categoria.findAll();
+
+            const currentProduct = await db.Producto.findByPk(req.body.id, {
+                include: [
+                    {association: 'image'},
+                    {association: 'color'},
+                    {association: 'size'},
+                    {association: 'category'},
+                    {association: 'brand'}
+                ]
+            });
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/edit`
+                },
+                data: {
+                    product: currentProduct,
+                    colors: colores,
+                    brands: marcas,
+                    meassures: medidas,
+                    categories: categorias
+                }
+            };
+
+            return res.render(resApi);
+            
+        } catch (error) {
+            console.log(error);
+        };
+
+    }, 
 };

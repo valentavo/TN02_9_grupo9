@@ -16,13 +16,7 @@
         <div class="row">
             <div class="col-lg-7">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner">
-
-                    <% producto.image.forEach( (image, i) => { %>
-                        <div class="carousel-item <%= i == 0 ? 'active': '' %>">
-                            <img src="../../img/productos/<%= image.nombre %>" class="d-block w-100" alt="...">
-                        </div>
-                    <% }) %>
+                    <div class="carousel-inner" id="image-container">
                     
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -39,11 +33,10 @@
             <div class="col-12 col-lg-5">
                 <h3 class="productName my-2 mb-4">EDITAR PRODUCTO</h3>
 
-                <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <!-- <form action="/product/edit/--ejs--?_method=PUT" method="POST" enctype="multipart/form-data"> -->
                 
-                    <div class="form-group productLabel my-2">
+                    <div class="form-group productLabel my-2" id="title-container">
                         <label class="mb-2">Nombre del producto</label>
-                        <input type="text" class="form-control" name='name' value="<%= producto.nombre %>">
                     </div>
 
                     <div class="form-group productLabel my-2">
@@ -51,65 +44,48 @@
                         <input type="file" class="form-control" name="img" multiple>
                     </div>
 
-                    <div class="form-group productLabel my-2">
+                    <div class="form-group productLabel my-2" id="price-container">
                         <label class="mb-2">Precio del producto</label>
-                        <input type="text" class="form-control " name="price" value="<%= producto.precio %>">
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Categorias</label>
+                        <label class="mb-2" for="labels">Categorias</label>
                         <select class="form-control" name="categoria" id="labels" >
-
-                            <% categorias.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= categoriaProducto.id == row.id ? 'selected' : '' %>><%= row.nombre %></option>
-                            <% }) %>
 
                         </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Tamaño del producto</label>
-                        <select class="form-control" name="medida" >
-
-                            <% medidas.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= medidaProducto && (medidaProducto.id == row.id) ? 'selected' : '' %>><%= row.medida %></option>
-                            <% }) %>
+                        <label class="mb-2" for="meassures">Tamaño del producto</label>
+                        <select class="form-control" name="medida" id="meassures">
 
                        </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Color</label>
-                        <select class="form-control" name="color">
-
-                            <% colores.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= colorProducto && (colorProducto.id == row.id) ? 'selected' : '' %>><%= row.nombre %></option>
-                            <% }) %>
-
+                        <label class="mb-2" for="colors">Color</label>
+                        <select class="form-control" name="color" id="colors">
+                        
                         </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Marca</label>
-                        <select class="form-control" name="brand">
-
-                            <% marcas.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= marcaProducto.id == row.id ? 'selected' : '' %>><%= row.nombre %></option>
-                            <% }) %> 
+                        <label class="mb-2" for="brands">Marca</label>
+                        <select class="form-control" name="brand" id="brands">
 
                         </select>
                     </div>
         
 
-                    <div class="form-group productLabel my-2">
+                    <div class="form-group productLabel my-2" id="stock-container">
                         <label class=" mb-2">Stock disponible:</label>
-                        <input type="number" class="form-control " name='stock'  value="<%= producto.cantidad %>">
+                        
                     </div>
 
                     <div class="col-md-12 productLabel my-2">
-                        <div class="form-group">
+                        <div class="form-group" id="detail-container">
                             <label class=" mb-2">Descripcion</label>
-                            <textarea class="form-control" name="desc" rows="4"><%= producto.detalle %></textarea>
+                            
                         </div>
                     </div>
 
@@ -118,7 +94,7 @@
                         <button class="btn productEditBtn" type="reset">Cancel</button>
                     </div>
 
-                </form>
+                <!-- </form> -->
                 
                 <form action="/product/delete/<%= producto.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
                     <button class="btn productEditBtn" type="submit">Eliminar Producto</button>
@@ -131,7 +107,7 @@
 <!-- MAIN--> 
 
 <!-- FOOTER --> 
-
+    <script src="/js/productEdit.js"></script>
     <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER --> 
