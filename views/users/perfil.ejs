@@ -18,9 +18,9 @@
             <div class="profile-tab-nav border-right px-2">
 
                 <div class="p-4">
-                    <div class="img-circle text-center mb-3" id="user-img">        
+                    <div class="img-circle text-center mb-3" id="user-img-container">        
                     </div>
-                    <h4 class="text-center" id="user-title"></h4>
+                    <h4 class="text-center" id="user-title-container"></h4>
                 </div>
                
                 <div class="nav flex-column nav-pills me-3 ms-3 mb-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -51,35 +51,33 @@
             
                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
-                    <form action="/user/profile/edit?_method=PUT" method="POST" enctype="multipart/form-data">
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-name">
+                            <div class="form-group" id="user-name-container" name="name">
                                   <label>Nombre y apellido</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="user-birth-container" name="birth">
                                   <label>Fecha de nacimiento</label>
-                                  <input type="date" class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-email">
+                            <div class="form-group" id="user-email-container" name="email">
                                   <label>Email</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-phone">
+                            <div class="form-group" id="user-phone-container" name="phone">
                                   <label>Numero de telefono</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-address">
+                            <div class="form-group" id="user-address-container" name="address">
                                   <label>Direccion</label>
                             </div>
                         </div>
@@ -87,19 +85,16 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="image">Selecciona tu foto de perfil</label>
-                                <input type="file" class="form-control" name="img">
+                                <input type="file" class="form-control" id="user-image" name="img">
                             </div>
                         </div>
 
                         <div class="my-4">
-                            <button class="btn editar" type="submit">Guardar</button>
-                            <button class="btn editar">Cancelar</button>
+                            <button class="btn editar" id="save-user" disabled>Guardar Cambios</button>
                             <button class="btn editar" id="logout-user">Cerrar Sesión</button>
                             <button class="btn editar"id="delete-user">Eliminar Cuenta</button>
                         </div>
-                    </form>
 
-                    
                 </div>
 
                 <div class="tab-pane fade " id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
@@ -151,6 +146,7 @@
 <script src="/js/userProfile.js"></script>
 <script src="/js/userDelete.js"></script>
 <script src="/js/userLogout.js"></script>
+<script src="/js/userEdit.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%- include('../partials/footer.ejs') %>
 

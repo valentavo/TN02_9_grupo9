@@ -22,7 +22,7 @@ async function ready() {
             userName.classList.remove('inputError');
         }else {
             userName.classList.add('inputError');
-        }
+        };
     });
 
     userEmail.addEventListener('blur', () => {
@@ -56,19 +56,19 @@ async function ready() {
             //Validations
         if(userName.value.length == 0 && !userName.classList.contains('inputError')) {
             userName.classList.add('inputError');
-        }
+        };
 
         if(userEmail.value.length == 0 && !userEmail.classList.contains('inputError')) {
             userEmail.classList.add('inputError');
-        }
+        };
 
         if(userPassword.value.length == 0 && !userPassword.classList.contains('inputError')) {
             userPassword.classList.add('inputError');
-        }
+        };
 
         if(userPasswordConfirmed.value != userPassword.value && !userPasswordConfirmed.classList.contains('inputError')) {
             userPasswordConfirmed.classList.add('inputError');
-        }
+        };
 
         const inputs = [userName, userEmail, userPassword, userPasswordConfirmed];
         const errors = inputs.filter(input => input.classList.contains('inputError'));
@@ -76,8 +76,8 @@ async function ready() {
         if(!termsConditions.checked) {
         
             errors.push(termsConditions);
-            termsError.innerHTML = 'debes seleccionar este campo para continuar'
-        }
+            termsError.innerHTML = 'debes seleccionar este campo para continuar';
+        };
 
         if(errors.length == 0) {
 
@@ -115,7 +115,7 @@ async function ready() {
                     },
                     width: '25em'
                 });
-            }
+            };
         };
     });
 };

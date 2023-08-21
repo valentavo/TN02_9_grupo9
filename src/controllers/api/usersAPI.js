@@ -160,17 +160,32 @@ module.exports = {
 
         const t = await sequelize.transaction();
         try {
-            
-            const user = await db.Usuario.findByPk(req.body.id);
+
+            const validation = validationResult(req);
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        status: 400,
+                        success: false,
+                        endpoint: `/api/user/edit`
+                    },
+                    data: validation.mapped()
+                });
+            };
+
+            const user = await db.Usuario.findByPk(req.session.userLogged.id, {
+                transaction: t
+            });
             const body = req.body;
 
-            const updatedUser = await db.Usuario.update({
+            await db.Usuario.update({
 
                 nombre: body.name,
                 email: body.email,
+                'fecha-nacimiento': body.birth,
                 telefono: body.phone,
                 direccion: body.address,
-                imagen: (body.file && body.file.filename) ? body.file.filename : user.imagen
+                imagen: (req.file && req.file.filename) ? req.file.filename : user.imagen
             }, {
                 where: {
                     id: user.id
@@ -180,15 +195,12 @@ module.exports = {
 
             await t.commit();
 
-            console.log(updatedUser);
-
             const resApi = {
                 meta: {
                     status: 200,
                     success: true,
                     endpoint: `/api/user/edit`
-                },
-                data: updatedUser
+                }
             };
 
             return res.json(resApi);
