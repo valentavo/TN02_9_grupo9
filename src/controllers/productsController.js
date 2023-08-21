@@ -19,7 +19,7 @@ module.exports = {
 
     },
 
-    details: async (req, res) => {
+    detail: async (req, res) => {
 
         try {
 
@@ -49,12 +49,7 @@ module.exports = {
 
         try {
 
-            const colores = await db.Color.findAll();
-            const marcas = await db.Marca.findAll();
-            const medidas = await db.Medida.findAll();
-            const categorias = await db.Categoria.findAll();
-            
-            return res.render('./products/productCreate.ejs', {colores: colores, marcas: marcas, medidas: medidas, categorias: categorias, oldErrors: ""});
+            return res.render('./products/productCreate.ejs');
         
         } catch (error) {
             console.log(error);

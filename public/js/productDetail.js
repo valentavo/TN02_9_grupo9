@@ -56,8 +56,6 @@ async function ready() {
                     <select class="form-select" name="size" id="size">${sizeOptions}</select>`);
     };
 
-    console.log(product.data.color);
-
     productDesc.innerHTML += `${product.data.detalle}`;
 
 };

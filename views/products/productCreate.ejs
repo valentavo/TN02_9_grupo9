@@ -31,66 +31,52 @@
 
                     <div class="form-group productLabel my-4">
                         <label class="mb-2" for="title">Nombre del producto</label>
-                        <input class="form-control" type="text" id="title" name="name" value="<%= oldErrors.name %>">
+                        <input class="form-control" type="text" name="name" id="title">
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Precio del producto</label>
-                        <input class="form-control " type="number" name="amount" value="<%= oldErrors.amount || "" %>">
+                        <label class="mb-2" for="price">Precio del producto</label>
+                        <input class="form-control " type="number" name="amount" id="price">
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="labels">Categorias</label>
-                            <select class="form-control" name="categoria" id="labels" >
-                                <% categorias.forEach( row => { %>
-                                    <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
-                                <% }) %>
-                            </select>
+                        <select class="form-control" name="categoria" id="labels">
+
+                        </select>
                     </div>
                 
                     <div class="form-group productLabel my-2">
-                        <label class=" mb-2">Tamano del producto</label>
-                        <select class="form-control" name="medida" value="<%= oldErrors.cap %>" >
-
-                            <% medidas.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.medida)  ? "selected" : "" ) : "" %>><%= row.medida %></option>
-                            <% }) %>
+                        <label class=" mb-2" for="meassures">Tamano del producto</label>
+                        <select class="form-control" name="medida" id="meassures">
 
                        </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class=" mb-2">Color</label>
-                        <select class="form-control" name="color">
-
-                            <% colores.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
-                            <% }) %>
+                        <label class=" mb-2" for="colors">Color</label>
+                        <select class="form-control" name="color" id="colors">
 
                         </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class="mb-2">Marca</label>
-                        <select class="form-control" name="brand">
-
-                            <% marcas.forEach( row => { %>
-                                <option value="<%= row.id %>" <%= oldErrors.colors ? (oldErrors.colors.includes(row.nombre)  ? "selected" : "" ) : "" %>><%= row.nombre %></option>
-                            <% }) %> 
+                        <label class="mb-2" for="brands">Marca</label>
+                        <select class="form-control" name="brand" id="brands">
 
                         </select>
                     </div>
 
 
                     <div class="form-group productLabel my-2">
-                        <label class=" mb-2">Stock disponible:</label>
-                        <input class="form-control" type="number" name="stock" value="<%= oldErrors.unities || "" %>">
+                        <label class=" mb-2" for="stock">Stock disponible:</label>
+                        <input class="form-control" type="number" name="stock" id="stock">
                     </div>
 
                     <div class="col-md-12 productLabel my-2">
                         <div class="form-group">
-                            <label class=" mb-2">Descripcion</label>
-                            <textarea class="form-control" rows="4" name="desc"></textarea>
+                            <label class=" mb-2" for="detail">Descripcion</label>
+                            <textarea class="form-control" rows="4" name="desc" id="detail"></textarea>
                         </div>
                     </div>
 
@@ -115,7 +101,7 @@
 <!-- MAIN--> 
 
 <!-- FOOTER-->   
-
+    <script src="/js/productCreate.js"></script>
     <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER--> 

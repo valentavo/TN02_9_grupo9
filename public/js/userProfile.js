@@ -35,5 +35,5 @@ async function ready() {
 
     // creating the inputs takes time so we create and event to communicate we are done with them
     const event = new Event('userInputsLoaded');
-      document.dispatchEvent(event);
+    document.dispatchEvent(event);
 }
