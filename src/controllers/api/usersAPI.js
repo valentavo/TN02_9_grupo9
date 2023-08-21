@@ -8,7 +8,6 @@ module.exports = {
     loginProcess: async (req, res) => {
         try {
 
-            //No funciona express validator con el nuevo req, mejor pregunto a lucas y vemos que tal
             const validation = validationResult(req);
 
             if(!validation.isEmpty()) {
@@ -64,6 +63,26 @@ module.exports = {
             console.log(error);
         }
     },
+
+    logout: async (req, res) => {
+
+        try {
+
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: '/api/user/logout'
+                }
+            };
+            res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+        }  
+    },
     
     profile: async (req, res) => {
 
@@ -92,6 +111,19 @@ module.exports = {
         const t = await sequelize.transaction();
         try {
 
+            const validation = validationResult(req);
+
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        status: 400,
+                        success: false,
+                        endpoint: `/api/user/create`
+                    },
+                    data: validation.errors
+                });
+            };
+
             const newUser = await db.Usuario.create({
                 nombre: req.body.name,
                 email: req.body.email,
@@ -113,7 +145,7 @@ module.exports = {
                 data: newUser
             };
 
-            delete newUser.password
+            delete newUser.password;
             req.session.userLogged = newUser;
 
             return res.json(resApi);
@@ -128,17 +160,32 @@ module.exports = {
 
         const t = await sequelize.transaction();
         try {
-            
-            const user = await db.Usuario.findByPk(req.body.id);
+
+            const validation = validationResult(req);
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        status: 400,
+                        success: false,
+                        endpoint: `/api/user/edit`
+                    },
+                    data: validation.mapped()
+                });
+            };
+
+            const user = await db.Usuario.findByPk(req.session.userLogged.id, {
+                transaction: t
+            });
             const body = req.body;
 
-            const updatedUser = await db.Usuario.update({
+            await db.Usuario.update({
 
                 nombre: body.name,
                 email: body.email,
+                'fecha-nacimiento': body.birth,
                 telefono: body.phone,
                 direccion: body.address,
-                imagen: (body.file && body.file.filename) ? body.file.filename : user.imagen
+                imagen: (req.file && req.file.filename) ? req.file.filename : user.imagen
             }, {
                 where: {
                     id: user.id
@@ -148,15 +195,12 @@ module.exports = {
 
             await t.commit();
 
-            console.log(updatedUser);
-
             const resApi = {
                 meta: {
                     status: 200,
                     success: true,
                     endpoint: `/api/user/edit`
-                },
-                data: updatedUser
+                }
             };
 
             return res.json(resApi);
@@ -174,7 +218,7 @@ module.exports = {
             const user = await db.Usuario.destroy({
                 
                 where: {
-                    id: req.body.id
+                    id: req.session.userLogged.id
                 }
             }, {
                 transaction: t
@@ -190,6 +234,9 @@ module.exports = {
                 },
                 data: user
             };
+
+            res.clearCookie('usuarioGuardado');
+            req.session.destroy();
             
             return res.json(resApi);
 

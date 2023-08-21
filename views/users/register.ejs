@@ -1,8 +1,10 @@
 <!-- HEAD-->   
     <%- include('../partials/head.ejs', {title: 'Registro'}) %>
     <!-- Link general css file --> 
-   <link rel="stylesheet" href="/css/partials/stylePartials.css">
-   <link rel="stylesheet" href="/css/users/userStyle.css">
+    <!-- Animations for sweet alarm from animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/css/partials/stylePartials.css">
+    <link rel="stylesheet" href="/css/users/userStyle.css">
 </head>
 <!-- HEAD-->  
 <body>
@@ -56,6 +58,7 @@
                 <div class="d-grid mx-auto">
                     <button type="submit" class="btn btn-success mx-auto mt-4 mb-4" id="submit-button">Crear cuenta</button>
                     <p class="text-center text-muted terminosYC"><input id="terms-conditions" type="checkbox"> Acepto los <a href="#">Terminos y Condiciones</a> y las <a href="#">Politicas de Seguridad</a></p>
+                    <span id="terms-error"></span>
                     <p class="text-center terminosYC">
                         Ya tienes una cuenta? <a href="/user/login">Incia Sesion</a>
                     </p>
