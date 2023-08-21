@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
 body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 	background: #f9f9f9;
-	font-family: 'Ysabeau Infant', sans-serif ;
+	font-family: 'Ysabeau Infant', sans-serif;
 }
+
 .productCart h2{
     font-size: 2rem;
-    color: #737061 ;
+    color: #49483D;
     font-weight: 300;
     font-family: 'Karla' ;
     letter-spacing: 1px;
 }
-.productsCart .product-name{
+.productCart h4{
 	font-size: 1.5rem;
-    color: #49483D;
+    color:#49483D ;
+    font-weight: 300;
     font-family: 'Ysabeau Infant', sans-serif ;
-    font-weight: 200;
+    letter-spacing: 1px;
 }
 .productCart p{
     font-size: 1rem;
@@ -24,24 +29,187 @@ body {
 
 }
 .productCart .eliminar_editar{
-	font-size: 1rem;
-    color: #737061 ;
+	font-size: 0.8rem;
+    color: #49483D  ;
     font-weight: 200;
     font-family: 'Karla' ;
-
+	transition: all 0.4s;
 }
-.productCart .price_money{
+.productCart .eliminar_editar:hover{
+	transform: scale(1.1);
+    color: #b69c7f;
+    font-weight: 200;
+    font-family: 'Karla' ;
+}
+#price_money{
 	font-size: 1rem;
     color: #49483D;
     font-family: 'Ysabeau Infant', sans-serif ;
-    font-weight: 200;
-	margin-top: 5px;
+    font-weight: 300;
+	margin-top: 10px;
+}
+.cantidad{
+	border:#b69c7f 0.5px solid;
+	border-radius: 5%;
+	background-color: white;
+    color:#49483D;
+	width: 50%;
+	font-size: 1rem;
+	text-align: center;
+	padding: 4px;
+	font-family: 'Ysabeau Infant', sans-serif ;
+	
+}
+.productCart .checkout{
+    height: 40px;
+    width: 50%;
+    outline: none;
+    font-family:'Karla';
+    color:white;
+    background-color:#b69c7f;
+    border: 1px solid ;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    letter-spacing: 1px; 
+    border-radius: 15px;
+    transition: all 0.4s;
+    
+}
+.productCart .checkout:hover{
+    outline: none;
+    border: 1px solid #b69c7f;
+    color: #b69c7f;
+    background: transparent;
+    border-radius: 15px;
+}
+.accordion .accordion-button{
+    outline: none;
+    color:#49483D;
+    background-color:transparent;
+    text-decoration: none;
+    letter-spacing: 1px; 
+}
+.accordion .accordion-button:hover{
+    outline: none;
+    color:#49483D;
+    background-color:transparent;
+    text-decoration: none;
+    letter-spacing: 1px; 
+}
+.checkout_input {
+    height: 40px;
+    outline: none;
+    background-color: transparent;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 2px solid #b69c7f;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.checkout_input:hover {
+    border-color: #b69c7f;
+   
+}
+.checkout_input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+
+
+.productCart .page-item button{
+	
+	border:#b69c7f 0.5px solid;
+	background-color: white;
+    color:white;
+	transition: all 0.4ms;
+  
+}
+.productCart .page-item button:hover{
+	border:#b69c7f 0.5px solid;
+    color:white;
+	background-color: white;
+    
 }
 .productCart .page-item button svg{
-   
-
+	border: #fff;
+    color:#b69c7f;
 }
-.productCart .page-item input{
+
+
+/*---- SUBSCRIBITE ----*/
+.subscribite {
+    background-color: white;
     
-
 }
+.subscribite .head3{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    letter-spacing: 1px;
+}
+.subscribite .per3{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    color: #737061;
+}
+.subscribite .subscribiteLabel{
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: 'Ysabeau Infant', sans-serif ;
+}
+
+.subscribite .subscribiteBtn{
+    height: 55px;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    width: fit-content;
+    letter-spacing: 1px;
+    outline: none;
+    border: 1px solid #b69c7f;
+    background-color:#b69c7f;
+    color:white;
+    border-radius: 15px;
+    display: block;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+.subscribite .subscribiteBtn:hover{
+    transform: scale(1.1);
+    outline: none;
+    color: #b69c7f;
+    background-color:white;
+    border:1px solid #b69c7f;
+}
+.subscribite .formSubscribe{
+    background-color: white;
+    color:#737061 ;
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 5px 0px 2px 0px;
+}
+.subscribite .formSubscribe input{
+    height: 45px;
+    outline: none;
+    color: #737061;
+    font-family: 'Ysabeau Infant', sans-serif ;
+    font-size: 1rem;
+    border-color: 1px solid white;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.4ms;
+}
+.subscribite .formSubscribe input:hover {
+    border-color: #b69c7f;
+   
+}
+.subscribite .formSubscribe input:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #b69c7f;
+}
+/*---- SUBSCRIBITE ----*/

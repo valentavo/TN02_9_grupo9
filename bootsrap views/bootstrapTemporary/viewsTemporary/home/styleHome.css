@@ -196,7 +196,7 @@
     letter-spacing: 1px; 
     border-radius: 15px;
     transition: all 0.4s;
-    letter-spacing: 2px;
+    
 }
 .productsBuy .productCartBtn:hover{
     outline: none;
