@@ -25,7 +25,7 @@ const uploadFile = multer({ storage });
 router.post('/login', loginValidation, usersAPI.loginProcess);
 router.get('/profile', usersAPI.profile);
 router.post('/create', registerValidation, usersAPI.create);
-router.put('/edit', profileValidation, uploadFile.single('img'), usersAPI.update);
+router.put('/edit', uploadFile.single('img'), profileValidation, usersAPI.update);
 router.get('/logout', usersAPI.logout);
 router.delete('/delete', usersAPI.delete);
 

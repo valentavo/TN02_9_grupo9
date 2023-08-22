@@ -14,6 +14,8 @@ module.exports = [
                 return '.jpeg';
             case  '.png':
                 return '.png';
+            case  '.img':
+                return '.img';
             default:
                 throw new Error('Las extensiones validas son .jpg .img .png .jepg');
             }
@@ -28,7 +30,7 @@ module.exports = [
         .withMessage('Selecciona almenos una categoria para tu producto'),
 
     check('color')
-        .optional(),
+        .optional({checkFalsy: true}),
 
     check('amount')
         .notEmpty()

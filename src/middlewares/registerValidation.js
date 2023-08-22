@@ -13,8 +13,5 @@ module.exports = [
         .normalizeEmail({'all_lowercase': true}),
 
     check('password', 'la contraseña debe incluir minimo 2 caracteres')
-        .isLength({min: 2}),
-
-    check('passwordConfirmed', 'la contraseña debe ser la misma en ambos campos')
         .isLength({min: 2})
 ];

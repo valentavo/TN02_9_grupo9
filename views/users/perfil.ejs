@@ -53,44 +53,44 @@
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-name-container" name="name">
+                            <div class="form-group" id="user-name-container">
                                   <label>Nombre y apellido</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-birth-container" name="birth">
+                            <div class="form-group" id="user-birth-container">
                                   <label>Fecha de nacimiento</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-email-container" name="email">
+                            <div class="form-group" id="user-email-container">
                                   <label>Email</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-phone-container" name="phone">
+                            <div class="form-group" id="user-phone-container">
                                   <label>Numero de telefono</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group" id="user-address-container" name="address">
+                            <div class="form-group" id="user-address-container">
                                   <label>Direccion</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="form-img">
                                 <label for="image">Selecciona tu foto de perfil</label>
                                 <input type="file" class="form-control" id="user-image" name="img">
                             </div>
                         </div>
 
                         <div class="my-4">
-                            <button class="btn editar" id="save-user" disabled>Guardar Cambios</button>
+                            <button type="submit" class="btn editar" id="save-user" disabled>Guardar Cambios</button>
                             <button class="btn editar" id="logout-user">Cerrar Sesión</button>
                             <button class="btn editar"id="delete-user">Eliminar Cuenta</button>
                         </div>
@@ -98,35 +98,32 @@
                 </div>
 
                 <div class="tab-pane fade " id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
-                    <h3 class="mb-4">Cambiar contrasenia</h3>
-                    <form action="" method="" >
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Contrasenia anterior</label>
-                                    <input type="password" class="form-control" name='oldPassword'>
-                                </div>
+                    <h3 class="mb-4">Cambiar contraseña</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>contraseña anterior</label>
+                                <input type="password" class="form-control" name='oldPassword' id="old-password">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Nueva contrasenia</label>
-                                    <input type="password" class="form-control" name='newPassword'>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Confirmar nueva contrasenia</label>
-                                    <input type="password" class="form-control" name='passwordConfirmed'>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nueva contraseña</label>
+                                <input type="password" class="form-control" name='newPassword' id="new-password">
                             </div>
                         </div>
-                        <div>
-                            <button class="btn editar">Guardar</button>
-                            <button class="btn editar">Cancelar</button>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Confirmar nueva contraseña</label>
+                                <input type="password" class="form-control" name='passwordConfirmed' id="confirmed-password">
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                    <div>
+                        <button class="btn editar" id="save-password">Guardar</button>
+                    </div>
                 </div>   
                 
                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">

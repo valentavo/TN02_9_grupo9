@@ -29,15 +29,15 @@ app.use(methodOverride('_method'));
 // app.use(logsMiddleware);
 
 //configuracion de express para los JSONS
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: false, limit: '10mb' }));
+app.use(express.json({limit: '10mb'})); // para imagenes pesadas
 
 //Session config
 app.use( session({
     secret: 'algun-secreto-bien-guardado',
     resave: false,
     saveUninitialized: false
-}))
+}));
 
 //CookieParser config
 app.use(cookieParser());
@@ -64,5 +64,5 @@ app.use((req, res, next) => {
 // });
 
 app.listen(3009, () => {
-    console.log('Servidor corriendo en el puerto 3009')
+    console.log('Servidor corriendo en el puerto 3009');
 });

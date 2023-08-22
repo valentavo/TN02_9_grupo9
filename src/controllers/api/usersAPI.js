@@ -40,7 +40,6 @@ module.exports = {
 
                 const resApi = {
                     meta: {
-                        status: 200,
                         success: true,
                         endpoint: `/api/user/login`
                     },
@@ -92,7 +91,6 @@ module.exports = {
 
             const resApi = {
                 meta: {
-                    status: 200,
                     success: true,
                     endpoint: `/api/user/profile`
                 },
@@ -116,7 +114,6 @@ module.exports = {
             if(!validation.isEmpty()) {
                 return res.json({
                     meta: {
-                        status: 400,
                         success: false,
                         endpoint: `/api/user/create`
                     },
@@ -138,7 +135,6 @@ module.exports = {
 
             const resApi = {
                 meta: {
-                    status: 200,
                     success: true,
                     endpoint: `/api/user/create`
                 },
@@ -161,45 +157,76 @@ module.exports = {
         const t = await sequelize.transaction();
         try {
 
-            const validation = validationResult(req);
-            if(!validation.isEmpty()) {
-                return res.json({
-                    meta: {
-                        status: 400,
-                        success: false,
-                        endpoint: `/api/user/edit`
-                    },
-                    data: validation.mapped()
-                });
-            };
-
-            const user = await db.Usuario.findByPk(req.session.userLogged.id, {
-                transaction: t
-            });
             const body = req.body;
 
-            console.log(req.file);
 
-            await db.Usuario.update({
 
-                nombre: body.name,
-                email: body.email,
-                'fecha-nacimiento': body.birth,
-                telefono: body.phone,
-                direccion: body.address,
-                imagen: (req.file && req.file.filename) ? req.file.filename : user.imagen
-            }, {
-                where: {
-                    id: user.id
-                },
-                transaction: t
-            });
+            if(body.name) {
+                
+                const validation = validationResult(req);
+                if(!validation.isEmpty()) {
+                    return res.json({
+                        meta: {
+                            success: false,
+                            endpoint: `/api/user/edit`
+                        },
+                        data: validation.mapped()
+                    });
+                };
+
+                const user = await db.Usuario.findByPk(req.session.userLogged.id, {
+                    transaction: t
+                });
+
+                await db.Usuario.update({
+
+                    nombre: body.name,
+                    email: body.email,
+                    'fecha-nacimiento': body.birth || null,
+                    telefono: body.phone || null,
+                    direccion: body.address || null,
+                    imagen: (req.file && req.file.filename) ? req.file.filename : user.imagen
+                }, {
+                    where: {
+                        id: user.id
+                    },
+                    transaction: t
+                });
+
+            }
+            else if (body.oldPassword) {
+
+                const user = await db.Usuario.findByPk(req.session.userLogged.id, {
+                    transaction: t
+                });
+
+                if (bcrypt.compareSync(body.oldPassword, user.password)) {
+
+                    await db.Usuario.update({
+
+                        password: bcrypt.hashSync(body.password, 10)
+
+                    }, {
+                        where: {
+                            id: user.id
+                        },
+                        transaction: t
+                    });
+                }
+                else {
+                    return res.json({
+                        meta: {
+                            success: false,
+                            endpoint: `/api/user/edit`
+                        }
+                    })
+                }
+            };
 
             await t.commit();
 
             const resApi = {
                 meta: {
-                    status: 200,
                     success: true,
                     endpoint: `/api/user/edit`
                 }
@@ -230,7 +257,6 @@ module.exports = {
 
             const resApi = {
                 meta: {
-                    status: 200,
                     success: true,
                     endpoint: `/api/user/delete`
                 },

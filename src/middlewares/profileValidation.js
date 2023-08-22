@@ -1,24 +1,24 @@
-const { check } = require('express-validator');
+const { body } = require('express-validator');
 const { extname } = require('path');
 
 module.exports = [
-    check('name', 'El campo no debe estar vacío')
+    body('name', 'El campo no debe estar vacío')
         .notEmpty(),
-    check('birth', 'El campo debe ser una fecha válida')
+    body('birth', 'El campo debe ser una fecha válida')
         .optional({checkFalsy: true})
         .isDate(),
-    check('email', 'Debes introducir un email válido')
+    body('email', 'Debes introducir un email válido')
         .notEmpty()
         .bail()
         .trim()
         .isEmail()
         .normalizeEmail({'all_lowercase': true}),
-    check('phone', 'Debes introducir un número válido')
+    body('phone', 'Debes introducir un número válido')
         .optional({checkFalsy: true})
         .isLength({min: 6, max: 16}),
-    check('address')
+    body('address')
         .optional({checkFalsy: true}),
-    check('img')
+    body('img')
         .optional({checkFalsy: true})
         .custom((value, {req}) => {
             const fileExtension = extname(req.file.originalname.toLowerCase());
