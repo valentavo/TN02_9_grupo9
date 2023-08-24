@@ -47,17 +47,30 @@
                     </div>
                 
                     <div class="form-group productLabel my-2">
-                        <label class=" mb-2" for="meassures">Tamano del producto</label>
-                        <select class="form-control" name="medida" id="meassures">
-
-                       </select>
+                        <label class="mb-2 eros-label" for="meassures">Tamano del producto</label>
+                        <select class="form-control my-2 mb-4" name="medida" id="meassures">
+                            <option value="0" id="empty-size"></option>
+                        </select>
+                        <!-- <span class="btn productCreateBtn position-relative" value="0">
+                            10g 
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="borrar-0">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                        </span> -->
                     </div>
 
                     <div class="form-group productLabel my-2">
-                        <label class=" mb-2" for="colors">Color</label>
-                        <select class="form-control" name="color" id="colors">
-
+                        <label class="mb-2 eros-label" for="colors">Color</label>
+                        <select class="form-control my-2 mb-4" name="color" id="colors">
+                            <option value="0" id="empty-color"></option>
                         </select>
+                        <!-- <span class="btn productCreateBtn position-relative">
+                            10g 
+                            <input class="visually-hidden" type="checkbox" name="colores" value="0">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="borrar-0">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                        </span> -->
                     </div>
 
                     <div class="form-group productLabel my-2">
@@ -101,6 +114,8 @@
 <!-- MAIN--> 
 
 <!-- FOOTER-->   
+    <script src="https://kit.fontawesome.com/ffa4779421.js" crossorigin="anonymous"></script>
+    <script src="/js/productCreateForm.js"></script>
     <script src="/js/productCreate.js"></script>
     <%- include('../partials/footer.ejs') %>
 

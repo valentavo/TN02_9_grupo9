@@ -167,8 +167,6 @@ function ready() {
                 password: elements[2].input.value
             }
 
-            // fgfg o fgfgg
-
             const passwordFetch = await fetch('/api/user/edit', {method: 'PUT', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
             const password = await passwordFetch.json();
 

@@ -38,6 +38,8 @@ background-color: white;
     transition: all 0.4s;
     letter-spacing: 2px;
 }
+
+
 .productCreate .productCreateBtn:hover{
     outline: none;
     border: 1px solid #b69c7f;
@@ -74,4 +76,10 @@ background-color: white;
     font-weight: 200;
     font-size: 1.5rem;
     text-align: center;
+}
+
+/* Eros new Button Style */
+
+.productCreate .eros-label {
+    display: block;
 }

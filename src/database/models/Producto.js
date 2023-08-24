@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        'marcas-fk':  {
+        'marcas-fk':  { // se supone que las fk no se declaran aqui pero si en las relaciones abajo segun lucas
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },

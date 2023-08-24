@@ -1,37 +1,63 @@
-if (document.readyState == "loading") {
-    document.addEventListener("DOMContentLoaded", ready);
-}
-else {
-    ready();
+document.addEventListener('createProductLoaded', ready);
+
+
+let colorSelected = [];
+let sizeSelected = [];
+
+function borrarColor(id, element) {
+    colorSelected = colorSelected.filter( row => row != id);
+    document.querySelector(`#color-${id}`).remove();
+    console.log(element);
+    if (colorSelected.length == 0) {
+        element.value = 0
+    }
 };
 
-async function ready() {
-    const labels = document.querySelector('#labels');
-    const meassures = document.querySelector('#meassures');
-    const colors = document.querySelector('#colors');
-    const brands = document.querySelector('#brands');
+function borrarSize(id) {
+    sizeSelected = sizeSelected.filter( row => row != id);
+    document.querySelector(`#size-${id}`).remove();
+};
 
-    const featuresFetch = await fetch('/api/product/create');
-    const features = await featuresFetch.json(); 
+function ready () {
+    const colorSelect = document.querySelector('#colors');
+    const sizeSelect = document.querySelector('#meassures');
 
-    labels.innerHTML += features.data.categorias.reduce( (element, cat) => {
-        return element + `<option value="${ cat.id }">${ cat.nombre }</option>`;
-    }, '');
+    colorSelected = [];
+    sizeSelected = [];
 
-    meassures.innerHTML += features.data.medidas.reduce( (element, cat) => {
-        return element + `<option value="${ cat.id }">${ cat.medida }</option>`;
-    }, '');
+    colorSelect.addEventListener('change', () => {
 
-    colors.innerHTML += features.data.colores.reduce( (element, cat) => {
-        return element + `<option value="${ cat.id }">${ cat.nombre }</option>`;
-    }, '');
+        if(colorSelect.value != 0 && !colorSelected.includes(colorSelect.value)) {
+            colorSelected.push(colorSelect.value);
 
-    brands.innerHTML += features.data.marcas.reduce( (element, cat) => {
-        return element + `<option value="${ cat.id }">${ cat.nombre }</option>`;
-    }, '');
+            console.log(colorSelect);
 
-    // creating the elements takes time so we create and event to communicate we are done with them
-    const event = new Event('createProductLoaded');
-    document.dispatchEvent(event);
+            colorSelect.insertAdjacentHTML('afterend', `
+                <span id="color-${colorSelect.value}" class="btn productCreateBtn position-relative my-2 mx-2">
+                    ${colorSelect[colorSelect.value].textContent}
+                    <input class="visually-hidden" type="checkbox" name="colores" value="${colorSelect.value}">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" onclick="borrarColor(${colorSelect.value}, ${colorSelect})">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+                </span>`
+            );
+        };
+    });
 
+    sizeSelect.addEventListener('change', () => {
+
+        if(sizeSelect.value != 0 && !sizeSelected.includes(sizeSelect.value)) {
+            sizeSelected.push(sizeSelect.value);
+
+            sizeSelect.insertAdjacentHTML('afterend', `
+                <span id="size-${sizeSelect.value}" class="btn productCreateBtn position-relative my-2 mx-2">
+                    ${sizeSelect[sizeSelect.value].textContent}
+                    <input class="visually-hidden" type="checkbox" name="medidas" value="${sizeSelect.value}">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" onclick="borrarSize(${sizeSelect.value})">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+                </span>`
+            );
+        };
+    });
 };
