@@ -169,6 +169,7 @@
 .productsBuy a{
    text-decoration: none;
 
+
 }
 .productsBuy .productNameH{
     margin: 0;
@@ -193,6 +194,7 @@
     font-family:'Ysabeau Infant', sans-serif;
     color:white;
     background-color:#b69c7f;
+    text-align: center;
     border: 1px solid ;
     display: block;
     margin: 0 auto;
@@ -200,7 +202,7 @@
     letter-spacing: 1px; 
     border-radius: 15px;
     transition: all 0.4s;
-    letter-spacing: 2px;
+    
 }
 .productsBuy .productCartBtn:hover{
     outline: none;
