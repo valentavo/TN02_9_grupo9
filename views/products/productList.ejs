@@ -1,0 +1,103 @@
+<!-- HEAD-->   
+<%- include('../partials/head.ejs', {title: 'Crear Producto'}) %>
+<!-- Link general css file --> 
+<link rel="stylesheet" href="/css/partials/stylePartials.css">
+<link rel="stylesheet" href="/css/products/productList.css">
+</head>
+<!-- HEAD-->   
+<body>
+<!-- HEADER--> 
+<%- include('../partials/header.ejs') %>
+<!-- HEADER--> 
+
+
+<!-- MAIN --> 
+<section class="productsBuy mt-2">
+    <div class="container">
+        <div class="row py-4 text-center">
+            <div class="col-lg-6 m-auto">
+                <h1>Maquillajes</h1>
+            </div>
+
+        </div>
+
+        <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2"></div>
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <a href="" class="btn my-5 py-2 viewMore ">Todos los productos</a>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+</section>
+<!--PRODUCTS HOME  -->
+
+<!-- PRODUCTS HOME -->
+ <section class="productsBuy">
+    <div class="container">
+        <div class="row py-4 text-center">
+            <div class="col-lg-6 m-auto">
+                <h1>Cuidado de la piel</h1>
+            </div>
+
+        </div>
+
+        <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2"></div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="" class="btn my-5 py-2 viewMore ">Todos los productos</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- SUBSCRIBITE  -->
+<section class="subscribite py-4 px-4" >
+        
+    <div class="container subscribite">
+        <div class="row ">
+            <div class="col-lg-12 text-center py-3">
+                
+                <h1 class="head3" >Recibí novedades, promociones y beneficio</h1>
+        
+            </div>
+        </div>
+        <div class="row">
+            <form action="" method="post" class="row formSubscribe g-3 smalltext">
+                    <div class="col-lg-3">
+                    <label for="name" class="form-label subscribiteLabel"> First Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="First Name" required>
+                    </div>
+                    <div class="col-lg-3">
+                    <label for="lastname" class="form-label subscribiteLabel">Name</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+                    </div>
+                    <div class="col-lg-4">
+                    <label for="inputEmail4" class="form-label subscribiteLabel">Email Address</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email Address" required>
+                    </div>
+        
+                    <div class="col-2 mx-auto mx-sm-auto mx-md-auto" >
+                    <button type="submit" class="btn subscribiteBtn mx-auto ms-lg-4 mt-lg-4 px-2">Subscribite</button>
+                    </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- SUBSCRIBITE -->
+<!-- MAIN --> 
+<!-- FOOTER-->   
+<script src="https://kit.fontawesome.com/ffa4779421.js" crossorigin="anonymous"></script>
+<script src="/js/productCreateForm.js"></script>
+<script src="/js/productCreate.js"></script>
+<%- include('../partials/footer.ejs') %>
+
+<!-- FOOTER--> 
