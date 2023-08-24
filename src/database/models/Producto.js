@@ -75,7 +75,11 @@ module.exports = (sequelize, DataTypes) => {
 
         Producto.belongsTo(models.Marca, {
             as: 'brand',
-            foreignKey: 'marcas-fk'
+            foreignKey: {
+                name: 'marcas-fk',
+                type: DataTypes.INTEGER.UNSIGNED,
+                allowNull: false
+            }
         });
 
         Producto.belongsToMany(models.Color, {

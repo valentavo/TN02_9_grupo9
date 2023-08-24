@@ -12,29 +12,26 @@ async function ready() {
 	const productsFetch = await fetch('/api');
     const products = await productsFetch.json();
 
-    products.data.forEach( product => {
-        return productsContainer.forEach( container => {
+    products.data.forEach( (product, k) => {
+        return productsContainer.forEach( (container, i) => {
 
             return container.innerHTML += 
             `
             <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/productos/${product.image[0].nombre}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/productos/${product.image[0].nombre}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/productos/${product.image[0].nombre}" class="d-block w-100" alt="...">
-                        </div>
+                <div id="carouselExampleFade-${i}-${k}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="img-product-carousel">
+                        ${product.image.reduce((acc, img, j) => {
+                            return acc + `
+                            <div class="carousel-item ${j == 0 ? 'active' : ''}">
+                                <img src="img/productos/${img.nombre}" class="d-block w-100" alt="...">
+                            </div>`
+                        }, '')}
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -49,6 +46,6 @@ async function ready() {
 
             </div>
             `
-        })
-    })
-};
+        });
+    });
+}; 

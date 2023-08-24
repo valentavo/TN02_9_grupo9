@@ -6,10 +6,10 @@ else {
 };
 
 async function ready() {
-    const labels = document.querySelector('#labels');
-    const meassures = document.querySelector('#meassures');
-    const colors = document.querySelector('#colors');
-    const brands = document.querySelector('#brands');
+    const labels = document.querySelector('#product-label');
+    const size = document.querySelector('#product-size');
+    const colors = document.querySelector('#product-color');
+    const brands = document.querySelector('#product-brand');
 
     const featuresFetch = await fetch('/api/product/create');
     const features = await featuresFetch.json(); 
@@ -18,7 +18,7 @@ async function ready() {
         return element + `<option value="${ row.id }">${ row.nombre }</option>`;
     }, '');
 
-    meassures.innerHTML += features.data.medidas.reduce( (element, row) => {
+    size.innerHTML += features.data.medidas.reduce( (element, row) => {
         return element + `<option value="${ row.id }">${ row.medida }</option>`;
     }, '');
 

@@ -25,16 +25,23 @@ module.exports = [
         .notEmpty()
         .withMessage('Selecciona un nombre para tu producto'),
 
-    check('categoria')
+    check('amount')
+        .notEmpty()
+        .withMessage('Selecciona el precio del producto'),
+
+    check('category')
         .notEmpty()
         .withMessage('Selecciona almenos una categoria para tu producto'),
+
+    check('size')
+        .optional({checkFalsy: true}),
 
     check('color')
         .optional({checkFalsy: true}),
 
-    check('amount')
+    check('brand')
         .notEmpty()
-        .withMessage('Selecciona el precio del producto'),
+        .withMessage('Selecciona una marca para tu producto'),
 
     check('stock')
         .notEmpty()
@@ -42,6 +49,6 @@ module.exports = [
 
     check('desc')
         .notEmpty()
-        .withMessage('Agrega una descripcion a tu producto')
-
+        .withMessage('Agrega una descripcion a tu producto'),
+    
 ];
