@@ -29,7 +29,7 @@ router.get('/list', authMiddleware, adminUserAccess, productsController.list);
 
 // Creacion
 router.get('/create', authMiddleware,  adminUserAccess, productsController.create);
-router.post('/create', uploadFile.array('productImg', 5), productValidation, productsController.createProcess);
+// router.post('/create', uploadFile.array('productImg', 5), productValidation, productsController.createProcess);
 
 // Edicion
 router.get('/edit/:productId', authMiddleware, adminUserAccess, productsController.edit);

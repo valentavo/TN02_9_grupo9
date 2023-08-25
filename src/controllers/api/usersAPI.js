@@ -13,13 +13,12 @@ module.exports = {
             if(!validation.isEmpty()) {
                 return res.json({
                     meta: {
-                        status: 400,
                         success: false,
                         endpoint: `/api/user/login`
                     },
                     data: validation.errors[0].msg
                 });
-            }
+            };
 
             const user = await db.Usuario.findOne({
                 where: {
@@ -49,7 +48,6 @@ module.exports = {
             } else {
                 return res.json({
                     meta: {
-                        status: 400,
                         success: false,
                         endpoint: `/api/user/login`
                     },
@@ -158,8 +156,6 @@ module.exports = {
         try {
 
             const body = req.body;
-
-
 
             if(body.name) {
                 

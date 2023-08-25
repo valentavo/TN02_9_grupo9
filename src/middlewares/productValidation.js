@@ -5,19 +5,18 @@ module.exports = [
 
     check('productImg')
         .custom((value, {req}) => {
-            const fileExtension = extname(req.file.originalname.toLowerCase());
+            const extAllowed = ['.jpg', '.jpeg', '.png', '.img'];
 
-            switch (fileExtension) {
-            case '.jpg':
-                return '.jpg';
-            case '.jpeg':
-                return '.jpeg';
-            case  '.png':
-                return '.png';
-            case  '.img':
-                return '.img';
-            default:
+            const errors = req.files.filter( row => {
+                const fileExtension = extname(row.originalname.toLowerCase());
+                return !extAllowed.includes(fileExtension);
+            });
+
+            if (errors.length != 0) {
                 throw new Error('Las extensiones validas son .jpg .img .png .jepg');
+            }
+            else{
+                return true
             }
         }),
 

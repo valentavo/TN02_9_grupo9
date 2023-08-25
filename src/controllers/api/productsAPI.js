@@ -1,4 +1,6 @@
 const db = require('../../database/models');
+const { validationResult } = require('express-validator');
+const { sequelize } = require('../../database/models');
 
 module.exports = {
     detail: async (req, res) => {
@@ -54,6 +56,73 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
+
+    },
+     createProcess: async (req, res) => {
+
+        const t = await sequelize.transaction();
+
+        try {
+
+            const validation = validationResult(req);
+
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        success: false,
+                        endpoint: `/api/product/create`
+                    },
+                    data: validation.errors
+                });
+            };
+
+            const body = req.body;
+
+            const newProduct = await db.Producto.create({
+                nombre: body.name,
+                precio: body.amount,
+                detalle: body.desc,
+                cantidad: body.stock,
+                'marcas-fk': body.brand,
+                'categorias-fk': body.category,
+                image:  req.files.map( img => {
+                    return {nombre: img.filename}
+                })
+            }, {
+                transaction: t,
+                include: [{
+                    association: 'image',
+                }]
+            });
+            
+            const Product = await db.Producto.findByPk(newProduct.id, {
+                transaction: t
+            });
+
+            //relacionando producto con tablas pivot
+            await Product.addColor(JSON.parse(body.color), {
+                transaction: t
+            });
+            await Product.addSize(JSON.parse(body.size), {
+                transaction: t
+            });
+            
+            await t.commit();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/create`
+                },
+                data: newProduct
+            };
+
+            return res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
+        };
 
     },
     edit: async (req, res) => {

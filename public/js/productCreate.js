@@ -67,8 +67,8 @@ function ready () {
     const productTitle = document.querySelector('#product-title');
     const productPrice = document.querySelector('#product-price');
     const productLabel = document.querySelector('#product-label');
-    const productSize = document.querySelector('#product-size');
-    const productColor = document.querySelector('#product-color');
+    // const productSize = document.querySelector('#product-size');
+    // const productColor = document.querySelector('#product-color');
     const productBrand = document.querySelector('#product-brand');
     const productStock = document.querySelector('#product-stock');
     const productDesc = document.querySelector('#product-detail');
@@ -112,9 +112,13 @@ function ready () {
             productDesc.classList.add('inputError');
         };
 
+        const imgFiles =[]; 
+
         if(productImg.files.length != 0) {
 
             Object.keys(productImg.files).forEach(row => {
+
+                imgFiles.push(productImg.files[row]);
 
                 if(!extAllowed.find( ext => productImg.files[row].name.includes(ext))){
                     productImg.classList.add('inputError');
@@ -128,7 +132,56 @@ function ready () {
         const errors = elements.filter(input => input.classList.contains('inputError'));
 
         if(errors.length == 0) {
-            console.log('Bienvenido');
+            const colorCheck = document.querySelectorAll('[name="colores"]');
+            const sizeCheck = document.querySelectorAll('[name="medidas"]');
+
+            const color = [];
+            const medida = [];
+
+            for (let x of colorCheck.values()) {
+                color.push(+x.value) // converting the strings to numbers
+            };
+            for (let x of sizeCheck.values()) {
+                medida.push(+x.value)
+            };
+
+            const formData = new FormData();
+
+            formData.append('name', productTitle.value);
+            formData.append('amount', productPrice.value);
+            formData.append('desc', productDesc.value);
+            formData.append('stock', productStock.value);
+            formData.append('brand', productBrand.value);
+            formData.append('category', productLabel.value);
+            formData.append('color', JSON.stringify(color));
+            formData.append('size', JSON.stringify(medida));
+
+            imgFiles.forEach( img => {
+
+                formData.append('productImg', img);
+            });
+
+            const productFetch = await fetch('/api/product/create', {method: 'POST', body: formData});
+            const resFetch = await productFetch.json();
+
+            if(resFetch.meta.success) {
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Creación completa',
+                    text: 'Tu producto ha sido creado con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                window.location.href = `/product/detail/${resFetch.data.id}`;
+            }
+            else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Ups!',
+                    text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
+                    showConfirmButton: true
+                });
+            }
         }
 
     });
