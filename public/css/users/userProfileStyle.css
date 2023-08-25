@@ -30,6 +30,10 @@ body {
 	background-color:#b69c7f;
     color:white;
 }
+.nav button.nav-link a {
+    text-decoration: none;
+	color: #737061;
+}
 
 .img-circle img {
 	height: 100px;
