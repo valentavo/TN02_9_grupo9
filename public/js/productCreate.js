@@ -67,8 +67,6 @@ function ready () {
     const productTitle = document.querySelector('#product-title');
     const productPrice = document.querySelector('#product-price');
     const productLabel = document.querySelector('#product-label');
-    // const productSize = document.querySelector('#product-size');
-    // const productColor = document.querySelector('#product-color');
     const productBrand = document.querySelector('#product-brand');
     const productStock = document.querySelector('#product-stock');
     const productDesc = document.querySelector('#product-detail');
@@ -148,7 +146,7 @@ function ready () {
             const formData = new FormData();
 
             formData.append('name', productTitle.value);
-            formData.append('amount', productPrice.value);
+            formData.append('price', productPrice.value);
             formData.append('desc', productDesc.value);
             formData.append('stock', productStock.value);
             formData.append('brand', productBrand.value);
@@ -170,7 +168,7 @@ function ready () {
                     title: 'Creación completa',
                     text: 'Tu producto ha sido creado con éxito',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000
                 });
                 window.location.href = `/product/detail/${resFetch.data.id}`;
             }
@@ -181,7 +179,7 @@ function ready () {
                     text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
                     showConfirmButton: true
                 });
-            }
+            };
         }
 
     });

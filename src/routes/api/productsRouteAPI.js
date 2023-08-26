@@ -1,13 +1,13 @@
 //Tools
 const express = require('express');
 const multer = require('multer');
-const router = express.Router();
 const path = require('path');
+const router = express.Router();
 
 const productsApi = require('../../controllers/api/productsAPI.js');
 
 //Validations
-const productValidation = require('../../middlewares/productValidation.js');
+const createProductValidation = require('../../middlewares/createProductValidation.js');
 
 //Images storage with multer
 const storage = multer.diskStorage({
@@ -22,7 +22,8 @@ const uploadFile = multer({ storage });
 
 router.post('/detail', productsApi.detail);
 router.get('/create', productsApi.create);
-router.post('/create', uploadFile.array('productImg', 5), productValidation, productsApi.createProcess);
+router.post('/create', uploadFile.array('productImg', 5), createProductValidation, productsApi.createProcess);
 router.post('/edit', productsApi.edit);
+router.put('/edit', uploadFile.array('productImg', 5), createProductValidation, productsApi.editProcess);
 
 module.exports = router;

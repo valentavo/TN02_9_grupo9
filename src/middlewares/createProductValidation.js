@@ -24,7 +24,7 @@ module.exports = [
         .notEmpty()
         .withMessage('Selecciona un nombre para tu producto'),
 
-    check('amount')
+    check('price')
         .notEmpty()
         .withMessage('Selecciona el precio del producto'),
 

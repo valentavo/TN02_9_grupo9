@@ -1,6 +1,7 @@
 <!-- HEAD-->   
     <%- include('../partials/head.ejs', {title: 'Crear Producto'}) %>
     <!-- Link general css file --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <link rel="stylesheet" href="/css/partials/stylePartials.css">
    <link rel="stylesheet" href="/css/products/productEditStyle.css">
 </head>
@@ -31,9 +32,7 @@
 
             </div>
             <div class="col-12 col-lg-5">
-                <h3 class="productName my-2 mb-4">EDITAR PRODUCTO</h3>
-
-                <!-- <form action="/product/edit/8?_method=PUT" method="POST" enctype="multipart/form-data"> -->
+                <h3 class="productName my-2 mb-4" id="product-edit-title">EDITAR PRODUCTO</h3>
                 
                     <div class="form-group productLabel my-2" id="title-container">
                         <label class="mb-2">Nombre del producto</label>
@@ -41,7 +40,7 @@
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2">Imagen del producto</label>
-                        <input type="file" class="form-control" name="img" multiple>
+                        <input type="file" class="form-control" name="img" id="img" multiple>
                     </div>
 
                     <div class="form-group productLabel my-2" id="price-container">
@@ -57,15 +56,15 @@
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="meassures">Tamaño del producto</label>
-                        <select class="form-control" name="medida" id="meassures">
-
+                        <select class="form-control my-2 mb-4" name="medida" id="meassures">
+                            <option value="0" id="empty-size"></option>
                        </select>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="colors">Color</label>
-                        <select class="form-control" name="color" id="colors">
-                        
+                        <select class="form-control my-2 mb-4" name="color" id="colors">
+                            <option value="0" id="empty-color"></option>
                         </select>
                     </div>
 
@@ -90,11 +89,9 @@
                     </div>
 
                     <div class=" my-4">
-                        <button class="btn productEditBtn me-4" type="submit">Update</button>
+                        <button class="btn productEditBtn me-4" type="submit" id="btn-edit">Update</button>
                         <button class="btn productEditBtn" type="reset">Cancel</button>
                     </div>
-
-                <!-- </form> -->
                 
                 <!-- <form action="/product/delete/8?_method=DELETE" method="POST" enctype="multipart/form-data"> -->
                     <button class="btn productEditBtn" type="submit">Eliminar Producto</button>
@@ -107,7 +104,10 @@
 <!-- MAIN--> 
 
 <!-- FOOTER --> 
+    <script src="https://kit.fontawesome.com/ffa4779421.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/productEditForm.js"></script>
+    <script src="/js/productEdit.js"></script>
     <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER --> 

@@ -1,6 +1,7 @@
 const db = require('../../database/models');
 const { validationResult } = require('express-validator');
 const { sequelize } = require('../../database/models');
+const Op = db.Sequelize.Op;
 
 module.exports = {
     detail: async (req, res) => {
@@ -80,7 +81,7 @@ module.exports = {
 
             const newProduct = await db.Producto.create({
                 nombre: body.name,
-                precio: body.amount,
+                precio: body.price,
                 detalle: body.desc,
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
@@ -164,5 +165,84 @@ module.exports = {
             console.log(error);
         };
 
+    },
+    editProcess: async (req, res) => {
+
+        const t = await sequelize.transaction();
+
+        try {
+
+            const validation = validationResult(req);
+
+            if(!validation.isEmpty()) {
+                return res.json({
+                    meta: {
+                        success: false,
+                        endpoint: `/api/product/edit`
+                    },
+                    data: validation.errors
+                });
+            };
+
+            const body = req.body;
+        
+            await db.Producto.update({
+                nombre: body.name,
+                precio: body.price,
+                detalle: body.desc,
+                cantidad: body.stock,
+                'marcas-fk': body.brand,
+                'categorias-fk': body.category
+            }, {
+                where: {
+                    id: body.id
+                },
+                transaction: t
+            });
+
+            const Product = await db.Producto.findByPk(body.id, {
+                transaction: t
+            });
+
+            const prevImages = await Product.getImage();
+
+            await db.Imagen.bulkCreate(req.files.map( img => {
+                return {nombre: img.filename, 'productos-fk': Product.id}
+            }), {
+                transaction: t
+            });
+
+            await db.Imagen.destroy({
+                where: {
+                    'productos-fk': Product.id,
+                    id: {
+                        [Op.lte]: prevImages[prevImages.length -1].id
+                    }
+                },
+                transaction: t
+            });
+
+            await Product.setColor(JSON.parse(body.color), {
+                transaction: t
+            });
+            await Product.setSize(JSON.parse(body.size), {
+                transaction: t
+            });
+
+            await t.commit();
+
+             const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/edit`
+                }
+            };
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
+        };
     }, 
 };
