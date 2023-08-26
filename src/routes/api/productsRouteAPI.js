@@ -25,6 +25,10 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 router.post('/detail', productsApi.detail);
+router.get('/list', productsApi.list);
+router.get('/cart', productsApi.cart);
+
+//CRUD
 router.get('/create', productsApi.create);
 router.post('/create', uploadFile.array('productImg', 5), createProductValidation, productsApi.createProcess);
 router.post('/edit', productsApi.edit);

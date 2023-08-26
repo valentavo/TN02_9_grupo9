@@ -1,33 +1,14 @@
-const db = require('../database/models');
-
 module.exports = {
 
     cart: async (req, res) => {
 
-        try {
-            
-            const products = await db.Producto.findAll();
-
-            return res.render('./products/productCart.ejs', {productos: products});
-
-        } catch (error) {
-            console.log(error);
-        }
+        return res.render('./products/productCart.ejs');
 
     },
 
     list: async (req, res) => {
 
-        try {
-            const notErased = await db.Producto.findAll( {
-                include: [{association: 'image'}]
-            });
-            
-            return res.render('./products/productList.ejs', {productos: notErased});
-
-        } catch (error) {
-            console.log(error);
-        }
+        return res.render('./products/productList.ejs');
 
     },
 

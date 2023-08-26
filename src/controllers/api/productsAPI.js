@@ -4,6 +4,52 @@ const { sequelize } = require('../../database/models');
 const Op = db.Sequelize.Op;
 
 module.exports = {
+
+    cart: async (req, res) => {
+
+        try {
+            
+            const products = await db.Producto.findAll();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/cart`
+                },
+                data: products
+            };
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+        };
+
+    },
+
+    list: async (req, res) => {
+
+        try {
+            const products = await db.Producto.findAll( {
+                include: [{association: 'image'}]
+            });
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/list`
+                },
+                data: products
+            };
+            
+            return res.render(resApi);
+
+        } catch (error) {
+            console.log(error);
+        };
+
+    },
+    
     detail: async (req, res) => {
 
         try {

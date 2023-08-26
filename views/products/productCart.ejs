@@ -1,6 +1,7 @@
 <!-- HEAD-->   
 <%- include('../partials/head.ejs', {title: 'Crear Producto'}) %>
 <!-- Link general css file --> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="/css/partials/stylePartials.css">
 <link rel="stylesheet" href="/css/products/productCart.css">
 </head>
@@ -29,13 +30,13 @@
                                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                                         <div class="carousel-inner">
                                           <div class="carousel-item active">
-                                            <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                            <img src="/img/productos/pomegranate-cream.png" class="d-block w-100" alt="...">
                                           </div>
                                           <div class="carousel-item">
-                                            <img src="12.png" class="d-block w-100" alt="...">
+                                            <img src="/img/productos/12.png" class="d-block w-100" alt="...">
                                           </div>
                                           <div class="carousel-item">
-                                            <img src="13.png" class="d-block w-100" alt="...">
+                                            <img src="/img/productos/13.png" class="d-block w-100" alt="...">
                                           </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -219,9 +220,8 @@
 <!-- SUBSCRIBITE -->
 <!-- MAIN --> 
 <!-- FOOTER-->   
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/ffa4779421.js" crossorigin="anonymous"></script>
-<script src="/js/productCreateForm.js"></script>
-<script src="/js/productCreate.js"></script>
 <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER--> 
