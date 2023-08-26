@@ -38,8 +38,16 @@ function ready() {
                     showConfirmButton: true,
                 });
 
-                window.location = '/';
+                window.location.href = '/';
             }
+            else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Ups!',
+                    text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
+                    showConfirmButton: true
+                });
+            };
         };
     })
 };

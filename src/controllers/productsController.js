@@ -1,7 +1,4 @@
-const { validationResult } = require('express-validator');
 const db = require('../database/models');
-const {sequelize} = require( '../database/models' );
-const Op = db.Sequelize.Op;
 
 module.exports = {
 
@@ -19,17 +16,6 @@ module.exports = {
 
     },
 
-    detail: async (req, res) => {
-
-        try {
-
-            return res.render('./products/productDetail.ejs');
-            
-        } catch (error) {
-            console.log(error);
-        }
-    },
-
     list: async (req, res) => {
 
         try {
@@ -45,51 +31,21 @@ module.exports = {
 
     },
 
+    detail: async (req, res) => {
+
+        return res.render('./products/productDetail.ejs');
+
+    },
+
     create: async (req, res) => {
 
-        try {
-
-            return res.render('./products/productCreate.ejs');
-        
-        } catch (error) {
-            console.log(error);
-        }
+        return res.render('./products/productCreate.ejs');
 
     },
 
     edit: async (req, res) => {
 
-        try {
+        return res.render('./products/productEdit.ejs');
 
-            return res.render('./products/productEdit.ejs');
-            
-        } catch (error) {
-            console.log(error);
-        };
-
-    },
-
-    delete: async (req, res) => {
-
-        const t = await sequelize.transaction();
-        
-        try {
-
-            await db.Producto.destroy({
-                where: {
-                    id: req.params.productId
-                },
-                transaction: t
-            });
-
-            await t.commit();
-
-            return res.redirect('/product/list');
-
-        } catch (error) {
-            console.log(error);
-            await t.rollback();
-        };
-        
     }
 }; 

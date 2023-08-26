@@ -204,23 +204,26 @@ module.exports = {
                 transaction: t
             });
 
-            const prevImages = await Product.getImage();
+            if(req.files.length != 0) {
 
-            await db.Imagen.bulkCreate(req.files.map( img => {
-                return {nombre: img.filename, 'productos-fk': Product.id}
-            }), {
-                transaction: t
-            });
+                const prevImages = await Product.getImage();
 
-            await db.Imagen.destroy({
-                where: {
-                    'productos-fk': Product.id,
-                    id: {
-                        [Op.lte]: prevImages[prevImages.length -1].id
-                    }
-                },
-                transaction: t
-            });
+                await db.Imagen.bulkCreate(req.files.map( img => {
+                    return {nombre: img.filename, 'productos-fk': Product.id}
+                }), {
+                    transaction: t
+                });
+
+                await db.Imagen.destroy({
+                    where: {
+                        'productos-fk': Product.id,
+                        id: {
+                            [Op.lte]: prevImages[prevImages.length -1].id
+                        }
+                    },
+                    transaction: t
+                });
+            };
 
             await Product.setColor(JSON.parse(body.color), {
                 transaction: t
@@ -231,7 +234,7 @@ module.exports = {
 
             await t.commit();
 
-             const resApi = {
+            const resApi = {
                 meta: {
                     success: true,
                     endpoint: `/api/product/edit`
@@ -244,5 +247,35 @@ module.exports = {
             console.log(error);
             await t.rollback();
         };
-    }, 
+    },
+    delete: async (req, res) => {
+
+        const t = await sequelize.transaction();
+        
+        try {
+
+            await db.Producto.destroy({
+                where: {
+                    id: req.body.id
+                },
+                transaction: t
+            });
+
+            await t.commit();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/edit/delete`
+                }
+            };
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+            await t.rollback();
+        };
+        
+    }
 };
