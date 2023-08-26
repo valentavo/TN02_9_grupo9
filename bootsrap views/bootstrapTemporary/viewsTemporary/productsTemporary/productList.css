@@ -6,101 +6,60 @@ body {
 	background: #f9f9f9;
 	font-family: 'Ysabeau Infant', sans-serif;
 }
-/*-- PRODUCT BUY  --> */
-.productsBuy{
+/*-- PRODUCT LIST  --> */
+.productsList .container{
     background-color: white;
 }
-.productsBuy h1{
-    font-size: 2.5rem;
-    color: #737061 ;
+.productsList .title{
+    font-size: 2rem;
+    color: #49483D;
     font-weight: 300;
-    font-family: 'Ysabeau Infant', sans-serif ;
+    font-family: 'Karla' ;
     letter-spacing: 1px;
-
 }
-.productsBuy p{
-    font-size: 1rem;
-    color: #737061 ;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
-
+.productsList .sidebar-tittle{
+color: #49483D;
+font-size: 1.5rem;
+font-weight: 500;
 }
-.productsBuy .card{
-    border: none;
-    border-radius: 0;
+.productsList .sidebar .widget{
+    margin: 20px 0;
+}
+.productsList .sidebar label {
+    display: flex;
+    justify-content: space-between;
     cursor: pointer;
-
 }
-.productsBuy .card-body{
-    border: 1px dashed #E8E2D5;
-}
-.productsBuy a{
-    text-decoration: none;
- 
- 
- }
-.productsBuy .productNameH{
-    margin: 0;
+.productsList .sidebar label span{
+    font-size: 1rem;
+    font-weight: 500;
     color: #49483D;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    font-weight: 200;
+}
+.productsList .sidebar label i{
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productsList .sidebar .list-block ul{
+    padding-left: 15px;
+    margin-top: 20px;
+    height: 230px;
+}
+.scrollto .wrapper:not(.initial){
+    display: grid;
+    padding: 0;
+    overflow: unset;
+    scroll-snap-type: unset;
+    overscroll-behavior-inline: unset;
+}
+.scrollto .wrapper .item{
+    width: unset;
+}
 
-}
-.productsBuy .productSizeH{
-    color: grey;
-    font-family:'Ysabeau Infant', sans-serif ;
-}
-.productsBuy .productPriceH{
-    color: #49483D;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
-}
-.productsBuy .productCartBtn{
-    height: 50px;
-    width: 50%;
-    outline: none;
-    font-family:'Ysabeau Infant', sans-serif;
-    color:white;
-    background-color:#b69c7f;
-    border: 1px solid ;
-    display: block;
-    margin: 0 auto;
-    text-decoration: none;
-    letter-spacing: 1px; 
-    border-radius: 15px;
-    transition: all 0.4s;
-    
-}
-.productsBuy .productCartBtn:hover{
-    outline: none;
-    border: 1px solid #b69c7f;
-    color: #b69c7f;
-    background: transparent;
-    border-radius: 15px;
-}
-.productsBuy .viewMore{
-    height: 50px;
-    width: fit-content;
-    outline: none;
-    font-family:'Ysabeau Infant', sans-serif;
-    color:white;
-    background-color:#b69c7f;
-    border: 1px solid ;
-    display: block;
-    margin: 0 auto;
-    text-decoration: none;
-    letter-spacing: 1px; 
-    border-radius: 15px;
-    transition: all 0.4s;
-    letter-spacing: 2px;
-}
-.productsBuy .viewMore:hover{
-    outline: none;
-    border: 1px solid #b69c7f;
-    color: #b69c7f;
-    background: transparent;
-    border-radius: 15px;
-}
+
 /*---- SUBSCRIBITE ----*/
 .subscribite {
     background-color: white;
@@ -174,3 +133,9 @@ body {
     border-color: #b69c7f;
 }
 /*---- SUBSCRIBITE ----*/
+
+@media (min-width: 992px){
+    .sidebar .close-trigger{
+        display: none;
+    }
+}
