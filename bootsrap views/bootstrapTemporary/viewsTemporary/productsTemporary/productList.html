@@ -104,23 +104,20 @@
 <!-- HEADER--> 
 <!-- MAIN --> 
 <!--PRODUCTS LIST-->
-<section class="productsList">
-    <div class="container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5">
-        <div class="wrap">
-            <div class="heading mx-auto py-4">
-                <h2 class="title text-center">TODOS LOS PRODUCTOS</h2>
-            </div>
-            <div class="content">
+<section class="productsList py-2 my-2">
+
+    <div class="heading my-1 py-4">
+        <h2 class="title text-center">TODOS LOS PRODUCTOS</h2>
+    </div>
+    
+    <div class="container bg-white rounded-lg d-block d-sm-flex py-3 px-3 mt-3 mb-3">
+        
+        <div class="tab-nav border-right px-2">
+            <div class="nav flex-column" role="tablist" aria-orientation="vertical">
                 <div class="sidebar" id="sidebar">
                     <div class="wrap">
-                        <a href="#0" class="close-trigger">
-                            <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                              </svg>
-                            </i>
-                        </a>
                         <div class="sidebar-content">
-                            <div class="sidebar-tittle">Filtro</div>
+                            <div class="sidebar-tittle ms-4">Filtro</div>
                             <div class="widget">
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
                                     <div class="accordion-item">
@@ -133,11 +130,11 @@
                                             <div class="accordion-body">  
                                                 <div class="accord product-size">
                                                     <div class="wrap">
-                                                        <button>S</button>
-                                                        <button>M</button>
-                                                        <button>L</button>
-                                                        <button>XL</button>
-                                                        <button>XXL</button>
+                                                        <button class="btn color_size_btn">S</button>
+                                                        <button class="btn color_size_btn">M</button>
+                                                        <button class="btn color_size_btn">L</button>
+                                                        <button class="btn color_size_btn">XL</button>
+                                                        <button class="btn color_size_btn">XXL</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,9 +156,9 @@
                                             <div class="accordion-body">  
                                                 <div class="accord product-color">
                                                     <div class="wrap">
-                                                        <button class="red"></button>
-                                                        <button class="brown"></button>
-                                                        <button class="oceana"></button>
+                                                        <button class="btn color_size_btn"></button>
+                                                        <button class="btn color_size_btn"></button>
+                                                        <button class="btn color_size_btn"></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -174,13 +171,13 @@
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-headingThree">
-                                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                                              Categorias
                                             </button>
                                         </h2>
                                         <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body">  
-                                                <div class="accord list-block scrollto">
+                                                <div class="accord list-block">
                                                     <ul class="wrapper initial">
                                                         <li><a href="">Maquillajes</a></li>
                                                         <li><a href="">Cuidado de la piel</a></li>
@@ -208,7 +205,7 @@
                                         </h2>
                                         <div id="flush-collapseFour" class="accordion-collapse collapse show" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body">  
-                                                <div class="accord list-block scrollto">
+                                                <div class="accord list-block">
                                                     <ul class="wrapper initial">
                                                         <li><a href="">Chanel</a></li>
                                                         <li><a href="">Dolce & Gabbana</a></li>
@@ -231,13 +228,13 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-headingFive">
                                             <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                              Marcas
+                                             Precio
                                             </button>
                                         </h2>
                                         <div id="flush-collapseFive" class="accordion-collapse collapse show" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body">  
                                                 <div class="summary">
-                                                    <label for=""><span>Precio</span></label>
+                                                    
                                                     <div class="range-track">
                                                         <input type="range" value="25" min="0" max="5000" step="1">
                                                     </div>

@@ -10,6 +10,9 @@ body {
 .productsList .container{
     background-color: white;
 }
+.productsList .heading{
+    background-color: white;
+}
 .productsList .title{
     font-size: 2rem;
     color: #49483D;
@@ -44,20 +47,49 @@ font-weight: 500;
     justify-content: center;
 }
 .productsList .sidebar .list-block ul{
+    list-style-type: none;
     padding-left: 15px;
-    margin-top: 20px;
+    margin-top: 5px;
     height: 230px;
 }
-.scrollto .wrapper:not(.initial){
-    display: grid;
-    padding: 0;
-    overflow: unset;
-    scroll-snap-type: unset;
-    overscroll-behavior-inline: unset;
+.productsList .sidebar .list-block li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    letter-spacing: 2px;
 }
-.scrollto .wrapper .item{
-    width: unset;
+.productsList .sidebar .list-block li a{
+    text-decoration: none;
+    color: #49483D;
 }
+.productsList .sidebar .list-block li a:hover{
+    text-decoration: none;
+    color: #b69c7f;
+}
+.productsList .color_size_btn{
+    text-decoration: none;
+    color: #49483D;
+    
+}
+.productsList .color_size_btn:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #b69c7f;
+}
+.accordion .accordion-button{
+    outline: none;
+    color:#49483D;
+    background-color:transparent;
+    text-decoration: none;
+    letter-spacing: 1px; 
+}
+.accordion .accordion-button:hover{
+    outline: none;
+    color:#49483D;
+    background-color:transparent;
+    text-decoration: none;
+    letter-spacing: 1px; 
+}
+
 
 
 /*---- SUBSCRIBITE ----*/
