@@ -4,11 +4,12 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	background: #f9f9f9;
-	font-family: 'Ysabeau Infant', sans-serif;
+	font-family: 'Ysabeau Infant';
 }
 /*-- PRODUCT LIST  --> */
 .productsList .container{
     background-color: white;
+    width: 100%;
 }
 .productsList .heading{
     background-color: white;
@@ -17,8 +18,8 @@ body {
     font-size: 2rem;
     color: #49483D;
     font-weight: 300;
-    font-family: 'Karla' ;
-    letter-spacing: 1px;
+    font-family: 'Ysabeau Infant';
+    letter-spacing: 2px;
 }
 .productsList .sidebar-tittle{
 color: #49483D;
@@ -101,10 +102,10 @@ font-weight: 500;
     background-color: white;
 }
 .productsBuy h1{
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #737061 ;
     font-weight: 300;
-    font-family: 'Ysabeau Infant', sans-serif ;
+    font-family: 'Ysabeau Infant', ;
     letter-spacing: 1px;
 
 }
