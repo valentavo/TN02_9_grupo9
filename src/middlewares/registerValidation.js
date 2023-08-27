@@ -1,4 +1,5 @@
 const {check} = require('express-validator');
+const db = require('../database/models');
 
 module.exports = [
 
@@ -10,8 +11,22 @@ module.exports = [
         .bail()
         .trim()
         .isEmail()
-        .normalizeEmail({'all_lowercase': true}),
+        .normalizeEmail({'all_lowercase': true})
+        .custom(async (value) => {
+            const emailConfirm = await db.Usuario.count({
+                where: {
+                    email: value
+                }
+            });
 
-    check('password', 'la contraseña debe incluir minimo 2 caracteres')
-        .isLength({min: 2})
+            if(emailConfirm == 0) {
+                return true
+            }
+            else{
+                throw new Error('Este correo ya está en uso');
+            };
+        }),
+
+    check('password', 'la contraseña debe incluir minimo 8 caracteres')
+        .isLength({min: 8})
 ];

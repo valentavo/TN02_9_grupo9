@@ -13,8 +13,13 @@ async function ready() {
     const errorContainer = document.querySelector('#error-message');
 
     button.addEventListener('click', async () => {
+
+        //Regex Email Validation
+        const reg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
         
-        if(email.value.length == 0 || password.value.length == 0) {
+        if(email.value.search(reg) != 0 || password.value.length == 0) { // regex para validar email
+            console.log('front error');
+            console.log(email.value.search(reg));
             errorContainer.innerHTML = 'Usuario o contraseña inválidos';
         } else {
 

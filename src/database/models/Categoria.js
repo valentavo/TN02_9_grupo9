@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => { // el segundo parametro deberia ser dataTypes y no DataTypes
 
     const alias = 'Categoria';
 

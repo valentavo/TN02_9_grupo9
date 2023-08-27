@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
             through: 'ColoresProductos',
             foreignKey: 'colores-fk',
             otherKey: 'productos-fk',
-        })
-    }
+        });
+    };
 
     return Color
 };

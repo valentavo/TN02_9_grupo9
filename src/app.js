@@ -12,7 +12,7 @@ const productsRoute = require('./routes/productsRoute.js');
 const usersRoute = require('./routes/usersRoute.js');
 
 //API Routes
-const mainRouteAPI = require('./routes/api/mainRoute.js');
+const mainRouteAPI = require('./routes/api/mainRouteAPI.js');
 const usersRouteAPI = require('./routes/api/usersRouteAPI.js');
 const productsRouteAPI = require('./routes/api/productsRouteAPI.js');
 

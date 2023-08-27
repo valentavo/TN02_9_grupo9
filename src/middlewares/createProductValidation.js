@@ -5,7 +5,7 @@ module.exports = [
 
     check('productImg')
         .custom((value, {req}) => {
-            const extAllowed = ['.jpg', '.jpeg', '.png', '.img'];
+            const extAllowed = ['.jpg', '.jpeg', '.png', '.img', '.gif'];
 
             const errors = req.files.filter( row => {
                 const fileExtension = extname(row.originalname.toLowerCase());
@@ -13,7 +13,7 @@ module.exports = [
             });
 
             if (errors.length != 0) {
-                throw new Error('Las extensiones validas son .jpg .img .png .jepg');
+                throw new Error('Las extensiones validas son .jpg .img .png .jepg .gif');
             }
             else{
                 return true
@@ -22,10 +22,12 @@ module.exports = [
 
     check('name')
         .notEmpty()
-        .withMessage('Selecciona un nombre para tu producto'),
+        .isLength({min: 5})
+        .withMessage('Selecciona un nombre para tu producto de al menos 5 caracteres'),
 
     check('price')
         .notEmpty()
+        .isNumeric({'no_symbols': true})
         .withMessage('Selecciona el precio del producto'),
 
     check('category')
@@ -44,10 +46,12 @@ module.exports = [
 
     check('stock')
         .notEmpty()
+        .isNumeric({'no_symbols': true})
         .withMessage('Selecciona la cantidad disponible de este producto'),
 
     check('desc')
         .notEmpty()
-        .withMessage('Agrega una descripcion a tu producto'),
+        .isLength({min: 20})
+        .withMessage('Agrega una descripcion a tu producto de al menos 20 caracteres'),
     
 ];

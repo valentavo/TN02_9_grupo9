@@ -54,15 +54,18 @@ async function ready() {
         termsError.innerHTML = '';
 
             //Validations
-        if(userName.value.length == 0 && !userName.classList.contains('inputError')) {
+        if(userName.value.length < 2 && !userName.classList.contains('inputError')) {
             userName.classList.add('inputError');
         };
 
-        if(userEmail.value.length == 0 && !userEmail.classList.contains('inputError')) {
+        //Regex Email Validation
+        const reg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+        if(!userEmail.classList.contains('inputError') && userEmail.value.search(reg) != 0) {
             userEmail.classList.add('inputError');
         };
 
-        if(userPassword.value.length == 0 && !userPassword.classList.contains('inputError')) {
+        if(userPassword.value.length < 8 && !userPassword.classList.contains('inputError')) {
             userPassword.classList.add('inputError');
         };
 

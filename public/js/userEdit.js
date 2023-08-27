@@ -46,7 +46,7 @@ function ready() {
         return elements.filter( row => row.element != row.value);
     };
 
-    const extAllowed = ['.png', '.jpeg', '.jpg', '.img'];
+    const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
 
 
     elements.forEach( row => {
@@ -95,6 +95,7 @@ function ready() {
             const formData = new FormData();
 
             // formData.append('name', document.querySelector('[name="name"]').value);
+            formData.append('field', 'profile');
             formData.append('name', userName.value);
             userImage.value.length != 0 ? formData.append('img', userImage.files[0]) : '';
             formData.append('email', userEmail.value);
@@ -146,7 +147,7 @@ function ready() {
         if(elements[0].input.value.length == 0) {
             elements[0].input.classList.add('inputError');
         };
-        if(elements[1].input.value.length < 2) {
+        if(elements[1].input.value.length < 8) {
             elements[1].input.classList.add('inputError');
         };
         if(elements[2].input.value.length == 0 || elements[2].input.value != elements[1].input.value) {
@@ -163,6 +164,7 @@ function ready() {
         if (errors.length == 0) {
 
             const data = {
+                field: 'password',
                 oldPassword: elements[0].input.value,
                 password: elements[2].input.value
             }

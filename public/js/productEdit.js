@@ -13,7 +13,7 @@ function ready() {
     const buttonDelete = document.querySelector('#btn-delete');
     const productId = document.querySelector('#product-id-storage');
 
-    const extAllowed = ['.png', '.jpeg', '.jpg', '.img'];
+    const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
     const elements = [nameProduct, priceProduct, stockProduct, descProduct, labelsProduct, brandsProduct, imgProduct];
 
     elements.forEach( row => {
@@ -26,7 +26,7 @@ function ready() {
 
         //Validations
 
-        if(nameProduct.value.length == 0) {
+        if(nameProduct.value.length < 5) {
             nameProduct.classList.add('inputError');
         };
 
@@ -38,7 +38,7 @@ function ready() {
             stockProduct.classList.add('inputError');
         };
 
-        if(descProduct.value.length == 0) {
+        if(descProduct.value.length < 20) {
             descProduct.classList.add('inputError');
         };
 

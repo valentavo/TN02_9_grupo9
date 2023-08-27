@@ -72,7 +72,7 @@ function ready () {
     const productDesc = document.querySelector('#product-detail');
     const productImg = document.querySelector('#product-img');
 
-    const extAllowed = ['.png', '.jpeg', '.jpg', '.img'];
+    const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
 
     const elements = [
         productTitle, productPrice, productLabel, productBrand, productStock, productDesc, productImg
@@ -86,7 +86,7 @@ function ready () {
             });
         });
 
-        if(productTitle.value.length == 0) {
+        if(productTitle.value.length < 5) {
             productTitle.classList.add('inputError');
         };
 
@@ -106,7 +106,7 @@ function ready () {
             productStock.classList.add('inputError');
         };
 
-        if(productDesc.value.length == 0) {
+        if(productDesc.value.length < 20 ) {
             productDesc.classList.add('inputError');
         };
 
@@ -185,3 +185,5 @@ function ready () {
     });
        
 };
+
+
