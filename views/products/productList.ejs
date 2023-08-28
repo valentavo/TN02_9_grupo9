@@ -10,54 +10,363 @@
 <!-- HEADER--> 
 <%- include('../partials/header.ejs') %>
 <!-- HEADER--> 
-
-
 <!-- MAIN --> 
-<section class="productsBuy mt-2">
-    <div class="container">
-        <div class="row py-4 text-center">
-            <div class="col-lg-6 m-auto">
-                <h1>Maquillajes</h1>
-            </div>
+<!--PRODUCTS LIST-->
+<section class="productsList py-2 my-2">
 
-        </div>
-
-        <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2"></div>
-
-        <div class="row ">
-            <div class="col-lg-12">
-                <a href="" class="btn my-5 py-2 viewMore ">Todos los productos</a>
-            </div>
-
-        </div>
-
+    <div class="heading my-1 py-4">
+        <h2 class="title text-center">Productos seleccionado</h2>
+    </div>
+    
+    <div class="container bg-white rounded-lg d-block d-sm-flex py-3 px-2 mt-3 mb-3">
         
-
-    </div>
-
-</section>
-<!--PRODUCTS HOME  -->
-
-<!-- PRODUCTS HOME -->
- <section class="productsBuy">
-    <div class="container">
-        <div class="row py-4 text-center">
-            <div class="col-lg-6 m-auto">
-                <h1>Cuidado de la piel</h1>
+        <div class="tab-nav border-right px-3">
+            <div class="nav flex-column" role="tablist" aria-orientation="vertical">
+                <div class="sidebar" id="sidebar">
+                    <div class="wrap">
+                        <div class="sidebar-content">
+                            <div class="sidebar-tittle ms-4 mt-4">Filtro</div>
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Shop All 
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="accord product-size">
+                                                    <div class="wrap">
+                                                        <button class="btn color_size_btn">Todos los productos</button>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Tamano
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="accord product-size">
+                                                    <div class="wrap">
+                                                        <button class="btn color_size_btn">S</button>
+                                                        <button class="btn color_size_btn">M</button>
+                                                        <button class="btn color_size_btn">L</button>
+                                                        <button class="btn color_size_btn">XL</button>
+                                                        <button class="btn color_size_btn">XXL</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingTwo">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Colores
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="accord product-color">
+                                                    <div class="wrap">
+                                                        <button class="btn color_size_btn"></button>
+                                                        <button class="btn color_size_btn"></button>
+                                                        <button class="btn color_size_btn"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingThree">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                             Categorias
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="accord list-block">
+                                                    <ul class="wrapper initial">
+                                                        <li><a href="">Maquillajes</a></li>
+                                                        <li><a href="">Cuidado de la piel</a></li>
+                                                        <li><a href="">Cuidado del cabello</a></li>
+                                                        <li><a href="">Organicos</a></li>
+                                                        <li><a href="">Manos y unas</a></li>
+                                                        <li><a href="">Facial</a></li>
+                                                        <li><a href="">Perfumes</a></li>
+                                                        <li><a href="">Hombres</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingFour">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                              Marcas
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseFour" class="accordion-collapse collapse show" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="accord list-block">
+                                                    <ul class="wrapper initial">
+                                                        <li><a href="">Chanel</a></li>
+                                                        <li><a href="">Dolce & Gabbana</a></li>
+                                                        <li><a href="">Maybellin</a></li>
+                                                        <li><a href="">Organics</a></li>
+                                                        <li><a href="">Avon</a></li>
+                                                        <li><a href="">Revlon</a></li>
+                                                        <li><a href="">Shakira</a></li>
+                                                        <li><a href="">Sukin</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingFive">
+                                            <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                             Precio
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseFive" class="accordion-collapse collapse show" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">  
+                                                <div class="summary">
+                                                    
+                                                    <div class="range-track">
+                                                        <input type="range" value="25" min="0" max="5000" step="1">
+                                                    </div>
+                                                    <div class="price-range my-2">
+                                                        <span>$30 - </span>
+                                                        <span>$5000</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2"></div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <a href="" class="btn my-5 py-2 viewMore ">Todos los productos</a>
+        <!---PRODUCTS SHOW SECTION-->
+        <section class="productsBuy mt-2">
+            <div class="container">
+        
+                <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2">
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                </div>
+                <div class="products-container row me-lg-0 ms-lg-0 me-2 ms-2">
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                    <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="img-product-carousel">
+                                
+                                    <div class="carousel-item active">
+                                        <img src="pomegranate-cream.png" class="d-block w-100" alt="...">
+                                    </div>
+                                
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-${i}-${k}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+        
+                        <a href="/product/detail/${product.id}">
+                            <h4 class="productNameH mt-3">LAVIAL</h4>
+                        </a>
+                        <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                        <h4 class="productPriceH">$3000</h4>
+                        <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
+        
+                    </div>
+                </div>
+                
+        
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <a href="" class="btn my-5 py-2 viewMore ">Ver mas</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+        <!---PRODUCTS SHOW SECTION-->
+        
     </div>
-
 </section>
+<!--PRODUCTS LIST-->
 <!-- SUBSCRIBITE  -->
 <section class="subscribite py-4 px-4" >
         
