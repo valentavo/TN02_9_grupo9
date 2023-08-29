@@ -28,5 +28,10 @@ module.exports = {
 
         return res.render('./products/productEdit.ejs');
 
-    }
+    },
+    adminList: async (req, res) => {
+
+        return res.render('./products/productAdminList.ejs');
+
+    },
 }; 

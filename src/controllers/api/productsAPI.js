@@ -31,7 +31,7 @@ module.exports = {
 
         try {
             const products = await db.Producto.findAll( {
-                include: [{association: 'image'}]
+                include: [{association: 'image'}, {association: 'color'},{association: 'size'}]
             });
 
             const resApi = {
@@ -42,7 +42,7 @@ module.exports = {
                 data: products
             };
             
-            return res.render(resApi);
+            return res.json(resApi);
 
         } catch (error) {
             console.log(error);
@@ -324,4 +324,5 @@ module.exports = {
         };
         
     }
+
 };
