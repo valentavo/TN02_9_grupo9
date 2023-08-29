@@ -33,13 +33,17 @@ module.exports = {
             const products = await db.Producto.findAll( {
                 include: [{association: 'image'}, {association: 'color'},{association: 'size'}]
             });
+            console.log(req.session.userLogged)
 
             const resApi = {
                 meta: {
                     success: true,
                     endpoint: `/api/product/list`
                 },
-                data: products
+                data: {
+                    products: products,
+                    user: req.session.userLogged
+                }
             };
             
             return res.json(resApi);
