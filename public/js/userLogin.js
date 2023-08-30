@@ -16,11 +16,21 @@ async function ready() {
 
         //Regex Email Validation
         const reg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+        //Toast
+        const errorMessage = Toastify({
+
+            text: "Usuario o contraseña inválidos",
+            duration: 2000,
+            close: true,
+            style: {
+                background: 'red'
+            }
+
+        });
         
         if(email.value.search(reg) != 0 || password.value.length == 0) { // regex para validar email
-            console.log('front error');
-            console.log(email.value.search(reg));
-            errorContainer.innerHTML = 'Usuario o contraseña inválidos';
+            errorMessage.showToast();
         } else {
 
             const data = {
@@ -35,7 +45,7 @@ async function ready() {
             if (user.meta.success) {
                 window.location.href = '/user/profile';
             }else{
-                errorContainer.innerHTML = user.data;
+                errorMessage.showToast();
             };
         };
     });

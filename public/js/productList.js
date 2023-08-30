@@ -49,7 +49,5 @@ async function ready() {
             `
        
     });
-
-    console.log(products)
     
 }
