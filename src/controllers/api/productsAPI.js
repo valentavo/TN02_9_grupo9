@@ -33,7 +33,6 @@ module.exports = {
             const products = await db.Producto.findAll( {
                 include: [{association: 'image'}, {association: 'color'},{association: 'size'}]
             });
-            console.log(req.session.userLogged)
 
             const resApi = {
                 meta: {
