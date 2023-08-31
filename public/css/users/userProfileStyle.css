@@ -110,8 +110,3 @@ button.editar:hover{
     box-shadow: none;
     border-color: #b69c7f;
 }
-
-/* Eros Style */
-.inputError {
-    border-color: red;
-}

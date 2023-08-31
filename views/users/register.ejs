@@ -25,6 +25,7 @@
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg> 
                     </span>
                     <input type="text" class="form-control" placeholder="Nombre" name='name' id="user-name">
+                    <div class="invalid-feedback" >Agrega un nombre entre 2 y 30 caracteres</div>
                 </div>
 
                 <!-- <div class="input-group mb-2">
@@ -40,6 +41,7 @@
                         <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/></svg>
                     </span>
                     <input type="email" class="form-control" placeholder="Email" name='email' id="user-email">
+                    <div class="invalid-feedback" >Ingresa un email válido</div>
                 </div>
 
                 <div class="input-group mb-2">
@@ -47,6 +49,7 @@
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg>
                     </span>
                     <input type="password" class="form-control" placeholder="Contraseña" name='password' id="user-password">
+                    <div class="invalid-feedback" >la contraseña debe incluir mínimo 8 caracteres</div>
                 </div>
 
                 <div class="input-group mb-2 ">
@@ -54,12 +57,19 @@
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg>
                     </span>
                     <input type="password" class="form-control" placeholder="Confirmar contraseña" name='passwordConfirmed' id="user-password-confirmed">
+                    <div class="invalid-feedback" >La contraseña debe ser igual en ambos campos</div>
                 </div>
 
                 <div class="d-grid mx-auto">
                     <button type="submit" class="btn btn-success mx-auto mt-4 mb-4" id="submit-button">Crear cuenta</button>
-                    <p class="text-center text-muted terminosYC"><input id="terms-conditions" type="checkbox"> Acepto los <a href="#">Terminos y Condiciones</a> y las <a href="#">Politicas de Seguridad</a></p>
-                    <span id="terms-error" style="color: red;"></span>
+                    <span id="terms-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Este campo es obligatorio" data-bs-trigger="manual">
+                        <p class="text-center text-muted terminosYC" ><input id="terms-conditions" type="checkbox">
+                            Acepto los
+                            <a href="#">Terminos y Condiciones</a>
+                            y las 
+                            <a href="#">Politicas de Seguridad</a>
+                        </p>
+                    </span>
                     <p class="text-center terminosYC">
                         Ya tienes una cuenta? <a href="/user/login">Incia Sesion</a>
                     </p>

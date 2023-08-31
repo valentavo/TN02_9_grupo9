@@ -7,12 +7,16 @@ else {
 
 async function ready() {
     const userImg = document.querySelector('#user-img-container');
+    const userImgForm = document.querySelector('#form-img');
     const userTitle = document.querySelector('#user-title-container');
     const userName = document.querySelector('#user-name-container');
     const userEmail = document.querySelector('#user-email-container');
     const userPhone = document.querySelector('#user-phone-container');
     const userAddress = document.querySelector('#user-address-container');
     const userBirth = document.querySelector('#user-birth-container');
+    const oldPassword = document.querySelector('#old-password');
+    const newPassword = document.querySelector('#new-password');
+    const confirmedPassword = document.querySelector('#confirmed-password');
     const productList = document.querySelector('#v-pills-tab');
 
     const userFetch = await fetch('/api/user/profile');
@@ -21,11 +25,15 @@ async function ready() {
     
     userImg.innerHTML += `<img src="../img/users/${ user.imagen || 'defaultProfilePhoto.jpeg'}" alt="Image" class="shadow"></img>`;
     userTitle.innerHTML += `${ user.nombre }`;
-    userName.innerHTML += `<input type="text" class="form-control" id="user-name" value="${ user.nombre }" name='name' >`;
-    userEmail.innerHTML += `<input type="text" class="form-control" id="user-email" value="${ user.email }" name='email' >`;
-    userPhone.innerHTML += `<input type="text" class="form-control" id="user-phone" value="${ user.telefono || "" }" name="phone">`;
-    userAddress.innerHTML += `<input type="text" class="form-control" id="user-address" value="${ user.direccion || "" }" name="address">`;
-    userBirth.innerHTML += `<input type="date" class="form-control" id="user-birth" value="${ user['fecha-nacimiento'] || "" }" name="birth">`
+    userName.innerHTML += `<input type="text" class="form-control" id="user-name" value="${ user.nombre }" name='name' > <div class="invalid-feedback">El nombre debe tener entre 2 y 30 caracteres</div>`;
+    userEmail.innerHTML += `<input type="text" class="form-control" id="user-email" value="${ user.email }" name='email' > <div class="invalid-feedback">Debes introducir un email válido</div>`;
+    userPhone.innerHTML += `<input type="text" class="form-control" id="user-phone" value="${ user.telefono || "" }" name="phone"> <div class="invalid-feedback">Debes introducir un número válido</div>`;
+    userAddress.innerHTML += `<input type="text" class="form-control" id="user-address" value="${ user.direccion || "" }" name="address"> <div class="invalid-feedback"></div>`;
+    userBirth.innerHTML += `<input type="date" class="form-control" id="user-birth" value="${ user['fecha-nacimiento'] || "" }" name="birth"> <div class="invalid-feedback">El campo debe ser una fecha válida</div>`;
+    userImgForm.innerHTML += `<div class="invalid-feedback">Las extensiones validas son .jpg .img .png .jepg .gif</div>`;
+    oldPassword.insertAdjacentHTML('afterend', `<div class="invalid-feedback">Introduce tu contraseña actual</div>`);
+    newPassword.insertAdjacentHTML('afterend', `<div class="invalid-feedback">La contraseña debe incluir mínimo 8 caracteres</div>`);
+    confirmedPassword.insertAdjacentHTML('afterend', `<div class="invalid-feedback">La contraseña debe ser la misma en ambos campos</div>`);
 
     if(user['roles-fk'] == 2) {
         productList.innerHTML += `<button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">

@@ -108,7 +108,7 @@ module.exports = {
         try {
 
             const validation = validationResult(req);
-            console.log(validation);
+            console.log(validation.errors);
 
             if(!validation.isEmpty()) {
                 return res.json({
@@ -158,31 +158,17 @@ module.exports = {
 
             const body = req.body;
 
-            const validation = validationResult(req);
-                console.log(validation);
-                if(!validation.isEmpty()) {
-                    return res.json({
-                        meta: {
-                            success: false,
-                            endpoint: `/api/user/edit`
-                        },
-                        data: validation.mapped()
-                    });
-                };
-
-                return res.redirect('/user/profile');
-
             if(body.name) {
                 
                 const validation = validationResult(req);
-                console.log(validation);
+                console.log(validation.errors);
                 if(!validation.isEmpty()) {
                     return res.json({
                         meta: {
                             success: false,
                             endpoint: `/api/user/edit`
                         },
-                        data: validation.mapped()
+                        data: validation.errors
                     });
                 };
 

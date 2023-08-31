@@ -43,7 +43,7 @@ function ready() {
 
     const inputsUpdate = () => {
 
-        return elements.filter( row => row.element != row.value);
+        return elements.filter( row => row.element.value != row.value);
     };
 
     const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
@@ -51,13 +51,14 @@ function ready() {
 
     elements.forEach( row => {
         row.element.addEventListener('blur', () => {
-            if(row.element.value != row.value){
+
+            if(inputsUpdate().length != 0){
                 buttonProfile.removeAttribute('disabled');
             }
-            else if (inputsUpdate()) {
+            else {
                 buttonProfile.setAttribute('disabled', true);
             };
-            row.element.classList.remove('inputError');
+            row.element.classList.remove('is-invalid');
         });
 
     });
@@ -65,36 +66,39 @@ function ready() {
     // Validations
     buttonProfile.addEventListener('click', async () => {
 
-        if(userName.value.length == 0) {
-            userName.classList.add('inputError');
+        if(userName.value.length < 2 || userName.value.length > 30) {
+            userName.classList.add('is-invalid');
         };
 
-        if(userEmail.value.length == 0) {
-            userEmail.classList.add('inputError');
+        const reg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+        if(userEmail.value.length == 0 || userEmail.value.search(reg) != 0) {
+            userEmail.classList.add('is-invalid');
         };
 
-        if(userPhone.value.length > 16 && userPhone.value.length < 6) {
-            userPhone.classList.add('inputError');
+        if(userPhone.value.length > 16 || (userPhone.value.length < 6 && userPhone.value.length != 0)) {
+            userPhone.classList.add('is-invalid');
         };
 
         if((Date.parse(new Date(userBirth.value)) > Date.now())) {
-            userBirth.classList.add('inputError');
+            userBirth.classList.add('is-invalid');
         };
 
         if(userImage.value != "") {
             if(!extAllowed.find( row => userImage.value.includes(row))){
                 
-                userImage.classList.add('inputError');
+                userImage.classList.add('is-invalid');
             };
         };
 
-        const errors = elements.filter(input => input.element.classList.contains('inputError'));
+        const errors = elements.filter(input => input.element.classList.contains('is-invalid'));
 
         if(errors.length == 0) {
 
             const formData = new FormData();
 
             // formData.append('name', document.querySelector('[name="name"]').value);
+            elements[1].value != userEmail.value ? formData.append('prevEmail', elements[1].value) : "";
             formData.append('field', 'profile');
             formData.append('name', userName.value);
             userImage.value.length != 0 ? formData.append('img', userImage.files[0]) : '';
@@ -116,6 +120,14 @@ function ready() {
                     timer: 1300
                 });
                 location.reload();
+            }
+            else if(user.data.find(row => row.msg == 'Este correo ya está en uso')) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Este correo ya está en uso',
+                    text: 'Introduce otro correo electrónico',
+                    showConfirmButton: true
+                });
             }
             else {
                 await Swal.fire({
@@ -145,22 +157,22 @@ function ready() {
         //validations
 
         if(elements[0].input.value.length == 0) {
-            elements[0].input.classList.add('inputError');
+            elements[0].input.classList.add('is-invalid');
         };
         if(elements[1].input.value.length < 8) {
-            elements[1].input.classList.add('inputError');
+            elements[1].input.classList.add('is-invalid');
         };
-        if(elements[2].input.value.length == 0 || elements[2].input.value != elements[1].input.value) {
-            elements[2].input.classList.add('inputError');
+        if(elements[2].input.value != elements[1].input.value) {
+            elements[2].input.classList.add('is-invalid');
         };
 
         elements.forEach( row => {
             row.input.addEventListener('blur', () => {
-                row.input.classList.remove('inputError');
+                row.input.classList.remove('is-invalid');
             });
         });
 
-        const errors = elements.filter(element => element.input.classList.contains('inputError'));
+        const errors = elements.filter(element => element.input.classList.contains('is-invalid'));
         if (errors.length == 0) {
 
             const data = {
