@@ -18,7 +18,7 @@ function ready() {
 
     elements.forEach( row => {
         row.addEventListener('blur', () => {
-            row.classList.remove('inputError');
+            row.classList.remove('is-invalid');
         });
     });
 
@@ -27,27 +27,27 @@ function ready() {
         //Validations
 
         if(nameProduct.value.length < 5) {
-            nameProduct.classList.add('inputError');
+            nameProduct.classList.add('is-invalid');
         };
 
-        if(priceProduct.value.length == 0) {
-            priceProduct.classList.add('inputError');
+        if(priceProduct.value < 1) {
+            priceProduct.classList.add('is-invalid');
         };
 
-        if(stockProduct.value.length == 0) {
-            stockProduct.classList.add('inputError');
+        if(stockProduct.value < 1) {
+            stockProduct.classList.add('is-invalid');
         };
 
         if(descProduct.value.length < 20) {
-            descProduct.classList.add('inputError');
+            descProduct.classList.add('is-invalid');
         };
 
         if(labelsProduct.value.length == 0) {
-            labelsProduct.classList.add('inputError');
+            labelsProduct.classList.add('is-invalid');
         };
 
         if(brandsProduct.value.length == 0) {
-            brandsProduct.classList.add('inputError');
+            brandsProduct.classList.add('is-invalid');
         };
 
         const imgFiles =[]; 
@@ -59,12 +59,12 @@ function ready() {
                 imgFiles.push(imgProduct.files[row]);
 
                 if(!extAllowed.find( ext => imgProduct.files[row].name.includes(ext))){
-                    imgProduct.classList.add('inputError');
+                    imgProduct.classList.add('is-invalid');
                 };
             })
         };
 
-        const errors = elements.filter(input => input.classList.contains('inputError'));
+        const errors = elements.filter(input => input.classList.contains('is-invalid'));
 
         if(errors.length == 0) {
 

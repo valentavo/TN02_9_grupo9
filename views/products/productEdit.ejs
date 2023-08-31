@@ -1,5 +1,5 @@
 <!-- HEAD-->   
-    <%- include('../partials/head.ejs', {title: 'Crear Producto'}) %>
+    <%- include('../partials/head.ejs', {title: 'Editar Producto'}) %>
     <!-- Link general css file --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <link rel="stylesheet" href="/css/partials/stylePartials.css">
@@ -34,66 +34,61 @@
             <div class="col-12 col-lg-5">
                 <h3 class="productName my-2 mb-4" id="product-edit-title">EDITAR PRODUCTO</h3>
                 
-                    <div class="form-group productLabel my-2" id="title-container">
-                        <label class="mb-2">Nombre del producto</label>
+                <div class="form-group productLabel my-2" id="title-container">
+                    <label class="mb-2">Nombre del producto</label>
+                </div>
+
+                <div class="form-group productLabel my-2">
+                    <label class="mb-2">Imágen del producto</label>
+                    <input type="file" class="form-control" name="img" id="img" accept="image/*" multiple>
+                    <div class="invalid-feedback">Las extensiones validas son .jpg .img .png .jepg .gif</div>
+                </div>
+
+                <div class="form-group productLabel my-2" id="price-container">
+                    <label class="mb-2">Precio del producto</label>
+                </div>
+
+                <div class="form-group productLabel my-2">
+                    <label class="mb-2" for="labels">Categorías</label>
+                    <select class="form-control" name="categoria" id="labels"></select>
+                    <div class="invalid-feedback">Selecciona almenos una categoria para tu producto</div>
+                </div>
+
+                <div class="form-group productLabel my-2">
+                    <label class="mb-2" for="meassures">Tamaño del producto</label>
+                    <select class="form-control my-2 mb-4" name="medida" id="meassures">
+                        <option value="0" id="empty-size"></option>
+                    </select>
+                </div>
+
+                <div class="form-group productLabel my-2">
+                    <label class="mb-2" for="colors">Color</label>
+                    <select class="form-control my-2 mb-4" name="color" id="colors">
+                        <option value="0" id="empty-color"></option>
+                    </select>
+                </div>
+
+                <div class="form-group productLabel my-2">
+                    <label class="mb-2" for="brands">Marca</label>
+                    <select class="form-control" name="brand" id="brands"></select>
+                    <div class="invalid-feedback">Selecciona una marca para tu producto</div>
+                </div>
+    
+
+                <div class="form-group productLabel my-2" id="stock-container">
+                    <label class=" mb-2">Stock disponible:</label>
+                </div>
+
+                <div class="col-md-12 productLabel my-2">
+                    <div class="form-group" id="detail-container">
+                        <label class=" mb-2">Descripción</label>
                     </div>
+                </div>
 
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2">Imagen del producto</label>
-                        <input type="file" class="form-control" name="img" id="img" accept="image/*" multiple>
-                    </div>
-
-                    <div class="form-group productLabel my-2" id="price-container">
-                        <label class="mb-2">Precio del producto</label>
-                    </div>
-
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="labels">Categorias</label>
-                        <select class="form-control" name="categoria" id="labels" >
-
-                        </select>
-                    </div>
-
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="meassures">Tamaño del producto</label>
-                        <select class="form-control my-2 mb-4" name="medida" id="meassures">
-                            <option value="0" id="empty-size"></option>
-                       </select>
-                    </div>
-
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="colors">Color</label>
-                        <select class="form-control my-2 mb-4" name="color" id="colors">
-                            <option value="0" id="empty-color"></option>
-                        </select>
-                    </div>
-
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="brands">Marca</label>
-                        <select class="form-control" name="brand" id="brands">
-
-                        </select>
-                    </div>
-        
-
-                    <div class="form-group productLabel my-2" id="stock-container">
-                        <label class=" mb-2">Stock disponible:</label>
-                        
-                    </div>
-
-                    <div class="col-md-12 productLabel my-2">
-                        <div class="form-group" id="detail-container">
-                            <label class=" mb-2">Descripcion</label>
-                            
-                        </div>
-                    </div>
-
-                    <div class=" my-4">
-                        <button class="btn productEditBtn me-4" id="btn-edit">Update</button>
-                        <button class="btn productEditBtn" id="btn-delete">Eliminar Producto</button>
-                    </div>
-                
-                <!-- <form action="/product/delete/8?_method=DELETE" method="POST" enctype="multipart/form-data"> -->
+                <div class=" my-4">
+                    <button class="btn productEditBtn me-4" id="btn-edit">Update</button>
+                    <button class="btn productEditBtn" id="btn-delete">Eliminar Producto</button>
+                </div>
             </div>
         </div>
     </div>

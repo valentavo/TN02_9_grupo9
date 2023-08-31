@@ -23,6 +23,7 @@
                     <div class="form-group my-4" id="imagenes">
                         <label class="mb-4 imageTitulo" for="clickFileImg">Seleccionar imagenes</label>
                         <input class="form-control mt-2" type="file" name="productImg" id="product-img" accept="image/*" multiple>
+                        <div class="invalid-feedback">Las extensiones validas son .jpg .img .png .jepg .gif</div>
                     </div>
                 
                 </div>
@@ -32,16 +33,19 @@
                     <div class="form-group productLabel my-4">
                         <label class="mb-2" for="title">Nombre del producto</label>
                         <input class="form-control" type="text" name="name" id="product-title">
+                        <div class="invalid-feedback">Selecciona un nombre para tu producto de al menos 5 caracteres</div>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="price">Precio del producto</label>
                         <input class="form-control " type="number" name="amount" id="product-price">
+                        <div class="invalid-feedback">Selecciona el precio del producto</div>
                     </div>
 
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="labels">Categorias</label>
                         <select class="form-control" name="category" id="product-label"></select>
+                        <div class="invalid-feedback">Selecciona almenos una categoria para tu producto</div>
                     </div>
                 
                     <div class="form-group productLabel my-2">
@@ -61,18 +65,21 @@
                     <div class="form-group productLabel my-2">
                         <label class="mb-2" for="brands">Marca</label>
                         <select class="form-control" name="brand" id="product-brand"></select>
+                        <div class="invalid-feedback">Selecciona una marca para tu producto</div>
                     </div>
 
 
                     <div class="form-group productLabel my-2">
                         <label class=" mb-2" for="stock">Stock disponible:</label>
                         <input class="form-control" type="number" name="stock" id="product-stock">
+                        <div class="invalid-feedback">Selecciona la cantidad disponible de este producto</div>
                     </div>
 
                     <div class="col-md-12 productLabel my-2">
                         <div class="form-group">
                             <label class=" mb-2" for="detail">Descripcion</label>
                             <textarea class="form-control" rows="4" name="desc" id="product-detail"></textarea>
+                            <div class="invalid-feedback">Agrega una descripcion a tu producto de al menos 20 caracteres</div>
                         </div>
                     </div>
 

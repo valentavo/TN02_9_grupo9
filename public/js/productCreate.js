@@ -82,32 +82,32 @@ function ready () {
 
         elements.forEach( row => {
             row.addEventListener('blur', () => {
-                row.classList.remove('inputError');
+                row.classList.remove('is-invalid');
             });
         });
 
         if(productTitle.value.length < 5) {
-            productTitle.classList.add('inputError');
+            productTitle.classList.add('is-invalid');
         };
 
-        if(productPrice.value.length == 0) {
-            productPrice.classList.add('inputError');
+        if(productPrice.value < 1) {
+            productPrice.classList.add('is-invalid');
         };
 
         if(productLabel.value.length == 0) {
-            productLabel.classList.add('inputError');
+            productLabel.classList.add('is-invalid');
         };
         
         if(productBrand.value.length == 0) {
-            productBrand.classList.add('inputError');
+            productBrand.classList.add('is-invalid');
         };
 
-        if(productStock.value.length == 0) {
-            productStock.classList.add('inputError');
+        if(productStock.value < 1) {
+            productStock.classList.add('is-invalid');
         };
 
         if(productDesc.value.length < 20 ) {
-            productDesc.classList.add('inputError');
+            productDesc.classList.add('is-invalid');
         };
 
         const imgFiles =[]; 
@@ -119,15 +119,15 @@ function ready () {
                 imgFiles.push(productImg.files[row]);
 
                 if(!extAllowed.find( ext => productImg.files[row].name.includes(ext))){
-                    productImg.classList.add('inputError');
+                    productImg.classList.add('is-invalid');
                 };
             })
         }
         else {
-            productImg.classList.add('inputError');
+            productImg.classList.add('is-invalid');
         };
 
-        const errors = elements.filter(input => input.classList.contains('inputError'));
+        const errors = elements.filter(input => input.classList.contains('is-invalid'));
 
         if(errors.length == 0) {
             const colorCheck = document.querySelectorAll('[name="colores"]');
