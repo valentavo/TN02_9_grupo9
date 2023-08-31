@@ -267,6 +267,10 @@
 }
 .dbtnH {
     height: 50px;
+    text-decoration: none;
+    padding-top:10px ;
+    padding-left: 5px;
+    padding-right: 5px;
     width: fit-content;
     font-family: 'Ysabeau Infant', sans-serif ;
     letter-spacing: 1px;
@@ -275,18 +279,20 @@
     background-color: white;
     color: #b69c7f;
     border-radius: 15px;
-    margin: 0 auto;
+    margin: auto;
     display: block;
     font-weight: 100;
     transition: all 0.4s;
 }
 .dbtnH:hover{
     transform: scale(1.2);
+    text-decoration: none;
     outline: none;
     color: #b69c7f;
     background-color: white;
     border: #fff;
 }
+
 /*-- discount  --> */
 /*---- BOTTOM BANER ----*/
 .bottomH{
