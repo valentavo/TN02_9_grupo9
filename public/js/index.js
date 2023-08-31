@@ -17,7 +17,7 @@ async function ready() {
 
             return container.innerHTML += 
             `
-            <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+            <div class="card col mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div id="carouselExampleFade-${i}-${k}" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner" id="img-product-carousel">
                         ${product.image.reduce((acc, img, j) => {
@@ -36,15 +36,16 @@ async function ready() {
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
+                <div class="card-body">
                 <a href="/product/detail/${product.id}">
                     <h4 class="productNameH mt-3">${product.nombre}</h4>
                 </a>
                 <p class="productSizeH mt-2">2 x 454g / 160oz</p>
                 <h4 class="productPriceH">$${product.precio}</h4>
                 <a class="btnc my-4 py-2 px-2 productCartBtn" href="/product/cart"> Agregar al Carrito </a>
-
+                </div>
             </div>
+            
             `
         });
     });

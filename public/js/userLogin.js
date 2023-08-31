@@ -10,7 +10,6 @@ async function ready() {
     const password = document.querySelector('#password');
     const remember = document.querySelector('#remember')
     const button = document.querySelector('#submit-button');
-    const errorContainer = document.querySelector('#error-message');
 
     button.addEventListener('click', async () => {
 

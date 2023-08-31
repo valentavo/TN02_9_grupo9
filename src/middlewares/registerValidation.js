@@ -27,6 +27,6 @@ module.exports = [
             };
         }),
 
-    check('password', 'la contraseña debe incluir minimo 8 caracteres')
+    check('password', 'la contraseña debe incluir mínimo 8 caracteres')
         .isLength({min: 8})
 ];

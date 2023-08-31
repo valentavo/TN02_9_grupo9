@@ -77,9 +77,12 @@ async function ready() {
         const errors = inputs.filter(input => input.classList.contains('inputError'));
 
         if(!termsConditions.checked) {
+
+            console.log(termsError);
+            console.log(typeof termsError);
         
             errors.push(termsConditions);
-            termsError.innerHTML = 'debes seleccionar este campo para continuar';
+            termsError.innerHTML = '*Este campo es obligatorio';
         };
 
         if(errors.length == 0) {
