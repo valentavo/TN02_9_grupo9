@@ -11,12 +11,14 @@ async function ready() {
     const productsFetch = await fetch('/api/product/list');
     const products = await productsFetch.json();
 
+    document.querySelectorAll('.spinner').forEach(row => row.setAttribute('hidden', ''));
+
     products.data.products.forEach( (product, k) => {
         
 
             return productsContainer.innerHTML += 
             `
-            <div class="card card-body col-lg-3 col-md-6 col-sm-6 col-6 p-2 mb-2 mt-2 me-2 ms-2">
+            <div class="card col mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div id="carouselExampleFade-${k}" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner" id="img-product-carousel">
                         ${product.image.reduce((acc, img, j) => {
