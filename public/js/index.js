@@ -8,9 +8,10 @@ async function ready() {
 
     const productsContainer = document.querySelectorAll('.products-container');
 
-
 	const productsFetch = await fetch('/api');
     const products = await productsFetch.json();
+
+    document.querySelectorAll('.spinner').forEach(row => row.setAttribute('hidden', ''));
 
     products.data.forEach( (product, k) => {
         return productsContainer.forEach( (container, i) => {
