@@ -8,10 +8,31 @@ INSERT INTO roles(id, nombre, `created-at`, `updated-at`) VALUES
 
 -- Datos de marcas
 INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'channel', NOW(), NOW());
+(DEFAULT, 'Channel', NOW(), NOW());
 
 INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'victoria secret', NOW(), NOW());
+(DEFAULT, 'Victoria Secret', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Dolce & Gabbana', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Maybellin', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Organics', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Avon', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Revlon', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Shakira', NOW(), NOW());
+
+INSERT INTO marcas(id, nombre, `created-at`, `updated-at`) VALUES 
+(DEFAULT, 'Sukin', NOW(), NOW());
 
 -- Datos de colores
 INSERT INTO colores(id, nombre, `created-at`, `updated-at`) VALUES 
@@ -100,6 +121,31 @@ INSERT INTO categorias(id, nombre, `created-at`, `updated-at`) VALUES
 INSERT INTO categorias(id, nombre, `created-at`, `updated-at`) VALUES 
 (DEFAULT, 'capilar', NOW(), NOW());
 
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Cuidado de la piel', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Maquillajes', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Cuidado del cabello', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Organicos', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Manos y unas', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Facial', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Perfumes', NOW(),NOW(),NULL);
+
+INSERT INTO categorias VALUES 
+(DEFAULT, 'Hombres', NOW(),NOW(),NULL);
+
+
 -- Datos de referencias
 
 -- Datos de facturas
@@ -138,3 +184,4 @@ INSERT INTO imagenes(id, nombre, `productos-fk`, `created-at`, `updated-at`) VAL
 
 INSERT INTO imagenes(id, nombre, `productos-fk`, `created-at`, `updated-at`) VALUES
 (DEFAULT, 'oil.png', 3, NOW(), NOW());
+
