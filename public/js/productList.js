@@ -7,14 +7,19 @@ else {
 async function ready() {
 
     const productsContainer = document.querySelector('#products-container');
+    const categoryList = document.querySelector('#category-list');
+    const brandList = document.querySelector('#brand-list');
 
     const productsFetch = await fetch('/api/product/list');
     const products = await productsFetch.json();
 
     document.querySelectorAll('.spinner').forEach(row => row.setAttribute('hidden', ''));
 
-    products.data.products.forEach( (product, k) => {
-        
+    let showProducts = function(arr){
+
+        productsContainer.innerHTML = "";
+
+        arr.forEach( (product, k) => {
 
             return productsContainer.innerHTML += 
             `
@@ -50,6 +55,42 @@ async function ready() {
             </div>
             `
        
+        });
+
+    }
+    showProducts(products.data.products);
+
+    products.data.categories.forEach((category, y)  => {
+
+        categoryList.innerHTML +=
+        `<li><button type="button" id="category-${y}">${category.nombre}</button></li>
+        `
+        document.querySelector(`#category-${y}`).addEventListener('click', ()=>{
+            console.log('hola');
+            let data = products.data.products
+            let dataFiltered = data.filter(row => {
+            return row.id == y
+        });
+        showProducts(dataFiltered);
+
+        });
     });
-    
+
+    products.data.brands.forEach((brand, y)  => {
+
+        return brandList.innerHTML +=
+        `<li><button type="button" id="brand-${y}">${brand.nombre}</button></li>
+        `
+    });
+    /*function filterCategory(id){
+        console.log('hola');
+        let data = products.data.products
+        let dataFiltered = data.filter(row => {
+            return row.id == id 
+        });
+        showProducts(dataFiltered);
+    };*/
+
 }
+
+
