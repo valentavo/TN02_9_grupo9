@@ -64,15 +64,20 @@ async function ready() {
 
         categoryList.innerHTML +=
         `<li><button type="button" id="category-${y}">${category.nombre}</button></li>
-        `
-        document.querySelector(`#category-${y}`).addEventListener('click', ()=>{
-            console.log('hola');
+        `;
+    });
+
+    products.data.categories.forEach((category, i) => {
+        const elem = document.querySelector(`#category-${i}`);
+
+        elem.addEventListener('click', () => {
+
             let data = products.data.products
             let dataFiltered = data.filter(row => {
-            return row.id == y
-        });
-        showProducts(dataFiltered);
+                return row['categorias-fk'] == category.id
+            });
 
+            showProducts(dataFiltered);
         });
     });
 
