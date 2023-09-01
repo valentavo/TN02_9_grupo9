@@ -79,3 +79,11 @@ body {
 .terminosYC a{
     color: #b69c7f;
 }
+.crear-cuenta a{
+    text-decoration: none;
+    color: #b69c7f;
+}
+.crear-cuenta a:hover{
+    text-decoration: underline;
+    color: #b69c7f;
+}
