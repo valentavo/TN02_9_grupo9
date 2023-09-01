@@ -17,11 +17,9 @@
         <div class="row">
             <div class="col-lg-7">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner" id="image-container">
+                
+                    <div class="carousel-inner" id="image-container"></div>
 
-                    
-                    
-                    </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -35,9 +33,7 @@
             </div>
             <div class="col-12 col-lg-5 mt-4 mb-3">
                 <h2 class="productName" id="product-name"></h2>
-                <h4 class="productPrice mt-2 mb-2" id="product-price"> </h4>
-
-                
+                <h4 class="productPrice mt-2 mb-2" id="product-price"></h4>
 
                 <p class="mt-2 mb-2">Compra en cuotas y sin interes!</p>
 
@@ -51,7 +47,7 @@
                 </select>
 
                 <div class="d-grid my-4">
-                    <button class="btn btn-lg productCartBtn" type="button">Agregar al carrito</button>
+                    <button class="btn btn-lg productCartBtn" id="btn-agregar-carrito" type="button">Agregar al carrito</button>
                 </div>
 
                 <div class="accordion">
@@ -63,10 +59,7 @@
 
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                            <div class="accordion-body" id="product-description">
-                               
-
-                            </div>
+                            <div class="accordion-body" id="product-description"></div>
 
                         </div>
 
@@ -172,6 +165,7 @@
 <!-- FOOTER --> 
 
 <script src="/js/productDetail.js"></script>
+<script src="/js/productAddToCart.js"></script>
 <%- include('.././partials/footer.ejs') %>
 
 <!-- FOOTER --> 

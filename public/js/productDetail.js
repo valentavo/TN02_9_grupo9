@@ -23,7 +23,7 @@ async function ready() {
 
         productImage.innerHTML += `
                             <div class="carousel-item ${i == 0 ? 'active': ''}">
-                                <img src="../../img/productos/${img.nombre}" class="d-block w-100" alt="...">
+                                <img src="../../img/productos/${img.nombre}" class="d-block w-100 pic" alt="${img.nombre}">
                             </div>`;
     });
 
@@ -57,5 +57,8 @@ async function ready() {
     };
 
     productDesc.innerHTML += `${product.data.detalle}`;
+
+    const event = new Event('detailProductLoaded');
+    document.dispatchEvent(event);
 
 };
