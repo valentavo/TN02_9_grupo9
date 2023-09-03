@@ -87,6 +87,21 @@ async function ready() {
         `<li><button type="button" id="brand-${y}">${brand.nombre}</button></li>
         `
     });
+
+    products.data.categories.forEach((brand, i) => {
+        const elem = document.querySelector(`#brand-${i}`);
+
+        elem.addEventListener('click', () => {
+
+            let data = products.data.products
+            let dataFiltered = data.filter(row => {
+                return row['marcas-fk'] == brand.id
+            });
+
+            showProducts(dataFiltered);
+        });
+    });
+
     /*function filterCategory(id){
         console.log('hola');
         let data = products.data.products

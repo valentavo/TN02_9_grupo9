@@ -50,26 +50,31 @@ font-weight: 500;
 .productsList .sidebar .list-block ul{
     list-style-type: none;
     padding-left: 15px;
-    margin-top: 5px;
-    height: 230px;
+    
 }
 .productsList .sidebar .list-block li {
     padding-top: 2px;
     padding-bottom: 2px;
     letter-spacing: 2px;
 }
-.productsList .sidebar .list-block li a{
+.productsList .sidebar .list-block li button{
     text-decoration: none;
     color: #49483D;
+    border: none;
+    background-color: transparent;
+    height: auto;
+    text-align: left;
 }
-.productsList .sidebar .list-block li a:hover{
+.productsList .sidebar .list-block li button:hover{
     text-decoration: none;
     color: #b69c7f;
+    border: none;
+    background-color: transparent;
 }
+
 .productsList .color_size_btn{
     text-decoration: none;
     color: #49483D;
-    
 }
 .productsList .color_size_btn:hover{
     text-decoration: none;
