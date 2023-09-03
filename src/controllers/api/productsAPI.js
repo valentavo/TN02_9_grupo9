@@ -27,6 +27,73 @@ module.exports = {
 
     },
 
+    invoice: async (req, res) => {
+        const t = await sequelize.transaction();
+
+        try {
+
+            if(!req.session.userLogged) {
+                const resApi = {
+                    meta: {
+                        success: false,
+                        msg: 'Usuario no identificado',
+                        endpoint: `/api/product/cart`
+                    }
+                };
+
+                return res.json(resApi);
+            };
+
+            const products = await db.Producto.findAll({
+                where: {
+                    id: req.body.prod.map(row => row.id)
+                }
+            }, {
+                transaction: t
+            });
+
+            const totalProducts = products.reduce((acc, row) => {
+
+                const cantidad = req.body.prod.find(pr => pr.id == row.id).cantidad
+
+                return acc + (row.precio * cantidad)
+            }, 0);
+
+            const newInvoice = await db.Factura.create({
+                total: totalProducts + req.body.shipment,
+                'metodo-pago': req.body.method,
+                'usuarios-fk': req.session.userLogged.id
+            }, {
+                transaction: t
+            });
+
+            const invoice = await db.Factura.findByPk(newInvoice.id, {
+                transaction: t
+            });
+
+            products.forEach(async (row) => {
+                await invoice.addProduct( row.id , {
+                    transaction: t
+                });
+            });
+
+            await t.commit();
+
+            const resApi = {
+                meta: {
+                    success: true,
+                    endpoint: `/api/product/cart`
+                },
+                data: invoice
+            };
+
+            return res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     list: async (req, res) => {
 
         try {
