@@ -6,7 +6,7 @@ function ready () {
 
     btnCarrito.addEventListener('click', () => {
 
-        if (JSON.parse(localStorage.getItem('carrito')) == null) {
+        if (!JSON.parse(localStorage.getItem('carrito'))) {
             localStorage.setItem('carrito', JSON.stringify([]));
         };
 
@@ -24,7 +24,7 @@ function ready () {
             valor: parseInt(document.querySelector('#product-price').innerText),
             descripcion: document.querySelector('#product-description').innerText,
             color: document.querySelector('#color') ? document.querySelector('#color').value : null,
-            medida: document.querySelector('#size') ? document.querySelector('#size').value : null
+            medida: document.querySelector('#size') ? document.querySelector('#size').innerText : null
         };
 
         const cartProducts = JSON.parse(localStorage.getItem('carrito'));
@@ -45,5 +45,6 @@ function ready () {
             };
         };
         localStorage.setItem('carrito', JSON.stringify(cartProducts));
+        // console.log(JSON.parse(JSON.parse(localStorage.getItem('carrito'))[0].pic));
     });
 };

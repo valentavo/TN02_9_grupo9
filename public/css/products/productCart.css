@@ -213,3 +213,28 @@ body {
     border-color: #b69c7f;
 }
 /*---- SUBSCRIBITE ----*/
+
+/* Eros Button */
+
+#agregar-cantidad {
+
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    /* border: 2px solid #737061; */
+    color: #737061;
+    background: 0 0;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+    font-weight: 800;
+    font-size: 16px;
+    height: 42px;
+}
+
+#agregar-cantidad:hover{
+    background-color: #737061;
+    color: #fff;
+}
+                

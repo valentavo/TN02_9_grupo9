@@ -27,6 +27,7 @@ const uploadFile = multer({ storage });
 router.post('/detail', productsApi.detail);
 router.get('/list', productsApi.list);
 router.get('/cart', productsApi.cart);
+router.post('/cart', productsApi.invoice);
 router.get('/adminList', productsApi.list);
 
 //CRUD
