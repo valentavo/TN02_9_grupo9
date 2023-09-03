@@ -70,6 +70,7 @@ function ready () {
     const productBrand = document.querySelector('#product-brand');
     const productStock = document.querySelector('#product-stock');
     const productDesc = document.querySelector('#product-detail');
+    const productIng = document.querySelector('#product-ingredients');
     const productImg = document.querySelector('#product-img');
 
     const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
@@ -148,6 +149,7 @@ function ready () {
             formData.append('name', productTitle.value);
             formData.append('price', productPrice.value);
             formData.append('desc', productDesc.value);
+            formData.append('ingredients', productIng.value);
             formData.append('stock', productStock.value);
             formData.append('brand', productBrand.value);
             formData.append('category', productLabel.value);

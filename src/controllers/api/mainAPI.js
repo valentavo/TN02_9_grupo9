@@ -6,6 +6,7 @@ module.exports = {
         try {
 
             const products = await db.Producto.findAll({
+                limit: 6,
                 include: [{association: 'image'}]
             });
 

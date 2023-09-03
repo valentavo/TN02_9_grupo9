@@ -88,7 +88,7 @@ async function ready() {
         `
     });
 
-    products.data.categories.forEach((brand, i) => {
+    products.data.brands.forEach((brand, i) => {
         const elem = document.querySelector(`#brand-${i}`);
 
         elem.addEventListener('click', () => {

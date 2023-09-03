@@ -71,11 +71,7 @@ module.exports = {
                 transaction: t
             });
 
-            products.forEach(async (row) => {
-                await invoice.addProduct( row.id , {
-                    transaction: t
-                });
-            });
+            await invoice.addProduct(products.map(row => row.id), {transaction: t})
 
             await t.commit();
 
@@ -136,12 +132,25 @@ module.exports = {
                 ]
             });
 
+            const relatedProducts = await db.Producto.findAll({
+                where: {
+                    id: { 
+                        [Op.ne] : productDetail.id
+                    }
+                },
+                limit: 4,
+                include: [{association: 'image'}]
+            });
+
             const resApi = {
                 meta: {
                     success: true,
                     endpoint: `/api/product/detail`
                 },
-                data: productDetail
+                data: {
+                    detail: productDetail,
+                    related: relatedProducts
+                }
             };
 
             return res.json(resApi);
@@ -203,6 +212,7 @@ module.exports = {
                 nombre: body.name,
                 precio: body.price,
                 detalle: body.desc,
+                ingredientes: body.ingredients || null,
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.category,
@@ -310,6 +320,7 @@ module.exports = {
                 nombre: body.name,
                 precio: body.price,
                 detalle: body.desc,
+                ingredientes: body.ingredients || null,
                 cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.category

@@ -33,6 +33,7 @@ async function ready() {
     const brands = document.querySelector('#brands');
     const stockProduct = document.querySelector('#stock-container');
     const detailProduct = document.querySelector('#detail-container');
+    const ingredientsProduct = document.querySelector('#ingredients-container');
 
     const currentPath = window.location.pathname;
     const idProduct = currentPath.substring(currentPath.lastIndexOf('/') + 1);
@@ -54,6 +55,7 @@ async function ready() {
     priceProduct.innerHTML += `<input type="text" class="form-control " id="price" name="price" value="${ info.product.precio }"> <div class="invalid-feedback">Selecciona el precio del producto</div>`;
     stockProduct.innerHTML += `<input type="number" class="form-control " id="stock" name='stock' value="${ info.product.cantidad }"> <div class="invalid-feedback">Selecciona la cantidad disponible de este producto</div>`;
     detailProduct.innerHTML += `<textarea class="form-control" id="desc" name="desc" rows="4">${ info.product.detalle }</textarea> <div class="invalid-feedback">Agrega una descripcion a tu producto de al menos 20 caracteres</div>`;
+    ingredientsProduct.innerHTML += `<textarea class="form-control" id="ingredients" name="ingredients" rows="4">${ info.product.ingredientes || '' }</textarea> <div class="invalid-feedback">Agrega una descripcion a tu producto de al menos 20 caracteres</div>`;
 
     labels.innerHTML += info.categories.reduce( (element, cat) => {
         return element + `<option value="${ cat.id }" ${ info.product.category.id == cat.id ? 'selected' : '' }>${ cat.nombre }</option>`;

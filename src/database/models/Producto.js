@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
+        ingredientes: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
         cantidad: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false

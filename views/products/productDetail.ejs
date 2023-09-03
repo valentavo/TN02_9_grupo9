@@ -50,76 +50,30 @@
                     <button class="btn btn-lg productCartBtn" id="btn-agregar-carrito" type="button">Agregar al carrito</button>
                 </div>
 
-                <div class="accordion">
+                <div class="accordion" id="accordion-desc-ing">
+
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
                                 <strong>Descripcion</strong>
                             </button>
-
                         </h2>
+
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
                             <div class="accordion-body" id="product-description"></div>
-
                         </div>
-
                     </div>
-
-               
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
-                                <strong>Ingredientes</strong>
-                            </button>
-
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
-                            <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Cum delectus laudantium ratione, cumque nam adipisci sapiente saepe et fuga eaque, a placeat 
-                                libero quasi inventore, assumenda molestiae dolore. Cupiditate, omnis?
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    
                 </div>
-
             </div>
-           
-
         </div>
-
-
     </div>
     
   
-    <div class="row productsBuy me-2 ms-2 py-4">
+    <div class="row productsBuy me-2 ms-2 py-4" id="related-products">
         <h2 class="display-6 py-5 text-center">
             Tambien te pueden gustar
         </h2>
-
-        <% for (let i = 0; i < 4; i++) { %>
-
-            <div class="col-lg-3 ">
-                <div class="card p-2">
-                    <div class="card-body">
-                        <div class="star">
-
-                        </div>
-                        <a href="#"><img src="../../img/productos/pomegranate-cream.png" class="img-fluid pb-3" alt=""></a>
-                        <h4 class="productNameH">Face Cream</h4>
-                        <p class="productSizeH">2 x 454g / 160oz</p>
-                        <h4 class="productPriceH">$3500.00</h4>
-                        <button class="btnc my-4 productCartBtn">Detalle</button>
-
-                    </div>
-                </div>
-            </div>
-
-        <% } %>
-
     </div>
 
 </section>

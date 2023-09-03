@@ -6,6 +6,7 @@ function ready() {
     const priceProduct = document.querySelector('#price');
     const stockProduct = document.querySelector('#stock');
     const descProduct = document.querySelector('#desc');
+    const ingredientsProduct = document.querySelector('#ingredients');
     const labelsProduct = document.querySelector('#labels');
     const brandsProduct = document.querySelector('#brands');
     const imgProduct = document.querySelector('#img');
@@ -87,6 +88,7 @@ function ready() {
             formData.append('name', nameProduct.value);
             formData.append('price', priceProduct.value);
             formData.append('desc', descProduct.value);
+            formData.append('ingredients', ingredientsProduct.value);
             formData.append('stock', stockProduct.value);
             formData.append('brand', brandsProduct.value);
             formData.append('category', labelsProduct.value);
@@ -100,6 +102,8 @@ function ready() {
 
             const productFetch = await fetch('/api/product/edit', {method: 'PUT', body: formData});
             const resFetch = await productFetch.json();
+
+            console.log(resFetch);
 
              if(resFetch.meta.success) {
                 await Swal.fire({

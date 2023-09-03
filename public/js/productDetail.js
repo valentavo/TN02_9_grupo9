@@ -11,15 +11,18 @@ async function ready() {
     const productName = document.querySelector('#product-name');
     const productPrice = document.querySelector('#product-price');
     const productDesc = document.querySelector('#product-description');
+    const productAccordionDescIng = document.querySelector('#accordion-desc-ing');
+    const relatedProducts = document.querySelector('#related-products');
 
     const currentPath = window.location.pathname;
     const idProduct = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     const data = {id: idProduct};
 
     const productFetch = await fetch('/api/product/detail', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
-    const product = await productFetch.json();
+    const info = await productFetch.json();
+    const product = info.data.detail
 
-    product.data.image.forEach( (img, i) => {
+    product.image.forEach( (img, i) => {
 
         productImage.innerHTML += `
                             <div class="carousel-item ${i == 0 ? 'active': ''}">
@@ -27,14 +30,14 @@ async function ready() {
                             </div>`;
     });
 
-    productName.innerHTML = product.data.nombre;
-    productPrice.innerHTML = product.data.precio;
+    productName.innerHTML = product.nombre;
+    productPrice.innerHTML = product.precio;
 
-    if(product.data.color.length != 0) {
+    if(product.color.length != 0) {
 
         let colorOptions = '';
 
-        product.data.color.forEach( color => {
+        product.color.forEach( color => {
             colorOptions += `<option value='${ color.id }'>${ color.nombre }</option>`;
         });
 
@@ -43,11 +46,11 @@ async function ready() {
                     <select class="form-select" name="color" id="color">${colorOptions}</select>`);
     };
 
-    if(product.data.size.length != 0) {
+    if(product.size.length != 0) {
 
         let sizeOptions = '';
 
-        product.data.size.forEach( size => {
+        product.size.forEach( size => {
             sizeOptions += `<option value='${ size.id }'>${ size.medida }</option>`;
         });
 
@@ -56,7 +59,40 @@ async function ready() {
                     <select class="form-select" name="size" id="size">${sizeOptions}</select>`);
     };
 
-    productDesc.innerHTML += `${product.data.detalle}`;
+    productDesc.innerHTML = `${product.detalle}`;
+    product.ingredientes ? productAccordionDescIng.innerHTML += `
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                    <strong>Ingredientes</strong>
+                </button>
+            </h2>
+
+            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                <div class="accordion-body">${product.ingredientes}</div>
+            </div>
+        </div>` : '';
+
+        console.log(info.data.related[0].image);
+
+    relatedProducts.innerHTML += info.data.related.reduce((acc, row) => { 
+        
+       return acc += `<div class="col-lg-3 ">
+                        <div class="card p-2">
+                            <div class="card-body">
+                                <div class="star">
+
+                                </div>
+                                <a href="#"><img src="../../img/productos/${row.image[0].nombre}" class="img-fluid pb-3" alt=""></a>
+                                <h4 class="productNameH">${row.nombre}</h4>
+                                <p class="productSizeH">2 x 454g / 160oz</p>
+                                <h4 class="productPriceH">$${row.precio}</h4>
+                                <button class="btnc my-4 productCartBtn"><a href="/product/detail/${row.id}">Detalle</a></button>
+
+                            </div>
+                        </div>
+                    </div>`
+    }, '');
 
     const event = new Event('detailProductLoaded');
     document.dispatchEvent(event);

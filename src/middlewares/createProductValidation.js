@@ -27,7 +27,7 @@ module.exports = [
 
     check('price')
         .notEmpty()
-        .isNumeric({'no_symbols': true})
+        .isNumeric({locale: 'en-US'})// Para espaniol con , para decimales es 'es-ES'
         .withMessage('Selecciona el precio del producto'),
 
     check('category')
