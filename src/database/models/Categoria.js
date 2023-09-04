@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => { // el segundo parametro deberia ser
         },
         nombre: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         'created-at': {

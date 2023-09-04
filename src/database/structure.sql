@@ -8,14 +8,14 @@ CREATE TABLE `colores_productos`(
 );
 CREATE TABLE `marcas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
 );
 CREATE TABLE `categorias`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -31,7 +31,7 @@ CREATE TABLE `medidas_productos`(
 CREATE TABLE `usuarios`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
     `imagen` TEXT,
     `direccion` TEXT,
@@ -49,7 +49,7 @@ CREATE TABLE `productos`(
     `precio` DECIMAL(10, 2) UNSIGNED NOT NULL,
     `cantidad` INT UNSIGNED NOT NULL,
     `detalle` TEXT NOT NULL,
-    `ingredientes` TEXT NULL,
+    `ingredientes` TEXT,
     `marcas-fk` INT UNSIGNED NOT NULL,
     `categorias-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
@@ -58,14 +58,14 @@ CREATE TABLE `productos`(
 );
 CREATE TABLE `medidas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `medida` VARCHAR(255) NOT NULL,
+    `medida` VARCHAR(255) NOT NULL UNIQUE,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
 );
 CREATE TABLE `colores`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -89,7 +89,7 @@ CREATE TABLE `imagenes`(
 );
 CREATE TABLE `roles`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME

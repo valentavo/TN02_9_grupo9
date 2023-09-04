@@ -87,7 +87,7 @@ async function ready() {
         `<li><button type="button" id="brand-${y}">${brand.nombre}</button></li>
         `
     });
-
+  
     products.data.brands.forEach((brand, i) => {
         const elem = document.querySelector(`#brand-${i}`);
 

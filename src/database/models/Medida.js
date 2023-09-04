@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         medida: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         'created-at': {

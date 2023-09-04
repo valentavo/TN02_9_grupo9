@@ -115,8 +115,6 @@ INSERT INTO medidas(id, medida, `created-at`, `updated-at`) VALUES
 (DEFAULT, '3kg', NOW(), NOW());
 
 -- Datos de categorias
-INSERT INTO categorias(id, nombre, `created-at`, `updated-at`) VALUES 
-(DEFAULT, 'facial', NOW(), NOW());
 
 INSERT INTO categorias(id, nombre, `created-at`, `updated-at`) VALUES 
 (DEFAULT, 'capilar', NOW(), NOW());
@@ -131,9 +129,6 @@ INSERT INTO categorias VALUES
 (DEFAULT, 'Cuidado del cabello', NOW(),NOW(),NULL);
 
 INSERT INTO categorias VALUES 
-(DEFAULT, 'Organicos', NOW(),NOW(),NULL);
-
-INSERT INTO categorias VALUES 
 (DEFAULT, 'Manos y unas', NOW(),NOW(),NULL);
 
 INSERT INTO categorias VALUES 
@@ -141,9 +136,6 @@ INSERT INTO categorias VALUES
 
 INSERT INTO categorias VALUES 
 (DEFAULT, 'Perfumes', NOW(),NOW(),NULL);
-
-INSERT INTO categorias VALUES 
-(DEFAULT, 'Hombres', NOW(),NOW(),NULL);
 
 
 -- Datos de referencias
