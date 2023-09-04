@@ -98,7 +98,7 @@ function renderCartProducts () {
     const containerCart = document.querySelector('#carrito-container');
     const finalPriceContainer = document.querySelector('#final-price');
     const cartProducts = JSON.parse(localStorage.getItem('carrito')); 
-    const emptyCartHTML = `<div><h2>Parece que no has seleccionado ningun producto todavia</h2><a href="/product/list">Buscar productos</a></div>`
+    const emptyCartHTML = `<div class="no-products"><h4>Parece que no has seleccionado ningun producto todavia</h4><a href="/product/list" class="link-cart">Buscar productos</a></div>`
 
     if(!cartProducts) {
         localStorage.setItem('carrito', JSON.stringify([]));

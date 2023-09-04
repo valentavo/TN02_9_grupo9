@@ -9,6 +9,7 @@ async function ready() {
     const productsContainer = document.querySelector('#products-container');
     const categoryList = document.querySelector('#category-list');
     const brandList = document.querySelector('#brand-list');
+    const shopCreate = document.querySelector('#shop-create');
 
     const productsFetch = await fetch('/api/product/list');
     const products = await productsFetch.json();
@@ -101,6 +102,9 @@ async function ready() {
             showProducts(dataFiltered);
         });
     });
+
+    shopCreate.innerHTML += `<a class="btn color_size_btn" href=" ${(products.data.user && products.data.user["roles-fk"]=="2" )? `/product/create` : "/product/list"}"> ${(products.data.user && products.data.user["roles-fk"]=="2" )? "CREAR PRODUCTO" : "SHOP ALL"} </a>`;
+
 
     /*function filterCategory(id){
         console.log('hola');

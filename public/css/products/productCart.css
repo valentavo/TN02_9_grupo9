@@ -138,8 +138,20 @@ body {
 	border: #fff;
     color:#b69c7f;
 }
-
-
+.link-cart {
+    text-decoration: none;
+    color:#b69c7f;
+    font-size: 1rem;
+    transition: all 4ms;
+}
+.link-cart:hover {
+    text-decoration: none;
+    color:#b69c7f;
+}
+.no-products{
+    text-align: center;
+    margin: auto;
+}
 /*---- SUBSCRIBITE ----*/
 .subscribite {
     background-color: white;
