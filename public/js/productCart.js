@@ -148,24 +148,21 @@ function renderCartProducts () {
 
                         <!--cart product details-->
 
-                        <div class="col-lg-7 col-sm-11 col-11 mx-auto px-4 mt-2">
-                            <div class="row">
-                                <div class="col-lg-8 col-11">
+                        <div class="col-lg-7 col-sm-11 col-11 mx-auto px-4 mt-2 mt-lg-5">
+                            <div class="row mb-lg-4 me-lg-3 ms-lg-3">
+                                <div class="col-lg-8 col-11 mb-lg-2">
                                     <h4 class="mb-4 mt-3 mt-lg-0">${row.titulo}</h4>
-                                    ${row.color ? `<p class="mb-2">Product Color: ${row.color}</p>` : ''}
-                                    ${row.medida ? `<p class="mb-2"><p class="mb-2">Product Size: ${row.medida}</p>` : ''}
+                                    ${row.color ? `<p class="mb-2 mt-lg-2">Product Color: ${row.color}</p>` : ''}
+                                    ${row.medida ? `<p class="mb-2 mt-lg-2"><p class="mb-2">Product Size: ${row.medida}</p>` : ''}
                                 </div>
-                                <div class="col-lg-4 col-11 mt-4">
-
+                                <div class="col-lg-4 col-11 mt-4 py=4">
                                     <div class="justify-content-end align-items-center mt-lg-4 mb-lg-2 mb-4">
 
-                                        <button id="agregar-cantidad" onclick=agergarCantidad(${row.id})>+</button>
+                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=agergarCantidad(${row.id})>+</button>
                                         <span>${row.cantidad}</span>
                                         
-                                        <button id="agregar-cantidad" onclick=disminuirCantidad(${row.id})>-</button>
-                                        
+                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=disminuirCantidad(${row.id})>-</button>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -173,11 +170,8 @@ function renderCartProducts () {
                                 <div class="col-lg-9 col-6 d-flex justify-content-between">
                                     <button type="submit" class="btn eliminar_editar mt-2 text-center" onclick=eliminarProducto(${row.id})><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill me-1" viewBox="0 0 16 16">
                                         <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-                                        </svg>ELIMINAR PRODUCTO</button>
-                                    <button type="submit" class="btn eliminar_editar mt-2 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill me-1" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                        </svg>AGREGAR A FAVORITOS</button>
-
+                                        </svg>ELIMINAR PRODUCTO
+                                    </button>
                                 </div>
                                 <div class="col-lg-3 col-6 d-flex justify-content-end">
                                     <p class="mt-3 text-center" id="price_money">$<span id="itemval">${row.cantidad * row.valor}</span></p>

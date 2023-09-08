@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
-body {
+.productsList {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -75,6 +75,7 @@ font-weight: 500;
 .productsList .color_size_btn{
     text-decoration: none;
     color: #49483D;
+    font-family: 'Karla';
 }
 .productsList .color_size_btn:hover{
     text-decoration: none;
@@ -94,6 +95,14 @@ font-weight: 500;
     background-color:transparent;
     text-decoration: none;
     letter-spacing: 1px; 
+}
+.widget .accordion .accordion-body li .all-products{
+    text-decoration: none;
+    color: #49483D;
+}
+.widget .accordion .accordion-body li .all-products:hover{
+    text-decoration: none;
+    color: #b69c7f;
 }
 .sidebar .price-range{
     font-size: 1rem;

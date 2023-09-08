@@ -24,7 +24,7 @@ async function ready() {
 
             return productsContainer.innerHTML += 
             `
-            <div class="card col mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <div class="card col mb-4 col-lg-4 col-md-12 col-sm-12 col-12">
                 <div id="carouselExampleFade-${k}" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner" id="img-product-carousel">
                         ${product.image.reduce((acc, img, j) => {
@@ -44,12 +44,14 @@ async function ready() {
                     </button>
                 </div>
 
-                <a href="/product/detail/${product.id}">
-                    <h4 class="productNameH mt-3">${product.nombre}</h4>
-                </a>
-                <p class="productSizeH mt-2">2 x 454g / 160oz</p>
-                <h4 class="productPriceH">$${product.precio}</h4>
-                <a class="btnc my-4 py-2 px-2 productCartBtn" href=" ${(products.data.user && products.data.user["roles-fk"]=="2" )? `/product/edit/${product.id}` : "/product/cart"}"> ${(products.data.user && products.data.user["roles-fk"]=="2" )? "Editar producto" : "Agregar al Carrito"} </a>
+                <div class="card-body">
+                    <a href="/product/detail/${product.id}">
+                        <h4 class="productNameH mt-3">${product.nombre}</h4>
+                    </a>
+                    <p class="productSizeH mt-2">2 x 454g / 160oz</p>
+                    <h4 class="productPriceH">$${product.precio}</h4>
+                    <a class="btnc my-4 py-2 px-2 productCartBtn" href=" ${(products.data.user && products.data.user["roles-fk"]=="2" )? `/product/edit/${product.id}` : `/product/detail/${product.id}`}"> ${(products.data.user && products.data.user["roles-fk"]=="2" )? "Editar producto" : "Detalle"} </a>
+                </div>
                 
              
 

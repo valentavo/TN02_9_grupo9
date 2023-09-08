@@ -87,7 +87,7 @@ async function ready() {
                                 <h4 class="productNameH">${row.nombre}</h4>
                                 <p class="productSizeH">2 x 454g / 160oz</p>
                                 <h4 class="productPriceH">$${row.precio}</h4>
-                                <button class="btnc my-4 productCartBtn"><a href="/product/detail/${row.id}">Detalle</a></button>
+                                <button class="btnc my-4 productCartBtn"><a class="link-detail-btn" href="/product/detail/${row.id}">Detalle</a></button>
 
                             </div>
                         </div>
