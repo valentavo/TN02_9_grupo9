@@ -97,6 +97,7 @@ CREATE TABLE `roles`(
 CREATE TABLE `facturas_productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `descuento` INT UNSIGNED,
+    `cantidad` INT UNSIGNED NOT NULL,
     `productos-fk` INT UNSIGNED NOT NULL,
     `facturas-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,

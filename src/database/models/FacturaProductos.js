@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         descuento: {
             type: DataTypes.INTEGER.UNSIGNED,
         },
+        cantidad: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false
+        },
         'productos-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,

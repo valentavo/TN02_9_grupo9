@@ -70,19 +70,18 @@ async function pagar () {
         window.location.href = '/user/profile'
     }
     else {
-        if(invoice.meta.msg == 'Usuario no identificado') {
+        if(invoice && invoice.meta && invoice.meta.msg) {
 
             await Swal.fire({
                 icon: 'error',
-                title: 'Usuario inválido',
-                text: 'Por favor inicia sesión para poder continuar con la compra',
+                title: invoice.meta.title,
+                text: invoice.meta.msg,
                 showConfirmButton: true
             });
 
-            window.location.href = '/user/login'
+            if(invoice.meta.title == 'Usuario inválido') window.location.href = '/user/login'
         }
         else {
-
             await Swal.fire({
                 icon: 'error',
                 title: 'Ups!',
@@ -121,7 +120,7 @@ function renderCartProducts () {
                 cumulativePrice += (row.cantidad * row.valor);
 
                 containerCart.innerHTML += `
-                    <div class="row">
+                    <div class="row mb-5">
                         <!--cart images div--->
                         
                         <div class="col-lg-5 col-sm-11 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow">
@@ -180,7 +179,6 @@ function renderCartProducts () {
                             </div>
 
                         </div>
-
                     </div>`;
             });
 

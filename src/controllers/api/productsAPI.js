@@ -32,10 +32,13 @@ module.exports = {
 
         try {
 
+            let dispo = [];
+
             if(!req.session.userLogged) {
                 const resApi = {
                     meta: {
                         success: false,
+                        title: 'Usuario inválido',
                         msg: 'Usuario no identificado',
                         endpoint: `/api/product/cart`
                     }
@@ -52,6 +55,26 @@ module.exports = {
                 transaction: t
             });
 
+            //Assign product to dispo if we have less than requested
+            dispo = products.filter(row => {
+                return row.cantidad < req.body.prod.find(p => row.id == p.id).cantidad
+            })
+
+            //Verifying stock availability for the purchase
+            if (dispo.length > 0) {
+                const resApi = {
+                    meta: {
+                        success: false,
+                        title: 'Producto no disponible',
+                        msg: ':Parece que uno de tus pedidos no se encuentra disponible',
+                        endpoint: `/api/product/cart`
+                    }
+                };
+
+                return res.json(resApi);
+            };
+
+            // Obtaining the total price for the full    invoice
             const totalProducts = products.reduce((acc, row) => {
 
                 const cantidad = req.body.prod.find(pr => pr.id == row.id).cantidad
@@ -71,7 +94,18 @@ module.exports = {
                 transaction: t
             });
 
-            await invoice.addProduct(products.map(row => row.id), {transaction: t})
+            // Adding data to the jointable factura_producto
+            // Transaction error, dice que la transaction ya se comiteo al hacer este forEach
+            await products.forEach( async row => {
+                await invoice.addProduct(row, {
+                    through: {cantidad: req.body.prod.find(pr => pr.id == row.id).cantidad}
+                });
+            })
+
+            // Updating Cantidad on each product
+            products.forEach(async row => {
+                return await row.decrement('cantidad', {by: req.body.prod.find(p => p.id == row.id).cantidad});
+            });
 
             await t.commit();
 
