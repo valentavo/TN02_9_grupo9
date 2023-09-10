@@ -8,6 +8,7 @@ function ready () {
 
         if (!JSON.parse(localStorage.getItem('carrito'))) {
             localStorage.setItem('carrito', JSON.stringify([]));
+            localStorage.setItem('carritoNoti', JSON.stringify(false));
         };
 
         const currentPath = window.location.href;
@@ -45,6 +46,11 @@ function ready () {
             };
         };
         localStorage.setItem('carrito', JSON.stringify(cartProducts));
+        localStorage.setItem('carritoNoti', JSON.stringify(true));
+
+        //Adding the notification of unread messages to cart Icon
+        const cartNotification = document.querySelector('#cart-notification');
+        JSON.parse(localStorage.getItem('carrito')) ? cartNotification.classList.remove('visually-hidden') : '';
         // console.log(JSON.parse(JSON.parse(localStorage.getItem('carrito'))[0].pic));
     });
 };

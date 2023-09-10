@@ -201,7 +201,7 @@ function renderCartProducts () {
                     <p>Total (Incluye IVA)</p>
                     <p>$<span id="total_cart_amt">${cumulativePrice + shipmentPrice}</span></p>
                 </div>
-                <button class="checkout btn btn-primary" onclick='pagar()'>PAGAR AHORA</button>`;
+                <div class="payNowContainer"><button class="payNow" onclick='pagar()'>PAGAR AHORA</button></div>`;
         }
     }
 };
