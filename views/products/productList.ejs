@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/css/products/productList.css">
 </head>
 <!-- HEAD-->   
-<body>
+
 <!-- HEADER--> 
 <%- include('../partials/header.ejs') %>
 <!-- HEADER--> 
@@ -15,7 +15,7 @@
 <section class="productsList py-2 my-2">
 
     <div class="heading my-1 py-4">
-        <h2 class="title text-center">Productos seleccionado</h2>
+        <h2 class="title text-center" id="filter-title">Productos seleccionados</h2>
     </div>
     
     <div class="container bg-white rounded-lg d-block d-sm-flex py-3 px-2 mt-3 mb-3">
@@ -40,7 +40,7 @@
                                             Tamano
                                             </button>
                                         </h2>
-                                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" >
                                             <div class="accordion-body">  
                                                 <div class="accord product-size">
                                                     <div class="wrap">
@@ -66,7 +66,7 @@
                                             Colores
                                             </button>
                                         </h2>
-                                        <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingTwo" >
                                             <div class="accordion-body">  
                                                 <div class="accord product-color">
                                                     <div class="wrap">
@@ -89,11 +89,11 @@
                                              Categorias
                                             </button>
                                         </h2>
-                                        <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">  
+                                        <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" >
+                                            <div class="accordion-body p-0 ps-3">  
                                                 <div class="list-block">
                                                     <ul class="wrapper initial" id="category-list">
-                                                        <li><button><a class="all-products" href="/product/list">Todos los productos</a></button></li>
+                                                        <li><button  type="button" id="category-all" class="category-filter-option" onClick="productsFilter(['categorias-fk', 0], 'Todas las categorias', this)" >Todas las categorias</button></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -110,11 +110,11 @@
                                               Marcas
                                             </button>
                                         </h2>
-                                        <div id="flush-collapseFour" class="accordion-collapse collapse show" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">  
-                                                <div class="accord list-block">
+                                        <div id="flush-collapseFour" class="accordion-collapse collapse show" aria-labelledby="flush-headingFour" >
+                                            <div class="accordion-body p-0 ps-3">  
+                                                <div class="accordion list-block">
                                                     <ul class="wrapper initial" id="brand-list">
-                                                        
+                                                        <li><button  type="button" id="brand-all" class="brand-filter-option" onClick="productsFilter(['marcas-fk', 0], 'Todas las marcas', this)" >Todas las marcas</button></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -125,13 +125,13 @@
                             <div class="widget">
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-headingFive">
+                                        <h2 class="accordion-header w-auto" id="flush-headingFive">
                                             <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                                              Precio
                                             </button>
                                         </h2>
-                                        <div id="flush-collapseFive" class="accordion-collapse collapse show" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">  
+                                        <div id="flush-collapseFive" class="accordion-collapse collapse show" aria-labelledby="flush-headingFive" >
+                                            <div class="accordion-body p-0 ps-2 pt-2">  
                                                 <div class="summary">
                                                     
                                                     <div class="range-track">

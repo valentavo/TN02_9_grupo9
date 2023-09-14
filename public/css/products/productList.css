@@ -1,290 +1,284 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&family=Ysabeau+Infant:wght@1;100;200;300;400;500;600;700&display=swap");
 .productsList {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background: #f9f9f9;
-	font-family: 'Ysabeau Infant';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  font-family: "Ysabeau Infant";
 }
 /*-- PRODUCT LIST  --> */
-.productsList .container{
-    background-color: white;
-    width: 100%;
+.productsList .container {
+  background-color: white;
+  width: 100%;
 }
-.productsList .heading{
-    background-color: white;
+.productsList .heading {
+  background-color: white;
 }
-.productsList .title{
-    font-size: 2rem;
-    color: #49483D;
-    font-weight: 300;
-    font-family: 'Ysabeau Infant';
-    letter-spacing: 2px;
+.productsList .title {
+  font-size: 2rem;
+  color: #49483d;
+  font-weight: 300;
+  font-family: "Ysabeau Infant";
+  letter-spacing: 2px;
 }
-.productsList .sidebar-tittle{
-color: #49483D;
-font-size: 1.5rem;
-font-weight: 500;
+.productsList .sidebar-tittle {
+  color: #49483d;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-.productsList .sidebar .widget{
-    margin: 20px 0;
+.productsList .sidebar .widget {
+  margin: 20px 0;
 }
 .productsList .sidebar label {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
-.productsList .sidebar label span{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #49483D;
+.productsList .sidebar label span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #49483d;
 }
-.productsList .sidebar label i{
-    font-size: 1rem;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.productsList .sidebar label i {
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.productsList .sidebar .list-block ul{
-    list-style-type: none;
-    padding-left: 15px;
-    
+.productsList .sidebar .list-block ul {
+  list-style-type: none;
+  padding-left: 15px;
 }
 .productsList .sidebar .list-block li {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    letter-spacing: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  letter-spacing: 2px;
 }
-.productsList .sidebar .list-block li button{
-    text-decoration: none;
-    color: #49483D;
-    border: none;
-    background-color: transparent;
-    height: auto;
-    text-align: left;
+.productsList .sidebar .list-block li button {
+  text-decoration: none;
+  color: #49483d;
+  border: none;
+  background-color: transparent;
+  height: auto;
+  text-align: left;
 }
-.productsList .sidebar .list-block li button:hover{
-    text-decoration: none;
-    color: #b69c7f;
-    border: none;
-    background-color: transparent;
+.productsList .sidebar .list-block li button:hover {
+  text-decoration: none;
+  color: #b69c7f;
+  border: none;
+  background-color: transparent;
 }
 
-.productsList .color_size_btn{
-    text-decoration: none;
-    color: #49483D;
-    font-family: 'Karla';
+.productsList .color_size_btn {
+  text-decoration: none;
+  color: #49483d;
+  font-family: "Karla";
 }
-.productsList .color_size_btn:hover{
-    text-decoration: none;
-    color: white;
-    background-color: #b69c7f;
+.productsList .color_size_btn:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #b69c7f;
 }
-.accordion .accordion-button{
-    outline: none;
-    color:#49483D;
-    background-color:transparent;
-    text-decoration: none;
-    letter-spacing: 1px; 
+.accordion .accordion-button {
+  outline: none;
+  color: #49483d;
+  background-color: transparent;
+  text-decoration: none;
+  letter-spacing: 1px;
 }
-.accordion .accordion-button:hover{
-    outline: none;
-    color:#49483D;
-    background-color:transparent;
-    text-decoration: none;
-    letter-spacing: 1px; 
+.accordion .accordion-button:hover {
+  outline: none;
+  color: #49483d;
+  background-color: transparent;
+  text-decoration: none;
+  letter-spacing: 1px;
 }
-.widget .accordion .accordion-body li .all-products{
-    text-decoration: none;
-    color: #49483D;
+.widget .accordion .accordion-body li .all-products {
+  text-decoration: none;
+  color: #49483d;
 }
-.widget .accordion .accordion-body li .all-products:hover{
-    text-decoration: none;
-    color: #b69c7f;
+.widget .accordion .accordion-body li .all-products:hover {
+  text-decoration: none;
+  color: #b69c7f;
 }
-.sidebar .price-range{
-    font-size: 1rem;
-    font-weight: 200;
-    color: #49483D;
-    font-family: 'Ysabeau Infant', sans-serif;
-
+.sidebar .price-range {
+  font-size: 1rem;
+  font-weight: 200;
+  color: #49483d;
+  font-family: "Ysabeau Infant", sans-serif;
 }
 /*-- PRODUCT BUY  --> */
-.productsBuy{
-    background-color: white;
+.productsBuy {
+  background-color: white;
 }
-.productsBuy h1{
-    font-size: 2rem;
-    color: #737061 ;
-    font-weight: 300;
-    font-family: 'Ysabeau Infant', ;
-    letter-spacing: 1px;
-
+.productsBuy h1 {
+  font-size: 2rem;
+  color: #737061;
+  font-weight: 300;
+  font-family: "Ysabeau Infant";
+  letter-spacing: 1px;
 }
-.productsBuy p{
-    font-size: 1rem;
-    color: #737061 ;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
-
+.productsBuy p {
+  font-size: 1rem;
+  color: #737061;
+  font-weight: 200;
+  font-family: "Ysabeau Infant", sans-serif;
 }
-.productsBuy .card{
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-
+.productsBuy .card {
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
 }
-.productsBuy .card-body{
-    border: 1px dashed #E8E2D5;
+.productsBuy .card-body {
+  border: 1px dashed #e8e2d5;
 }
-.productsBuy a{
-   text-decoration: none;
-
-
+.productsBuy a {
+  text-decoration: none;
 }
-.productsBuy .productNameH{
-    margin: 0;
-    color: #49483D;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    font-weight: 200;
-
+.productsBuy .productNameH {
+  margin: 0;
+  color: #49483d;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: 200;
 }
-.productsBuy .productSizeH{
-    color: grey;
-    font-family:'Ysabeau Infant', sans-serif ;
+.productsBuy .productSizeH {
+  color: grey;
+  font-family: "Ysabeau Infant", sans-serif;
 }
-.productsBuy .productPriceH{
-    color: #49483D;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
+.productsBuy .productPriceH {
+  color: #49483d;
+  font-weight: 200;
+  font-family: "Ysabeau Infant", sans-serif;
 }
-.productsBuy .productCartBtn{
-    height: 50px;
-    width: fit-content;
-    outline: none;
-    font-family:'Ysabeau Infant', sans-serif;
-    color:white;
-    background-color:#b69c7f;
-    text-align: center;
-    border: 1px solid ;
-    display: block;
-    margin: 0 auto;
-    text-decoration: none;
-    letter-spacing: 1px; 
-    border-radius: 15px;
-    transition: all 0.4s;
-    
+.productsBuy .productCartBtn {
+  height: 50px;
+  width: fit-content;
+  outline: none;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: white;
+  background-color: #b69c7f;
+  text-align: center;
+  border: 1px solid;
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  transition: all 0.4s;
 }
-.productsBuy .productCartBtn:hover{
-    outline: none;
-    border: 1px solid #b69c7f;
-    color: #b69c7f;
-    background: transparent;
-    border-radius: 15px;
+.productsBuy .productCartBtn:hover {
+  outline: none;
+  border: 1px solid #b69c7f;
+  color: #b69c7f;
+  background: transparent;
+  border-radius: 15px;
 }
-.productsBuy .viewMore{
-    height: 50px;
-    width: fit-content;
-    outline: none;
-    font-family:'Ysabeau Infant', sans-serif;
-    color:white;
-    background-color:#b69c7f;
-    border: 1px solid ;
-    display: block;
-    margin: 0 auto;
-    text-decoration: none;
-    letter-spacing: 1px; 
-    border-radius: 15px;
-    transition: all 0.4s;
-    letter-spacing: 2px;
+.productsBuy .viewMore {
+  height: 50px;
+  width: fit-content;
+  outline: none;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: white;
+  background-color: #b69c7f;
+  border: 1px solid;
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  transition: all 0.4s;
+  letter-spacing: 2px;
 }
-.productsBuy .viewMore:hover{
-    outline: none;
-    border: 1px solid #b69c7f;
-    color: #b69c7f;
-    background: transparent;
-    border-radius: 15px;
+.productsBuy .viewMore:hover {
+  outline: none;
+  border: 1px solid #b69c7f;
+  color: #b69c7f;
+  background: transparent;
+  border-radius: 15px;
 }
-
 
 /*---- SUBSCRIBITE ----*/
 .subscribite {
-    background-color: white;
-    
+  background-color: white;
 }
-.subscribite .head3{
-    font-size: 2rem;
-    font-weight: 300;
-    color: #737061;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    letter-spacing: 1px;
+.subscribite .head3 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #737061;
+  font-family: "Ysabeau Infant", sans-serif;
+  letter-spacing: 1px;
 }
-.subscribite .per3{
-    font-size: 1rem;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    color: #737061;
+.subscribite .per3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: #737061;
 }
-.subscribite .subscribiteLabel{
-    font-size: 1rem;
-    font-weight: 200;
-    font-family: 'Ysabeau Infant', sans-serif ;
+.subscribite .subscribiteLabel {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: "Ysabeau Infant", sans-serif;
 }
 
-.subscribite .subscribiteBtn{
-    height: 55px;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    width: fit-content;
-    letter-spacing: 1px;
-    outline: none;
-    border: 1px solid #b69c7f;
-    background-color:#b69c7f;
-    color:white;
-    border-radius: 15px;
-    display: block;
-    font-weight: 400;
-    transition: all 0.4s;
+.subscribite .subscribiteBtn {
+  height: 55px;
+  font-family: "Ysabeau Infant", sans-serif;
+  width: fit-content;
+  letter-spacing: 1px;
+  outline: none;
+  border: 1px solid #b69c7f;
+  background-color: #b69c7f;
+  color: white;
+  border-radius: 15px;
+  display: block;
+  font-weight: 400;
+  transition: all 0.4s;
 }
-.subscribite .subscribiteBtn:hover{
-    transform: scale(1.1);
-    outline: none;
-    color: #b69c7f;
-    background-color:white;
-    border:1px solid #b69c7f;
+.subscribite .subscribiteBtn:hover {
+  transform: scale(1.1);
+  outline: none;
+  color: #b69c7f;
+  background-color: white;
+  border: 1px solid #b69c7f;
 }
-.subscribite .formSubscribe{
-    background-color: white;
-    color:#737061 ;
-    padding: 10px;
-    padding-bottom: 30px;
-    margin: 5px 0px 2px 0px;
+.subscribite .formSubscribe {
+  background-color: white;
+  color: #737061;
+  padding: 10px;
+  padding-bottom: 30px;
+  margin: 5px 0px 2px 0px;
 }
-.subscribite .formSubscribe input{
-    height: 45px;
-    outline: none;
-    color: #737061;
-    font-family: 'Ysabeau Infant', sans-serif ;
-    font-size: 1rem;
-    border-color: 1px solid white;
-    border-radius: 10px;
-    width: 100%;
-    transition: all 0.4ms;
+.subscribite .formSubscribe input {
+  height: 45px;
+  outline: none;
+  color: #737061;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-size: 1rem;
+  border-color: 1px solid white;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.4ms;
 }
 .subscribite .formSubscribe input:hover {
-    border-color: #b69c7f;
-   
+  border-color: #b69c7f;
 }
-.subscribite .formSubscribe input:focus{
-    outline: none;
-    box-shadow: none;
-    border-color: #b69c7f;
+.subscribite .formSubscribe input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #b69c7f;
 }
 /*---- SUBSCRIBITE ----*/
 
-@media (min-width: 992px){
-    .sidebar .close-trigger{
-        display: none;
-    }
+@media (min-width: 992px) {
+  .sidebar .close-trigger {
+    display: none;
+  }
+}
+
+/* Opacity Eros */
+
+.unavailable-option {
+  opacity: 50%;
 }

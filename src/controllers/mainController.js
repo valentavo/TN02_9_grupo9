@@ -1,8 +1,6 @@
 module.exports = {
     index: async (req, res) => {
 
-        console.log(req);
-
         return res.render('index.ejs');
         
     },

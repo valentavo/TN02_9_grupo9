@@ -140,7 +140,7 @@ module.exports = {
                 },
                 data: {
                     products: products,
-                    user: req.session.userLogged,
+                    user: req.session.userLogged && req.session.userLogged["roles-fk"],
                     categories: categories,
                     brands: brands,
                 }
