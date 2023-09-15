@@ -124,6 +124,102 @@ module.exports = {
         }
     },
 
+    plist: async (req, res) => {
+        const resApi = {};
+        try {
+            
+            // const products = await db.Producto.findAll( {
+            //     include: [{association: 'image'}, {association: 'color'},{association: 'size'}, {association: 'bill'}]
+            // });
+
+            const [products, categories, brands, colors, meassures] = await Promise.all([
+                db.Producto.findAll({
+                    include: [{association: 'image'}, {association: 'color'}, {association: 'size'}, {association: 'category'}, {association: 'brand'}]
+                }), 
+                db.Categoria.findAll({
+                    include: [{association: 'product'}]
+                }),
+                db.Marca.findAll({
+                    include: [{association: 'product'}]
+                }),
+                db.Color.findAll({
+                    include: [{association: 'product'}]
+                }),
+                db.Medida.findAll({
+                    include: [{association: 'product'}]
+                })
+            ]);
+
+            resApi.meta = {
+
+                success: true,
+                url: '/api/product/',
+                count: products.length,
+                countByCategory: {},
+                countByBrand: {},
+                countByColor: {},
+                countBySize: {}
+            };
+
+            categories.forEach(category => {
+                return resApi.meta.countByCategory[category.nombre] = category.product.length;
+            });
+
+            brands.forEach(brand => {
+                return resApi.meta.countByBrand[brand.nombre] = brand.product.length;
+            });
+
+            colors.forEach(color => {
+                return resApi.meta.countByColor[color.nombre] = color.product.length;
+            });
+
+            meassures.forEach(size => {
+                return resApi.meta.countBySize[size.medida] = size.product.length;
+            });
+
+            resApi.data = products.map(product => {
+                return {
+                    id: product.id,
+                    name: product.nombre,
+                    description: product.descripcion,
+                    category: product.category.nombre,
+                    brand: product.brand.nombre,
+                    color: product.color.nombre,
+                    size: product.size.nombre,
+                    detail: `/api/product/${product.id}`
+                }
+            });
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+            resApi.msg = 'Hubo un error!';
+            return res.json(resApi);
+        }
+    },
+
+    pdetail: async (req, res) => {
+        const resApi = {};
+        try {
+            
+            const product = await db.Producto.findByPk( req.params.id, {
+                include: [{association: 'image'}, {association: 'color'},{association: 'size'}, {association: 'bill'}]
+            });
+
+            resApi.data = JSON.parse(JSON.stringify(product));
+
+            resApi.data.image = product.image.map(img => `/public/img/productos/${img.nombre}`);
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+            resApi.msg = 'Hubo un error!';
+            return res.json(resApi);
+        }
+    },
+
     list: async (req, res) => {
 
         try {

@@ -29,4 +29,7 @@ router.put('/edit', uploadFile.single('img'), profileValidation, usersAPI.update
 router.get('/logout', usersAPI.logout);
 router.delete('/delete', usersAPI.delete);
 
+router.get('/', usersAPI.list);
+router.get('/:id', usersAPI.detail)
+
 module.exports = router;

@@ -5,6 +5,63 @@ const { validationResult } = require('express-validator');
 
 module.exports = {
 
+    //Api Bien Hecha
+    list: async (req, res) => {
+
+        const resApi = {};
+
+        try {
+
+            const usuarios = await db.Usuario.findAll();
+
+            resApi.count = usuarios.length;
+            resApi.users = usuarios.map(user => {
+                return {
+                    id: user.id,
+                    name: user.nombre,
+                    email: user.email,
+                    detail: `/api/user/${user.id}`
+                }
+            });
+
+            return res.json(resApi);
+
+        } catch (error) {
+            console.log(error);
+            resApi.msg = "Hubo un error!";
+            return res.json(resApi);
+        };
+    },
+
+    detail: async (req, res) => {
+        const resApi = {};
+
+        try {
+
+            const usuario = await db.Usuario.findByPk(req.params.id, {
+                attributes: {
+                    exclude: ["password", "roles-fk", "created-at", "updated-at", "deleted-at"]
+                }
+            });
+
+            resApi.meta = {
+                success: true,
+                url: `/api/user/${usuario.id}`
+            }
+
+            resApi.data = usuario;
+
+            resApi.data.imagen = `/public/img/users/${usuario.imagen}`
+
+            return res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+            resApi.msg = "Hubo un error!";
+            return res.json(resApi);
+        }
+    },
+
     loginProcess: async (req, res) => {
         try {
 

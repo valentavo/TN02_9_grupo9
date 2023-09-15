@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
 });
 const uploadFile = multer({ storage });
 
+//Local API
 router.post('/detail', productsApi.detail);
 router.get('/list', productsApi.list);
 router.get('/cart', productsApi.cart);
@@ -36,5 +37,9 @@ router.post('/create', uploadFile.array('productImg', 5), createProductValidatio
 router.post('/edit', productsApi.edit);
 router.put('/edit', uploadFile.array('productImg', 5), createProductValidation, productsApi.editProcess);
 router.delete('/edit/delete', authMiddleware, adminUserAccess, productsApi.delete);
+
+//Public API
+router.get('/', productsApi.plist);
+router.get('/:id', productsApi.pdetail);
 
 module.exports = router;
