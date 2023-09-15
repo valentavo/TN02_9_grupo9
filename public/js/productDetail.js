@@ -73,8 +73,6 @@ async function ready() {
             </div>
         </div>` : '';
 
-        console.log(info.data.related[0].image);
-
     relatedProducts.innerHTML += info.data.related.reduce((acc, row) => { 
         
        return acc += `<div class="col-lg-3 ">

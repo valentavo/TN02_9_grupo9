@@ -51,6 +51,18 @@ function ready () {
         //Adding the notification of unread messages to cart Icon
         const cartNotification = document.querySelector('#cart-notification');
         JSON.parse(localStorage.getItem('carrito')) ? cartNotification.classList.remove('visually-hidden') : '';
-        // console.log(JSON.parse(JSON.parse(localStorage.getItem('carrito'))[0].pic));
+
+        Toastify({
+
+            text: "Producto Agregado al Carrito",
+            duration: 2000,
+            close: true,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)"
+            },
+            gravity: "bottom",
+            position: "right"
+
+        }).showToast();
     });
 };
