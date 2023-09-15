@@ -110,3 +110,60 @@ button.editar:hover{
     box-shadow: none;
     border-color: #b69c7f;
 }
+
+
+.userProfile .accordion .accordion-button {
+    outline: none;
+    width: 100%;
+    color: #49483d;
+    background-color: transparent;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+.userProfile.accordion .accordion-button:hover {
+    outline: none;
+    color: #49483d;
+    background-color: transparent;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.date{
+    text-align-last: left;
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 1rem;
+}
+.detalle-productos {
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 1rem;
+  }
+.cantidad-producto{
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 1rem;
+}
+.precio-producto{
+    text-align-last: right;
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 1rem;
+}
+.total-factura{
+    text-align-last: left;
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 2rem;
+}
+.precio-total-factura{
+    text-align-last: right;
+    color: #49483d;
+    font-family: 'Ysabeau Infant';
+    font-weight: 300;
+    font-size: 2rem;
+}
