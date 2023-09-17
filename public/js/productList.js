@@ -49,7 +49,7 @@ let showProducts = function(arr){
                 </a>
                 <p class="productSizeH mt-2">2 x 454g / 160oz</p>
                 <h4 class="productPriceH">$${product.precio}</h4>
-                <a class="btnc my-4 py-2 px-2 productCartBtn" href=" ${( userRol == "2" )? `/product/edit/${product.id}` : `/product/detail/${product.id}`}"> ${( userRol == "2" )? "Editar producto" : "Detalle"} </a>
+                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href=" ${( userRol == "2" )? `/product/edit/${product.id}` : `/product/detail/${product.id}`}"> ${( userRol == "2" )? "Editar producto" : "Detalle"} </a>
             </div>
         </div>
         `

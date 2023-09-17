@@ -127,10 +127,6 @@ module.exports = {
     plist: async (req, res) => {
         const resApi = {};
         try {
-            
-            // const products = await db.Producto.findAll( {
-            //     include: [{association: 'image'}, {association: 'color'},{association: 'size'}, {association: 'bill'}]
-            // });
 
             const [products, categories, brands, colors, meassures] = await Promise.all([
                 db.Producto.findAll({
