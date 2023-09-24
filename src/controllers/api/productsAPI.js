@@ -74,7 +74,7 @@ module.exports = {
                 return res.json(resApi);
             };
 
-            // Obtaining the total price for the full    invoice
+            // Obtaining the total price for the full invoice
             const totalProducts = products.reduce((acc, row) => {
 
                 const cantidad = req.body.prod.find(pr => pr.id == row.id).cantidad
@@ -84,6 +84,7 @@ module.exports = {
 
             const newInvoice = await db.Factura.create({
                 total: totalProducts + req.body.shipment,
+                envio: req.body.shipment,
                 'metodo-pago': req.body.method,
                 'usuarios-fk': req.session.userLogged.id
             }, {
@@ -95,7 +96,6 @@ module.exports = {
             });
 
             // Adding data to the jointable factura_producto
-            // Transaction error, dice que la transaction ya se comiteo al hacer este forEach
             await products.forEach( async row => {
                 await invoice.addProduct(row, {
                     through: {cantidad: req.body.prod.find(pr => pr.id == row.id).cantidad}
@@ -158,19 +158,43 @@ module.exports = {
             };
 
             categories.forEach(category => {
-                return resApi.meta.countByCategory[category.nombre] = category.product.length;
+                return resApi.meta.countByCategory[category.nombre] = category.product.map(row => {
+                    return {
+                        id: row.id,
+                        name: row.nombre,
+                        detail: `/product/detail/${row.id}`
+                    };
+                });
             });
 
             brands.forEach(brand => {
-                return resApi.meta.countByBrand[brand.nombre] = brand.product.length;
+                return resApi.meta.countByBrand[brand.nombre] = brand.product.map(row => {
+                    return {
+                        id: row.id,
+                        name: row.nombre,
+                        detail: `/product/detail/${row.id}`
+                    }
+                });
             });
 
             colors.forEach(color => {
-                return resApi.meta.countByColor[color.nombre] = color.product.length;
+                return resApi.meta.countByColor[color.nombre] = color.product.map(row => {
+                    return {
+                        id: row.id,
+                        name: row.nombre,
+                        detail: `/product/detail/${row.id}`
+                    }
+                });
             });
 
             meassures.forEach(size => {
-                return resApi.meta.countBySize[size.medida] = size.product.length;
+                return resApi.meta.countBySize[size.medida] = size.product.map(row => {
+                    return {
+                        id: row.id,
+                        name: row.medida,
+                        detail: `/product/detail/${row.id}`
+                    }
+                });
             });
 
             resApi.data = products.map(product => {
@@ -182,7 +206,8 @@ module.exports = {
                     brand: product.brand.nombre,
                     color: product.color.nombre,
                     size: product.size.nombre,
-                    detail: `/api/product/${product.id}`
+                    endpoint: `/api/product/${product.id}`,
+                    detail: `/product/detail/${product.id}`
                 }
             });
 
@@ -205,7 +230,8 @@ module.exports = {
 
             resApi.data = JSON.parse(JSON.stringify(product));
 
-            resApi.data.image = product.image.map(img => `/public/img/productos/${img.nombre}`);
+            resApi.data.image = product.image.map(img => `/img/productos/${img.nombre}`);
+            resApi.data.detailLink =`/product/detail/${product.id}`
 
             return res.json(resApi);
 

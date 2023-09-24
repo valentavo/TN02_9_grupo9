@@ -73,6 +73,7 @@ CREATE TABLE `colores`(
 CREATE TABLE `facturas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `total` DECIMAL(10, 2) UNSIGNED NOT NULL,
+    `envio` DECIMAL(10, 2) UNSIGNED,
     `metodo-pago` VARCHAR(255) NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,

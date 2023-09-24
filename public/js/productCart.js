@@ -67,6 +67,7 @@ async function pagar () {
             showConfirmButton: true
         });
         
+        localStorage.setItem('goToOrder', true);
         window.location.href = '/user/profile'
     }
     else {

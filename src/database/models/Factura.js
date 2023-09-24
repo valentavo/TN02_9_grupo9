@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL(10,2).UNSIGNED,
             allowNull: false
         },
+        envio: {
+            type: DataTypes.DECIMAL(10,2).UNSIGNED,
+        },
         'metodo-pago': {
             type: DataTypes.STRING,
             allowNull: false

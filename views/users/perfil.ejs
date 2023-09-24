@@ -14,9 +14,8 @@
 <!-- MAIN --> 
 <section class="py-4 my-3 mb-5">
     <div class="container userProfile">
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex py-3 px-3 mt-3 mb-3">
-            <div class="profile-tab-nav border-right px-2">
-
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex row py-3 px-3 mt-3 mb-3">
+            <div class="profile-tab-nav border-right px-2 col-md-auto">
                 <div class="p-4">
                     <div class="img-circle text-center mb-3" id="user-img-container">        
                     </div>
@@ -47,9 +46,9 @@
                 </div>
                
             </div>
-            <div class="tab-content px-2 py-3" id="v-pills-tabContent">
+            <div class="tab-content px-2 py-3 col" id="v-pills-tabContent">
             
-                <div class="tab-pane fade show active mt-4 ms-2 me-2" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="tab-pane fade active show mt-4 ms-2 me-2" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h3 class="mb-4">Configuracion de la cuenta</h3>
                     <div class="row" >
                         <div class="col-md-6">
@@ -128,75 +127,9 @@
                 </div>   
                 
                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <h3 class="mb-4">Mis Facturas</h3>
-                    <div class="accordion accordion-flush container-fluid" id="accordionFlushExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed w-100" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                              Factura #1
-                            </button>
-                          </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" >
-                                <div class="accordion-body">
-                                    <div class="row">
-                                    
-                                        <div class="col-md-12 mb-2 mt-2">
-                                            <div class="form-group" >
-                                                <h4>Detalle de la Compra</h4>
-                                            </div>
-                                        </div>
-
-                                        <div class="date col-md-12 mb-2 mt-2">
-                                            <div class="form-group" >
-                                                <p>Fecha de compra: 12/09/2023</p>
-                                            </div>
-                                        </div>
-            
-                                        <div class="col-md-4 detalle-productos mb-2 mt-2">
-                                            <div class="form-group" >
-                                                <p>Esmalte de unas Revlon</p>
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-md-4 cantidad-producto mb-2 mt-2">
-                                            <div class="form-group" >
-                                                <p>Cantidad: 2</p>
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-md-4 precio-producto mb-2 mt-2">
-                                            <div class="form-group">
-                                                <p>$4500</p>
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-md-6 total-factura mb-2 mt-2">
-                                            <div class="form-group">
-                                                <h4>TOTAL FACTURA:</h4>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-6 precio-total-factura mb-2 mt-2">
-                                            <div class="form-group">
-                                                <h4>$4500</h4>
-                                            </div>
-                                        </div>
-                
-                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        
-                    </div>
-                    
-                   
-                    
-                </div>
-                    
+                    <h3 class="mb-4">Historial de compras</h3>
+                    <div class="accordion" id="accordionFlushExample"></div>
+                </div>   
             </div>
         </div>
     </div>
@@ -211,6 +144,9 @@
 <script src="/js/userDelete.js"></script>
 <script src="/js/userLogout.js"></script>
 <script src="/js/userEdit.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/locale/es.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%- include('../partials/footer.ejs') %>
 

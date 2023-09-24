@@ -14,21 +14,33 @@ module.exports = {
 
             const usuarios = await db.Usuario.findAll();
 
-            resApi.count = usuarios.length;
-            resApi.users = usuarios.map(user => {
-                return {
-                    id: user.id,
-                    name: user.nombre,
-                    email: user.email,
-                    detail: `/api/user/${user.id}`
-                }
-            });
+            resApi.data = {
+                count: usuarios.length,
+                users: usuarios.map(user => {
+                    return {
+                        id: user.id,
+                        name: user.nombre,
+                        email: user.email,
+                        phone: user.telefono,
+                        detail: `/api/user/${user.id}`,
+                        img: `/img/users/${user.imagen || 'defaultProfilePhoto.jpeg'}`,
+                        birth: user['fecha-nacimiento'],
+                        'created-at': user[`created-at`]
+                    }
+                })
+            };
+
+            resApi.meta = {
+                success: true,
+                endpoint: `/api/user/`
+            }
 
             return res.json(resApi);
 
         } catch (error) {
             console.log(error);
             resApi.msg = "Hubo un error!";
+            resApi.meta.success = false;
             return res.json(resApi);
         };
     },
@@ -51,7 +63,7 @@ module.exports = {
 
             resApi.data = usuario;
 
-            resApi.data.imagen = `/public/img/users/${usuario.imagen}`
+            resApi.data.imagen = `/img/users/${usuario.imagen || 'defaultProfilePhoto.jpeg'}`
 
             return res.json(resApi);
             
@@ -142,7 +154,9 @@ module.exports = {
 
         try {
 
-            const user = await db.Usuario.findByPk(req.session.userLogged.id);
+            const user = await db.Usuario.findByPk(req.session.userLogged.id, {
+                include: [{association: 'bill', include: [{association: 'product'}]}]
+            });
 
             const resApi = {
                 meta: {
