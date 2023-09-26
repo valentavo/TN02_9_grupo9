@@ -16,16 +16,19 @@ function ready () {
 
         const pics = [];
 
-        document.querySelectorAll('.pic').forEach( pic => pics.push(pic.alt))
+        document.querySelectorAll('.pic').forEach( pic => pics.push(pic.alt));
+        const color = document.querySelector('#color');
+        const medida = document.querySelector('#size');
 
         const currentProduct = {
-            id: currentPath.match(idReg)[1],
+            id: `${currentPath.match(idReg)[1]}-${color ? color.options[color.selectedIndex].text : ''}${medida ? medida.options[medida.selectedIndex].text : ''}`,
             pic: JSON.stringify(pics),
             titulo: document.querySelector('#product-name').innerText,
-            valor: parseInt(document.querySelector('#product-price').innerText),
+            valor: parseInt(document.querySelector('#product-price').innerText.slice(1)),
             descripcion: document.querySelector('#product-description').innerText,
-            color: document.querySelector('#color') ? document.querySelector('#color').value : null,
-            medida: document.querySelector('#size') ? document.querySelector('#size').innerText : null
+            color: color ? color.value : null,
+            colorName: color ? color.options[color.selectedIndex].text : null,
+            medida: medida ? medida.options[medida.selectedIndex].text : null,
         };
 
         const cartProducts = JSON.parse(localStorage.getItem('carrito'));

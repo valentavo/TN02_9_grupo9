@@ -251,7 +251,7 @@ module.exports = {
         try {
 
             const ventas = await db.Factura.findAll({
-                include: [{association: 'product'}, {association: 'user'}]
+                include: [{association: 'product'}, {association: 'user', paranoid: false}]
             });
 
             resApi.data = ventas;

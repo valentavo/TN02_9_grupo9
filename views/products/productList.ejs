@@ -1,5 +1,5 @@
 <!-- HEAD-->   
-<%- include('../partials/head.ejs', {title: 'Lista de Productos'}) %>
+<%- include('../partials/head.ejs', {title: 'Lista de Productos', logo: ".././img/partials/maranatha_logo.png"}) %>
 <!-- Link general css file --> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="/css/partials/stylePartials.css">
@@ -86,14 +86,14 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-headingThree">
                                             <button class="accordion-button collapsed text-md-left mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                             Categorias
+                                             Categorías
                                             </button>
                                         </h2>
                                         <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" >
                                             <div class="accordion-body p-0 ps-3">  
                                                 <div class="list-block">
                                                     <ul class="wrapper initial" id="category-list">
-                                                        <li><button  type="button" id="category-all" class="category-filter-option" onClick="productsFilter(['categorias-fk', 0], 'Todas las categorias', this)" >Todas las categorias</button></li>
+                                                        <li><button  type="button" id="category-all" class="category-filter-option" onClick="productsFilter(['categorias-fk', 0], 'Todas las categorias', this)" >Todas las categorías</button></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -165,7 +165,7 @@
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="" class="btn my-5 py-2 viewMore ">Ver mas</a>
+                        <a href="" class="btn my-5 py-2 viewMore ">Ver más</a>
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@
                     </div>
         
                     <div class="col-2 mx-auto mx-sm-auto mx-md-auto" >
-                    <button type="submit" class="btn subscribiteBtn mx-auto ms-lg-4 mt-lg-4 px-2">Subscribite</button>
+                    <button type="submit" class="btn subscribiteBtn mx-auto ms-lg-4 mt-lg-4 px-2">Subscríbite</button>
                     </div>
             </form>
         </div>

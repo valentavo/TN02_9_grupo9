@@ -45,7 +45,7 @@ async function pagar () {
     const cartProducts = JSON.parse(localStorage.getItem('carrito'));
     const prodObj = [];
     cartProducts.forEach(row => prodObj.push({
-        id: row.id,
+        id: (row.id).slice(0, (row.id).indexOf('-')),
         cantidad: row.cantidad
     }));
 
@@ -99,7 +99,7 @@ function renderCartProducts () {
     const containerCart = document.querySelector('#carrito-container');
     const finalPriceContainer = document.querySelector('#final-price');
     const cartProducts = JSON.parse(localStorage.getItem('carrito')); 
-    const emptyCartHTML = `<div class="no-products"><h4>Parece que no has seleccionado ningun producto todavia</h4><a href="/product/list" class="link-cart">Buscar productos</a></div>`
+    const emptyCartHTML = `<div class="no-products"><h4>Parece que no has seleccionado ningun producto todavía</h4><a href="/product/list" class="link-cart">Buscar productos</a></div>`
 
     if(!cartProducts) {
         localStorage.setItem('carrito', JSON.stringify([]));
@@ -111,14 +111,12 @@ function renderCartProducts () {
             finalPriceContainer.innerHTML = ``
         } 
         else {
-            let idProducts = [];
             let cumulativePrice = 0.00;
 
             containerCart.innerHTML = ``;
 
             cartProducts.forEach(row => {
 
-                idProducts.push(row.id);
                 cumulativePrice += (row.cantidad * row.valor);
 
                 containerCart.innerHTML += `
@@ -153,23 +151,23 @@ function renderCartProducts () {
                             <div class="row mb-lg-4 me-lg-3 ms-lg-3">
                                 <div class="col-lg-8 col-11 mb-lg-2">
                                     <h4 class="mb-4 mt-3 mt-lg-0">${row.titulo}</h4>
-                                    ${row.color ? `<p class="mb-2 mt-lg-2">Product Color: ${row.color}</p>` : ''}
+                                    ${row.color ? `<p class="mb-2 mt-lg-2">Product Color: ${row.colorName}</p>` : ''}
                                     ${row.medida ? `<p class="mb-2 mt-lg-2"><p class="mb-2">Product Size: ${row.medida}</p>` : ''}
                                 </div>
                                 <div class="col-lg-4 col-11 mt-4 py=4">
                                     <div class="justify-content-end align-items-center mt-lg-4 mb-lg-2 mb-4">
 
-                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=agergarCantidad(${row.id})>+</button>
+                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=agergarCantidad('${row.id}')>+</button>
                                         <span>${row.cantidad}</span>
                                         
-                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=disminuirCantidad(${row.id})>-</button>
+                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=disminuirCantidad('${row.id}')>-</button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row mt-lg-4 py-lg-3">
                                 <div class="col-lg-9 col-6 d-flex justify-content-between">
-                                    <button type="submit" class="btn eliminar_editar mt-2 text-center" onclick=eliminarProducto(${row.id})><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill me-1" viewBox="0 0 16 16">
+                                    <button type="submit" class="btn eliminar_editar mt-2 text-center" onclick=eliminarProducto('${row.id}')><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill me-1" viewBox="0 0 16 16">
                                         <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
                                         </svg>ELIMINAR PRODUCTO
                                     </button>
@@ -191,7 +189,7 @@ function renderCartProducts () {
                     <p>$<span>${cumulativePrice}</span></p>
                 </div>
                 <div class="price_indiv d-flex justify-content-between">
-                    <p>Total Envio</p>
+                    <p>Total Envío</p>
                     <p>$<span>${shipmentPrice}</span></p>
                 </div>
                 <div class="price_indiv d-flex justify-content-between">

@@ -31,7 +31,7 @@ async function ready() {
     });
 
     productName.innerHTML = product.nombre;
-    productPrice.innerHTML = product.precio;
+    productPrice.innerHTML = `$${product.precio}`;
 
     if(product.color.length != 0) {
 
