@@ -56,7 +56,7 @@ app.use('/api/product', productsRouteAPI);
 
 // Mensaje de Error 404
 app.use((req, res, next) => {
-    return res.status(404).send('404 Ups! algo esta mal con esta ruta');
+    return res.status(404).render('error404.ejs');
 });
 
 //Multer errors better handling

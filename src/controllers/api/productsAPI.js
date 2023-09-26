@@ -232,14 +232,43 @@ module.exports = {
 
             resApi.data.image = product.image.map(img => `/img/productos/${img.nombre}`);
             resApi.data.detailLink =`/product/detail/${product.id}`
+            resApi.meta = {
+                success: true,
+                endpoint: `/api/product/${product.id}`
+            };
 
             return res.json(resApi);
 
         } catch (error) {
             console.log(error);
-            resApi.msg = 'Hubo un error!';
+            resApi.msg = 'Hubo un error en pdetail!';
             return res.json(resApi);
-        }
+        };
+    },
+
+    psales: async (req, res) => {
+        const resApi = {meta: {}};
+        try {
+
+            const ventas = await db.Factura.findAll({
+                include: [{association: 'product'}, {association: 'user'}]
+            });
+
+            resApi.data = ventas;
+            resApi.count = ventas.length;
+            resApi.meta = {
+                success: true,
+                endpoint: '/api/product/sales'
+            };
+
+            return res.json(resApi);
+            
+        } catch (error) {
+            console.log(error);
+            resApi.msg = 'hola soy eros';
+            resApi.meta.success = false;
+            return res.json(resApi);
+        };
     },
 
     list: async (req, res) => {
