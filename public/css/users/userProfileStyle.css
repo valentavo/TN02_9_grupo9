@@ -139,7 +139,20 @@ button.editar:hover{
     font-family: 'Ysabeau Infant';
     font-weight: 300;
     font-size: 1rem;
-  }
+}
+
+.detalle-productos .form-group a{
+    text-decoration: none;
+    color: #b69c7f;
+    
+    
+}
+.detalle-productos .form-group a:hover{
+    
+    text-decoration: none;
+    color: #b69c7f;
+    
+}
 .cantidad-producto{
     color: #49483d;
     font-family: 'Ysabeau Infant';
@@ -167,3 +180,4 @@ button.editar:hover{
     font-weight: 300;
     font-size: 2rem;
 }
+
