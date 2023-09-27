@@ -48,7 +48,7 @@ body {
     color: #b69c7f;
     padding: 10px;
     padding-bottom: 30px;
-    margin: 5px 0px 2px 0px;
+    margin: 5px 0px 2px 5px;
 }
 .crearCuenta .form input{
     outline: none;
