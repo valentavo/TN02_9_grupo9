@@ -9,32 +9,23 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false
         },
-        nombre: {
-            type: DataTypes.STRING,
-            unique: true,
-            allowNull: false
-        },
         precio: {
-            type: DataTypes.DECIMAL(10, 2).UNSIGNED,
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false
-        },
-        detalle: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
-        ingredientes: {
-            type: DataTypes.TEXT,
-            allowNull: true
         },
         cantidad: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        'marcas-fk':  { // se supone que las fk no se declaran aqui pero si en las relaciones abajo segun lucas
+        'colores-fk': {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false
+            allowNull: true
         },
-        'categorias-fk':  {
+        'medidas-fk': {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: true
+        },
+        'grupos-productos-fk': {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -62,42 +53,19 @@ module.exports = (sequelize, DataTypes) => {
 
     Producto.associate = (models) => {
 
-        Producto.hasMany(models.Referencia, {
-            as: 'reference',
-            foreignKey: 'productos-fk'
+        Producto.belongsTo(models.GrupoProducto, {
+            as: 'productGroup',
+            foreignKey: 'grupos-productos-fk'
         });
 
-        Producto.hasMany(models.Imagen, {
-            as: 'image',
-            foreignKey: 'productos-fk'
-        });
-
-        Producto.belongsTo(models.Categoria, {
-            as: 'category',
-            foreignKey: 'categorias-fk'
-        });
-
-        Producto.belongsTo(models.Marca, {
-            as: 'brand',
-            foreignKey: {
-                name: 'marcas-fk',
-                type: DataTypes.INTEGER.UNSIGNED,
-                allowNull: false
-            }
-        });
-
-        Producto.belongsToMany(models.Color, {
+        Producto.belongsTo(models.Color, {
             as: 'color',
-            through: 'ColoresProductos',
-            foreignKey: 'productos-fk',
-            otherKey: 'colores-fk',
+            foreignKey: 'colores-fk'
         });
 
-        Producto.belongsToMany(models.Medida, {
+        Producto.belongsTo(models.Medida, {
             as: 'size',
-            through: 'medida_producto',
-            foreignKey: 'productos-fk',
-            otherKey: 'medidas-fk',
+            foreignKey: 'medidas-fk'
         });
 
         Producto.belongsToMany(models.Factura, {

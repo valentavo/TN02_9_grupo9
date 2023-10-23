@@ -1,11 +1,3 @@
-CREATE TABLE `colores_productos`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `productos-fk` INT UNSIGNED NOT NULL,
-    `colores-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME,
-    `updated-at` DATETIME,
-    `deleted-at` DATETIME
-);
 CREATE TABLE `marcas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL UNIQUE,
@@ -20,14 +12,6 @@ CREATE TABLE `categorias`(
     `updated-at` DATETIME,
     `deleted-at` DATETIME
 );
-CREATE TABLE `medidas_productos`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `medidas-fk` INT UNSIGNED NOT NULL,
-    `productos-fk` INT UNSIGNED NOT NULL,
-    `created-at` DATETIME,
-    `updated-at` DATETIME,
-    `deleted-at` DATETIME
-);
 CREATE TABLE `usuarios`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
@@ -37,7 +21,6 @@ CREATE TABLE `usuarios`(
     `direccion` TEXT,
     `fecha-nacimiento` DATE,
     `telefono` INT UNSIGNED,
-    `logged` TINYINT,
     `roles-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
@@ -45,9 +28,18 @@ CREATE TABLE `usuarios`(
 );
 CREATE TABLE `productos`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nombre` VARCHAR(255) NOT NULL UNIQUE,
-    `precio` DECIMAL(10, 2) UNSIGNED NOT NULL,
+    `precio` DECIMAL(10, 2) NOT NULL,
     `cantidad` INT UNSIGNED NOT NULL,
+    `colores-fk` INT UNSIGNED,
+    `medidas-fk` INT UNSIGNED,
+    `grupos-productos-fk` INT UNSIGNED NOT NULL,
+    `created-at` DATETIME,
+    `updated-at` DATETIME,
+    `deleted-at` DATETIME
+);
+CREATE TABLE `grupos-productos`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nombre` VARCHAR(255) NOT NULL UNIQUE,
     `detalle` TEXT NOT NULL,
     `ingredientes` TEXT,
     `marcas-fk` INT UNSIGNED NOT NULL,
@@ -72,8 +64,8 @@ CREATE TABLE `colores`(
 );
 CREATE TABLE `facturas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `total` DECIMAL(10, 2) UNSIGNED NOT NULL,
-    `envio` DECIMAL(10, 2) UNSIGNED,
+    `total` DECIMAL(10, 2) NOT NULL,
+    `envio` DECIMAL(10, 2),
     `metodo-pago` VARCHAR(255) NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
@@ -83,7 +75,7 @@ CREATE TABLE `facturas`(
 CREATE TABLE `imagenes`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` TEXT NOT NULL,
-    `productos-fk` INT UNSIGNED NOT NULL,
+    `grupos-productos-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
@@ -107,36 +99,36 @@ CREATE TABLE `facturas_productos`(
 );
 CREATE TABLE `referencias`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `comentario` TEXT NOT NULL,
+    `puntuacion` SMALLINT UNSIGNED NOT NULL,
+    `comentario` TEXT,
+    `visibilidad` TINYINT UNSIGNED NOT NULL,
     `usuarios-fk` INT UNSIGNED NOT NULL,
-    `productos-fk` INT UNSIGNED NOT NULL,
+    `grupos-productos-fk` INT UNSIGNED NOT NULL,
     `created-at` DATETIME,
     `updated-at` DATETIME,
     `deleted-at` DATETIME
 );
 ALTER TABLE
-    `productos` ADD CONSTRAINT `productos_categorias_fk_foreign` FOREIGN KEY(`categorias-fk`) REFERENCES `categorias`(`id`);
+    `grupos-productos` ADD CONSTRAINT `grupos_productos_categorias_fk_foreign` FOREIGN KEY(`categorias-fk`) REFERENCES `categorias`(`id`);
 ALTER TABLE
-    `medidas_productos` ADD CONSTRAINT `medidas_productos_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
+    `grupos-productos` ADD CONSTRAINT `grupos_productos_marcas_fk_foreign` FOREIGN KEY(`marcas-fk`) REFERENCES `marcas`(`id`);
 ALTER TABLE
     `facturas_productos` ADD CONSTRAINT `facturas_productos_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
 ALTER TABLE
-    `productos` ADD CONSTRAINT `productos_marcas_fk_foreign` FOREIGN KEY(`marcas-fk`) REFERENCES `marcas`(`id`);
-ALTER TABLE
     `facturas_productos` ADD CONSTRAINT `facturas_productos_facturas_fk_foreign` FOREIGN KEY(`facturas-fk`) REFERENCES `facturas`(`id`);
+ALTER TABLE
+    `imagenes` ADD CONSTRAINT `imagenes_grupos_productos_fk_foreign` FOREIGN KEY(`grupos-productos-fk`) REFERENCES `grupos-productos`(`id`);
 ALTER TABLE
     `referencias` ADD CONSTRAINT `referencias_usuarios_fk_foreign` FOREIGN KEY(`usuarios-fk`) REFERENCES `usuarios`(`id`);
 ALTER TABLE
-    `colores_productos` ADD CONSTRAINT `colores_productos_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
-ALTER TABLE
-    `imagenes` ADD CONSTRAINT `imagenes_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
-ALTER TABLE
-    `referencias` ADD CONSTRAINT `referencias_productos_fk_foreign` FOREIGN KEY(`productos-fk`) REFERENCES `productos`(`id`);
-ALTER TABLE
-    `colores_productos` ADD CONSTRAINT `colores_productos_colores_fk_foreign` FOREIGN KEY(`colores-fk`) REFERENCES `colores`(`id`);
-ALTER TABLE
-    `medidas_productos` ADD CONSTRAINT `medidas_productos_medidas_fk_foreign` FOREIGN KEY(`medidas-fk`) REFERENCES `medidas`(`id`);
+    `referencias` ADD CONSTRAINT `referencias_grupos_productos_fk_foreign` FOREIGN KEY(`grupos-productos-fk`) REFERENCES `grupos-productos`(`id`);
 ALTER TABLE
     `facturas` ADD CONSTRAINT `facturas_usuarios_fk_foreign` FOREIGN KEY(`usuarios-fk`) REFERENCES `usuarios`(`id`);
 ALTER TABLE
     `usuarios` ADD CONSTRAINT `usuarios_roles_fk_foreign` FOREIGN KEY(`roles-fk`) REFERENCES `roles`(`id`);
+ALTER TABLE
+    `productos` ADD CONSTRAINT `productos_colores_fk_foreign` FOREIGN KEY(`colores-fk`) REFERENCES `colores`(`id`);
+ALTER TABLE
+    `productos` ADD CONSTRAINT `productos_medidas_fk_foreign` FOREIGN KEY(`medidas-fk`) REFERENCES `medidas`(`id`);
+ALTER TABLE
+    `productos` ADD CONSTRAINT `productos_grupos-productos_fk_foreign` FOREIGN KEY(`grupos-productos-fk`) REFERENCES `grupos-productos`(`id`);

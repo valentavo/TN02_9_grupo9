@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const alias = 'factura_producto'; // sera mejor usar upperCammelcase?
+    const alias = 'FacturaProducto'; // Antes era factura_producto
 
     const columnas = {
         id:  {
@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         descuento: {
             type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: true
         },
         cantidad: {
             type: DataTypes.INTEGER.UNSIGNED,

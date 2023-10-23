@@ -20,9 +20,10 @@ async function ready() {
 
     const productFetch = await fetch('/api/product/detail', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
     const info = await productFetch.json();
-    const product = info.data.detail
+    const productGroup = info.data.detailGroup
+    const productDetail = info.data.detail
 
-    product.image.forEach( (img, i) => {
+    productGroup.image.forEach( (img, i) => {
 
         productImage.innerHTML += `
                             <div class="carousel-item ${i == 0 ? 'active': ''}">
@@ -30,15 +31,29 @@ async function ready() {
                             </div>`;
     });
 
-    productName.innerHTML = product.nombre;
-    productPrice.innerHTML = `$${product.precio}`;
+    productName.innerHTML = productGroup.nombre;
+    productPrice.innerHTML = `$${productDetail.precio}`;
 
-    if(product.color.length != 0) {
+    console.log(productGroup);
+
+    if(productGroup.product.find(row => row['colores-fk'] != null)) {
 
         let colorOptions = '';
+        const colorList = [];
 
-        product.color.forEach( color => {
-            colorOptions += `<option value='${ color.id }'>${ color.nombre }</option>`;
+        productGroup.product.forEach(prod => {
+
+            if(prod['colores-fk'] && !colorList.find(color => color.id === prod.color.id)) {
+
+                colorList.push({
+                    id: prod.color.id,
+                    nombre: prod.color.nombre
+                })
+            };
+        });
+
+        colorList.forEach( color => {
+            colorOptions += `<option value='${ color.id }' ${productDetail['colores-fk'] == color.id ? 'selected': ''}>${ color.nombre }</option>`;
         });
 
         productPrice.insertAdjacentHTML('afterend', `
@@ -46,21 +61,35 @@ async function ready() {
                     <select class="form-select" name="color" id="color">${colorOptions}</select>`);
     };
 
-    if(product.size.length != 0) {
+    if(productGroup.product.find(row => row['medidas-fk'] != null)) {
 
         let sizeOptions = '';
+        const sizeList = [];
 
-        product.size.forEach( size => {
-            sizeOptions += `<option value='${ size.id }'>${ size.medida }</option>`;
+        productGroup.product.forEach(prod => {
+
+            if(prod['medidas-fk'] && !sizeList.find(size => size.id === prod.size.id)) {
+
+                sizeList.push({
+                    id: prod.size.id,
+                    medida: prod.size.medida
+                })
+            };
         });
+
+        sizeList.forEach( size => {
+            sizeOptions += `<option value='${ size.id }' ${productDetail['medidas-fk'] == size.id ? 'selected': ''}>${ size.medida }</option>`;
+        });
+
+        console.log(sizeList);
 
         productPrice.insertAdjacentHTML('afterend', `
                     <label for="size" class="text-muted productSize mt-2 mb-2">Medidas:</label>
                     <select class="form-select" name="size" id="size">${sizeOptions}</select>`);
     };
 
-    productDesc.innerHTML = `${product.detalle}`;
-    product.ingredientes ? productAccordionDescIng.innerHTML += `
+    productDesc.innerHTML = `${productGroup.detalle}`;
+    productGroup.ingredientes ? productAccordionDescIng.innerHTML += `
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
@@ -69,7 +98,7 @@ async function ready() {
             </h2>
 
             <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
-                <div class="accordion-body">${product.ingredientes}</div>
+                <div class="accordion-body">${productGroup.ingredientes}</div>
             </div>
         </div>` : '';
 
@@ -84,8 +113,8 @@ async function ready() {
                                 <a href="#"><img src="../../img/productos/${row.image[0].nombre}" class="img-fluid pb-3" alt=""></a>
                                 <h4 class="productNameH">${row.nombre}</h4>
                                 <p class="productSizeH">2 x 454g / 160oz</p>
-                                <h4 class="productPriceH">$${row.precio}</h4>
-                                <button class="btnc my-4 productCartBtn"><a class="link-detail-btn" href="/product/detail/${row.id}">Detalle</a></button>
+                                <h4 class="productPriceH">$${row.product[0].precio}</h4>
+                                <button class="btnc my-4 productCartBtn"><a class="link-detail-btn" href="/product/detail/${row.product[0].id}">Detalle</a></button>
 
                             </div>
                         </div>

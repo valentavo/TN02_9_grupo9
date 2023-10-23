@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        'productos-fk': {
+        'grupos-productos-fk': {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -40,9 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     const Imagen = sequelize.define(alias, columnas, config);
 
     Imagen.associate = (models) => {
-        Imagen.belongsTo(models.Producto , {
-            as: 'product',
-            foreignKey: 'productos-fk'
+        Imagen.belongsTo(models.GrupoProducto , {
+            as: 'productGroup',
+            foreignKey: 'grupos-productos-fk'
         })
     };
 

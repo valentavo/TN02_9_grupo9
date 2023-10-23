@@ -310,21 +310,29 @@ module.exports = {
         try {
 
             const productDetail = await db.Producto.findByPk(req.body.id, {
-                include: [
-                    {association: 'image'},
-                    {association: 'color'},
-                    {association: 'size'}
-                ]
+                include: [{association: 'productGroup'}]
             });
 
-            const relatedProducts = await db.Producto.findAll({
+            const prooductGroupDeatil = await db.GrupoProducto.findByPk( productDetail.productGroup.id, {
+                include: [
+                    {association: 'product',
+                        include: [
+                            {association: 'color'},
+                            {association: 'size'}
+                        ]
+                    },
+                    {association: 'image'}
+                ]
+            })
+
+            const relatedProducts = await db.GrupoProducto.findAll({
                 where: {
                     id: { 
-                        [Op.ne] : productDetail.id
+                        [Op.ne] : productDetail.productGroup.id
                     }
                 },
                 limit: 4,
-                include: [{association: 'image'}]
+                include: [{association: 'product'}, {association: 'image'}]
             });
 
             const resApi = {
@@ -333,6 +341,7 @@ module.exports = {
                     endpoint: `/api/product/detail`
                 },
                 data: {
+                    detailGroup: prooductGroupDeatil,
                     detail: productDetail,
                     related: relatedProducts
                 }

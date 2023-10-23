@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         total: {
-            type: DataTypes.DECIMAL(10,2).UNSIGNED,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false
         },
         envio: {
-            type: DataTypes.DECIMAL(10,2).UNSIGNED,
+            type: DataTypes.DECIMAL(10,2),
         },
         'metodo-pago': {
             type: DataTypes.STRING,
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     Factura.associate = (models) => {
         Factura.belongsToMany(models.Producto, {
             as: 'product',
-            through: 'factura_producto',
+            through: 'FacturaProducto',
             foreignKey: 'facturas-fk',
             otherKey: 'productos-fk',
         });

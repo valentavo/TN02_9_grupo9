@@ -23,19 +23,20 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         imagen: {
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: true
         },
         direccion: {
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: true
         },
         'fecha-nacimiento': {
             type: DataTypes.DATEONLY,
+            allowNull: true
         },
         telefono: {
             type: DataTypes.INTEGER.UNSIGNED,
-        },
-        logged: {
-            type: DataTypes.BOOLEAN,
+            allowNull: true
         },
         'roles-fk': {
             type: DataTypes.INTEGER.UNSIGNED,

@@ -9,12 +9,13 @@ module.exports = {
         try {
             
             //Buscando los primeros 6 productos
-            const recomendations = await db.Producto.findAll({
-                limit: 6,
-                include: [{association: 'image'}]
+            const recomendations = await db.GrupoProducto.findAll({
+                include: [{association: 'product', limit: 1}, {association: 'image'}],
+                limit: 6
             });
 
-            //Filtrando productos por mas ventas
+            /*(antes de grupos-productos en base de datos)
+            //Filtrando productos por mas ventas 
             const data = await db.sequelize.query("SELECT productos.id, nombre, precio, SUM(`facturas_productos`.cantidad) AS ventas FROM productos LEFT JOIN `facturas_productos` ON productos.id = `facturas_productos`.`productos-fk` GROUP BY nombre HAVING ventas > 0 ORDER BY ventas DESC LIMIT 6;", {type: QueryTypes.SELECT});
 
             //Almacenando ids de productos en orden
@@ -32,6 +33,7 @@ module.exports = {
 
             //Reorganizando productos con imagenes
             const orderedResults = idArray.map(id => bestSellers.find(row => row.id === id));
+            */
 
             //Estructura de la API
             const resApi = {
@@ -40,7 +42,7 @@ module.exports = {
                     length: recomendations.length,
                     endpoint: '/api'
                 },
-                data: { bestSellers: orderedResults, recomendations: recomendations}
+                data: { bestSellers: recomendations, recomendations: recomendations}
             };
 
             return res.json(resApi);

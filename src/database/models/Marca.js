@@ -37,8 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     const Marca = sequelize.define(alias, columnas, config);
 
     Marca.associate = (models) => {
-        Marca.hasMany(models.Producto, {
-            as: 'product',
+        Marca.hasMany(models.GrupoProducto, {
+            as: 'productGroup',
             foreignKey: 'marcas-fk'
         });
     }

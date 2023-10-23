@@ -9,15 +9,23 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             allowNull: false
         },
+        puntuacion:  {
+            type: DataTypes.SMALLINT.UNSIGNED,
+            allowNull: false
+        },
         comentario: {
             type: DataTypes.TEXT,
+            allowNull: true
+        },
+        visibilidad:  {
+            type: DataTypes.TINYINT.UNSIGNED,
             allowNull: false
         },
         'usuarios-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        'productos-fk':  {
+        'grupos-productos-fk':  {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -45,9 +53,9 @@ module.exports = (sequelize, DataTypes) => {
 
     Referencia.associate = (models) => {
 
-        Referencia.belongsTo(models.Producto, {
-            as: 'product',
-            foreignKey: 'productos-fk'
+        Referencia.belongsTo(models.GrupoProducto, {
+            as: 'productGroup',
+            foreignKey: 'grupos-productos-fk'
         });
 
         Referencia.belongsTo(models.Usuario, {

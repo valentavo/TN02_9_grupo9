@@ -37,8 +37,8 @@ module.exports = (sequelize, DataTypes) => { // el segundo parametro deberia ser
     const Categoria = sequelize.define(alias, columnas, config);
 
     Categoria.associate = (models) => {
-        Categoria.hasMany(models.Producto , {
-            as: 'product',
+        Categoria.hasMany(models.GrupoProducto , {
+            as: 'productGroup',
             foreignKey: 'categorias-fk'
         })
     };
