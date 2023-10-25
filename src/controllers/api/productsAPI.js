@@ -328,7 +328,7 @@ module.exports = {
             const relatedProducts = await db.GrupoProducto.findAll({
                 where: {
                     id: { 
-                        [Op.ne] : productDetail.productGroup.id
+                        [Op.ne] : prooductGroupDeatil.id
                     }
                 },
                 limit: 4,
