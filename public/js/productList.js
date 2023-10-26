@@ -19,14 +19,14 @@ let showProducts = function(arr){
 
     productsContainer.innerHTML = "";
 
-    arr.forEach( (product, k) => {
+    arr.forEach( (productGroup, k) => {
 
         return productsContainer.innerHTML += 
         `
         <div class="card col mb-4 col-lg-4 col-md-12 col-sm-12 col-12">
             <div id="carouselExampleFade-${k}" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner" id="img-product-carousel">
-                    ${product.image.reduce((acc, img, j) => {
+                    ${productGroup.image.reduce((acc, img, j) => {
                         return acc + `
                         <div class="carousel-item ${j == 0 ? 'active' : ''}">
                             <img src="../img/productos/${img.nombre}" class="d-block w-100" alt="...">
@@ -44,12 +44,12 @@ let showProducts = function(arr){
             </div>
 
             <div class="card-body">
-                <a href="/product/detail/${product.id}">
-                    <h4 class="productNameH mt-3">${product.nombre}</h4>
+                <a href="/product/detail/${productGroup.product[0].id}">
+                    <h4 class="productNameH mt-3">${productGroup.nombre}</h4>
                 </a>
                 <p class="productSizeH mt-2">2 x 454g / 160oz</p>
-                <h4 class="productPriceH">$${product.precio}</h4>
-                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href=" ${( userRol == "2" )? `/product/edit/${product.id}` : `/product/detail/${product.id}`}"> ${( userRol == "2" )? "Editar producto" : "Detalle"} </a>
+                <h4 class="productPriceH">$${productGroup.product[0].precio}</h4>
+                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href=" ${( userRol == "2" )? `/product/edit/${productGroup.product[0].id}` : `/product/detail/${productGroup.product[0].id}`}"> ${( userRol == "2" )? "Editar producto" : "Detalle"} </a>
             </div>
         </div>
         `
@@ -220,7 +220,7 @@ async function ready() {
     //Spinners
     document.querySelectorAll('.spinner').forEach(row => row.setAttribute('hidden', ''));
 
-    productsFiltered = products.data.products;
+    productsFiltered = products.data.products; // Replace with allProducts
     userRol = products.data.user || 1;
 
     showProducts(productsFiltered);

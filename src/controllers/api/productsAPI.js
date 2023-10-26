@@ -278,8 +278,8 @@ module.exports = {
     list: async (req, res) => {
 
         try {
-            const products = await db.Producto.findAll( {
-                include: [{association: 'image'}, {association: 'color'},{association: 'size'}]
+            const products = await db.GrupoProducto.findAll( {
+                include: [{association: 'image'}, {association: 'product', include: [{association: 'color'},{association: 'size'}]}]
             });
             const categories = await db.Categoria.findAll();
             const brands = await db.Marca.findAll();
