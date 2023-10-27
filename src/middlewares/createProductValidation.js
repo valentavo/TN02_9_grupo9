@@ -25,29 +25,29 @@ module.exports = [
         .isLength({min: 5})
         .withMessage('Selecciona un nombre para tu producto de al menos 5 caracteres'),
 
-    check('price')
-        .notEmpty()
-        .isNumeric({locale: 'en-US'})// Para espaniol con , para decimales es 'es-ES'
-        .withMessage('Selecciona el precio del producto'),
+    // check('price')
+    //     .notEmpty()
+    //     .isNumeric({locale: 'en-US'})// Para espaniol con , para decimales es 'es-ES'
+    //     .withMessage('Selecciona el precio del producto'),
 
     check('category')
         .notEmpty()
         .withMessage('Selecciona almenos una categoria para tu producto'),
 
-    check('size')
-        .optional({checkFalsy: true}),
+    // check('size')
+    //     .optional({checkFalsy: true}),
 
-    check('color')
-        .optional({checkFalsy: true}),
+    // check('color')
+    //     .optional({checkFalsy: true}),
 
     check('brand')
         .notEmpty()
         .withMessage('Selecciona una marca para tu producto'),
 
-    check('stock')
-        .notEmpty()
-        .isNumeric({'no_symbols': true})
-        .withMessage('Selecciona la cantidad disponible de este producto'),
+    // check('stock')
+    //     .notEmpty()
+    //     .isNumeric({'no_symbols': true})
+    //     .withMessage('Selecciona la cantidad disponible de este producto'),
 
     check('desc')
         .notEmpty()

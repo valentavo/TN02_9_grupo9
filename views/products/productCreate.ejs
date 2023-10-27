@@ -13,91 +13,97 @@
 
 <!-- MAIN --> 
     <section class="productCreate">
-        <div class="container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5">
-        
-            <div class="row">
-                <h3 class="productName my-2 mb-4">CREAR PRODUCTO</h3>
+        <div class="mb-5 mx-3">
 
-                <div class=" col-12 col-lg-4">
-
-                    <div class="form-group my-4" id="imagenes">
-                        <label class="mb-4 imageTitulo" for="clickFileImg">Seleccionar imágenes</label>
-                        <input class="form-control mt-2" type="file" name="productImg" id="product-img" accept="image/*" multiple>
-                        <div class="invalid-feedback">Las extensiones válidas son .jpg .img .png .jepg .gif</div>
-                    </div>
+            <div id="versions-container">
+                <article class="product-variant container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5" id="main-article">
                 
-                </div>
+                    <div class="row">
 
-                <div class="col-12 col-lg-8 ">
+                        <h3 class="productName my-2 mb-4">CREAR PRODUCTO</h3>
 
-                    <div class="form-group productLabel my-4">
-                        <label class="mb-2" for="title">Nombre del producto</label>
-                        <input class="form-control" type="text" name="name" id="product-title">
-                        <div class="invalid-feedback">Selecciona un nombre para tu producto de al menos 5 caracteres</div>
-                    </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                        
+                            <div class=" col-12 col-lg-4">
+                                <div class="d-flex flex-column justify-content-center align-items-center form-group m-auto my-4 w-100" id="imagenes">
+                                    <label class="mb-4 imageTitulo" for="productImg">Seleccionar imágenes</label>
+                                    <input class="form-control mt-2" type="file" name="productImg" id="product-img" accept="image/*" multiple>
+                                    <div class="invalid-feedback w-100 justify-content-center" id="image-invalid-text">Las extensiones válidas son .jpg .img .png .jepg .gif</div>
+                                </div>
+                            </div>
 
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="price">Precio del producto</label>
-                        <input class="form-control " type="number" name="amount" id="product-price">
-                        <div class="invalid-feedback">Selecciona el precio del producto</div>
-                    </div>
+                            <div class="col-12 col-lg-8 pb-5 mt-5">
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-title">Nombre del producto</label>
+                                    <input class="form-control w-100" type="text" name="name" id="product-title">
+                                    <div class="invalid-feedback">Selecciona un nombre para tu producto de al menos 5 caracteres</div>
+                                </div>
 
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="labels">Categorias</label>
-                        <select class="form-control" name="category" id="product-label"></select>
-                        <div class="invalid-feedback">Selecciona almenos una categoría para tu producto</div>
-                    </div>
-                
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2 d-block" for="meassures">Tamaño del producto</label>
-                        <select class="form-control my-2 mb-4" name="size" id="product-size">
-                            <option value="0" id="empty-size"></option>
-                        </select>
-                    </div>
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-price">Precio del producto</label>
+                                    <input class="form-control w-100" type="number" name="amount" id="product-price">
+                                    <div class="invalid-feedback">Selecciona el precio del producto</div>
+                                </div>
 
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2 d-block" for="colors">Color</label>
-                        <select class="form-control my-2 mb-4" name="color" id="product-color">
-                            <option value="0" id="empty-color"></option>
-                        </select>
-                    </div>
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-label">Categorias</label>
+                                    <select class="form-control w-100" name="category" id="product-label"></select>
+                                    <div class="invalid-feedback">Selecciona almenos una categoría para tu producto</div>
+                                </div>
+                            
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-size">Tamaño del producto</label>
+                                    <select class="form-control w-100" name="size" id="product-size">
+                                        <option value="0" id="empty-size">Unidad (Por Defecto)</option>
+                                    </select>
+                                </div>
 
-                    <div class="form-group productLabel my-2">
-                        <label class="mb-2" for="brands">Marca</label>
-                        <select class="form-control" name="brand" id="product-brand"></select>
-                        <div class="invalid-feedback">Selecciona una marca para tu producto</div>
-                    </div>
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-color">Color</label>
+                                    <select class="form-control w-100" name="color" id="product-color">
+                                        <option value="0" id="empty-color"></option>
+                                    </select>
+                                </div>
+
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-brand">Marca</label>
+                                    <select class="form-control w-100" name="brand" id="product-brand"></select>
+                                    <div class="invalid-feedback">Selecciona una marca para tu producto</div>
+                                </div>
 
 
-                    <div class="form-group productLabel my-2">
-                        <label class=" mb-2" for="stock">Stock disponible:</label>
-                        <input class="form-control" type="number" name="stock" id="product-stock">
-                        <div class="invalid-feedback">Selecciona la cantidad disponible de este producto</div>
-                    </div>
+                                <div class="d-inline-block w-100 form-group productLabel my-2">
+                                    <label class="mb-2" for="product-stock">Stock disponible:</label>
+                                    <input class="form-control w-100" type="number" name="stock" id="product-stock">
+                                    <div class="invalid-feedback">Selecciona la cantidad disponible de este producto</div>
+                                </div>
 
-                    <div class="col-md-12 productLabel my-2">
-                        <div class="form-group">
-                            <label class=" mb-2" for="detail">Descripción</label>
-                            <textarea class="form-control" rows="4" name="desc" id="product-detail"></textarea>
-                            <div class="invalid-feedback">Agrega una descripción a tu producto de al menos 20 caracteres</div>
+                                <div class="d-inline-block w-100 form-group col-md-12 productLabel my-2">
+                                    <label class=" mb-2" for="product-detail">Descripción</label>
+                                    <textarea class="form-control w-100" rows="4" name="desc" id="product-detail"></textarea>
+                                    <div class="invalid-feedback">Agrega una descripción a tu producto de al menos 20 caracteres</div>
+                                </div>
+
+                                <div class="d-inline-block w-100 form-group col-md-12 productLabel my-2">
+                                    <label class=" mb-2" for="product-ingredients">Ingredientes</label>
+                                    <textarea class="form-control w-100" rows="4" name="ingredients" id="product-ingredients"></textarea>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
 
-                    <div class="col-md-12 productLabel my-2">
-                        <div class="form-group">
-                            <label class=" mb-2" for="product-ingredients">Ingredientes</label>
-                            <textarea class="form-control" rows="4" name="ingredients" id="product-ingredients"></textarea>
-                        </div>
-                    </div>
-
-                    <div class=" my-4">
-                        <button class="btn productCreateBtn me-4 h-auto py-3" id="create-product">Crear</button>
-                        <a href="/product/list" class="btn productCreateBtn me-4 h-auto py-3" >Cancelar</a>
-                    </div>
-
-                </div>
+                </article>
             </div>
 
+            <div class="container px-3 mt-4 mb-3 bg-transparent">
+                <button class="btn productCreateBtn h-auto px-4 py-2 ms-5" id="variant-product">Agregar Variante</button>
+            </div>
+
+            <div class="d-flex justify-content-center px-3 pb-5 mb-5 mt-3 bg-transparent">
+                <button class="btn productCreateBtn me-4 h-auto py-3 px-4" id="create-product">Crear</button>
+            </div>
         </div>
     </section>
 
@@ -111,4 +117,3 @@
 <%- include('../partials/footer.ejs') %>
 
 <!-- FOOTER--> 
-

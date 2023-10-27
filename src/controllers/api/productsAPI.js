@@ -387,7 +387,7 @@ module.exports = {
         const t = await sequelize.transaction();
 
         try {
-
+            
             const validation = validationResult(req);
 
             if(!validation.isEmpty()) {
@@ -402,34 +402,22 @@ module.exports = {
 
             const body = req.body;
 
-            const newProduct = await db.Producto.create({
+            const newProduct = await db.GrupoProducto.create({
                 nombre: body.name,
-                precio: body.price,
                 detalle: body.desc,
                 ingredientes: body.ingredients || null,
-                cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.category,
                 image:  req.files.map( img => {
                     return {nombre: img.filename}
-                })
+                }),
+                product: JSON.parse(body.variantProducts)
             }, {
                 transaction: t,
-                include: [{
-                    association: 'image',
-                }]
-            });
-            
-            const Product = await db.Producto.findByPk(newProduct.id, {
-                transaction: t
-            });
-
-            //relacionando producto con tablas pivot
-            await Product.addColor(JSON.parse(body.color), {
-                transaction: t
-            });
-            await Product.addSize(JSON.parse(body.size), {
-                transaction: t
+                include: [
+                    {association: 'image'}, 
+                    {association: 'product'}
+                ]
             });
             
             await t.commit();
