@@ -91,11 +91,32 @@ const removeVariant = async (id) => {
         });
 
         if(warningAlert.isConfirmed){
-            console.log('Hay que completar esta parte y redirigir');
-            Swal.fire({
-                title: 'Producto Eliminado!',
-                icon: 'success'
-            });
+
+            const data = {
+                id: globalFeatures.productGroup.id
+            };
+
+            const userFetch = await fetch('/api/product/edit/delete', {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+            const user = await userFetch.json();
+
+            if(user.meta.success) {
+
+                await Swal.fire({
+                    title: 'Producto eliminado',
+                    // text: 'Accede a la lista de productos eliminados para ver mas detalles',
+                    icon: 'success'
+                });
+
+                window.location.href = '/';
+            }
+            else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Ups!',
+                    text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
+                    showConfirmButton: true
+                });
+            };
         };
     };
 };

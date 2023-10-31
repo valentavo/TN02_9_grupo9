@@ -13,7 +13,6 @@ function ready() {
     const colorsProduct = document.querySelector('#colors');
     const imgProduct = document.querySelector('#img');
     const buttonEdit = document.querySelector('#btn-edit');
-    const buttonDelete = document.querySelector('#btn-delete');
     const imageInvalidText = document.querySelector('#image-invalid-text');
     const productId = document.querySelector('#product-id-storage');
 
@@ -206,52 +205,4 @@ function ready() {
             };
         };
     });
-
-    //Delet entire product
-    // buttonDelete.addEventListener('click', async () => {
-        
-    //     const confirmation = await Swal.fire({
-    //         icon: 'warning',
-    //         title: '¿Estás seguro?',
-    //         text: 'Tu producto sera borrado',
-    //         showCancelButton: true,
-    //         showConfirmButton: true,
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonColor: '#3085d6',
-    //         confirmButtonText: 'Eliminar producto',
-    //         showClass: {
-    //             popup: 'animate__animated animate__bounceIn',
-    //         }
-    //     });
-
-    //     if (confirmation.isConfirmed) {
-
-    //         const data = {
-    //             id: productId.innerHTML
-    //         };
-
-    //         const userFetch = await fetch('/api/product/edit/delete', {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
-    //         const user = await userFetch.json();
-
-    //         if(user.meta.success) {
-
-    //             await Swal.fire({
-    //                 title: 'Producto eliminado',
-    //                 // text: 'Accede a la lista de productos eliminados para ver mas detalles',
-    //                 icon: 'success',
-    //                 showConfirmButton: true,
-    //             });
-
-    //             window.location.href = '/';
-    //         }
-    //         else {
-    //             await Swal.fire({
-    //                 icon: 'error',
-    //                 title: 'Ups!',
-    //                 text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
-    //                 showConfirmButton: true
-    //             });
-    //         };
-    //     };
-    // });
 };

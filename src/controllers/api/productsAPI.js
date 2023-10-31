@@ -572,7 +572,7 @@ module.exports = {
         
         try {
 
-            await db.Producto.destroy({
+            await db.GrupoProducto.destroy({
                 where: {
                     id: req.body.id
                 },
