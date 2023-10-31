@@ -9,24 +9,20 @@ function ready() {
     const ingredientsProduct = document.querySelector('#ingredients');
     const labelsProduct = document.querySelector('#labels');
     const brandsProduct = document.querySelector('#brands');
+    const sizeProduct = document.querySelector('#meassures');
+    const colorsProduct = document.querySelector('#colors');
     const imgProduct = document.querySelector('#img');
     const buttonEdit = document.querySelector('#btn-edit');
     const buttonDelete = document.querySelector('#btn-delete');
+    const imageInvalidText = document.querySelector('#image-invalid-text');
     const productId = document.querySelector('#product-id-storage');
 
     const extAllowed = ['.png', '.jpeg', '.jpg', '.img', '.gif'];
-    const elements = [nameProduct, priceProduct, stockProduct, descProduct, labelsProduct, brandsProduct, imgProduct];
-
-    elements.forEach( row => {
-        row.addEventListener('blur', () => {
-            row.classList.remove('is-invalid');
-        });
-    });
+    const elements = [nameProduct, priceProduct, stockProduct, descProduct, labelsProduct, brandsProduct, sizeProduct, imgProduct];
 
     buttonEdit.addEventListener('click', async () => {
 
-        //Validations
-
+        //Generic Validations
         if(nameProduct.value.length < 5) {
             nameProduct.classList.add('is-invalid');
         };
@@ -43,6 +39,10 @@ function ready() {
             descProduct.classList.add('is-invalid');
         };
 
+        if(sizeProduct.value.length == 0) {
+            sizeProduct.classList.add('is-invalid');
+        };
+
         if(labelsProduct.value.length == 0) {
             labelsProduct.classList.add('is-invalid');
         };
@@ -51,6 +51,7 @@ function ready() {
             brandsProduct.classList.add('is-invalid');
         };
 
+        //Imagenes Validation
         const imgFiles =[]; 
 
         if(imgProduct.files.length != 0) {
@@ -61,115 +62,196 @@ function ready() {
 
                 if(!extAllowed.find( ext => imgProduct.files[row].name.includes(ext))){
                     imgProduct.classList.add('is-invalid');
+                    imageInvalidText.classList.add('d-flex');
                 };
             })
         };
 
-        const errors = elements.filter(input => input.classList.contains('is-invalid'));
+        //Seting info
+        const fullVariants = document.querySelectorAll('.product-variant');
+        let multipleCombination = false;
 
-        if(errors.length == 0) {
+        const variantCombinations = [{
+            precio: +priceProduct.value,
+            cantidad: +stockProduct.value,
+            'colores-fk': +colorsProduct.value,
+            'medidas-fk': +sizeProduct.value,
+            'grupos-productos-fk': +productId.innerHTML
+        }];
 
-            const colorCheck = document.querySelectorAll('[name="colores"]');
-            const sizeCheck = document.querySelectorAll('[name="medidas"]');
+        //Variant Validations
+        if(fullVariants.length > 1) {
 
-            const color = [];
-            const medida = [];
+            //Filtering a node list
+            const addedVariants = [];
+            fullVariants.forEach(variant => variant != fullVariants.item(0) && addedVariants.push(variant));
 
-            for (let x of colorCheck.values()) {
-                color.push(+x.value) // converting the strings to numbers
-            };
-            for (let x of sizeCheck.values()) {
-                medida.push(+x.value)
-            };
+            addedVariants.forEach((_, i) => {
+                const sizeVariant = document.querySelector(`#product-size-variant-${i + 1}`);
+                const colorVariant = document.querySelector(`#product-color-variant-${i + 1}`);
+                const stockVariant = document.querySelector(`#product-stock-variant-${i + 1}`);
+                const priceVariant = document.querySelector(`#product-price-variant-${i + 1}`);
 
-            const formData = new FormData();
+                //Blur event for removing edited invalid fields on Variant Products
+                elements.push(sizeVariant, stockVariant, priceVariant);
 
-            formData.append('id', productId.innerHTML);
-            formData.append('name', nameProduct.value);
-            formData.append('price', priceProduct.value);
-            formData.append('desc', descProduct.value);
-            formData.append('ingredients', ingredientsProduct.value);
-            formData.append('stock', stockProduct.value);
-            formData.append('brand', brandsProduct.value);
-            formData.append('category', labelsProduct.value);
-            formData.append('color', JSON.stringify(color));
-            formData.append('size', JSON.stringify(medida));
+                if(priceVariant.value < 1) {
+                    priceVariant.classList.add('is-invalid');
+                };
 
-            imgFiles.forEach( img => {
+                if(sizeVariant.value.length == 0) {
+                    sizeVariant.classList.add('is-invalid');
+                };
 
-                formData.append('productImg', img);
+                if(stockVariant.value < 1) {
+                    stockVariant.classList.add('is-invalid');
+                };
+
+                //Saving variant combination
+                variantCombinations.push({
+                    precio: +priceVariant.value,
+                    cantidad: +stockVariant.value,
+                    'medidas-fk': +sizeVariant.value,
+                    'colores-fk': +colorVariant.value,
+                    'grupos-productos-fk': +productId.innerHTML
+                });
+
             });
 
-            const productFetch = await fetch('/api/product/edit', {method: 'PUT', body: formData});
-            const resFetch = await productFetch.json();
+            //Verifying there are no repeated variants
+            variantCombinations.forEach(async (variant, i, arr) => {
 
-            console.log(resFetch);
+                if(!multipleCombination) {
+                    for(let y = i+1; y < arr.length; y++) {
+                        if (arr[y]['colores-fk'] == variant['colores-fk'] && arr[y]['medidas-fk'] == variant['medidas-fk']) multipleCombination = true
+                    };
+                } else {
 
-             if(resFetch.meta.success) {
-                await Swal.fire({
-                    icon: 'success',
-                    title: 'Edición completa',
-                    text: 'Tu producto ha sido editado con éxito',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-                window.location.href = `/product/detail/${productId.innerHTML}`;
-            }
-            else {
-                await Swal.fire({
-                    icon: 'error',
-                    title: 'Ups!',
-                    text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
-                    showConfirmButton: true
-                });
-            };
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Variantes Repetidas',
+                        text: 'Revisa que tus variantes sean únicas',
+                        showConfirmButton: true
+                    });
+                };
+                
+            });
         };
-    });
 
-    buttonDelete.addEventListener('click', async () => {
-        
-        const confirmation = await Swal.fire({
-            icon: 'warning',
-            title: '¿Estás seguro?',
-            text: 'Tu producto sera borrado',
-            showCancelButton: true,
-            showConfirmButton: true,
-            cancelButtonColor: '#d33',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Eliminar producto',
-            showClass: {
-                popup: 'animate__animated animate__bounceIn',
-            }
+        //Blur event for removing edited invalid fields
+        elements.forEach( row => {
+            row.addEventListener('blur', () => {
+                row.classList.remove('is-invalid');
+                if(row == imgProduct) imageInvalidText.classList.remove('d-flex');
+            });
         });
 
-        if (confirmation.isConfirmed) {
+        const errors = elements.filter(input => input.classList.contains('is-invalid'));
 
-            const data = {
-                id: productId.innerHTML
-            };
+        if(errors.length == 0 && !multipleCombination) {
 
-            const userFetch = await fetch('/api/product/edit/delete', {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
-            const user = await userFetch.json();
+            const warningAlert = await Swal.fire({
+                icon: 'warning',
+                title: '¿Seguro?',
+                text: 'Se modificarán los valores de este producto',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Continuar',
+                cancelButtonText: 'Cancelar'
+            });
 
-            if(user.meta.success) {
+            if (warningAlert.isConfirmed) {
 
-                await Swal.fire({
-                    title: 'Producto eliminado',
-                    // text: 'Accede a la lista de productos eliminados para ver mas detalles',
-                    icon: 'success',
-                    showConfirmButton: true,
+                const formData = new FormData();
+
+                //Generic Data Form
+                formData.append('groupId', +productId.innerHTML);
+                formData.append('name', nameProduct.value);
+                formData.append('desc', descProduct.value);
+                formData.append('ingredients', ingredientsProduct.value);
+                formData.append('brand', +brandsProduct.value);
+                formData.append('category', +labelsProduct.value);
+
+                formData.append('variantProducts', JSON.stringify(variantCombinations));
+                //Image Data Form
+                imgFiles.forEach( img => {
+
+                    formData.append('productImg', img);
                 });
 
-                window.location.href = '/';
-            }
-            else {
-                await Swal.fire({
-                    icon: 'error',
-                    title: 'Ups!',
-                    text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
-                    showConfirmButton: true
-                });
+                //Fetch
+                const productFetch = await fetch('/api/product/edit', {method: 'PUT', body: formData});
+                const resFetch = await productFetch.json();
+
+                //Response
+                if(resFetch.meta.success) {
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Edición completa',
+                        text: 'Tu producto ha sido editado con éxito',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    window.location.href = `/product/detail/${resFetch.data.firstProductId}`;
+                }
+                else {
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Ups!',
+                        text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
+                        showConfirmButton: true
+                    });
+                };
             };
         };
     });
+
+    //Delet entire product
+    // buttonDelete.addEventListener('click', async () => {
+        
+    //     const confirmation = await Swal.fire({
+    //         icon: 'warning',
+    //         title: '¿Estás seguro?',
+    //         text: 'Tu producto sera borrado',
+    //         showCancelButton: true,
+    //         showConfirmButton: true,
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonColor: '#3085d6',
+    //         confirmButtonText: 'Eliminar producto',
+    //         showClass: {
+    //             popup: 'animate__animated animate__bounceIn',
+    //         }
+    //     });
+
+    //     if (confirmation.isConfirmed) {
+
+    //         const data = {
+    //             id: productId.innerHTML
+    //         };
+
+    //         const userFetch = await fetch('/api/product/edit/delete', {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+    //         const user = await userFetch.json();
+
+    //         if(user.meta.success) {
+
+    //             await Swal.fire({
+    //                 title: 'Producto eliminado',
+    //                 // text: 'Accede a la lista de productos eliminados para ver mas detalles',
+    //                 icon: 'success',
+    //                 showConfirmButton: true,
+    //             });
+
+    //             window.location.href = '/';
+    //         }
+    //         else {
+    //             await Swal.fire({
+    //                 icon: 'error',
+    //                 title: 'Ups!',
+    //                 text: 'Parece que algo salió mal, porfavor vuelve a intentarlo más tarde',
+    //                 showConfirmButton: true
+    //             });
+    //         };
+    //     };
+    // });
 };

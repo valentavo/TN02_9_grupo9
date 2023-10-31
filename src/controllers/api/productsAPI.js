@@ -387,7 +387,7 @@ module.exports = {
         const t = await sequelize.transaction();
 
         try {
-            
+
             const validation = validationResult(req);
 
             if(!validation.isEmpty()) {
@@ -447,13 +447,13 @@ module.exports = {
             const medidas = await db.Medida.findAll();
             const categorias = await db.Categoria.findAll();
 
-            const currentProduct = await db.Producto.findByPk(req.body.id, {
+            const currentProduct = await db.GrupoProducto.findByPk(req.body.id, {
                 include: [
                     {association: 'image'},
-                    {association: 'color'},
-                    {association: 'size'},
-                    {association: 'category'},
-                    {association: 'brand'}
+                    {association: 'product', include:[
+                        {association: 'color'},
+                        {association: 'size'}
+                    ]}
                 ]
             });
 
@@ -463,7 +463,7 @@ module.exports = {
                     endpoint: `/api/product/edit`
                 },
                 data: {
-                    product: currentProduct,
+                    productGroup: currentProduct,
                     colors: colores,
                     brands: marcas,
                     meassures: medidas,
@@ -498,38 +498,47 @@ module.exports = {
 
             const body = req.body;
         
-            await db.Producto.update({
+            await db.GrupoProducto.update({
                 nombre: body.name,
-                precio: body.price,
                 detalle: body.desc,
                 ingredientes: body.ingredients || null,
-                cantidad: body.stock,
                 'marcas-fk': body.brand,
                 'categorias-fk': body.category
             }, {
                 where: {
-                    id: body.id
+                    id: body.groupId
                 },
                 transaction: t
             });
 
-            const Product = await db.Producto.findByPk(body.id, {
+            const ProductGroup = await db.GrupoProducto.findByPk(body.groupId, {
                 transaction: t
             });
 
-            if(req.files.length != 0) {
+            await db.Producto.destroy({
+                where: {
+                    'grupos-productos-fk': ProductGroup.id
+                },
+                transaction: t
+            });
 
-                const prevImages = await Product.getImage();
+            const newProducts = await db.Producto.bulkCreate(JSON.parse(body.variantProducts), {
+                transaction: t
+            });
+
+            if(req.files && req.files.length != 0) {
+
+                const prevImages = await ProductGroup.getImage();
 
                 await db.Imagen.bulkCreate(req.files.map( img => {
-                    return {nombre: img.filename, 'productos-fk': Product.id}
+                    return {nombre: img.filename, 'grupos-productos-fk': ProductGroup.id}
                 }), {
                     transaction: t
                 });
 
                 await db.Imagen.destroy({
                     where: {
-                        'productos-fk': Product.id,
+                        'grupos-productos-fk': ProductGroup.id,
                         id: {
                             [Op.lte]: prevImages[prevImages.length -1].id
                         }
@@ -538,19 +547,15 @@ module.exports = {
                 });
             };
 
-            await Product.setColor(JSON.parse(body.color), {
-                transaction: t
-            });
-            await Product.setSize(JSON.parse(body.size), {
-                transaction: t
-            });
-
             await t.commit();
 
             const resApi = {
                 meta: {
                     success: true,
                     endpoint: `/api/product/edit`
+                },
+                data: {
+                    firstProductId: newProducts[0].id
                 }
             };
 
@@ -588,8 +593,6 @@ module.exports = {
         } catch (error) {
             console.log(error);
             await t.rollback();
-        };
-        
+        };   
     }
-
 };

@@ -14,6 +14,6 @@ router.get('/list', productsController.list);
 router.get('/adminlist', authMiddleware, adminUserAccess, productsController.adminList);
 router.get('/detail/:productId', productsController.detail);
 router.get('/create', authMiddleware,  adminUserAccess, productsController.create);
-router.get('/edit/:productId', authMiddleware, adminUserAccess, productsController.edit);
+router.get('/edit/:productGroupId-:productId', authMiddleware, adminUserAccess, productsController.edit);
 
 module.exports = router;

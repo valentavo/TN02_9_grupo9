@@ -1,5 +1,5 @@
 <!-- HEAD-->   
-    <%- include('../partials/head.ejs', {title: 'Editar Producto', logo: ".././img/partials/maranatha_logo.png"}) %>
+    <%- include('../partials/head.ejs', {title: 'Editar Producto', logo: "../../../img/partials/maranatha_logo.png"}) %>
     <!-- Link general css file --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <link rel="stylesheet" href="/css/partials/stylePartials.css">
@@ -12,90 +12,115 @@
 <!-- HEADER--> 
 
 <!-- MAIN --> 
-<section class="productEdit ">
-    <div class="container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5">
-        <div class="row">
-            <div class="col-lg-7">
-                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner" id="image-container">
-                    
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
+<section class="productEdit">
+    <div class="mb-5 mx-3">
+
+        <div id="versions-container">
+            <article class="product-variant container bg-white shadow rounded-lg px-3 mt-5 py-4 mb-5" id="main-article">
+
+                <div class="position-relative">
+                    <button type="button" class="btn btn-outline-danger position-absolute top-0 end-0" onclick="removeVariant('main-article')">Eliminar Producto + Variantes</button>
                 </div>
 
-            </div>
-            <div class="col-12 col-lg-5">
-                <h3 class="productName my-2 mb-4" id="product-edit-title">EDITAR PRODUCTO</h3>
+                <div class="row">
+
+                    <h3 class="productName my-2 mb-4" id="product-edit-title">EDITAR PRODUCTO</h3>
+
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+
+                        <div class="col-lg-7">
+                            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                                <div class="carousel-inner" id="image-container">
+                                
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-4">
+                            <div class="d-flex flex-column justify-content-center align-items-center form-group m-auto my-4 w-100">
+                                <label class="mb-4 imageTitulo" for="img">Seleccionar imágenes</label>
+                                <input class="form-control mt-2" type="file" name="img" id="img" accept="image/*" multiple>
+                                <div class="invalid-feedback w-100 justify-content-center" id="image-invalid-text">Las extensiones válidas son .jpg .img .png .jepg .gif</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-8 pb-5 mt-5">
+                        
+                            <div class="form-group productLabel my-2" id="title-container">
+                                <label class="mb-2">Nombre del producto</label>
+                            </div>
+
+                            <div class="form-group productLabel my-2" id="price-container">
+                                <label class="mb-2">Precio del producto</label>
+                            </div>
+
+                            <div class="form-group productLabel my-2">
+                                <label class="mb-2" for="labels">Categorías</label>
+                                <select class="form-control" name="categoria" id="labels"></select>
+                                <div class="invalid-feedback">Selecciona almenos una categoria para tu producto</div>
+                            </div>
+
+                            <div class="form-group productLabel my-2">
+                                <label class="mb-2" for="meassures">Tamaño del producto</label>
+                                <select class="form-control my-2 mb-4" name="medida" id="meassures">
+                                    <option value="0" id="empty-size"></option>
+                                </select>
+                            </div>
+
+                            <div class="form-group productLabel my-2">
+                                <label class="mb-2" for="colors">Color</label>
+                                <select class="form-control my-2 mb-4" name="color" id="colors">
+                                    <option value="0" id="empty-color"></option>
+                                </select>
+                            </div>
+
+                            <div class="form-group productLabel my-2">
+                                <label class="mb-2" for="brands">Marca</label>
+                                <select class="form-control" name="brand" id="brands"></select>
+                                <div class="invalid-feedback">Selecciona una marca para tu producto</div>
+                            </div>
                 
-                <div class="form-group productLabel my-2" id="title-container">
-                    <label class="mb-2">Nombre del producto</label>
-                </div>
 
-                <div class="form-group productLabel my-2">
-                    <label class="mb-2">Imágen del producto</label>
-                    <input type="file" class="form-control" name="img" id="img" accept="image/*" multiple>
-                    <div class="invalid-feedback">Las extensiones validas son .jpg .img .png .jepg .gif</div>
-                </div>
+                            <div class="form-group productLabel my-2" id="stock-container">
+                                <label class=" mb-2">Stock disponible:</label>
+                            </div>
 
-                <div class="form-group productLabel my-2" id="price-container">
-                    <label class="mb-2">Precio del producto</label>
-                </div>
+                            <div class="col-md-12 productLabel my-2">
+                                <div class="form-group" id="detail-container">
+                                    <label class="mb-2">Descripción</label>
+                                </div>
+                            </div>
 
-                <div class="form-group productLabel my-2">
-                    <label class="mb-2" for="labels">Categorías</label>
-                    <select class="form-control" name="categoria" id="labels"></select>
-                    <div class="invalid-feedback">Selecciona almenos una categoria para tu producto</div>
-                </div>
+                            <div class="col-md-12 productLabel my-2">
+                                <div class="form-group" id="ingredients-container">
+                                    <label class=" mb-2">Ingredientes</label>
+                                </div>
+                            </div>
 
-                <div class="form-group productLabel my-2">
-                    <label class="mb-2" for="meassures">Tamaño del producto</label>
-                    <select class="form-control my-2 mb-4" name="medida" id="meassures">
-                        <option value="0" id="empty-size"></option>
-                    </select>
-                </div>
-
-                <div class="form-group productLabel my-2">
-                    <label class="mb-2" for="colors">Color</label>
-                    <select class="form-control my-2 mb-4" name="color" id="colors">
-                        <option value="0" id="empty-color"></option>
-                    </select>
-                </div>
-
-                <div class="form-group productLabel my-2">
-                    <label class="mb-2" for="brands">Marca</label>
-                    <select class="form-control" name="brand" id="brands"></select>
-                    <div class="invalid-feedback">Selecciona una marca para tu producto</div>
-                </div>
-    
-
-                <div class="form-group productLabel my-2" id="stock-container">
-                    <label class=" mb-2">Stock disponible:</label>
-                </div>
-
-                <div class="col-md-12 productLabel my-2">
-                    <div class="form-group" id="detail-container">
-                        <label class=" mb-2">Descripción</label>
+                            <!-- <div class="my-4">
+                                <button class="btn productEditBtn" id="btn-delete">Eliminar producto</button>
+                            </div> -->
+                        </div>
+                        
                     </div>
                 </div>
+            </article>
+        </div>
 
-                <div class="col-md-12 productLabel my-2">
-                    <div class="form-group" id="ingredients-container">
-                        <label class=" mb-2">Ingredientes</label>
-                    </div>
-                </div>
+        <div class="container px-3 mt-4 mb-3 bg-transparent">
+            <button class="btn productEditBtn h-auto px-4 py-2 ms-5" id="variant-product">Agregar Variante</button>
+        </div>
 
-                <div class=" my-4">
-                    <button class="btn productEditBtn me-2" id="btn-edit">Guardar cambios</button>
-                    <button class="btn productEditBtn" id="btn-delete">Eliminar producto</button>
-                </div>
-            </div>
+        <div class="d-flex justify-content-center px-3 pb-5 mb-5 mt-3 bg-transparent">
+            <button class="btn productEditBtn me-4 h-auto py-3 px-4" id="btn-edit">Guardar cambios</button>
         </div>
     </div>
 </section>

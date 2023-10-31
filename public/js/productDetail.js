@@ -83,8 +83,6 @@ async function ready() {
     productName.innerHTML = productGroup.nombre;
     productPrice.innerHTML = `$${productDetail.precio}`;
 
-    console.log(productGroup);
-
     /*
     //Cases
 

@@ -73,6 +73,7 @@ function ready () {
             imageInvalidText.classList.add('d-flex');
         };
 
+        //Seting info
         const fullVariants = document.querySelectorAll('.product-variant');
         let multipleCombination = false;
 
@@ -85,7 +86,6 @@ function ready () {
 
         //Variant Validations
         if(fullVariants.length > 1) {
-            // console.log('TENEMOS VARIANTES');
 
             //Filtering a node list
             const addedVariants = [];
@@ -120,10 +120,9 @@ function ready () {
                     'colores-fk': +colorVariant.value
                 });
 
-
             });
 
-            //Verifying there is no repeated variants
+            //Verifying there are no repeated variants
             variantCombinations.forEach(async (variant, i, arr) => {
 
                 if(!multipleCombination) {
