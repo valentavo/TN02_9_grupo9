@@ -309,11 +309,7 @@ module.exports = {
 
         try {
 
-            const productDetail = await db.Producto.findByPk(req.body.id, {
-                include: [{association: 'productGroup'}]
-            });
-
-            const prooductGroupDeatil = await db.GrupoProducto.findByPk( productDetail.productGroup.id, {
+            const prooductGroupDeatil = await db.GrupoProducto.findByPk( req.body.productGroupId, {
                 include: [
                     {association: 'product',
                         include: [
@@ -342,7 +338,7 @@ module.exports = {
                 },
                 data: {
                     detailGroup: prooductGroupDeatil,
-                    detail: productDetail,
+                    detail: prooductGroupDeatil.product.find(prod => prod.id == req.body.productId),
                     related: relatedProducts
                 }
             };

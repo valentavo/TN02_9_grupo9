@@ -39,12 +39,12 @@ async function ready() {
                 </button>
             </div>
             <div class="card-body">
-                <a href="/product/detail/${product.product[0].id}">
+                <a href="/product/detail/${product.id}-${product.product[0].id}">
                     <h4 class="productNameH mt-3">${product.nombre}</h4>
                 </a>
                 <p class="productSizeH mt-2">2 x 454g / 160oz</p>
                 <h4 class="productPriceH">$${product.product[0].precio}</h4>
-                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href="/product/detail/${product.id}"> Detalle </a>
+                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href="/product/detail/${product.id}-${product.product[0].id}"> Detalle </a>
             </div>
         </div>
         
@@ -75,12 +75,12 @@ async function ready() {
                 </button>
             </div>
             <div class="card-body">
-                <a href="/product/detail/${product.product[0].id}">
+                <a href="/product/detail/${product.id}-${product.product[0].id}">
                     <h4 class="productNameH mt-3">${product.nombre}</h4>
                 </a>
                 <p class="productSizeH mt-2">2 x 454g / 160oz</p>
                 <h4 class="productPriceH">$${product.product[0].precio}</h4>
-                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href="/product/detail/${product.id}"> Detalle </a>
+                <a class="btn my-4 py-3 px-3 productCartBtn h-auto" href="/product/detail/${product.id}-${product.product[0].id}"> Detalle </a>
             </div>
         </div>
         

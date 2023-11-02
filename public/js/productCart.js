@@ -1,9 +1,9 @@
 if (document.readyState == "loading") {
-    document.addEventListener("DOMContentLoaded", ready)
+    document.addEventListener("DOMContentLoaded", ready);
 }
 else {
-    ready()
-}
+    ready();
+};
 
 const shipmentPrice = 1500;
 
@@ -21,7 +21,7 @@ function eliminarProducto(id) {
 function agergarCantidad (id) {
 
     const cartProducts = JSON.parse(localStorage.getItem('carrito'));
-    cartProducts.find(row => row.id == id).cantidad += 1
+    cartProducts.find(row => row.id == id).cantidad += 1;
     localStorage.setItem('carrito', JSON.stringify(cartProducts));
     renderCartProducts();
 
@@ -32,9 +32,9 @@ function disminuirCantidad (id) {
     const cartProducts = JSON.parse(localStorage.getItem('carrito'));
     const currentProduct = cartProducts.find(row => row.id == id);
 
-    if (currentProduct.cantidad == 1) return
+    if (currentProduct.cantidad == 1) return;
 
-    currentProduct.cantidad -= 1
+    currentProduct.cantidad -= 1;
     localStorage.setItem('carrito', JSON.stringify(cartProducts));
     renderCartProducts();
 
@@ -69,7 +69,7 @@ async function pagar () {
         
         localStorage.removeItem('carrito');
         localStorage.setItem('goToOrder', true);
-        window.location.href = '/user/profile'
+        window.location.href = '/user/profile';
     }
     else {
         if(invoice && invoice.meta && invoice.meta.msg) {
@@ -81,7 +81,7 @@ async function pagar () {
                 showConfirmButton: true
             });
 
-            if(invoice.meta.title == 'Usuario inválido') window.location.href = '/user/login'
+            if(invoice.meta.title == 'Usuario inválido') window.location.href = '/user/login';
         }
         else {
             await Swal.fire({
@@ -90,8 +90,8 @@ async function pagar () {
                 text: 'Parece que algo salió mal, por favor vuelve a intentarlo más tarde',
                 showConfirmButton: true
             });
-        }
-    }
+        };
+    };
 };
 
 function renderCartProducts () {
@@ -99,7 +99,7 @@ function renderCartProducts () {
     const containerCart = document.querySelector('#carrito-container');
     const finalPriceContainer = document.querySelector('#final-price');
     const cartProducts = JSON.parse(localStorage.getItem('carrito')); 
-    const emptyCartHTML = `<div class="no-products"><h4>Parece que no has seleccionado ningun producto todavía</h4><a href="/product/list" class="link-cart">Buscar productos</a></div>`
+    const emptyCartHTML = `<div class="no-products"><h4>Parece que no has seleccionado ningun producto todavía</h4><a href="/product/list" class="link-cart">Buscar productos</a></div>`;
 
     if(!cartProducts) {
         localStorage.setItem('carrito', JSON.stringify([]));
@@ -108,7 +108,7 @@ function renderCartProducts () {
     else {
         if(cartProducts.length == 0) {
             containerCart.innerHTML = emptyCartHTML;
-            finalPriceContainer.innerHTML = ``
+            finalPriceContainer.innerHTML = ``;
         } 
         else {
             let cumulativePrice = 0.00;
@@ -151,7 +151,7 @@ function renderCartProducts () {
                             <div class="row mb-lg-4 me-lg-3 ms-lg-3">
                                 <div class="col-lg-8 col-11 mb-lg-2">
                                     <h4 class="mb-4 mt-3 mt-lg-0">${row.titulo}</h4>
-                                    ${row.color ? `<p class="mb-2 mt-lg-2">Product Color: ${row.colorName}</p>` : ''}
+                                    ${row.colorName ? `<p class="mb-2 mt-lg-2">Product Color: ${row.colorName}</p>` : ''}
                                     ${row.medida ? `<p class="mb-2 mt-lg-2"><p class="mb-2">Product Size: ${row.medida}</p>` : ''}
                                 </div>
                                 <div class="col-lg-4 col-11 mt-4 py=4">
@@ -202,6 +202,6 @@ function renderCartProducts () {
                     <p>$<span id="total_cart_amt">${cumulativePrice + shipmentPrice}</span></p>
                 </div>
                 <div class="payNowContainer"><button class="payNow" onclick='pagar()'>PAGAR AHORA</button></div>`;
-        }
-    }
+        };
+    };
 };

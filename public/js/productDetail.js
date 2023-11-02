@@ -12,7 +12,13 @@ const variationReset = () => {
     const sizeSelect = document.querySelector('#sizeSelect');
     const productPrice = document.querySelector('#product-price');
 
-    productPrice.innerHTML = `$${allCombinations.product.find(product => (product.color ? colorSelect.value == product.color.id : product.color == null) && (sizeSelect.value == product.size.id)).precio}`;
+
+    const selectedVariant = allCombinations.find(product => (product.color ? colorSelect.value == product.color.id : product.color == null) && (sizeSelect.value == product.size.id));
+
+    productPrice.innerHTML = `$${selectedVariant.precio}`;
+
+    //Modificando URL sin refrescar
+    history.replaceState(null, null, `${selectedVariant['grupos-productos-fk']}-${selectedVariant.id}`);
 };
 
 //Size Change Event
@@ -43,6 +49,8 @@ const availableCombination = (sizeValue) => {
 
 async function ready() {
 
+    
+
     const productImage = document.querySelector('#image-container');
     const productName = document.querySelector('#product-name');
     const productPrice = document.querySelector('#product-price');
@@ -51,12 +59,13 @@ async function ready() {
     const relatedProducts = document.querySelector('#related-products');
 
     const currentPath = window.location.pathname;
-    const idProduct = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-    const data = {id: idProduct};
+    const urlIds = currentPath.match(/(\d+)-(\d+)$/);
+    const data = {productId: urlIds[2], productGroupId: urlIds[1]};
 
     const productFetch = await fetch('/api/product/detail', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
     const info = await productFetch.json();
-    const productGroup = allCombinations = info.data.detailGroup;
+    const productGroup = info.data.detailGroup;
+    allCombinations = productGroup.product;
     const productDetail = info.data.detail;
 
     allStockCombinations =  productGroup.product.map(product => {
@@ -193,11 +202,11 @@ async function ready() {
                                 <div class="star">
 
                                 </div>
-                                <a href="#"><img src="../../img/productos/${row.image[0].nombre}" class="img-fluid pb-3" alt=""></a>
-                                <h4 class="productNameH">${row.nombre}</h4>
+                                <a href="/product/detail/${row.id}-${row.product[0].id}"><img src="../../img/productos/${row.image[0].nombre}" class="img-fluid pb-3" alt=""></a>
+                                <h4 class="productNameH"><a class="anchorLinks" href="/product/detail/${row.id}-${row.product[0].id}">${row.nombre}</a></h4>
                                 <p class="productSizeH">2 x 454g / 160oz</p>
                                 <h4 class="productPriceH">$${row.product[0].precio}</h4>
-                                <button class="btnc my-4 productCartBtn"><a class="link-detail-btn" href="/product/detail/${row.product[0].id}">Detalle</a></button>
+                                <button class="btnc my-4 productCartBtn"><a class="link-detail-btn" href="/product/detail/${row.id}-${row.product[0].id}">Detalle</a></button>
 
                             </div>
                         </div>
