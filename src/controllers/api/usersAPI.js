@@ -155,7 +155,7 @@ module.exports = {
         try {
 
             const user = await db.Usuario.findByPk(req.session.userLogged.id, {
-                include: [{association: 'bill', include: [{association: 'product'}]}]
+                include: [{association: 'bill', include: [{association: 'product', include: [{association: 'productGroup'}]}]}]
             });
 
             const resApi = {

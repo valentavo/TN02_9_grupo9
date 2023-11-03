@@ -19,8 +19,8 @@ function ready () {
 
         document.querySelectorAll('.pic').forEach( pic => pics.push(pic.alt));
 
-        const color = document.querySelector('#color');
-        const medida = document.querySelector('#size');
+        const color = document.querySelector('#colorSelect');
+        const medida = document.querySelector('#sizeSelect');
         const title = document.querySelector('#product-name');
         const amount = document.querySelector('#product-price');
         const desc = document.querySelector('#product-description');

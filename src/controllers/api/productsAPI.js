@@ -47,8 +47,6 @@ module.exports = {
                 return res.json(resApi);
             };
 
-            console.log(req.body.prod.map(row => row.id));
-
             const products = await db.Producto.findAll({
                 where: {
                     id: req.body.prod.map(row => row.id)
@@ -56,8 +54,6 @@ module.exports = {
             }, {
                 transaction: t
             });
-
-            console.log('No Timeout');
 
             //Assign product to dispo if we have less than requested
             dispo = products.filter(row => {

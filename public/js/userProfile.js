@@ -93,13 +93,13 @@ const ordersRendering =  (user) => {
 
                                                 return acc += ` <div class="col-md-4 detalle-productos mb-2 mt-2">
                                                             <div class="form-group" >
-                                                                <p><a href="/product/detail/${product.id}">${product.nombre}</a></p>
+                                                                <p><a href="/product/detail/${product.productGroup.id}-${product.id}">${product.productGroup.nombre}</a></p>
                                                             </div>
                                                         </div>
                                 
                                                         <div class="col-md-4 cantidad-producto mb-2 mt-2">
                                                             <div class="form-group" >
-                                                                <p>Cantidad: ${product.factura_producto.cantidad}</p>
+                                                                <p>Cantidad: ${product.FacturaProducto.cantidad}</p>
                                                             </div>
                                                         </div>
                                 

@@ -43,16 +43,11 @@ function disminuirCantidad (id) {
 async function pagar () {
 
     const cartProducts = JSON.parse(localStorage.getItem('carrito'));
-    const prodObj = [];
-    cartProducts.forEach(row => prodObj.push({
-        id: (row.id).slice(0, (row.id).indexOf('-')),
-        cantidad: row.cantidad
-    }));
 
     const data = {
         shipment: shipmentPrice,
         method: document.querySelector('#payment-method').value,
-        prod: prodObj
+        prod: cartProducts
     };
 
     const invoiceFetch = await fetch('/api/product/cart', {method: 'POST', headers: {'Content-Type': 'application/json' }, body: JSON.stringify(data)});
@@ -152,7 +147,7 @@ function renderCartProducts () {
                                 <div class="col-lg-8 col-11 mb-lg-2">
                                     <h4 class="mb-4 mt-3 mt-lg-0">${row.titulo}</h4>
                                     ${row.colorName ? `<p class="mb-2 mt-lg-2">Product Color: ${row.colorName}</p>` : ''}
-                                    ${row.medida ? `<p class="mb-2 mt-lg-2"><p class="mb-2">Product Size: ${row.medida}</p>` : ''}
+                                    <p class="mb-2 mt-lg-2"><p class="mb-2">Product Size: ${row.medida}</p>
                                 </div>
                                 <div class="col-lg-4 col-11 mt-4 py=4">
                                     <div class="justify-content-end align-items-center mt-lg-4 mb-lg-2 mb-4">
@@ -160,7 +155,7 @@ function renderCartProducts () {
                                         <button class="agregar-cantidad" id="agregar-cantidad" onclick=agergarCantidad('${row.id}')>+</button>
                                         <span>${row.cantidad}</span>
                                         
-                                        <button class="agregar-cantidad" id="agregar-cantidad" onclick=disminuirCantidad('${row.id}')>-</button>
+                                        <button class="agregar-cantidad" id="disminuir-cantidad" onclick=disminuirCantidad('${row.id}')>-</button>
                                     </div>
                                 </div>
                             </div>
