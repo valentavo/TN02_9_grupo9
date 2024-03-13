@@ -13,7 +13,6 @@ function ready () {
 
         const currentPath = window.location.href;
         const idReg = currentPath.match(/(\d+)-(\d+)$/);
-        console.log(`EL PRODUCTO AGREGADO ES EL ${idReg[2]}`);
 
         const pics = [];
 
@@ -32,7 +31,7 @@ function ready () {
             titulo: title.innerText,
             valor: parseInt(amount.innerText.slice(1)),
             descripcion: desc.innerText,
-            colorName: color ? color.options[color.selectedIndex].text : null,
+            colorName: (color && color.options.length > 0) ? color.options[color.selectedIndex].text : null,
             medida: medida.options[medida.selectedIndex].text
         };
 

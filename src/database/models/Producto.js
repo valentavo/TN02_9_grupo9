@@ -70,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Producto.belongsToMany(models.Factura, {
             as: 'bill',
-            through: 'factura_producto',
+            through: 'facturas_productos',
             foreignKey: 'productos-fk',
             otherKey: 'facturas-fk',
         });

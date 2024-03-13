@@ -41,6 +41,6 @@ router.delete('/edit/delete', authMiddleware, adminUserAccess, productsApi.delet
 //Public API
 router.get('/', productsApi.plist);
 router.get('/sales', productsApi.psales);
-router.get('/:id', productsApi.pdetail);
+router.get('/:groupId-:productId', productsApi.pdetail);
 
 module.exports = router;

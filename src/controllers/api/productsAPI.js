@@ -129,21 +129,13 @@ module.exports = {
         try {
 
             const [products, categories, brands, colors, meassures] = await Promise.all([
-                db.Producto.findAll({
-                    include: [{association: 'image'}, {association: 'color'}, {association: 'size'}, {association: 'category'}, {association: 'brand'}]
+                db.GrupoProducto.findAll({
+                    include: [{association: 'image'}, {association: 'category'}, {association: 'brand'}, {association: 'product', include: [{association: 'color'}, {association: 'size'}]}]
                 }), 
-                db.Categoria.findAll({
-                    include: [{association: 'product'}]
-                }),
-                db.Marca.findAll({
-                    include: [{association: 'product'}]
-                }),
-                db.Color.findAll({
-                    include: [{association: 'product'}]
-                }),
-                db.Medida.findAll({
-                    include: [{association: 'product'}]
-                })
+                db.Categoria.findAll(),
+                db.Marca.findAll(),
+                db.Color.findAll(),
+                db.Medida.findAll()
             ]);
 
             resApi.meta = {
@@ -157,44 +149,33 @@ module.exports = {
                 countBySize: {}
             };
 
-            categories.forEach(category => {
-                return resApi.meta.countByCategory[category.nombre] = category.product.map(row => {
+           const typeProductGroup = ({id, name, fk, type}) => {
+                
+                const groupsFiltered = products.filter(group => (type == 'product') ? group.product.find(product => product[fk] == id) : group[fk] == id);
+
+                return groupsFiltered.map(group => {
                     return {
-                        id: row.id,
-                        name: row.nombre,
-                        detail: `/product/detail/${row.id}`
+                        id: group.id,
+                        name: group[name],
+                        detail: `/product/detail/${group.id}-${group.product[0].id}`
                     };
                 });
+           };
+
+            categories.forEach(category => {
+                return resApi.meta.countByCategory[category.nombre] = typeProductGroup({id: category.id, name: 'nombre', fk: 'categorias-fk', type: 'group'});
             });
 
             brands.forEach(brand => {
-                return resApi.meta.countByBrand[brand.nombre] = brand.product.map(row => {
-                    return {
-                        id: row.id,
-                        name: row.nombre,
-                        detail: `/product/detail/${row.id}`
-                    }
-                });
+                return resApi.meta.countByBrand[brand.nombre] = typeProductGroup({id: brand.id, name: 'nombre', fk: 'marcas-fk', type: 'group'});
             });
 
             colors.forEach(color => {
-                return resApi.meta.countByColor[color.nombre] = color.product.map(row => {
-                    return {
-                        id: row.id,
-                        name: row.nombre,
-                        detail: `/product/detail/${row.id}`
-                    }
-                });
+                return resApi.meta.countByColor[color.nombre] = typeProductGroup({id: color.id, name: 'nombre', fk: 'colores-fk', type: 'product'});
             });
 
             meassures.forEach(size => {
-                return resApi.meta.countBySize[size.medida] = size.product.map(row => {
-                    return {
-                        id: row.id,
-                        name: row.medida,
-                        detail: `/product/detail/${row.id}`
-                    }
-                });
+                return resApi.meta.countBySize[size.medida] = typeProductGroup({id: size.id, name: 'medida', fk: 'medidas-fk', type: 'product'});
             });
 
             resApi.data = products.map(product => {
@@ -204,10 +185,9 @@ module.exports = {
                     description: product.descripcion,
                     category: product.category.nombre,
                     brand: product.brand.nombre,
-                    color: product.color.nombre,
-                    size: product.size.nombre,
-                    endpoint: `/api/product/${product.id}`,
-                    detail: `/product/detail/${product.id}`
+                    products: product.product,
+                    endpoint: `/api/product/${product.id}-${product.product[0].id}`,
+                    detail: `/product/detail/${product.id}-${product.product[0].id}`
                 }
             });
 
@@ -216,6 +196,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             resApi.msg = 'Hubo un error!';
+            resApi.meta.success = false;
             return res.json(resApi);
         }
     },
@@ -224,17 +205,17 @@ module.exports = {
         const resApi = {};
         try {
             
-            const product = await db.Producto.findByPk( req.params.id, {
-                include: [{association: 'image'}, {association: 'color'},{association: 'size'}, {association: 'bill'}]
+            const product = await db.GrupoProducto.findByPk( req.params.groupId, {
+                include: [{association: 'image'}, {association: 'product', include: [{association: 'bill'}]}]
             });
 
             resApi.data = JSON.parse(JSON.stringify(product));
 
             resApi.data.image = product.image.map(img => `/img/productos/${img.nombre}`);
-            resApi.data.detailLink =`/product/detail/${product.id}`
+            resApi.data.detailLink =`/product/detail/${product.id}-${product.product[0].id}`
             resApi.meta = {
                 success: true,
-                endpoint: `/api/product/${product.id}`
+                endpoint: `/api/product/${product.id}-${product.product[0].id}`
             };
 
             return res.json(resApi);
@@ -242,6 +223,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             resApi.msg = 'Hubo un error en pdetail!';
+            resApi.success = false;
             return res.json(resApi);
         };
     },
@@ -251,7 +233,7 @@ module.exports = {
         try {
 
             const ventas = await db.Factura.findAll({
-                include: [{association: 'product'}, {association: 'user', paranoid: false}]
+                include: [{association: 'product', include: [{association: 'productGroup'}]}, {association: 'user', paranoid: false}]
             });
 
             resApi.data = ventas;

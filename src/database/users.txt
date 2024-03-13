@@ -10,8 +10,6 @@
     "nombre": "Laura",
     "email": "laurita@gmail.com", N 
 
-    
-
  Add Index  Add Column 
     "password": "rwrw",
     "roles-fk": 1,
