@@ -84,7 +84,6 @@ function ready() {
         'grupos-productos-fk': +productId.innerHTML,
       },
     ];
-    console.log(variantCombinations);
 
     //Variant Validations
     if (fullVariants.length > 1) {
@@ -117,8 +116,8 @@ function ready() {
         variantCombinations.push({
           precio: +priceVariant.value,
           cantidad: +stockVariant.value,
-          'medidas-fk': +sizeVariant.value > 0 ? +sizeVariant.value : null,
           'colores-fk': +colorVariant.value > 0 ? +colorVariant.value : null,
+          'medidas-fk': +sizeVariant.value > 0 ? +sizeVariant.value : null,
           'grupos-productos-fk': +productId.innerHTML,
         });
       });

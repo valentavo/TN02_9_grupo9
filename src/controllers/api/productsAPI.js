@@ -52,13 +52,17 @@ module.exports = {
         }
       );
 
+      const existanceValidation = products.length == req.body.prod.length;
+      console.log(existanceValidation);
+      console.log(products);
+
       //Assign product to dispo if we have less than requested
       dispo = products.filter((row) => {
         return row.cantidad < req.body.prod.find((p) => row.id == p.id).cantidad;
       });
 
       //Verifying stock availability for the purchase
-      if (dispo.length > 0) {
+      if (dispo.length > 0 && !existanceValidation) {
         const resApi = {
           meta: {
             success: false,

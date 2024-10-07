@@ -8,9 +8,7 @@
 {
     "id": 2,
     "nombre": "Laura",
-    "email": "laurita@gmail.com", N 
-
- Add Index  Add Column 
+    "email": "laurita@gmail.com",
     "password": "rwrw",
     "roles-fk": 1,
 },
