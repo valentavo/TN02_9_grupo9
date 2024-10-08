@@ -27,9 +27,9 @@
     "roles-fk": 1,
 },
 {
-    "id": 5,
-    "nombre": "Legolas",
-    "email": "comunity@ring.com",
-    "password": "ttt",
+    "id": 7,
+    "nombre": "UserTester",
+    "email": "testi@rr.come",
+    "password": "pepemujica",
     "roles-fk": 1,
 },
